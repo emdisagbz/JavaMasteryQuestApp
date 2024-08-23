@@ -1,0 +1,537 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-image: url("CardBG.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+.coins-container {
+    position: fixed;
+    top: 10px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 10;
+}
+
+.coin {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.coin-image {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+}
+
+.coin-count {
+    font-family: Poppins;
+    min-width: 100px; /* Set a minimum width */
+    height: 40px; /* Set a fixed height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.5); /* Background color for the count box */
+    border: 1px solid #ccc; /* Border for the count box */
+    border-radius: 10px; /* Rounded corners for the count box */
+    font-size: 15px;
+    color: white;
+    font-weight: bold;
+    flex: 1; /* Allow the container to grow flexibly */
+}
+
+.card-container {
+    position: fixed;
+    display: grid;
+    grid-template-columns: repeat(4, 170px);
+    grid-template-rows: repeat(2, 250px);
+    gap: 10px;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 1s; /* Fade-in effect */
+}
+
+.card {
+    width: 170px;
+    height: 250px;
+    background-image: url("CardSymbol.png"), linear-gradient(250deg, rgba(0, 0, 139, 1), rgba(138, 43, 226, 1)); /* Darker blue and violet with transparency */
+    background-size: cover; /* Ensures the background image covers the entire card */
+    background-blend-mode: overlay; /* Blends the image with the gradient */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: transform 0.5s, box-shadow 0.5s;
+    transform-style: preserve-3d;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+    .card .front, .card .back {
+        position: absolute;
+        backface-visibility: hidden;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }
+
+    .card.flipped {
+        transform: rotateY(180deg);
+    }
+
+    .card .back {
+        transform: rotateY(180deg);
+    }
+
+    .card:hover {
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 255, 255, 0.5);
+    }
+
+#glowButton {
+    font-family: Poppins;
+    font-size: 15px;
+    font-weight: bold;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2), rgba(0, 0, 255, 0.5));
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(0, 0, 255, 0.6), 0 0 40px rgba(0, 0, 255, 0.4);
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+    #glowButton:hover {
+        box-shadow: 0 0 1050px rgba(0, 0, 255, 0.8), 0 0 800px rgba(0, 0, 255, 0.5);
+    }
+
+    /* Pseudo-elements for the glitter effect */
+    #glowButton::before, #glowButton::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        pointer-events: none;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.6), rgba(0, 0, 255, 0) 70%);
+        opacity: 0;
+        animation: sparkle 1.5s infinite linear;
+    }
+
+    #glowButton::after {
+        animation-delay: 0.75s;
+    }
+
+/* Keyframes for the sparkle animation */
+@keyframes sparkle {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+#title h2 {
+    font-family: Poppins;
+    position: absolute;
+    color: white;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+#backButton {
+    font-family: Poppins;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    width: 300px; /* Set explicit width */
+    padding: 15px; /* Adjust padding to fit within the width */
+    font-size: 20px;
+    color: white;
+    background: linear-gradient(to right, #007bff 0%, #007bff 0%, rgba(0, 123, 255, 0) 75%);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+    #backButton::before {
+        content: "";
+        background-image: url('back.png'); /* Replace 'your-image-url.jpg' with the URL of your image */
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        top: 50%;
+        left: 20px; /* Adjust the left position as needed */
+        width: 31px; /* Adjust the width of the image */
+        height: 21px; /* Adjust the height of the image */
+        transform: translateY(-50%);
+    }
+
+    #backButton:hover {
+        background-color: #0056b3;
+        background: linear-gradient(to right, #007bff 0%, #007bff 50%, rgba(0, 123, 255, 0) 75%);
+        transform: scale(0.95);
+    }
+
+.textContext {
+    background-color: rgba(0,0,0,0.5);
+    font-size: 25px;
+    font-weight: bold;
+    text-shadow: 10px;
+    color: white;
+    font-family: Poppins;
+    text-align: center;
+    z-index: 10;
+}
+
+.witch {
+    position: absolute;
+    bottom: -10px;
+    right: 150px;
+    width: 300px;
+    filter: brightness(0.8);
+    z-index: -1;
+}
+
+.witchDes {
+    font-family: Poppins;
+    width: 230px;
+    height: 400px;
+    left: 1.5%;
+    position: fixed; /*  Needed for centering content */
+    display: flex; /*  Needed for centering content */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    background-color: rgba(0, 0, 0, 0.5); /* Dark transparent background */
+    padding: 20px; /* Add some padding around the content */
+    margin: 0 auto; /* Center the element horizontally */
+    border-radius: 5px; /* Add a slight rounded corner */
+    pointer-events: none;
+}
+
+    .witchDes h2 {
+        font-family: Poppins; /* Remove unnecessary repetition */
+        font-size: 24px; /* Adjust font size as needed */
+        color: white; /* Text color for contrast */
+        position: absolute; /* Make the heading absolute-positioned */
+        top: 0; /* Position it at the top */
+        left: 50%; /* Position it horizontally at the center */
+        transform: translateX(-50%); /* Center it perfectly (adjust for padding) */
+        margin-bottom: 0; /* Add some space between heading and paragraph */
+        white-space: nowrap; /* Make content not wrap to multiple lines */
+        overflow: hidden; /* Hide any content that overflows the element */
+        text-overflow: ellipsis;
+    }
+
+    .witchDes p {
+        font-size: 15px;
+        color: white; /* Text color for contrast */
+        line-height: 2.5; /* Adjust line spacing for readability */
+        margin-top: 80px;
+        text-align: center;
+    }
+
+/* Media queries for responsiveness */
+@media (max-width: 1200px) {
+    body {
+        background-size: cover;
+        background-position: center;
+    }
+
+    #backButton {
+        width: 300px;
+        font-size: 18px;
+        z-index: 100;
+    }
+
+    .card-container {
+        grid-template-columns: repeat(4, 160px);
+        grid-template-rows: repeat(2, 260px);
+        z-index: 1;
+    }
+
+    .card {
+        width: 160px;
+        height: 260px;
+        font-size: 1em;
+        z-index: 10;
+    }
+
+    #title h2 {
+        text-align: center;
+        font-size: 24px;
+        width: 510px;
+        top: 15%;
+    }
+
+    .witch img {
+        width: 350px;
+        height: 500px;
+        object-fit: cover; /* Ensures the image fits within the given dimensions */
+    }
+
+    .witch {
+        right: 10%;
+    }
+
+    .witchDes {
+        width: 50vw;
+        height: 400px;
+        bottom: 10px;
+    }
+
+        .witchDes h2 {
+            font-size: 24px;
+        }
+
+        .witchDes p {
+            font-size: 20px;
+        }
+
+    #glowButton {
+        width: 170px;
+        height: 170px;
+        top: 40%;
+        left: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        background-size: cover;
+        background-position: center;
+    }
+
+    #backButton {
+        width: 270px;
+        font-size: 16px;
+        z-index: 100;
+    }
+
+    #glowButton {
+        width: 150px;
+        height: 150px;
+        top: 45%;
+        left: 50%;
+    }
+
+    .card-container {
+        grid-template-columns: repeat(2, 160px);
+        grid-template-rows: repeat(4, 200px);
+        z-index: 1;
+    }
+
+    .card {
+        width: 160px;
+        height: 200px;
+        font-size: 1.2em;
+        z-index: 10;
+    }
+
+    .witch img {
+        width: 300px;
+        height: 450px;
+        object-fit: cover; /* Ensures the image fits within the given dimensions */
+    }
+
+    .witch {
+        right: 10%;
+    }
+
+    .witchDes {
+        width: 50vw;
+        height: 350px;
+        bottom: 10px;
+    }
+
+        .witchDes h2 {
+            font-size: 18px;
+        }
+
+        .witchDes p {
+            font-size: 16px;
+        }
+
+    #title h2 {
+        text-align: center;
+        font-size: 20px;
+        width: 510px;
+        top: 15%;
+    }
+
+    .textContext {
+        font-size: 18px;
+    }
+
+    .coins-container {
+        display: flex;
+        flex-direction: column; /* Aligns all children vertically */
+        align-items: center; /* Centers content horizontally */
+        gap: 10px; /* Adds space between each `.coin` and `.point-box` */
+        z-index: 0;
+    }
+
+    .coin {
+        display: flex;
+        align-items: center; /* Vertically aligns `.coin-image` and `.coin-count` */
+        gap: 5px; /* Adds space between `.coin-image` and `.coin-count` */
+    }
+
+    .coin-image {
+        width: 40px;
+        height: 40px;
+    }
+
+    .coin-count {
+        min-width: 70px;
+        height: 30px;
+        font-size: 14px;
+        display: flex;
+        align-items: center; /* Vertically centers text */
+        justify-content: center; /* Horizontally centers text */
+    }
+
+    @media (max-width: 480px) {
+        body {
+            background-size: cover;
+            background-position: center;
+        }
+
+        #backButton {
+            width: 270px;
+            font-size: 16px;
+            z-index: 100;
+        }
+
+        #glowButton {
+            width: 150px;
+            height: 150px;
+            top: 45%;
+            left: 50%;
+        }
+
+        .card-container {
+            grid-template-columns: repeat(2, 120px);
+            grid-template-rows: repeat(4, 160px);
+            z-index: 1;
+        }
+
+        .card {
+            width: 120px;
+            height: 160px;
+            font-size: 1.0em;
+            z-index: 10;
+        }
+
+        .witch img {
+            width: 280px;
+            height: 420px;
+            object-fit: cover; /* Ensures the image fits within the given dimensions */
+        }
+
+        .witch {
+            left: 30%;
+        }
+
+        .witchDes {
+            width: 90vw;
+            height: 200px;
+            bottom: 10px;
+        }
+
+            .witchDes h2 {
+                font-size: 16px;
+            }
+
+            .witchDes p {
+                font-size: 14px;
+            }
+
+        #title h2 {
+            text-align: center;
+            font-size: 16px;
+            width: 410px;
+            top: 15%;
+        }
+
+        .textContext {
+            font-size: 18px;
+        }
+
+        .coins-container {
+            display: flex;
+            flex-direction: column; /* Aligns all children vertically */
+            align-items: center; /* Centers content horizontally */
+            gap: 10px; /* Adds space between each `.coin` and `.point-box` */
+            z-index: 0;
+        }
+
+        .coin {
+            display: flex;
+            align-items: center; /* Vertically aligns `.coin-image` and `.coin-count` */
+            gap: 5px; /* Adds space between `.coin-image` and `.coin-count` */
+        }
+
+        .coin-image {
+            width: 40px;
+            height: 40px;
+        }
+
+        .coin-count {
+            min-width: 70px;
+            height: 30px;
+            font-size: 14px;
+            display: flex;
+            align-items: center; /* Vertically centers text */
+            justify-content: center; /* Horizontally centers text */
+        }
+    }

@@ -1,0 +1,386 @@
+document.addEventListener('DOMContentLoaded', function() {
+    let nextDom = document.getElementById('next');
+    let prevDom = document.getElementById('prev');
+
+    let carouselDom = document.querySelector('.world-container');
+    let SliderDom = carouselDom.querySelector('.world-container .list');
+    let thumbnailBorderDom = document.querySelector('.world-container .thumbnail');
+    let thumbnailItemsDom = thumbnailBorderDom.querySelectorAll('.item');
+    let timeDom = document.querySelector('.world-container .time');
+
+    // Initial setup for thumbnails
+    thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
+
+    let timeRunning = 3000;
+    let runTimeOut;
+    
+
+    nextDom.onclick = function() {
+        showSlider('next');
+    }
+
+    prevDom.onclick = function() {
+        showSlider('prev');
+    }
+
+    function showSlider(type) {
+        let SliderItemsDom = SliderDom.querySelectorAll('.world-container .list .item');
+        let thumbnailItemsDom = thumbnailBorderDom.querySelectorAll('.item');
+
+        if (type === 'next') {
+            SliderDom.appendChild(SliderItemsDom[0]);
+            thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
+            carouselDom.classList.add('next');
+        } else {
+            SliderDom.prepend(SliderItemsDom[SliderItemsDom.length - 1]);
+            thumbnailBorderDom.prepend(thumbnailItemsDom[thumbnailItemsDom.length - 1]);
+            carouselDom.classList.add('prev');
+        }
+
+        clearTimeout(runTimeOut);
+        runTimeOut = setTimeout(() => {
+            carouselDom.classList.remove('next');
+            carouselDom.classList.remove('prev');
+        }, timeRunning); 
+    }
+});
+
+	// Updated Gold and Silver Coins
+	
+		document.addEventListener("DOMContentLoaded", function() {
+            const silverCount = document.getElementById("silverCount");
+            const goldCount = document.getElementById("goldCount");
+
+            const silverCoins = localStorage.getItem("silverCoins") ? parseInt(localStorage.getItem("silverCoins")) : 0;
+            const goldCoins = localStorage.getItem("goldCoins") ? parseInt(localStorage.getItem("goldCoins")) : 0;
+
+            silverCount.textContent = silverCoins;
+            goldCount.textContent = goldCoins;
+        });
+		
+	// Free Coins
+
+		document.addEventListener("DOMContentLoaded", function() {
+		  const freeCoinsButton = document.getElementById("freeCoins");
+
+		  freeCoinsButton.addEventListener("click", function() {
+			  window.location.href = "AfreeCoins.html";
+		  });
+		});
+		
+	// Skin Shop	
+		document.addEventListener("DOMContentLoaded", function() {
+		  const skinShopButton = document.getElementById("skinShop");
+
+		  skinShopButton.addEventListener("click", function() {
+			  window.location.href = "AskinShop.html";
+		  });
+		});
+		
+	// Hero Shop
+		document.addEventListener("DOMContentLoaded", function() {
+		  const bookModuleButton = document.getElementById("bookModule");
+
+		  bookModuleButton.addEventListener("click", function() {
+			  window.location.href = "AEtherealEclave.html";
+		  });
+		});
+		
+	// Practice Coding
+		document.addEventListener("DOMContentLoaded", function() {
+		  const practiceButton = document.getElementById("practice");
+
+		  practiceButton.addEventListener("click", function() {
+			  window.location.href = "Practice.html";
+		  });
+		});		
+
+	//WORLD1 - LAVA
+
+	document.addEventListener('DOMContentLoaded', function () {
+	  const particleContainer = document.querySelector('.particle-container');
+
+	  // Define particle properties
+	  const particleCount = 1; // Number of particles
+	  const minRadius = 3;
+	  const maxRadius = 4;
+	  const minSpeed = 2;
+	  const maxSpeed = 3.5;
+	  const colors = ['#d66bff', '#ff99ff', '#ffd6ff']; // Lava color palette
+
+	  let particles = [];
+
+	  // Function to create a particle object
+	  function createParticle() {
+		const radius = Math.random() * (maxRadius - minRadius) + minRadius;
+		const x = Math.random() * particleContainer.offsetWidth;
+		const y = particleContainer.offsetHeight + radius; // Start at the bottom
+		const vx = Math.random() * (maxSpeed - minSpeed) + minSpeed;
+		const vy = -Math.random() * (maxSpeed - minSpeed); // Move upwards
+		const color = colors[Math.floor(Math.random() * colors.length)];
+
+		return {
+		  radius,
+		  x,
+		  y,
+		  vx,
+		  vy,
+		  color,
+		};
+	  }
+
+	  // Function to draw a particle with a stronger glow effect
+	  function drawParticle(particle) {
+		const particleElement = document.createElement('div');
+		particleElement.classList.add('particle');
+		particleElement.style.width = `${particle.radius * 1}px`;
+		particleElement.style.height = `${particle.radius * 1}px`;
+		particleElement.style.backgroundColor = particle.color;
+		particleElement.style.position = 'absolute';
+		particleElement.style.borderRadius = '50%';
+		particleElement.style.left = `${particle.x}px`;
+		particleElement.style.top = `${particle.y}px`;
+
+		// Increased blur radius and lowered outer glow opacity for stronger effect
+		particleElement.style.boxShadow = `0 0 0 4px ${particle.color}, 0 0 10px 6px rgba(${particle.color}, 0.3)`;
+
+		particleContainer.appendChild(particleElement);
+	  }
+
+	  // Function to update particle position
+	  function updateParticle(particle) {
+		particle.x += particle.vx;
+		particle.y += particle.vy;
+
+		// Check for particle going out of bounds (top)
+		if (particle.y < -particle.radius) {
+		  // Reset particle position at the bottom
+		  particle.x = Math.random() * particleContainer.offsetWidth;
+		  particle.y = particleContainer.offsetHeight + particle.radius;
+		}
+	  }
+
+	  // Function to animate the particles
+	  function animate() {
+		requestAnimationFrame(animate);
+
+		// Clear the particle container
+		particleContainer.innerHTML = '';
+
+		// Update and draw existing particles
+		  particles.forEach((particle) => {
+		  updateParticle(particle);
+		  drawParticle(particle);
+		});
+
+		// Create new particles with a delay
+		if (Math.random() < 0.1) { // Adjust chance of creating a new particle
+		  particles.push(createParticle());
+		}
+	  }
+
+	  // Initialize particles
+	  for (let i = 0; i < particleCount; i++) {
+		particles.push(createParticle());
+	  }
+
+	  animate();
+	});
+
+
+	//WORLD 2 - SNOW
+
+
+	const iceStorm = document.querySelector('.ice-storm');
+	for (let i = 0; i < 20; i++) { // Increase the number of ice crystals for denser coverage
+	  const iceCrystal = document.createElement('div');
+	  iceCrystal.className = 'ice-crystal';
+	  iceCrystal.style.left = `${Math.random()}`;
+	  iceCrystal.style.setProperty('--random-x', Math.random()); // Randomize horizontal position
+	  iceCrystal.style.animationDuration = `${Math.random() * 3 + 1}s`; // Random duration between 1 and 4 seconds
+	  iceCrystal.style.animationDelay = `${Math.random() * 2}s`; // Random delay between 0 and 2 seconds
+	  iceStorm.appendChild(iceCrystal);
+	}
+
+	// WORLD 3 - LEAF
+
+	// Set delay in milliseconds
+	const delay = 1500;
+
+	setTimeout(function() {
+	  // Create multiple leaves
+	  const leafCount = 7;
+	  for (let i = 0; i < leafCount; i++) {
+		createLeaf();
+	  }
+	}, delay);
+
+	function createLeaf() {
+	  const leafContainer = document.querySelector('.leaf-container');
+	  const leaf = document.createElement('div');
+	  leaf.classList.add('leaf');
+	  leafContainer.appendChild(leaf);
+
+	  // Set initial and final positions randomly along the X-axis
+	  const startX = Math.random() * 100;
+	  const endX = Math.random() * 100;
+	  leaf.style.setProperty('--startX', startX);
+	  leaf.style.setProperty('--endX', endX);
+
+	  // Set random falling duration and delay
+	  const duration = (Math.random() * 8 + 4).toFixed(1); // Between 4 and 12 seconds
+	  const delay = (Math.random() * 4).toFixed(1); // Between 0 and 4 seconds
+	  leaf.style.setProperty('--duration', `${duration}s`);
+	  leaf.style.animationDelay = `${delay}s`;
+	}
+
+	// Create multiple leaves
+	const leafCount = 10;
+	for (let i = 0; i < leafCount; i++) {
+	  createLeaf();
+	}
+
+	// MODAL FOR PROFILE
+
+	function showModal() {
+		document.getElementById('detailsModal').style.display = 'flex';  // Flex to center the modal content
+		document.getElementById('modalName').textContent = localStorage.getItem('username');  // Retrieve name from storage
+		document.getElementById('modalId').textContent = localStorage.getItem('studentID');  // Retrieve ID from storage
+		document.getElementById('modalSection').textContent = localStorage.getItem('section');
+	}
+
+	function hideModal() {
+		document.getElementById('detailsModal').style.display = 'none';
+	}
+
+	window.onload = function() {
+		// Populate fields when the page loads
+		document.getElementById('studentName').textContent = localStorage.getItem('username');
+		document.getElementById('studentID').textContent = localStorage.getItem('studentID');
+		document.getElementById('modalSection').textContent = localStorage.getItem('section');
+	};
+
+	function logout() {
+		window.location.href = 'Home.html'; // Redirects to Homepage.html
+	}
+
+
+// SLIDE FOR WORLD 1
+
+document.getElementById('openDiv1').addEventListener('click', function() {
+    document.getElementById('Bslide1').style.right = '0'; // Bring the modal into view
+    document.querySelector('.slide1').classList.add('dark'); // Darken and slide the background
+});
+
+// Optional: close modal when clicking outside the modal content (advanced behavior)
+document.getElementById('Bslide1').addEventListener('click', function(event) {
+    if (event.target === this) {
+        this.style.right = '-100%'; // Hide the modal
+        document.querySelector('.slide1').classList.remove('dark'); // Remove darken and slide effect
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const bSlide1 = document.getElementById('Bslide1');
+    const openButton = document.getElementById('openDiv1');
+
+    // Function to open Bslide2
+    openButton.addEventListener('click', function() {
+        bSlide1.style.right = '0'; // Bring the modal into view
+        document.querySelector('.slide1').classList.add('dark'); // Optionally darken and slide the background
+    });
+
+    // Function to close Bslide2 if click outside
+    document.addEventListener('click', function(event) {
+        // Check if the click was outside Bslide2 by seeing if Bslide2 contains the event target
+        if (!bSlide1.contains(event.target) && event.target !== openButton) {
+            bSlide1.style.right = '-100%'; // Hide the modal
+        }
+    });
+
+    // Stop propagation of click events inside Bslide2 to prevent them from closing the modal
+    bSlide1.addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+});
+
+
+
+// SLIDE FOR WORLD 2
+
+document.getElementById('openDiv2').addEventListener('click', function() {
+    document.getElementById('Bslide2').style.right = '0'; // Bring the modal into view
+});
+
+// Optional: close modal when clicking outside the modal content (advanced behavior)
+document.getElementById('Bslide2').addEventListener('click', function(event) {
+    if (event.target === this) {
+        this.style.right = '-100%'; // Hide the modal
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const bSlide2 = document.getElementById('Bslide2');
+    const openButton = document.getElementById('openDiv2');
+
+    // Function to open Bslide2
+    openButton.addEventListener('click', function() {
+        bSlide2.style.right = '0'; // Bring the modal into view
+    });
+
+    // Function to close Bslide2 if click outside
+    document.addEventListener('click', function(event) {
+        // Check if the click was outside Bslide2 by seeing if Bslide2 contains the event target
+        if (!bSlide2.contains(event.target) && event.target !== openButton) {
+            bSlide2.style.right = '-100%'; // Hide the modal
+        }
+    });
+
+    // Stop propagation of click events inside Bslide2 to prevent them from closing the modal
+    bSlide2.addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+});
+
+
+// SLIDE FOR WORLD 3
+
+document.getElementById('openDiv3').addEventListener('click', function() {
+    document.getElementById('Bslide3').style.right = '0'; // Bring the modal into view
+    document.querySelector('.slide3').classList.add('dark'); // Darken and slide the background
+});
+
+// Optional: close modal when clicking outside the modal content (advanced behavior)
+document.getElementById('Bslide3').addEventListener('click', function(event) {
+    if (event.target === this) {
+        this.style.right = '-100%'; // Hide the modal
+        document.querySelector('.slide3').classList.remove('dark'); // Remove darken and slide effect
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const bSlide3 = document.getElementById('Bslide3');
+    const openButton = document.getElementById('openDiv3');
+
+    // Function to open Bslide2
+    openButton.addEventListener('click', function() {
+        bSlide3.style.right = '0'; // Bring the modal into view
+        document.querySelector('.slide3').classList.add('dark'); // Optionally darken and slide the background
+    });
+
+    // Function to close Bslide2 if click outside
+    document.addEventListener('click', function(event) {
+    // Check if the click was outside Bslide3 by seeing if Bslide3 contains the event target
+    if (!bSlide3.contains(event.target) && event.target !== openButton) {
+        if (document.querySelector('.slide3')) {
+            document.querySelector('.slide3').classList.remove('dark');
+        }
+        bSlide3.style.right = '-100%'; // Hide the modal
+    }
+});
+
+    // Stop propagation of click events inside Bslide2 to prevent them from closing the modal
+    bSlide3.addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+});

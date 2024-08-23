@@ -1,0 +1,55 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+ <div class="container">
+        <div class="left-side">
+            <h2>The Shattered Visages</h2>
+            <p>Deep within a forgotten library, a single, shattered mirror rests upon a dusty pedestal.<br>
+			Each shard flickers with an ethereal light, reflecting glimpses of legendary heroes.<br>
+			By whispering a hero's name and placing a token of their silver coin upon the pedestal,<br>
+			the shards are said to coalesce, summoning a spectral echo of the hero to fight at your side.</p>
+        </div>
+        <div class="right-side">
+            <div class="circle-buttons">
+            <div class="circle" data-cost="500" data-currency="silver"><img src="~/image/Custom/WarriorGirl.jpg" alt="Image 1"></div>
+            <div class="circle" data-cost="500" data-currency="silver"><img src="~/image/Custom/WarriorBoy.jpg" alt="Image 2"></div>
+            <div class="circle" data-cost="500" data-currency="silver"><img src="~/image/Custom/MagicianGirl.jpg" alt="Image 3"></div>
+            <div class="circle" data-cost="500" data-currency="silver"><img src="~/image/Custom/MagicianBoy.jpg" alt="Image 4"></div>
+            <div class="circle" data-cost="500" data-currency="silver"><img src="~/image/Custom/RangerGirl.jpg" alt="Image 5"></div>
+            <div class="circle" data-cost="500" data-currency="silver"><img src="~/image/Custom/RangerBoy.jpg" alt="Image 6"></div>
+        </div>
+        </div>
+    </div>
+	
+	<button id="backButton">The Shattered Visages</button>
+	<div id="popupContainer" class="popup-container"></div>
+	
+	<div class="coins-container">
+        <div class="coin">
+        <img src="~/image/Custom/gold.png" alt="Gold Coin" class="coin-image">
+            <div class="coin-count" id="goldCountContainer">
+                <span id="goldCount">0</span>
+            </div>
+        </div>
+        <div class="coin">
+        <img src="~/image/Custom/silver.png" alt="Silver Coin" class="coin-image">
+            <div class="coin-count" id="silverCountContainer">
+                <span id="silverCount">0</span>
+            </div>
+        </div>
+    </div>
+	
+	<div id="centralImageContainer" class="central-image-container">
+		<div class="central-image-wrapper">
+		  <img id="centralImage" src="" alt="Selected Image">
+		</div>
+	</div>
+	
+	<button id="skinShopButton">
+		<span class="hover-text">Skin Shop</span>
+	</button>
+	<button id="buyButton" style="display: none;">500 silver coins</button>
+
+    <script src="~/js/custom/AheroShopScript.js"></script>

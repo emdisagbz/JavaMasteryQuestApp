@@ -1,0 +1,134 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+body {
+    font-family: Poppins, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.content > div {
+    display: none;
+}
+
+.sidebar li.active {
+    font-weight: bold;
+}
+
+.carousel-container {
+    display: none;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px 0;
+}
+
+    .sidebar ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 10px;
+    }
+
+        .sidebar ul li {
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            position: relative;
+        }
+
+            .sidebar ul li:hover {
+                background-color: #0056b3;
+            }
+
+            .sidebar ul li.active {
+                background-color: #004999;
+            }
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+    .content h2 {
+        margin-top: 0;
+    }
+
+    .content p {
+        line-height: 1.6;
+    }
+
+.button-group {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+    .button-group button {
+        display: block;
+        margin: 5px 0;
+        padding: 8px 16px;
+        font-size: 14px;
+        background-color: transparent;
+        border: none;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        font-family: Poppins;
+    }
+
+        .button-group button:hover {
+            background-color: #0056b3;
+            transform: scale(0.95);
+            border-radius: 10px;
+        }
+
+.carousel-container {
+    display: none;
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    overflow: hidden;
+    background-color: #eee;
+    border: 1px solid #ddd;
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.carousel-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.carousel-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}

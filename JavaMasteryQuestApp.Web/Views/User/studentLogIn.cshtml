@@ -1,0 +1,58 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login and Sign Up Form</title>
+  <link rel="stylesheet" type="text/css" href="~/css/custom/studentLogInStyle.css">
+
+  <div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form action="#">
+			<h2>Create Account</h2>
+			<input type="text" placeholder="Student ID" required/>
+			<input type="text" placeholder="Name" required/>
+			<input type="text" placeholder="Class ID" required/>
+			<input type="text" placeholder="Year and Section" required/>
+			<select>
+				<option selected>Choose a Program</option>
+				<option value="1">BSAIT</option>
+				<option value="2">BSAIS</option>
+			</select>
+			<!--<input type="text" placeholder="Program" required/>-->
+			<input type="text" placeholder="Username" required/>
+			<input type="password" placeholder="Password" required/>
+			<button>Sign Up</button>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="#">
+			<h1>Sign in</h1>
+			<input type="text" placeholder="Student ID" id="uid" />
+			<input type="password" placeholder="Password" id="pass" />
+			<button type="button" id="login">Login</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Welcome to Java Mastery Quest, Friend!</h1>
+				<p>Greetings, adventurer! Are you ready to embark on a thrilling quest where you'll not only conquer treacherous lands but also sharpen your Java programming skills?</p>
+				<button class="ghost" id="signIn">Login</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Welcome Back, Friend!</h1>
+				<p>Hey there!, The compiler whispers your name once more. Are you ready to dive back into the exciting world of Java and continue your mastery quest?</p>
+				<button class="ghost" id="signUp">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div id="backButton">Back to Home</div>
+
+<script src="~/jquery/jquery.min.js"></script>
+<script src="~/js/custom/studentLogInScript.js"></script>
+

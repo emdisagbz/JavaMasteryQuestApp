@@ -1,0 +1,84 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lobby</title>
+<link rel="stylesheet" href="~/css/custom/LobbyStyle.css">
+
+<div class="container">
+	<div class="world world1">
+		<div class="cloud-image"></div>
+		<div class="cloud-image1"></div>
+		<div class="particle-container"></div>
+		<div class="link-container">
+			<a href="w1Game.html" class="game-link">Go to Game 1</a>
+		</div>
+	</div>
+	<div class="world world2">
+		<div class="cloud-image"></div>
+		<div class="cloud-image1"></div>
+		<div class="ice-storm"></div>
+		<a href="w2Game.html" class="world-link">Go to Game 2</a>
+	</div>
+	<div class="world world3">
+		'
+		<div class="cloud-image"></div>
+		<div class="cloud-image1"></div>
+		<div class="leaf-container"></div>
+		<a href="w3Game.html" class="world-link">Go to Game 3</a>
+	</div>
+	<div class="world world4">
+		<div class="cloud-image"></div>
+		<div class="cloud-image1"></div>
+		<div id="ghost">
+			<div class="ghost">
+				<div class="ghost__waves">
+					<div class="ghost__wave"></div>
+					<div class="ghost__wave"></div>
+				</div>
+				<div class="ghost__eyes">
+					<div class="ghost__eyes_eye"></div>
+					<div class="ghost__eyes_eye"></div>
+				</div>
+				<div class="ghost__mouth"></div>
+			</div>
+		</div>
+	</div>
+	<div class="world world5">
+		<div class="cloud-image"></div>
+		<div class="cloud-image1"></div>
+	</div>
+	<div class="world world6">
+		<div class="cloud-image"></div>
+		<div class="cloud-image1"></div>
+	</div>
+</div>
+
+<div class="button-container">
+	<button id="prevBtn"><</button>
+	<button id="nextBtn">></button>
+</div>
+
+<div class="username" onclick="showModal()">
+	<img src="~/image/Custom/ex.jfif" alt="Student's Image">
+	<div class="text-container">
+		<span id="studentName">Student's Name</span>
+		<div id="studentID">StudentID</div>
+	</div>
+</div>
+
+<div id="detailsModal" style="display:none; position: fixed; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); align-items: center; justify-content: center; z-index: 1000;">
+	<div style="background: white; padding: 20px; border-radius: 5px; width: 80%; max-width: 600px;">
+		<h1>Student Details</h1>
+		<p>Username: <span id="modalName">-</span></p>
+		<p>Student ID: <span id="modalId">-</span></p>
+		<p>Section: <span id="modalSection">-</span></p>
+		<button onclick="hideModal()">Close</button>
+		<button class="Logout" onclick="logout()">Log out</button>
+	</div>
+</div>
+
+<script src="~/js/custom/LobbyScript.js"></script>

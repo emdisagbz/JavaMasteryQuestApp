@@ -1,0 +1,536 @@
+body {
+	  background: radial-gradient(circle at 50%, #d40000 0%, #ff6600 30%, #ffff00 50%, #ff6600 70%, #d40000 100%);
+	  background-repeat: no-repeat;
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+	  position: relative;
+	  overflow: hidden;
+}
+
+.container { /* Optional container to hold worlds, adjust styles as needed */
+      display: flex;
+	  justify-content: center; /* Center worlds horizontally if needed */
+	  align-items: center; /* Center worlds vertically if needed */
+	  flex-wrap: wrap;
+	  background-repeat: no-repeat;
+}
+
+.world { /* Base styles for all worlds */
+      box-sizing: border-box;
+      width: 70vw;
+      height: 70vh;
+      background-color: transparent;
+	  background-repeat: no-repeat;
+      position: absolute; /* Ensures worlds overlap when switching */
+      opacity: 0; /* Initially hide all worlds */
+      transition: opacity 0.5s ease-in-out; /* Add transition for smooth fading */
+
+}
+
+.world1 { /* Additional styles for world1 (feel free to add more classes) */
+	  background: radial-gradient(circle at 50%, #ff0000, 0%, #ff8000, 30%, #ffff00, 50%, #ff8000, 70%, #000000, 100%);
+      background-image: url("w1.png"); /* Set your image URL */
+      background-size: cover; /* Resize image to cover the entire element */
+      background-position: center; /* Center the image within the element */
+	  background-repeat: no-repeat;
+	  background-position: center center;
+	  background-size: contain;
+	  margin: 0 10px; /* Adjust margin for spacing between worlds */
+	  position: absolute;
+	  top: 15%; /* Center worlds vertically */
+	  left: 13%;
+	  animation: bouncing-floating 1.5s infinite ease-in-out;
+	  transition: transform 0.5s ease-in-out;
+}
+
+.particle-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 100px;
+  left: -100px;
+}
+
+@keyframes moveToLeft {
+    from {
+        transform: translateX(0); /* Start from current position */
+    }
+    to {
+        transform: translateX(-100vw); /* Move to the left edge of the viewport */
+    }
+}
+
+.world2 { /* Additional styles for world1 (feel free to add more classes) */
+      background-image: url("w2.png"); /* Set your image URL */
+      background-size: cover; /* Resize image to cover the entire element */
+      background-position: center; /* Center the image within the element */
+	  background-repeat: no-repeat;
+	  background-position: center center;
+	  background-size: contain;
+	  margin: 0 10px; /* Adjust margin for spacing between worlds */
+	  position: absolute;
+	  top: 15%; /* Center worlds vertically */
+	  left: 15%;
+	  animation: bouncing-floating 1.5s infinite ease-in-out;
+	  transition: transform 0.5s ease-in-out;
+}
+	
+.ice-crystal {
+  position: absolute; /* Position ice crystals absolutely within world2 */
+  background-color: white;
+  width: 10px;
+  height: 10px;
+  top: -20%;
+  left: -30%;
+  border-radius: 50%;
+  animation: fall 10s linear infinite
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) translateX(calc(100vw * var(--random-x)));
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) translateX(calc(100vw * var(--random-x)));
+    opacity: 0;
+  }
+}
+	
+.world3 { /* Additional styles for world1 (feel free to add more classes) */
+      background-image: url("w3.png"); /* Set your image URL */
+      background-size: cover; /* Resize image to cover the entire element */
+      background-position: center; /* Center the image within the element */
+	  background-repeat: no-repeat;
+	  background-position: center center;
+	  background-size: contain;
+	  margin: 0 10px; /* Adjust margin for spacing between worlds */
+	  position: absolute;
+	  top: 15%; /* Center worlds vertically */
+	  left: 12%;
+	  animation: bouncing-floating 1.5s infinite ease-in-out;
+	  transition: transform 0.5s ease-in-out;
+}
+
+.leaf-container {
+  position: relative;
+}
+
+.leaf {
+  position: absolute;
+  top: -70px;
+  left: -100px;
+  width: 20px;
+  height: 30px;
+  border-radius: 99% 0;
+  background-color: #115e04; /* Dark green */
+  animation: wind var(--duration) ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+@keyframes wind {
+  0% {
+    transform: translate(calc(var(--startX) * 1vw), -50px) rotate(-40deg);
+    background-color: #115e04; /* Dark green */
+  }
+  35% {
+    background-color: #4B9500; /* Light green */
+  }
+  50% {
+    background-color: #ffd700; /* Yellow */
+  }
+  80% {
+    background-color: #8b4513; /* Brown */
+  }
+  100% {
+    transform: translate(calc(var(--endX) * 1vw), 100vh) rotate(80deg);
+  }
+}
+
+.world4 { /* Additional styles for world1 (feel free to add more classes) */
+      background-image: url("w4.png"); /* Set your image URL */
+      background-size: cover; /* Resize image to cover the entire element */
+      background-position: center; /* Center the image within the element */
+	  background-repeat: no-repeat;
+	  background-position: center center;
+	  background-size: contain;
+	  margin: 0 10px; /* Adjust margin for spacing between worlds */
+	  position: absolute;
+	  top: 15%; /* Center worlds vertically */
+	  left: 15%;
+	  animation: bouncing-floating 1.5s infinite ease-in-out;
+	  transition: transform 0.5s ease-in-out;
+	  filter: brightness(0.1);
+}
+
+#ghost {
+    transform: translateX(50%); 
+    transform-origin: center;
+    position: absolute;
+}
+
+.ghost {
+    background: #fff;
+    width: 117px;
+    height: 150px;
+    border-radius: 100px 100px 0 0;
+    box-shadow: 0 0 50px #fff;
+    position: relative;
+    transform-origin: center;
+    animation: float 3s ease-out infinite;
+}
+
+.ghost__eyes {
+    display: flex;
+    gap: 25px;
+    padding-top: 44px;
+    justify-content: center;
+    position: relative;
+}
+
+.ghost__eyes_eye {
+    width: 10px;
+    height: 16px;
+    background: #fff;
+    border: 4px solid #ccc;
+    border-radius: 100px;
+    clip-path: polygon(100% 50%, 100% 100%, 0 100%, 0 50%);
+    transition: .1s;
+}
+
+.ghost__mouth {
+    width: 44px;
+    height: 8px;
+    background: #ccc;
+    border-radius: 10px;
+    margin: 16px auto 0;
+    position: relative;
+    animation: sleep 3s ease-out infinite;  
+    transition: .1s;
+}
+
+.ghost__mouth:before {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 0;
+    width: 8px;
+    height: 14px;
+    background: #ccc;
+    border-radius: 10px;
+    animation: drool 3s ease-out infinite;
+}
+
+.ghost__waves {
+    display: flex;
+    position: absolute;
+    bottom: -20px;
+    height: 50px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.ghost__wave {
+    width: 117px;
+    height: 50px;
+    background: #fff;
+    flex-shrink: 0;  
+    
+    animation: ghost 3s linear infinite;   
+    transform: translateX(-117px);
+    
+    --size: 10px;
+    --p: 5px;
+    --R: 11.18px;
+
+    -webkit-mask:
+        radial-gradient(var(--R) at 50% calc(100% - (var(--size) + var(--p))),blue 99%,#0000 101%) calc(50% - 2*var(--size)) 0/calc(4*var(--size)) 100%,
+        radial-gradient(var(--R) at 50% calc(100% + var(--p)),#0000 99%,red 101%) 50% calc(100% - var(--size))/calc(4*var(--size)) 100% repeat-x;  
+}
+
+@keyframes ghost {
+    0% {
+        transform: translateX(-117px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+@keyframes sleep {
+    0% {
+        width: 44px;
+    }
+    50% {
+        width: 26px;
+    }
+    100%{
+        width: 44px;
+    }
+}
+
+@keyframes drool {
+    0% {
+        height: 14px;
+    }
+    50% {
+        height: 20px;
+    }
+    100%{
+        height: 14px;
+    }
+}
+
+@keyframes float {
+    50% {
+         transform: translate(0, 20px);
+    }
+}
+
+.ghost:hover .ghost__eyes_eye,
+#ghost.active .ghost__eyes_eye {
+    background: #000;
+    border-color: #000;
+    clip-path: none;
+    height: 16px;
+}
+
+
+.ghost:hover .ghost__mouth:before,
+#ghost.active .ghost__mouth:before {
+    display: none;
+}
+
+.ghost:hover .ghost__mouth,
+#ghost.active .ghost__mouth {
+    animation: none;
+    background: #000;
+    width: 32px;
+    height: 29px;
+    clip-path: polygon(100% 50%, 100% 100%, 0 100%, 0 50%);
+    border-radius: 100px;
+    margin-top: 1px;
+}
+
+#ghost.active .ghost {
+    animation: none;
+}
+	
+.world5 { /* Additional styles for world1 (feel free to add more classes) */
+      background-image: url("w5.png"); /* Set your image URL */
+      background-size: cover; /* Resize image to cover the entire element */
+      background-position: center; /* Center the image within the element */
+	  background-repeat: no-repeat;
+	  background-position: center center;
+	  background-size: contain;
+	  margin: 0 10px; /* Adjust margin for spacing between worlds */
+	  position: absolute;
+	  top: 15%; /* Center worlds vertically */
+	  left: 15%;
+	  animation: bouncing-floating 1.5s infinite ease-in-out;
+	  transition: transform 0.5s ease-in-out;
+	  filter: brightness(0.1);
+}
+	
+.world6 { /* Additional styles for world1 (feel free to add more classes) */
+      background-image: url("w6.png"); /* Set your image URL */
+      background-size: cover; /* Resize image to cover the entire element */
+      background-position: center; /* Center the image within the element */
+	  background-repeat: no-repeat;
+	  background-position: center center;
+	  background-size: contain;
+	  margin: 0 10px; /* Adjust margin for spacing between worlds */
+	  position: absolute;
+	  top: 15%; /* Center worlds vertically */
+	  left: 15%;
+	  animation: bouncing-floating 1.5s infinite ease-in-out;
+	  transition: transform 0.5s ease-in-out;
+	  filter: brightness(0.1);
+}
+
+.cloud-image {
+  background-image: url("cloud.png"); /* Set the cloud image as background */
+  background-size: contain; /* Adjust background size as needed */
+  background-repeat: no-repeat; /* Prevent image repetition */
+  position: absolute; /* Position the cloud on top */
+  top: 50px; /* Adjust top position as needed */
+  left: 50px; /* Adjust left position as needed */
+  width: 450px; /* Adjust width as needed */
+  height: 450px; /* Adjust height as needed */
+  animation: cloud-bounce 2s infinite ease-in-out;
+}
+
+.cloud-image1 {
+  background-image: url("cloud1.png"); /* Set the cloud image as background */
+  background-size: contain; /* Adjust background size as needed */
+  background-repeat: no-repeat; /* Prevent image repetition */
+  position: absolute; /* Position the cloud on top */
+  top: 200px; /* Adjust top position as needed */
+  left: 450px; /* Adjust left position as needed */
+  width: 450px; /* Adjust width as needed */
+  height:450px; /* Adjust height as needed */
+  animation: cloud-bounce 2.5s infinite ease-in-out;
+}
+
+.username {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  justify-content: flex-start;
+  vertical-align: top;
+  align-items: center;
+  padding: 5px 10px; /* Adjust padding to accommodate strip image */
+  background-color: rgba(192, 192, 192, 0.5); /* Semi-transparent silver background */
+  backdrop-filter: blur(5px); /* Apply a blur effect */
+  background-repeat: no-repeat; /* Prevent image repetition */
+  background-position: top left; /* Position strip image at top left */
+  border-radius: 10px;
+  background-size: contain; /* Resize image to fit container (adjust as needed) */
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.username span {
+    display: block; /* Makes the text block level to enforce a new line */
+    font-size: 16px; /* Example font size, adjust as needed */
+}
+
+.username.studID {
+    font-size: 12px; /* Smaller font size for StudentID */
+    color: #666; /* Dim color for less emphasis, adjust as needed */
+}
+
+.username img {
+  width: 30px; /* Adjust initial image width as needed */
+  height: 30px; /* Adjust initial image height as needed */
+  margin-right: 5px; /* Add space between image and username text */
+  border-radius: 50%; /* Create circular profile picture */
+  cursor: pointer; /* Set cursor to pointer on hover */
+  transition: width 0.5s ease-in-out, height 0.5s ease-in-out; /* Transition for image size change */
+}
+
+.username img:hover,
+.username img.active {
+  width: 70px; /* Adjust expanded image width as needed */
+  height: 70px; /* Adjust expanded image height as needed */
+}
+
+#detailsModal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+#detailsModal div {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 600px;
+}
+
+
+#nextBtn, #prevBtn{
+	position:absolute;
+	top:40%;
+	color: black;
+	background-color: transparent;
+	border: none;
+	font-size:10em;
+	font-family:monospace;
+	left:50px;
+}
+
+#nextBtn{
+	left:unset;
+	right: 50px;
+}
+
+
+@keyframes cloud-bounce {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(20px); } /* Move cloud to the right */
+  100% { transform: translateX(0); } /* Return to original position */
+}
+
+@keyframes cloud1-bounce {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-20px); } /* Move cloud to the right */
+  100% { transform: translateX(0); } /* Return to original position */
+}
+
+@keyframes bouncing-floating {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); } /* Bounce upwards */
+  100% { transform: translateY(0px); } /* Return to original position */
+}
+
+@keyframes glow {
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+.world-link {
+    position: absolute;
+    bottom: -40px; /* Adjust this value based on your exact needs */
+    left: 50%;
+    transform: translateX(-50%);
+	z-index: 1000;
+	pointer-events: auto;
+    display: block;
+    text-align: center;
+    padding: 10px;
+    background-color: #007BFF; /* Example: a blue background */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 200px; /* Set a fixed width */
+}
+
+.link-container {
+    width: 300px;  /* Adjust size as necessary */
+    height: 100px;  /* Adjust size as necessary */
+    overflow: hidden;  /* Keeps the background image within the bounds of the link */
+    display: flex;
+    justify-content: center;  /* Center the text horizontally */
+    align-items: center;  /* Center the text vertically */
+}
+
+.game-link {
+    width: 100%;  /* Ensure the link covers the entire area of its container */
+    height: 100%;  /* Ensure the link covers the entire area of its container */
+    display: flex;
+    justify-content: center;  /* Center the text horizontally */
+    align-items: center;  /* Center the text vertically */
+    background-image: url('LavaGate.jpg');  /* Set the background image */
+    background-size: cover;  /* Cover the entire area of the link */
+    background-position: center;  /* Ensure the image is centered */
+    text-decoration: none;  /* Optional: remove underline from the link */
+    color: white;  /* Set text color for visibility */
+    font-size: 24px;  /* Adjust font size as needed */
+}
+

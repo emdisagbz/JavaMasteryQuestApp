@@ -1,0 +1,34 @@
+html, body {
+    height: 100%; /* Ensure both html and body cover the full height of the viewport */
+    margin: 0;    /* Remove default margin */
+    padding: 0;   /* Remove default padding */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.home {
+    background-image: url("Homepage.jpg");
+    background-size: cover;       /* Cover the entire area of the body */
+    background-position: center;  /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-attachment: fixed; /* Fix the background in place (optional) */
+    width: 100%;                  /* Cover full width */
+    min-height: 100vh;            /* Ensure minimum height is the full viewport height */
+    display: flex;                /* Use Flexbox to align child elements */
+    justify-content: center;      /* Center horizontally */
+    align-items: center;          /* Center vertically */
+}
+
+.start-button {
+    padding: 10px 20px;           /* Adjust padding for button size */
+    font-size: 16px;              /* Set the font size */
+    cursor: pointer;              /* Change cursor to pointer when hover */
+    background-color: #007BFF;    /* Background color of the button */
+    color: white;                 /* Text color of the button */
+    border: none;                 /* No border */
+    border-radius: 5px;           /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.start-button:hover {
+    background-color: #0056b3;    /* Darker shade on hover for better interaction */
+}

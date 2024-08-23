@@ -1,0 +1,78 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basic Java World 2 Games</title>
+<link rel="stylesheet" href="~/css/custom/BW2GamesStyle.css">
+
+<div class="container"></div>
+<button id="bookModule">
+	<img src="~/image/Custom/bookModule.png" class="book-image">
+</button>
+<button id="startButton">ADVANCE</button>
+<button id="backButton">Shimmering Shroud</button>
+<div id="slidingDiv" class="hidden">
+	<!-- Content of the sliding div -->
+	<h1>MODULE 2</h1>
+</div>
+<div class="IceQueen-walk"></div>
+<div class="IceQueen-idle"></div>
+<div class="IceQueen-attack"></div>
+<div class="Slime-walk0"></div>
+<div class="Slime-walk1"></div>
+<div class="Slime-walk2"></div>
+<div class="Slime-walk3"></div>
+<div id="heartsContainer"></div>
+
+
+<div class="warning-screen" id="warningScreen">
+	<h2>Ísdís Appeared</h2>
+	<h3>Basic Level 2 Boss</h3>
+	<div class="glitters"></div>
+</div>
+
+<div id="popupContainer" class="popup-container"></div>
+
+<div class="coins-container">
+	<div class="coin">
+		<img src="~/image/Custom/gold.png" alt="Gold Coin" class="coin-image">
+		<div class="coin-count" id="goldCountContainer">
+			<span id="goldCount">0</span>
+		</div>
+	</div>
+	<div class="coin">
+		<img src="~/image/Custom/silver.png" alt="Silver Coin" class="coin-image">
+		<div class="coin-count" id="silverCountContainer">
+			<span id="silverCount">0</span>
+		</div>
+	</div>
+</div>
+
+<div id="gameContainer" class="hidden">
+	<div id="questionContainer">
+		<p id="question"></p>
+		<textarea id="answer"></textarea>
+		<button id="submitAnswer">Submit</button>
+		<img id="missingImage">
+	</div>
+</div>
+
+<button id="hintButton" class="hint">
+	<img src="~/image/Custom/hintImage.png" class="hintImg"></img>
+</button>
+<button id="missingButton" class="missing">
+	<img src="~/image/Custom/missingImage.png" class="missingImg"></img>
+</button>
+
+<div id="completionWarning" class="completion-warning hidden">
+	<h2>Congratulations</h2>
+	<h3>You've Successfully Cleared Basic Java Programming World 2 </h3>
+	<div class="glitters"></div>
+</div>
+
+<button id="goButton" class="hidden">Go</button>
+
+<script src="~/js/custom/BW2GamesScript.js"></script>

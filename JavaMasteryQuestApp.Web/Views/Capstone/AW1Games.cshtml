@@ -1,0 +1,77 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced Java World 1 Games</title>
+<link rel="stylesheet" href="~/css/custom/AW1GamesStyle.css">
+
+<div class="land"></div>
+<button id="bookModule">
+    <img src="~/image/Custom/bookModule.png" class="book-image">
+</button>
+<button id="startButton">ADVANCE</button>
+<button id="backButton">Searing Scar</button>
+<div id="slidingDiv" class="hidden">
+    <h1>MODULE 1</h1>
+</div>
+
+<div class="LavaPrince-walk"></div>
+<div class="LavaPrince-idle"></div>
+<div class="LavaPrince-attack"></div>
+<div class="Slime-walk0"></div>
+<div class="Slime-walk1"></div>
+<div class="Slime-walk2"></div>
+<div class="Slime-walk3"></div>
+<div id="heartsContainer"></div>
+
+
+<div class="warning-screen" id="warningScreen">
+    <h2>Lava Prince Appeared</h2>
+    <h3>Basic Level 1 Boss</h3>
+    <div class="glitters"></div>
+</div>
+
+<div id="popupContainer" class="popup-container"></div>
+
+<div class="coins-container">
+    <div class="coin">
+        <img src="~/image/Custom/gold.png" alt="Gold Coin" class="coin-image">
+        <div class="coin-count" id="goldCountContainer">
+            <span id="goldCount">0</span>
+        </div>
+    </div>
+    <div class="coin">
+        <img src="~/image/Custom/silver.png" alt="Silver Coin" class="coin-image">
+        <div class="coin-count" id="silverCountContainer">
+            <span id="silverCount">0</span>
+        </div>
+    </div>
+</div>
+
+<div id="gameContainer" class="hidden">
+    <div id="questionContainer">
+        <p id="question"></p>
+        <div id="choices"></div>
+        <input type="text" id="answer">
+        <button id="submitAnswer">Submit</button>
+    </div>
+    <div id="tracker">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+    <button id="hintButton" class="hint">?</button>
+</div>
+
+<div id="completionWarning" class="completion-warning hidden">
+    <h2>Congratulations</h2>
+    <h3>You've Successfully Cleared Advanced Java Programming World 1 </h3>
+    <div class="glitters"></div>
+</div>
+
+<button id="goButton" class="hidden">Go</button>
+
+<script src="~/js/custom/AW1GamesScript.js"></script>

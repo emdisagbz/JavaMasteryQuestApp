@@ -1,0 +1,210 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basic Java Lobby</title>
+<link rel="stylesheet" href="~/css/custom/BasicLobby.css">
+
+<div class="world-container">
+	<div class="list">
+
+		<!--> WORLD 1<-->
+		<div class="item">
+			<img src="~/image/Custom/LavaGate.jpg">
+			<div class="content">
+				<div id="author-1" class="author">WELCOME TO WORLD 1</div>
+				<div class="title">SEARING</div>
+				<div id="topic-1" class="topic">SCAR</div>
+				<div class="des">
+					Where molten lava bleeds from the earth's open wounds,<br>
+					charring the very air and daring only<br>
+					the most desperate souls to tread its perilous,<br>
+					fire-scorched soil.
+				</div>
+				<div class="buttons">
+					<button id="openDiv1">CHALLENGE</button>
+				</div>
+			</div>
+			<div class="particle-container"></div>
+		</div>
+
+
+		<!--> WORLD 2<-->
+
+		<div class="item">
+			<img src="~/image/Custom/IcyGate.jpg">
+			<div class="content">
+				<div id="author-2" class="author">WELCOME TO WORLD 2</div>
+				<div class="title">SHIMMERING</div>
+				<div id="topic-2" class="topic">SHROUD</div>
+				<div class="des">
+					A world cloaked in a mesmerizing dance of light.<br>
+					Jagged glaciers, sculpted by relentless winds,<br>
+					pierce a sky painted with ethereal hues.<br>
+					But beneath this captivating facade lies a frozen tomb, <br>
+					a desolate silence waiting to claim the unwary.<br>
+				</div>
+				<div class="buttons">
+					<button id="openDiv2">CHALLENGE</button>
+				</div>
+			</div>
+			<div class="ice-storm"></div>
+		</div>
+
+		<!--> WORLD 3<-->
+
+		<div class="item">
+			<img src="~/image/Custom/NatureGate.jpg">
+			<div class="content">
+				<div id="author-3" class="author">WELCOME TO WORLD 3</div>
+				<div class="title">VERDANT</div>
+				<div id="topic-3" class="topic">CRADLE</div>
+				<div class="des">
+					Lush foliage explodes across every surface,<br>
+					sunlight dappling through a vibrant canopy.<br>
+					This verdant cradle hums with life,<br>
+					a symphony of chirps, buzzing wings, and rustling leaves.
+				</div>
+				<div class="buttons">
+					<button id="openDiv3">CHALLENGE</button>
+				</div>
+			</div>
+			<div class="leaf-container"></div>
+		</div>
+
+	</div>
+
+	<!--> SLIDE 1 <-->
+	<div id="Bslide1" class="b-slide1">
+		<div class="slide1">
+			<h1>Challenge World 1</h1>
+			<h2>This is the gateway to the challenges of World 1.</h2>
+
+
+			<a href="BW1Games.html" class="Bslide1-button">Go to Challenges</a>
+		</div>
+	</div>
+
+	<!-->SLIDE 2<-->
+	<div id="Bslide2" class="b-slide2">
+		<div class="slide2">
+			<h1>Challenge World 2</h1>
+			<h2>This is the gateway to the challenges of World 2.</h2>
+
+			<a href="BW2Games.html" class="Bslide2-button">Go to Challenges</a>
+		</div>
+	</div>
+
+	<!-->SLIDE 3<-->
+	<div id="Bslide3" class="b-slide3">
+		<div class="slide3">
+			<h1>Challenge World 3</h1>
+			<h2>This is the gateway to the challenges of World 3.</h2>
+
+			<a href="BW3Games.html" class="Bslide3-button">Go to Challenges</a>
+		</div>
+	</div>
+
+
+	<!-->thumbnail<-->
+	<div class="thumbnail">
+		<div class="item">
+			<img src="~/image/Custom/LavaGate.jpg">
+			<div class="content">
+				<div class="title">
+					Searing Scar
+				</div>
+				<div class="description">
+					Lava World
+				</div>
+			</div>
+		</div>
+		<div class="item">
+			<img src="~/image/Custom/IcyGate.jpg">
+			<div class="content">
+				<div class="title">
+					Shimmering Shroud
+				</div>
+				<div class="description">
+					Ice World
+				</div>
+			</div>
+		</div>
+		<div class="item">
+			<img src="~/image/Custom/NatureGate.jpg">
+			<div class="content">
+				<div class="title">
+					Verdant Cradle
+				</div>
+				<div class="description">
+					Nature World
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="arrows">
+		<button id="prev"><</button>
+		<button id="next">></button>
+	</div>
+
+	<div class="time"></div>
+
+	<div class="profile" onclick="showModal()">
+		<img src="~/image/Custom/ex.jfif" alt="Student's Image">
+		<div class="text-container">
+			<span id="studentName">Student's Name</span>
+			<div id="studentID">StudentID</div>
+		</div>
+	</div>
+
+	<div id="detailsModal">
+		<div>
+			<h1>Student Details</h1>
+			<p>Username: <span id="modalName">-</span></p>
+			<p>Student ID: <span id="modalId">-</span></p>
+			<p>Section: <span id="modalSection">-</span></p>
+			<button onclick="hideModal()">Close</button>
+			<button class="Logout" onclick="logout()">Log out</button>
+		</div>
+	</div>
+
+	<div class="coins-container">
+		<div class="coin">
+			<img src="~/image/Custom/gold.png" alt="Gold Coin" class="coin-image">
+			<div class="coin-count" id="goldCountContainer">
+				<span id="goldCount">0</span>
+			</div>
+		</div>
+		<div class="coin">
+			<img src="~/image/Custom/silver.png" alt="Silver Coin" class="coin-image">
+			<div class="coin-count" id="silverCountContainer">
+				<span id="silverCount">0</span>
+			</div>
+		</div>
+	</div>
+
+	<button id="heroShop">
+		<img src="~/image/Custom/heroshop.png" class="heroShop-image">
+		<span class="hover-text">Hero Shop</span>
+	</button>
+
+	<button id="skinShop">
+		<img src="~/image/Custom/skinShop.png" class="skinShop-image">
+		<span class="hover-text">Skin Shop</span>
+	</button>
+
+	<button id="freeCoins">
+		<img src="~/image/Custom/freeCoins.png" class="freeCoins-image">
+		<span class="hover-text">Free Coins</span>
+	</button>
+
+	<button id="practice">
+		<img src="~/image/Custom/practice.png" class="practice-image">
+		<span class="hover-text">Practice Coding</span>
+	</button>
+</div>
+
+<script src="~/js/custom/BasicLobby.js"></script>

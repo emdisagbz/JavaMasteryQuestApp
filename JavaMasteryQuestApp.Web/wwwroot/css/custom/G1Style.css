@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body {
+	background-image: url("BG1.jpg");
+    font-family: Poppins;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+	overflow: hidden;
+}
+
+#game-container {
+    display: flex;
+    align-items: flex-start;
+	background-color: rgba(0,0,0,0.8);
+	border-radius: 20px;
+	top: 60%;
+}
+
+h2  {
+	color: white;
+	margin-right: 20px;
+}
+
+#word-grid {
+	font-family: Poppins;
+    display: grid;
+    grid-template-columns: repeat(12, 30px);
+    grid-gap: 5px;
+    margin: 20px;
+}
+
+#word-grid div {
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#word-grid .highlight {
+    background-color: yellow;
+}
+
+#word-list {
+    margin-left: 20px;
+}
+
+#word-list ul {
+	font-family: Poppins;
+    list-style-type: none;
+    padding: 0;
+	color: white;
+}
+
+#word-list li {
+	font-family: Poppins;
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+#word-list .found {
+    text-decoration: line-through;
+    color: green;
+}
+
+#mission {
+    margin-left: 20px;
+}
+
+#mission ul {
+	font-family: Poppins;
+    list-style-type: none;
+    padding: 0;
+	color: white;
+}
+
+#mission li {
+	font-family: Poppins;
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.popup-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    pointer-events: none;
+}
+
+.popup-message {
+	font-family: Poppins;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    animation: fadeOut 4s forwards;
+}
+
+#backButton {
+	font-family: Poppins;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    width: 250px; /* Set explicit width */
+    padding: 15px; /* Adjust padding to fit within the width */
+    font-size: 20px;
+    color: white;
+    background: linear-gradient(to right, #007bff 0%, #007bff 0%, rgba(0, 123, 255, 0) 75%);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#backButton::before {
+    content: "";
+    background-image: url('back.png'); /* Replace 'your-image-url.jpg' with the URL of your image */
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 50%;
+    left: 20px; /* Adjust the left position as needed */
+    width: 31px; /* Adjust the width of the image */
+    height: 21px; /* Adjust the height of the image */
+    transform: translateY(-50%);
+}
+
+#backButton:hover {
+    background-color: #0056b3;
+	background: linear-gradient(to right, #007bff 0%, #007bff 50%, rgba(0, 123, 255, 0) 75%);
+	transform: scale(0.95);
+}
+
+.coins-container {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.coin {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.coin-image {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+}
+
+.coin-count {
+    font-family: Poppins;
+    min-width: 100px; /* Set a minimum width */
+    height: 40px; /* Set a fixed height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.5); /* Background color for the count box */
+    border: 1px solid #ccc; /* Border for the count box */
+    border-radius: 10px; /* Rounded corners for the count box */
+    font-size: 15px;
+	color: white;
+    font-weight: bold;
+    flex: 1; /* Allow the container to grow flexibly */
+}
+
+#timer{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+	font-family: Poppins;
+	color: white;
+	margin-top: 15px;
+}
+
+.missions-popup,
+.mission-status-popup {
+    position: fixed;
+    top: 50vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0,0,0,0.9);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+    text-align: center;
+    width: 500px;
+}
+
+.missions-popup h2,
+.mission-status-popup h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.missions-popup ul,
+.mission-status-popup ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+}
+
+.missions-popup ul li,
+.mission-status-popup ul li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+#startGameButton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#startGameButton:hover {
+    background-color: #45a049;
+}
+
+/* Styles for mission status checks */
+.mission-status-popup ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+}
+
+.mission-status-popup ul li::before {
+    content: '•';
+    color: green;
+    margin-right: 8px;
+    font-size: 20px;
+    line-height: 1;
+}
+
+.mission-status-popup ul li .cross {
+    color: red;
+    font-size: 20px;
+}
+
+.mission-status-popup ul li .check {
+    color: green;
+    font-size: 20px;
+}
+
+.popup-message1 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: rgba(0,0,0,0.9);
+    border: 1px solid #000;
+	border-radius: 10px;
+	color: white;
+    display: none; /* Initially hidden */
+	width: 400px;
+	height: 200px;
+}
+
+.popup-message1 #missionStatus {
+    margin-top: 10px;
+}
+
+.popup-message1 .check {
+    color: green;
+}
+
+.popup-message1 .cross {
+    color: red;
+}
+
+#mission{
+	padding-right: 20px;
+}
+
+.popup-message1 h1 {
+	text-align: center;
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.popup-message1 h2 {
+	text-align: center;
+    margin: 5px 0;
+    font-size: 20px;
+}

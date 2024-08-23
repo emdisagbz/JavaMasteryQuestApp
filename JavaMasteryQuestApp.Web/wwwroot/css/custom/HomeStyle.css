@@ -1,0 +1,82 @@
+html, body {
+    height: 100%; /* Ensure both html and body cover the full height of the viewport */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    overflow: hidden; /* Prevent horizontal scroll */
+}
+
+body {
+    background-image: url('/image/custom/homescreen.jpg');
+    background-size: cover; /* Cover the entire area of the body */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-attachment: fixed; /* Fix the background in place (optional) */
+    width: 100%; /* Cover full width */
+    min-height: 100vh; /* Ensure minimum height is the full viewport height */
+    display: flex; /* Use Flexbox to align child elements */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.content {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+}
+
+.logo {
+    width: 800px; /* Adjust the width as needed */
+    height: 240px; /* Adjust the height as needed */
+    background-size: contain; /* Ensure the logo fits within the div */
+    background-repeat: no-repeat; /* Do not repeat the logo */
+    background-position: center; /* Center the logo */
+    margin-bottom: 20px; /* Add space between the logo and the buttons */
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between; /* Distribute items evenly with space between */
+    width: 50%; /* Ensure full width */
+    font-size: 0;
+}
+
+.studentSignUp-button, .profSignUp-button {
+    padding: 10px 20px; /* Adjust padding for button size */
+    font-size: 30px; /* Set the font size */
+    cursor: pointer; /* Change cursor to pointer when hover */
+    background: linear-gradient(45deg, #ff4800, #ff5400, #ff6000, #ff6d00, #f90, #f80);
+    color: white; /* Text color of the button */
+    border: none; /* No border */
+    border-radius: 30px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    animation: GradientBackground 15s ease infinite;
+    text-decoration: none; /* Remove underline from link */
+    margin: 0 -25px;
+}
+
+
+.studentSignUp-button {
+    margin-bottom: 10px; /* Adjust as needed */
+}
+
+.profSignUp-button {
+    margin-top: 10px; /* Adjust as needed */
+}
+
+@keyframes GradientBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.studentSignUp-button:hover, .profSignUp-button:hover {
+    background-color: #0056b3; /* Darker shade on hover for better interaction */
+}

@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up & Login</title>
+<link rel="stylesheet" type="text/css" href="~/css/custom/signUpStyle.css">
+<div class="container" style="margin-top: 26%">
+        <div class="card" id="card">
+            <div class="front" id="front" style="top:58px">
+				<!-- Login Form -->
+                <form action="login_process.php" method="post" id="loginForm">
+                    <h2>Login</h2>
+                    <label for="studentIDLogin">StudentID</label>
+                    <input type="text" id="studentIDLogin" name="studentID" required>
+                    <input type="submit" value="Login">
+					<p>Do not have an account? Click the button above!</p>
+                    <button id="userButton">Switch to Sign Up</button>
+                </form>
+            </div>
+            <div class="back" id="back">
+                <!-- Sign Up Form -->
+                <form action="signup_process.php" method="post" id="signupForm">
+                    <h2>Sign Up</h2>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="Uname">Username</label>
+                    <input type="text" id="Uname" name="Uname" required>
+
+                    <label for="studentID">StudentID</label>
+                    <input type="text" id="studentID" name="studentID" required>
+
+                    <label for="section">Section</label>
+                    <input type="text" id="section" name="section" required>
+
+                    <input type="submit" value="Sign Up">
+                </form>
+				<button id="userButton1" >Switch to Login</button>           
+            </div>
+        </div>
+</div>
+<script src="~/js/custom/signUpScript.js"></script>

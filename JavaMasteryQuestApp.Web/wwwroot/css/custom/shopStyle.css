@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: url('shop.jpg') no-repeat center center fixed;
+    background-size: cover;
+	background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+	overflow: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    box-shadow: 0 0 50px rgba(255, 255, 255, 1);
+	border-radius: 50%;
+}
+
+.button img {
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+}
+
+
+.button:hover img {
+    transform: scale(1.1);
+}

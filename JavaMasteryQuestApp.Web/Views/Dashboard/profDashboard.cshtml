@@ -1,0 +1,96 @@
+﻿@model JavaMasteryQuestApp.Model.DTO.FacultyDashboardViewModel;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professor Dashboard</title>
+<link rel="stylesheet" href="/css/custom/profDashboardStyles.css">
+
+<div class="container">
+	
+        <div class="sidebar">
+            <ul>
+                <h3>Professor Dashboard</h3>
+                <li id="profileBtn" onclick="showTab('profileContent')">Profile</li>
+                <li id="classBtn" onclick="toggleButtonGroup('classButtonGroup', 'classBtn')">Class
+                    <div class="button-group" id="classButtonGroup">
+                        <button onclick="viewBasicJava()">Basic Java</button>
+                        <button onclick="viewAdvancedJava()">Advanced Java</button>
+                    </div>
+                </li>
+                <li id="recordBtn" onclick="toggleButtonGroup('recordButtonGroup', 'recordBtn')">Record
+                    <div class="button-group" id="recordButtonGroup">
+                        <button onclick="viewBasicJava()">Basic Java</button>
+                        <button onclick="viewAdvancedJava()">Advanced Java</button>
+                    </div>
+                </li>
+                <li id="logoutBtn" onclick="showTab('logoutContent')">Logout</li>
+            </ul>
+        </div>
+        <div class="content">
+            <div id="profileContent">
+                <!-- Profile Content -->
+                <h3>Profile Information</h3>
+                <p>Name: @Model.FacultyDashboard[0].FacultyName </p>
+                <p>Department: </p>
+                <p>Class ID: </p>
+            </div>
+             <div id="basicJavaContent" style="display: none;">
+                <h3>Basic Java</h3>
+                <div id="basicSectionContainer">
+                    <!-- Sections will be added here dynamically -->
+                </div>
+                <button onclick="addSection('basicSectionContainer')">Add Section</button>
+            </div>
+            <div id="advancedJavaContent" style="display: none;">
+                <h3>Advanced Java</h3>
+                <div id="advancedSectionContainer">
+                    <!-- Sections will be added here dynamically -->
+                </div>
+                <button onclick="addSection('advancedSectionContainer')">Add Section</button>
+            </div>
+            <div id="logoutContent" style="display: none;">
+                <h3>Logout</h3>
+                <p>Are you sure you want to logout?</p>
+                <button @*onclick="logout()"*@ id="flogoutbtn">Logout</button>
+            </div>
+        </div>
+        <div class="">
+            <div class="row justify-content-center">
+                <table class="table table-bordered table-sm table-hover text-xl-start display nowrap" id="TableResult">
+                    <thead>
+                        <tr>
+                            <th class="text-center col-sm-2">Faculty Id</th>
+                            <th class="text-center col-sm-2">Faculty Name</th>
+                            <th class="text-center col-sm-2">Subject Code</th>
+                            <th class="text-center col-sm-2">Student Id</th>
+                            <th class="text-center col-sm-2">Course Code</th>
+                            <th class="text-center col-sm-2">Subject Description</th>
+                            <th class="text-center col-sm-2">Student Name</th>
+                            <th class="text-center col-sm-2">Student Year</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                         @if(Model != null)
+                         {
+                            @foreach(var item in Model.FacultyDashboard)
+                            {
+                                <tr>
+                                    <td class="text-center">@item.FacultyId</td>
+                                    <td class="text-center">@item.FacultyName</td>
+                                    <td class="text-center">@item.SubjectCode</td>
+                                    <td class="text-center">@item.StudentId</td>
+                                    <td class="text-center">@item.CourseCode</td>
+                                    <td class="text-center">@item.SubjectDescription</td>
+                                    <td class="text-center">@item.StudentName</td>
+                                    <td class="text-center">@item.StudentYear</td>
+                                </tr>
+                            }
+                         }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+</div>
+
+<script src="~/jquery/jquery.min.js"></script>
+<script src="~/js/custom/profDashboardScript.js"></script>
+

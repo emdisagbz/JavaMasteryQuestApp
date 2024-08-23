@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body {
+  margin: 0;
+  overflow: hidden; /* Prevent overflowing bubbles from being displayed outside the viewport */
+  background-image: url("EtherealEclave.jpg"); /* Replace with path to your background image */
+  background-size: cover; /* Stretch background image to fill the viewport */
+  background-repeat: no-repeat;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  animation: rise 2s ease-in-out infinite;
+  z-index: 1001;
+}
+
+@keyframes rise {
+  from { bottom: -100%; opacity: 0; }
+  to { top: 0; opacity: 1; }
+}
+
+.coins-container {
+    position: fixed;
+    top: 10px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+	z-index: 10;
+}
+
+.coin {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.coin-image {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+}
+
+.coin-count {
+    font-family: Poppins;
+    min-width: 100px; /* Set a minimum width */
+    height: 40px; /* Set a fixed height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.5); /* Background color for the count box */
+    border: 1px solid #ccc; /* Border for the count box */
+    border-radius: 10px; /* Rounded corners for the count box */
+    font-size: 15px;
+	color: white;
+    font-weight: bold;
+    flex: 1; /* Allow the container to grow flexibly */
+}
+
+#backButton {
+	font-family: Poppins;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    width: 300px; /* Set explicit width */
+    padding: 15px; /* Adjust padding to fit within the width */
+    font-size: 20px;
+    color: white;
+    background: linear-gradient(to right, #007bff 0%, #007bff 0%, rgba(0, 123, 255, 0) 75%);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#backButton::before {
+    content: "";
+    background-image: url('back.png'); /* Replace 'your-image-url.jpg' with the URL of your image */
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 50%;
+    left: 20px; /* Adjust the left position as needed */
+    width: 31px; /* Adjust the width of the image */
+    height: 21px; /* Adjust the height of the image */
+    transform: translateY(-50%);
+}
+
+#backButton:hover {
+    background-color: #0056b3;
+	background: linear-gradient(to right, #007bff 0%, #007bff 50%, rgba(0, 123, 255, 0) 75%);
+	transform: scale(0.95);
+}

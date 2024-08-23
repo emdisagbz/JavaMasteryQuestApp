@@ -1,0 +1,53 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Crow's Cackle</title>
+<link rel="stylesheet" href="~/css/custom/freeCoinsStyle.css">
+
+
+<div class="card-container">
+	<!-- Cards will be injected here by JavaScript -->
+</div>
+
+<div class="coins-container">
+	<div class="coin">
+		<img src="~/image/Custom/gold.png" alt="Gold Coin" class="coin-image">
+		<div class="coin-count" id="goldCountContainer">
+			<span id="goldCount">0</span>
+		</div>
+	</div>
+	<div class="coin">
+		<img src="~/image/Custom/silver.png" alt="Silver Coin" class="coin-image">
+		<div class="coin-count" id="silverCountContainer">
+			<span id="silverCount">0</span>
+		</div>
+	</div>
+</div>
+
+
+<button id="glowButton"></button>
+<button id="backButton">The Crow's Cackle</button>
+<div id="rewardMessage" class="textContext"></div>
+
+<div class="witch">
+	<img src="~/image/Custom/Witch.png"></img>
+</div>
+<div class="witchDes">
+	<h2>The Crow's Cackle</h2>
+	<p>
+		Hidden in the dark heart of the forest,
+		a rickety hut groans like a restless beast.
+		A solitary raven perched on the askew signpost scrutinizes every visitor.
+		Inside, a shrouded figure extends a single coin,
+		a reward for the courageous souls who dare to enter.
+</div>
+
+<div id="title">
+	<h2>Click the Magic Crystal Ball to get a free reward!</h2>
+</div>
+
+<script src="~/js/custom/freeCoinsScript.js"></script>

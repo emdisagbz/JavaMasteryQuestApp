@@ -1,0 +1,77 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Search Game</title>
+<link rel="stylesheet" href="~/css/custom/G1Style.css">
+
+<div id="game-container">
+    <div id="word-grid"></div>
+    <div id="word-list">
+        <h2>Find these words:</h2>
+        <ul>
+            <li id="PUBLIC">PUBLIC</li>
+            <li id="CLASS">CLASS</li>
+            <li id="MAIN">MAIN</li>
+            <li id="STATIC">STATIC</li>
+            <li id="VOID">VOID</li>
+            <li id="STRING">STRING</li>
+            <li id="ARGUMENTS">ARGUMENTS</li>
+            <li id="SYSTEM">SYSTEM</li>
+            <li id="PRINT">PRINT</li>
+            <li id="JAVA">JAVA</li>
+            <li id="PROGRAMMING">PROGRAMMING</li>
+            <div id="timer">Time: 0s</div>
+        </ul>
+    </div>
+    <div id="mission">
+        <h2>Mission:</h2>
+        <ul>
+            <li id="Mission1">
+                Mission 1: <br><br>
+                Look for all words within 1 minute <br>
+                (Reward: 100 gold coins)<br><br>
+            </li>
+            <li id="Mission2">
+                Mission 2: <br><br>
+                No wrong clicks <br>
+                (Reward: 100 gold coins)<br><br>
+            </li>
+            <li id="Mission3">
+                Mission 3: <br><br>
+                Look for all words <br>
+                (Reward: 100 gold coins)
+            </li>
+            <ul>
+    </div>
+</div>
+<button id="backButton">Level 1</button>
+<div id="popupContainer" class="popup-container"></div>
+<div class="coins-container">
+    <div class="coin">
+        <img src="~/image/Custom/gold.png" alt="Gold Coin" class="coin-image">
+        <div class="coin-count" id="goldCountContainer">
+            <span id="goldCount">0</span>
+        </div>
+    </div>
+    <div class="coin">
+        <img src="~/image/Custom/silver.png" alt="Silver Coin" class="coin-image">
+        <div class="coin-count" id="silverCountContainer">
+            <span id="silverCount">0</span>
+        </div>
+    </div>
+</div>
+<div id="missionCompletion" class="popup-message1">
+    <h1>Congratulations!</h1>
+    <h2>Level 1 Cleared</h2>
+    <div id="missionStatus">
+        <!-- Mission statuses will be dynamically added here -->
+    </div>
+    <button id="closeMissionPopup">X</button>
+</div>
+
+
+<script src="~/js/custom/G1Script.js"></script>

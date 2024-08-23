@@ -1,0 +1,1204 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    margin: 0;
+    background-color: #000;
+    color: #eee;
+    font-family: Poppins;
+    font-size: 12px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.button {
+    position: absolute;
+    bottom: 20px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+#prev {
+    left: 20px;
+}
+
+#next {
+    right: 20px;
+}
+
+h1 {
+    font-family: Poppins;
+    color: black;
+    font-weight: bold;
+}
+
+h2 {
+    font-family: Poppins;
+    color: black;
+    margin: 30px;
+}
+
+.particle-container {
+    position: absolute;
+    width: 100%;
+    height: 220px;
+    bottom: 0;
+    left: -100px;
+}
+
+.ice-crystal {
+    position: absolute; /* Position ice crystals absolutely within world2 */
+    background-color: white;
+    width: 8px;
+    height: 8px;
+    top: -20px;
+    left: -10px;
+    border-radius: 50%;
+    animation: fall 10s linear infinite
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh) translateX(calc(100vw * var(--random-x)));
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) translateX(calc(100vw * var(--random-x)));
+        opacity: 0;
+    }
+}
+
+.leaf-container {
+    position: cover;
+}
+
+.leaf {
+    position: absolute;
+    top: -5px;
+    left: -90px;
+    width: 10px;
+    height: 15px;
+    border-radius: 99% 0;
+    background-color: #115e04; /* Dark green */
+    animation: wind var(--duration) ease-in-out infinite;
+    transform-origin: center bottom;
+}
+
+@keyframes wind {
+    0% {
+        transform: translate(calc(var(--startX) * 1vw), -50px) rotate(-40deg);
+        background-color: #115e04; /* Dark green */
+    }
+
+    35% {
+        background-color: #4B9500; /* Light green */
+    }
+
+    50% {
+        background-color: #ffd700; /* Yellow */
+    }
+
+    80% {
+        background-color: #8b4513; /* Brown */
+    }
+
+    100% {
+        transform: translate(calc(var(--endX) * 1vw), 100vh) rotate(80deg);
+    }
+}
+
+.world-container {
+    height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full viewport width */
+    overflow: hidden; /* Hides anything outside this container */
+    position: relative;
+}
+
+    .world-container .list .item {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        inset: 0 0 0 0;
+    }
+
+        .world-container .list .item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .world-container .list .item .content {
+            position: absolute;
+            top: 20%;
+            width: 1140px;
+            max-width: 80%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding-right: 30%;
+            box-sizing: border-box;
+            color: #fff;
+            text-shadow: 0 5px 10px #0004;
+        }
+
+        .world-container .list .item .author {
+            font-weight: bold;
+            letter-spacing: 10px;
+        }
+
+            .world-container .list .item .author#author-1 {
+                text-shadow: 5px 5px 5px rgba(0,0,0,1);
+            }
+
+            .world-container .list .item .author#author-2 {
+                text-shadow: 5px 5px 5px rgba(0,0,0,1);
+            }
+
+            .world-container .list .item .author#author-3 {
+                text-shadow: 5px 5px 5px rgba(0,0,0,1);
+            }
+
+        .world-container .list .item .title,
+        .world-container .list .item .topic {
+            font-size: 5em;
+            font-weight: bold;
+            line-height: 1.3em;
+        }
+
+        .world-container .list .item .topic {
+            color: #f1683a;
+            text-shadow: 5px 5px 5px rgba(0,0,0,1);
+        }
+
+        .world-container .list .item #topic-2 {
+            color: #99ccff;
+            text-shadow: 5px 5px 5px rgba(0,0,0,1);
+        }
+
+        .world-container .list .item #topic-3 {
+            color: #96a88d;
+            text-shadow: 5px 5px 5px rgba(0,0,0,1);
+        }
+
+        .world-container .list .item .buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 130px);
+            grid-template-rows: 40px;
+            gap: 5px;
+            margin-top: 20px;
+        }
+
+            .world-container .list .item .buttons button {
+                border: none;
+                background-color: #eee;
+                letter-spacing: 3px;
+                font-family: Poppins;
+                font-weight: 500;
+            }
+
+                .world-container .list .item .buttons button#openDiv1:hover {
+                    background-color: #d5542c;
+                }
+
+                .world-container .list .item .buttons button#openDiv2:hover {
+                    background-color: #99ccff;
+                }
+
+                .world-container .list .item .buttons button#openDiv3:hover {
+                    background-color: #96a88d;
+                }
+
+                .world-container .list .item .buttons button:nth-child(2) {
+                    background-color: transparent;
+                    border: 1px solid #fff;
+                    color: #eee;
+                }
+/* thumbail */
+.thumbnail {
+    position: absolute;
+    bottom: 50px;
+    left: 60%;
+    width: max-content;
+    z-index: 100;
+    display: flex;
+    gap: 20px;
+}
+
+    .thumbnail .item {
+        width: 350px;
+        height: 200px;
+        flex-shrink: 0;
+        position: relative;
+    }
+
+        .thumbnail .item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .thumbnail .item .content {
+            color: #fff;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+        }
+
+            .thumbnail .item .content .title {
+                font-weight: 500;
+            }
+
+            .thumbnail .item .content .description {
+                font-weight: 300;
+            }
+/* arrows */
+.arrows {
+    position: absolute;
+    top: 80%;
+    right: 52%;
+    z-index: 100;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+    .arrows button {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: white;
+        border: none;
+        color: black;
+        font-family: monospace;
+        font-weight: bold;
+        transition: .5s;
+    }
+
+        .arrows button:hover {
+            background-color: #2c3032;
+            color: white;
+        }
+
+/* animation */
+.world-container .list .item:nth-child(1) {
+    z-index: 1;
+}
+
+    /* animation text in first item */
+
+    .world-container .list .item:nth-child(1) .content .author,
+    .world-container .list .item:nth-child(1) .content .title,
+    .world-container .list .item:nth-child(1) .content .topic,
+    .world-container .list .item:nth-child(1) .content .des,
+    .world-container .list .item:nth-child(1) .content .buttons {
+        transform: translateY(50px);
+        filter: blur(20px);
+        opacity: 0;
+        animation: showContent .5s 1s linear 1 forwards;
+    }
+
+@keyframes showContent {
+    to {
+        transform: translateY(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+
+.world-container .list .item:nth-child(1) .content .title {
+    animation-delay: 1.2s !important;
+}
+
+.world-container .list .item:nth-child(1) .content .topic {
+    animation-delay: 1.4s !important;
+}
+
+.world-container .list .item:nth-child(1) .content .des {
+    animation-delay: 1.6s !important;
+}
+
+.world-container .list .item:nth-child(1) .content .buttons {
+    animation-delay: 1.8s !important;
+}
+/* create animation when next click */
+.world-container.next .list .item:nth-child(1) img {
+    width: 350px;
+    height: 200px;
+    position: absolute;
+    bottom: 50px;
+    left: 60%;
+    border-radius: 30px;
+    animation: showImage .5s linear 1 forwards;
+}
+
+@keyframes showImage {
+    to {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
+
+.world-container.next .thumbnail .item:nth-last-child(1) {
+    overflow: hidden;
+    animation: showThumbnail .5s linear 1 forwards;
+}
+
+.world-container.prev .list .item img {
+    z-index: 100;
+}
+
+@keyframes showThumbnail {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+}
+
+.world-container.next .thumbnail {
+    animation: effectNext .5s linear 1 forwards;
+}
+
+@keyframes effectNext {
+    from {
+        transform: translateX(150px);
+    }
+}
+
+/* prev click */
+
+.world-container.prev .list .item:nth-child(2) {
+    z-index: 2;
+}
+
+    .world-container.prev .list .item:nth-child(2) img {
+        animation: outFrame 0.5s linear 1 forwards;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+@keyframes outFrame {
+    to {
+        width: 350px;
+        height: 200px;
+        bottom: 50px;
+        left: 60%;
+        border-radius: 20px;
+    }
+}
+
+.world-container.prev .thumbnail .item:nth-child(1) {
+    overflow: hidden;
+    opacity: 0;
+    animation: showThumbnail .5s linear 1 forwards;
+}
+
+.world-container.next .arrows button,
+.world-container.prev .arrows button {
+    pointer-events: none;
+}
+
+.world-container.prev .list .item:nth-child(2) .content .author,
+.world-container.prev .list .item:nth-child(2) .content .title,
+.world-container.prev .list .item:nth-child(2) .content .topic,
+.world-container.prev .list .item:nth-child(2) .content .des,
+.world-container.prev .list .item:nth-child(2) .content .buttons {
+    animation: contentOut 1.5s linear 1 forwards !important;
+}
+
+@keyframes contentOut {
+    to {
+        transform: translateY(-150px);
+        filter: blur(20px);
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 678px) {
+    .world-container .list .item .content {
+        padding-right: 0;
+    }
+
+        .world-container .list .item .content .title {
+            font-size: 30px;
+        }
+}
+
+a {
+    font-size: 15px;
+    text-decoration: none; /* Removes underline from links */
+    background: white; /* Adds a semi-transparent background for better readability */
+    text-align: center;
+    padding: 10px 10px;
+    color: black; /* Sets text color to white */
+}
+
+    a:hover {
+        background-color: gray; /* Darkens the background on hover for visual feedback */
+    }
+
+.profile {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    z-index: 1000;
+    justify-content: flex-start;
+    vertical-align: top;
+    align-items: center;
+    padding: 5px 10px; /* Adjust padding to accommodate strip image */
+    background-color: rgba(192, 192, 192, 0.5); /* Semi-transparent silver background */
+    backdrop-filter: blur(5px); /* Apply a blur effect */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    background-position: top left; /* Position strip image at top left */
+    border-radius: 10px;
+    background-size: contain; /* Resize image to fit container (adjust as needed) */
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile span {
+    display: block; /* Makes the text block level to enforce a new line */
+    font-size: 16px; /* Example font size, adjust as needed */
+}
+
+.profile.studID {
+    font-size: 12px; /* Smaller font size for StudentID */
+    color: #666; /* Dim color for less emphasis, adjust as needed */
+}
+
+.profile img {
+    width: 30px; /* Adjust initial image width as needed */
+    height: 30px; /* Adjust initial image height as needed */
+    margin-right: 5px; /* Add space between image and username text */
+    border-radius: 50%; /* Create circular profile picture */
+    cursor: pointer; /* Set cursor to pointer on hover */
+    transition: width 0.5s ease-in-out, height 0.5s ease-in-out; /* Transition for image size change */
+}
+
+    .profile img:hover,
+    .profile img.active {
+        width: 70px; /* Adjust expanded image width as needed */
+        height: 70px; /* Adjust expanded image height as needed */
+    }
+
+#detailsModal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    display: flex;
+    background: rgba(255, 255, 255, 0.3); /* semi-transparent gray background */
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    height: 80vh;
+    backdrop-filter: blur(10px); /* blur effect */
+}
+
+.left-section {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    background: rgba(255, 255, 255, 0.7); /* Background for the left section */
+    padding: 20px;
+    border-radius: 5px;
+    justify-content: flex-start;
+}
+
+.student-details {
+    margin-bottom: 20px; /* Gap between student details and activities */
+    color: black;
+}
+
+.activities {
+    flex: 1; /* Allow activities section to take up remaining space */
+    margin-bottom: 20px; /* Gap between activities and buttons */
+}
+
+.buttons1 {
+    display: flex;
+    justify-content: space-between; /* Align buttons horizontally with space between them */
+    align-items: flex-end; /* Align buttons at the bottom of the container */
+}
+
+.Logout, .close, .save {
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 30%; /* Allow buttons to adjust width based on content */
+    padding: 10px; /* Add padding for better spacing */
+    margin-right: 10px; /* Adjust margin between buttons */
+}
+
+    .Logout:hover, .close:hover, .save:hover {
+        background-color: #0056b3;
+        transform: scale(0.95);
+    }
+
+.right-section {
+    width: 70%;
+    background: rgba(255, 255, 255, 0.7); /* slightly more transparent */
+    padding: 20px;
+    border-radius: 5px;
+    margin-left: 20px; /* Gap between left and right sections */
+    overflow: scroll;
+}
+
+
+.box {
+    color: black;
+    margin-bottom: 10px; /* Gap between boxes */
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.7); /* Background for each box */
+    border-radius: 5px;
+}
+
+    .box h2 {
+        margin-top: auto; /* Remove default margin */
+    }
+
+    .box p {
+        margin-bottom: auto; /* Bottom margin for paragraphs */
+    }
+
+
+
+/* Image and content transition for sliding */
+.item img {
+    width: 100%; /* Ensure image covers the area needed */
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+
+.b-slide1, .b-slide2, .b-slide3 {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 30%;
+    height: 100%;
+    background-color: rgba(128, 128, 128, 0.5);
+    transition: right 0.5s ease;
+    z-index: 1002; /* Above the content */
+}
+
+    .b-slide1.dark, .b-slide2.dark, .b-slide3.dark {
+        filter: brightness(50%);
+        transform: translateX(-20%);
+        transition: transform 0.5s ease, filter 0.5s ease;
+    }
+
+.slide1, .slide2, .slide3 {
+    margin: 20px;
+    width: 370px;
+    height: 600px;
+    background-color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+}
+
+.Bslide1-button, .Bslide2-button, .Bslide3-button {
+    font-family: Poppins;
+    font-size: 15px;
+    color: black;
+    position: absolute; /* Position absolutely relative to their parent */
+    bottom: 50px; /* Distance from the bottom of their parent */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    width: 170px;
+    height: 22px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+    .Bslide1-button:hover, .Bslide2-button:hover, .Bslide3-button:hover {
+        background-color: #0056b3;
+        transform: translateX(-50%) scale(0.95);
+        color: white;
+    }
+
+
+.slide1.h1, .slide1.h2, .slide2.h1, .slide2.h2, .slide3.h1, .slide3.h2 {
+    margin-top: 50px;
+}
+
+
+.coins-container {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 10;
+}
+
+.coin {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.coin-image {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+}
+
+.coin-count {
+    font-family: Poppins;
+    min-width: 100px; /* Set a minimum width */
+    height: 40px; /* Set a fixed height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.5); /* Background color for the count box */
+    border: 1px solid #ccc; /* Border for the count box */
+    border-radius: 10px; /* Rounded corners for the count box */
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    flex: 1; /* Allow the container to grow flexibly */
+}
+
+#heroShop {
+    position: absolute;
+    top: 10px;
+    right: 27%; /* Adjust the distance from the right as needed */
+    width: 50px; /* Increase the size to accommodate the circle */
+    height: 50px; /* Make the height equal to the width */
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: 0.5px solid white;
+    border-radius: 50%; /* Make the div circular */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    overflow: visible; /* Allow image to overflow the button */
+    z-index: 1; /* Ensure the button is above other elements */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heroShop-image {
+    position: absolute;
+    bottom: -78%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the image */
+    width: 130%; /* Make the image larger than the button */
+    height: auto; /* Maintain aspect ratio */
+    z-index: -1; /* Ensure the image is below the button text */
+}
+
+#heroShop:hover {
+    background-color: rgba(255, 255, 0, 0.5); /* Adjust transparency and color to achieve glowing yellow effect */
+    transform: scale(0.9); /* Slightly scale down the button */
+    box-shadow: 0 0 15px 5px yellow; /* Glowing yellow shadow */
+}
+
+#skinShop {
+    position: absolute;
+    top: 10px;
+    right: 32%; /* Adjust the distance from the right as needed */
+    width: 50px; /* Increase the size to accommodate the circle */
+    height: 50px; /* Make the height equal to the width */
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: 0.5px solid white;
+    border-radius: 50%; /* Make the div circular */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    overflow: visible; /* Allow image to overflow the button */
+    z-index: 1; /* Ensure the button is above other elements */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skinShop-image {
+    position: absolute;
+    bottom: -58%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the image */
+    width: 110%; /* Make the image larger than the button */
+    height: auto; /* Maintain aspect ratio */
+    z-index: -1; /* Ensure the image is below the button text */
+}
+
+#skinShop:hover {
+    background-color: rgba(255, 255, 0, 0.5); /* Adjust transparency and color to achieve glowing yellow effect */
+    transform: scale(0.9); /* Slightly scale down the button */
+    box-shadow: 0 0 15px 5px yellow; /* Glowing yellow shadow */
+}
+
+#freeCoins {
+    position: absolute;
+    top: 10px;
+    right: 37%; /* Adjust the distance from the right as needed */
+    width: 50px; /* Increase the size to accommodate the circle */
+    height: 50px; /* Make the height equal to the width */
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: 0.5px solid white;
+    border-radius: 50%; /* Make the div circular */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    overflow: visible; /* Allow image to overflow the button */
+    z-index: 1; /* Ensure the button is above other elements */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.freeCoins-image {
+    position: absolute;
+    bottom: -75%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the image */
+    width: 130%; /* Make the image larger than the button */
+    height: auto; /* Maintain aspect ratio */
+    z-index: -1; /* Ensure the image is below the button text */
+}
+
+#freeCoins:hover {
+    background-color: rgba(255, 255, 0, 0.5); /* Adjust transparency and color to achieve glowing yellow effect */
+    transform: scale(0.9); /* Slightly scale down the button */
+    box-shadow: 0 0 15px 5px yellow; /* Glowing yellow shadow */
+}
+
+.hover-text {
+    font-family: Poppins;
+    visibility: hidden;
+    position: absolute;
+    bottom: -40px;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+    white-space: nowrap;
+    font-size: 15px;
+    z-index: 2;
+}
+
+#practice {
+    position: absolute;
+    top: 10px;
+    right: 42%; /* Adjust the distance from the right as needed */
+    width: 50px; /* Increase the size to accommodate the circle */
+    height: 50px; /* Make the height equal to the width */
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: 0.5px solid white;
+    border-radius: 50%; /* Make the div circular */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    overflow: visible; /* Allow image to overflow the button */
+    z-index: 1; /* Ensure the button is above other elements */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.practice-image {
+    position: absolute;
+    bottom: -75%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the image */
+    width: 130%; /* Make the image larger than the button */
+    height: auto; /* Maintain aspect ratio */
+    z-index: -1; /* Ensure the image is below the button text */
+}
+
+#practice:hover {
+    background-color: rgba(255, 255, 0, 0.5); /* Adjust transparency and color to achieve glowing yellow effect */
+    transform: scale(0.9); /* Slightly scale down the button */
+    box-shadow: 0 0 15px 5px yellow; /* Glowing yellow shadow */
+}
+
+.hover-text {
+    font-family: Poppins;
+    visibility: hidden;
+    position: absolute;
+    bottom: -40px;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+    white-space: nowrap;
+    font-size: 15px;
+    z-index: 2;
+}
+
+#heroShop:hover .hover-text,
+#skinShop:hover .hover-text,
+#practice:hover .hover-text,
+#freeCoins:hover .hover-text {
+    visibility: visible;
+}
+
+
+.box {
+    background-color: #ecf0f1;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.box-details, .box-floors {
+    width: 100%;
+}
+
+.box-details {
+    margin-bottom: 20px;
+}
+
+    .box-details p {
+        margin: 5px 0;
+    }
+
+.box-floors {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+    .box-floors div {
+        padding: 10px;
+        background-color: #bdc3c7;
+        border-radius: 3px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+.floor-number {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+@media (min-width: 768px) {
+    .modal-content {
+        flex-direction: row; /* Align left and right sections side by side */
+        justify-content: space-between; /* Space between left and right sections */
+        gap: 10px;
+    }
+
+    .left-section {
+        width: 50%; /* Adjust width for medium devices */
+        margin-bottom: 0; /* Remove bottom margin */
+    }
+
+    .right-section {
+        width: 50%; /* Adjust width for medium devices */
+        margin-top: 0; /* Remove top margin */
+    }
+
+
+    .profile {
+        flex-direction: column; /* Stack profile elements vertically */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+        .profile img {
+            width: 25px; /* Smaller profile image */
+            height: 25px; /* Adjust height accordingly */
+            margin-bottom: 5px; /* Space between image and username text */
+        }
+
+
+    .buttons1 {
+        flex-direction: row; /* Stack buttons vertically */
+        align-items: stretch; /* Allow buttons to stretch full width */
+        gap: 10px;
+    }
+
+    .Logout, .close, .save {
+        width: 100%; /* Full width buttons */
+        margin: 0 0 15px 0; /* Space between buttons */
+    }
+
+    .coins-container {
+        flex-direction: column; /* Stack coin elements vertically */
+        align-items: flex-end; /* Align items to the end */
+    }
+
+    .coin-image {
+        width: 35px; /* Smaller coin image */
+        height: 35px; /* Adjust height accordingly */
+    }
+
+    .coin-count {
+        min-width: 80px; /* Reduce min-width */
+        height: 35px; /* Reduce height */
+        font-size: 14px; /* Smaller font size */
+    }
+
+    #heroShop, #skinShop, #freeCoins, #practice {
+        width: 45px; /* Reduce the size */
+        height: 45px; /* Adjust height accordingly */
+    }
+
+    #heroShop {
+        left: 20%;
+    }
+
+    #skinShop {
+        left: 35%;
+    }
+
+    #freeCoins {
+        left: 50%;
+    }
+
+    #practice {
+        left: 65%;
+    }
+
+    .b-slide1, .b-slide2, .b-slide3 {
+        width: 40%; /* Adjust width */
+        right: -60%; /* Adjust right position */
+        padding-left: 5px;
+    }
+
+    .slide1, .slide2, .slide3 {
+        width: 90%; /* Adjust width */
+        height: 100vh; /* Auto height */
+    }
+
+    .Bslide1-button, .Bslide2-button, .Bslide3-button {
+        width: 150px; /* Adjust button width */
+        height: 22px; /* Adjust button height */
+    }
+
+    .box h2 {
+        margin-top: auto; /* Remove default margin */
+    }
+}
+
+
+@media (max-width: 768px) {
+    .profile {
+        flex-direction: column; /* Stack profile elements vertically */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+        .profile img {
+            width: 20px; /* Smaller profile image */
+            height: 20px; /* Adjust height accordingly */
+            margin-bottom: 5px; /* Space between image and username text */
+        }
+
+    .modal-content {
+        flex-direction: row; /* Align left and right sections side by side */
+        justify-content: space-between; /* Space between left and right sections */
+        gap: 10px;
+    }
+
+    .left-section, .right-section {
+        width: 100%; /* Full width for each section */
+        margin: 0 0 10px 0; /* Space between sections */
+        padding: 10px; /* Reduce padding */
+    }
+
+    .buttons1 {
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: stretch; /* Allow buttons to stretch full width */
+    }
+
+    .Logout, .close, .save {
+        width: 100%; /* Full width buttons */
+        margin: 0 0 10px 0; /* Space between buttons */
+    }
+
+    .coins-container {
+        flex-direction: column; /* Stack coin elements vertically */
+        align-items: flex-end; /* Align items to the end */
+    }
+
+    .coin-image {
+        width: 30px; /* Smaller coin image */
+        height: 30px; /* Adjust height accordingly */
+    }
+
+    .coin-count {
+        min-width: 70px; /* Reduce min-width */
+        height: 30px; /* Reduce height */
+        font-size: 13px; /* Smaller font size */
+    }
+
+    #heroShop, #skinShop, #freeCoins, #practice {
+        width: 40px; /* Reduce the size */
+        height: 40px; /* Adjust height accordingly */
+    }
+
+    #heroShop {
+        left: 15%;
+    }
+
+    #skinShop {
+        left: 30%;
+    }
+
+    #freeCoins {
+        left: 45%;
+    }
+
+    #practice {
+        left: 60%;
+    }
+
+    .b-slide1, .b-slide2, .b-slide3 {
+        width: 40%; /* Adjust width */
+        right: -60%; /* Adjust right position */
+        padding-left: 5px;
+    }
+
+    .slide1, .slide2, .slide3 {
+        width: 90%; /* Adjust width */
+        height: 100vh; /* Auto height */
+        margin: 10px;
+    }
+
+    .Bslide1-button, .Bslide2-button, .Bslide3-button {
+        width: 150px; /* Adjust button width */
+        height: 22px; /* Adjust button height */
+    }
+
+    .box h2 {
+        margin: 0; /* Remove default margin */
+    }
+}
+
+@media (max-width: 560px) {
+    .profile {
+        flex-direction: column; /* Stack profile elements vertically */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+        .profile img {
+            width: 20px; /* Smaller profile image */
+            height: 20px; /* Adjust height accordingly */
+            margin-bottom: 5px; /* Space between image and username text */
+        }
+
+    .modal-content {
+        flex-direction: row; /* Align left and right sections side by side */
+        justify-content: space-between; /* Space between left and right sections */
+        gap: 10px;
+    }
+
+    .left-section, .right-section {
+        width: 100%; /* Full width for each section */
+        margin: 0 0 10px 0; /* Space between sections */
+        padding: 10px; /* Reduce padding */
+    }
+
+    .buttons1 {
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: stretch; /* Allow buttons to stretch full width */
+    }
+
+    .Logout, .close, .save {
+        width: 100%; /* Full width buttons */
+        margin: 0 0 10px 0; /* Space between buttons */
+    }
+
+    .coins-container {
+        flex-direction: column; /* Stack coin elements vertically */
+        align-items: flex-end; /* Align items to the end */
+    }
+
+    .coin-image {
+        width: 30px; /* Smaller coin image */
+        height: 30px; /* Adjust height accordingly */
+    }
+
+    .coin-count {
+        min-width: 70px; /* Reduce min-width */
+        height: 30px; /* Reduce height */
+        font-size: 13px; /* Smaller font size */
+    }
+
+    #heroShop, #skinShop, #freeCoins, #practice {
+        width: 40px; /* Reduce the size */
+        height: 40px; /* Adjust height accordingly */
+    }
+
+    #heroShop {
+        left: 15%;
+    }
+
+    #skinShop {
+        left: 30%;
+    }
+
+    #freeCoins {
+        left: 45%;
+    }
+
+    #practice {
+        left: 60%;
+    }
+
+    .b-slide1, .b-slide2, .b-slide3 {
+        width: 60%; /* Full width on small screens */
+        right: -65%; /* Reset right position */
+    }
+
+    .slide1, .slide2, .slide3 {
+        width: 85%; /* Full width on small screens */
+        height: 95vh; /* Adjust height to fit content */
+        padding-bottom: 5px;
+    }
+
+    .Bslide1-button, .Bslide2-button, .Bslide3-button {
+        width: 150px; /* Adjust button width for small screens */
+        height: 22px; /* Adjust button height for small screens */
+    }
+
+    .box-floors {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 10px;
+    }
+
+    .box h2 {
+        margin: 0; /* Remove default margin */
+    }
+}

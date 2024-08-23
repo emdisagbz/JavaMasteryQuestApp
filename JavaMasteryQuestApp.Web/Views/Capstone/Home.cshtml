@@ -1,0 +1,17 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homepage</title>
+<link rel="stylesheet" href="~/css/custom/HomeStyle.css">
+
+<div class="home">
+        <div class="content">
+            <img src="~/image/Custom/logo.png" alt="Logo" class="logo">
+            <a asp-controller="User" asp-action="studentLogIn" class="studentSignUp-button">Student</a>
+			<a asp-controller="User" asp-action="profLogin" class="profSignUp-button">Faculty</a>
+        </div>
+	</div>	

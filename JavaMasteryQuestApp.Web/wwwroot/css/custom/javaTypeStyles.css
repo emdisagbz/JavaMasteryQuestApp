@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body, html {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Prevents any scrolling which might expose background edges */
+}
+
+.split-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Uses the full height of the viewport */
+}
+
+.left-half, .right-half {
+    position: absolute;
+    top: 0;
+    width: 50%; /* Cover the full width to ensure no gaps */
+    height: 100%;
+    display: flex;
+    align-items: center; /* Centers content vertically within each half */
+    color: white;
+}
+
+.left-half {
+    left: 0;
+	background: url("/image/custom/BNW_left.jpg");
+    background-size: cover;
+    background-position: left center; /* Focus the image to the left */
+    background-repeat: no-repeat; /* Ensures the image does not repeat */
+    justify-content: flex-start; /* Aligns content (links/buttons) to the left */
+    padding-left: 20px; /* Adds padding to keep content from the very edge */
+}
+
+.right-half {
+    right: 0;
+    background: url("/image/custom/BNW_right.jpg");
+    background-size: cover;
+    background-position: right center; /* Focus the image to the right */
+    background-repeat: no-repeat; /* Ensures the image does not repeat */
+    justify-content: flex-end; /* Aligns content (links/buttons) to the right */
+    padding-right: 20px; /* Adds padding to keep content from the very edge */
+}
+
+.left-half a, .right-half a {
+	position: absolute; /* Position the links absolutely */
+    transform: translateX(-50%); /* Center horizontally */
+    align-self: center; /* Align buttons to the center vertically */
+    margin: auto; /* Center horizontally */
+}
+
+.left-half a {
+    position: absolute;
+    bottom: 10%;
+    left: 47%; /* Adjust the distance from the left */
+}
+
+.right-half a {
+    position: absolute;
+    bottom: 10%;
+    right: 13px; /* Adjust the distance from the right */
+}
+
+
+a {
+	font: Poppins;
+    font-size: 20px;
+    text-decoration: none; /* Removes underline from links */
+    background: rgba(0, 0, 0, 0.5); /* Adds a semi-transparent background for better readability */
+    padding: 10px 15px;
+    border-radius: 15px; /* Adds rounded corners for aesthetics */
+    color: white; /* Sets text color to white */
+}
+
+a:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Darkens the background on hover for visual feedback */
+}
+#backButton {
+    font-family: Poppins;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    width: 250px; /* Set explicit width */
+    padding: 15px; /* Adjust padding to fit within the width */
+    font-size: 20px;
+    color: white;
+    background: linear-gradient(to right, #007bff 0%, #007bff 0%, rgba(0, 123, 255, 0) 75%);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+    #backButton::before {
+        content: "";
+        background-image: url('back.png'); /* Replace 'your-image-url.jpg' with the URL of your image */
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        top: 50%;
+        left: 20px; /* Adjust the left position as needed */
+        width: 31px; /* Adjust the width of the image */
+        height: 21px; /* Adjust the height of the image */
+        transform: translateY(-50%);
+    }
+
+    #backButton:hover {
+        background-color: #0056b3;
+        background: linear-gradient(to right, #007bff 0%, #007bff 50%, rgba(0, 123, 255, 0) 75%);
+        transform: scale(0.95);
+        }
