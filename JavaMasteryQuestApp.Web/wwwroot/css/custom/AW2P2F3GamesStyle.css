@@ -1,0 +1,1101 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Poppins, sans-serif;
+}
+
+body {
+    background-image: url("AIceCastle.jpg");
+	background-size: cover;
+	background-position: center;
+    background-repeat: no-repeat;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.land {
+    width: 100%;
+    height: 810px; /* Height of one frame */
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    background-image: url("AW2.png"); /* Path to your sprite sheet */
+    background-repeat: no-repeat;
+    background-size: 100% 18630px; /* Fit the entire sprite sheet vertically */
+    background-position: 0 0; /* Show the first frame */
+    overflow: hidden;
+}
+
+/* Animation to scroll through frames */
+@keyframes animate {
+    from { background-position: 0 0; }
+    to { background-position: 0 -18630px; } /* Scroll through the full height of the sprite sheet */
+}
+
+.animate {
+    animation: animate 1.5s steps(23); /* Smooth animation */
+}
+
+.warning-screen {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    background-color: rgba(0, 128, 128, 0.8);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 0 70px rgba(0, 255, 255, 0.5);
+    animation: slideIn 1s forwards, blink 1s step-start infinite;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.warning-screen h2,
+.warning-screen h3 {
+    margin: 10px 0;
+}
+
+.glitters {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.glitter {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0;
+    animation: sparkle 1s infinite;
+}
+
+@keyframes slideIn {
+    0% { top: 100%; opacity: 0; }
+    100% { top: 50%; opacity: 1; }
+}
+
+@keyframes blink {
+    50% { box-shadow: 0 0 70px rgba(0, 255, 255, 1); }
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; transform: scale(1.5); }
+}
+
+/* Sprite animations */
+@keyframes animateWalk1 {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 -13786px; }
+}
+
+/* Add similar keyframes for other animations as needed */
+
+.IceQueen-walk {
+    width: 1244px;
+    height: 245px;
+    position: absolute;
+    transform: translateX(-100%);
+    left: 100%;
+    top: 53%;
+    background-image: url("AW2BossWalk.png"); /* Replace with path to your sprite sheet */
+    background-repeat: no-repeat;
+	visibility: hidden; 
+	opacity: 0;
+}
+
+.animateWalk1 {
+    animation: animateWalk1 2.5s steps(80); /* Adjust animation speed as needed */
+}
+
+@keyframes animateWalk1 {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 -20160px; } /* Adjusted Y-axis movement */
+}
+
+.IceQueen-idle {
+    width: 200px; /* Adjusted width for the container */
+    height: 315px; /* Adjusted height for the container */
+    position: absolute;
+    transform: translateX(-100%);
+	top: 41%;
+    left: 70%;
+    background-image: url("AW2BossIdle.png"); /* Replace with path to your sprite sheet */
+    background-repeat: no-repeat;
+    background-size: 200px 10000px; /* Adjust background size */
+	visibility: hidden; 
+	opacity: 0;
+}
+
+.animateIdle1 {
+    animation: animateIdle1 1s steps(30) 5 alternate; /* Adjust animation speed as needed */
+}
+
+@keyframes animateIdle1 {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 -10000px; } /* Adjust based on new height */
+}
+
+
+
+.IceQueen-attack {
+    width: 894px; /* Adjusted width for the container */
+	height: 312px; /* Adjusted height for the container */
+	position: absolute;
+	transform: translateX(-100%) scaleX(-1);
+	top: 45%;
+    left: 82%;
+	background-image: url("AW2BossAttack.png"); /* Replace with path to your sprite sheet */
+    background-repeat: no-repeat;
+    background-size: 894px 21528px; /* Adjust background size */
+	visibility: hidden; 
+	opacity: 0;
+}
+
+.animateAttack1 {
+    animation: animateAttack1 2s steps(69) infinite; /* Adjust animation speed as needed */
+}
+
+@keyframes animateAttack1 {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 -21528px; } /* Adjust based on new height */
+}
+
+
+
+/* Buttons */
+#startButton,
+#backButton,
+#goButton,
+#submitAnswer,
+#hintButton {
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#startButton {
+    background-color: #007bff;
+    color: white;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#startButton:hover {
+    background-color: #0056b3;
+    transform: translateX(-50%) scale(0.95);
+}
+
+#submitAnswer {
+    background-color: #007bff;
+    color: white;
+    position: absolute;
+	margin-bottom: 10px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#submitAnswer:hover {
+    background-color: #0056b3;
+    transform: translateX(-50%) scale(0.95);
+}
+
+#hintButton {
+    background-color: #007bff;
+    color: white;
+	border-radius: 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 20px; /* Change from left: 50% to right: 20px */
+    transform: translateX(0); /* Remove the translateX(-50%) to center it */
+}
+
+#hintButton:hover {
+    background-color: #0056b3;
+    transform: scale(0.95); /* Update transform to scale only */
+}
+
+#backButton {
+    background: linear-gradient(to right, #007bff 0%, #007bff 50%, rgba(0, 123, 255, 0) 75%);
+    color: white;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    width: 200px;
+}
+
+#backButton::before {
+    content: "";
+    background-image: url('back.png');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    width: 31px;
+    height: 21px;
+    transform: translateY(-50%);
+}
+
+#backButton:hover {
+    background: linear-gradient(to right, #007bff 0%, #007bff 50%, rgba(0, 123, 255, 0) 75%);
+	transform: scale(0.95);
+}
+
+#goButton {
+    background-color: #007bff;
+    color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#goButton:hover {
+    background-color: #007bff#0056b3;
+    transform: translateX(-50%) scale(0.95);
+}
+
+/* Interactive elements */
+#bookModule {
+    width: 60px;
+    height: 60px;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+.book-image {
+    width: 130%;
+    height: auto;
+}
+
+#bookModule:hover {
+    background-color: rgba(255, 255, 0, 0.5);
+    transform: scale(0.9);
+    box-shadow: 0 0 15px 5px yellow;
+}
+
+#slidingDiv {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 600px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s ease-in-out;
+	z-index: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+.coins-container {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.coin {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.coin-image {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+}
+
+.coin-count, .point-box {
+    font-family: Poppins;
+    min-width: 100px; /* Set a minimum width */
+    height: 40px; /* Set a fixed height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.5); /* Background color for the count box */
+    border: 1px solid #ccc; /* Border for the count box */
+    border-radius: 10px; /* Rounded corners for the count box */
+    font-size: 15px;
+	color: white;
+    font-weight: bold;
+    flex: 1; /* Allow the container to grow flexibly */
+}
+
+#heartsContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+	position: absolute;
+    bottom: 10px;
+    left: 20px; /* Change from left: 50% to right: 20px */
+    transform: translateX(0);
+
+}
+
+#gameContainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+}
+
+#questionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+#question,
+#choices,
+#answer {
+    margin-bottom: 10px;
+}
+
+#answer, #answerTextarea {
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 70%; /* Make it full width */
+    max-width: 600px; /* Set a maximum width */
+    margin-bottom: 50px; /* Add margin for spacing */
+    font-size: 18px; /* Adjust font size */
+    line-height: 1.5; /* Adjust line height for readability */
+}
+
+@keyframes slimeWalk0 {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 -1260px; }
+}
+
+@keyframes slimeWalk1 {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 -1260px; }
+}
+
+@keyframes slimeWalk2 {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 -1260px; }
+}
+
+@keyframes slimeWalk3 {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 -1260px; }
+}
+
+@keyframes slimeWalk4 {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 -1260px; }
+}
+
+@keyframes slimeWalk5 {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 -1260px; }
+}
+
+@keyframes slimeWalk6 {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 -1260px; }
+}
+
+@keyframes slimeWalk7 {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 -1260px; }
+}
+
+@keyframes slimeWalk8 {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 -1260px; }
+}
+
+@keyframes slimeWalk9 {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 -1260px; }
+}
+
+@keyframes slimeWalk10 {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 -1260px; }
+}
+
+@keyframes slimeWalk11 {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 -1260px; }
+}
+
+@keyframes slimeWalk12 {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 -1260px; }
+}
+
+@keyframes slimeWalk13 {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 -1260px; }
+}
+
+/* Keyframes for the horizontal movement animation */
+@keyframes walkToCenter0 {
+    0% { left: 80%; }
+    100% { left: 50%; }
+}
+
+@keyframes walkToCenter1 {
+    0% { left: 80%; }
+    100% { left: 50%; }
+}
+
+@keyframes walkToCenter2 {
+    0% { left: 80%; }
+    100% { left: 50%; }
+}
+
+@keyframes walkToCenter3 {
+    0% { left: 80%; }
+    100% { left: 50%; }
+}
+
+@keyframes walkToCenter4 {
+    0% { left: 80%; }
+    100% { left: 50%; }
+}
+
+@keyframes walkToCenter5 {
+    0% { left: 80%; }
+    100% { left: 50%; }
+}
+
+@keyframes walkToCenter6 {
+    0% { left: 80%; }
+    100% { left: 50%; }
+}
+
+@keyframes walkToCenter7 {
+    0% { left: 80%; }
+    100% { left: 50%; }
+}
+
+@keyframes walkToCenter8 {
+    0% { left: 80%; }
+    100% { left: 50%; }
+}
+
+@keyframes walkToCenter9 {
+    0% { left: 80%; }
+    100% { left: 50%; }
+}
+
+@keyframes walkToCenter10 {
+    0% { left: 80%; }
+    100% { left: 50%; }
+}
+
+@keyframes walkToCenter11 {
+    0% { left: 80%; }
+    100% { left: 50%; }
+}
+
+@keyframes walkToCenter12 {
+    0% { left: 80%; }
+    100% { left: 50%; }
+}
+
+@keyframes walkToCenter13 {
+    0% { left: 80%; }
+    100% { left: 50%; }
+}
+
+.Slime-walk0,
+.Slime-walk1,
+.Slime-walk2,
+.Slime-walk3,
+.Slime-walk4,
+.Slime-walk5,
+.Slime-walk6,
+.Slime-walk7,
+.Slime-walk8,
+.Slime-walk9,
+.Slime-walk10,
+.Slime-walk11,
+.Slime-walk12,
+.Slime-walk13 {
+    width: 150px;
+    height: 100px;
+    position: absolute;
+    transform: translateX(100%) scaleX(-1);
+    left: 60%;
+    top: 80%;
+    background-image: url("Slime.png");
+    background-repeat: no-repeat;
+    background-size: 150px 1260px;
+    filter: hue-rotate(30deg) saturate(1);
+    visibility: hidden;
+    opacity: 0;
+	overflow: hidden;
+}
+
+.animateSlimeWalk0 {
+    visibility: visible;
+    opacity: 1;
+    animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter0 5s linear forwards;
+}
+
+.animateSlimeWalk1 {
+    visibility: visible;
+    opacity: 1;
+    animation: slimeWalk1 0.7s steps(12) infinite, walkToCenter1 5s linear forwards;
+}
+
+.animateSlimeWalk2 {
+    visibility: visible;
+    opacity: 1;
+    animation: slimeWalk2 0.7s steps(12) infinite, walkToCenter2 5s linear forwards;
+}
+
+.animateSlimeWalk3 {
+    visibility: visible;
+    opacity: 1;
+    animation: slimeWalk3 0.7s steps(12) infinite, walkToCenter3 5s linear forwards;
+}
+
+.animateSlimeWalk4 {
+    visibility: visible;
+    opacity: 1;
+    animation: slimeWalk4 0.7s steps(12) infinite, walkToCenter4 5s linear forwards;
+}
+
+.animateSlimeWalk5 {
+    visibility: visible;
+    opacity: 1;
+    animation: slimeWalk5 0.7s steps(12) infinite, walkToCenter5 5s linear forwards;
+}
+
+.animateSlimeWalk6 {
+    visibility: visible;
+    opacity: 1;
+    animation: slimeWalk6 0.7s steps(12) infinite, walkToCenter6 5s linear forwards;
+}
+
+.animateSlimeWalk7 {
+    visibility: visible;
+    opacity: 1;
+    animation: slimeWalk7 0.7s steps(12) infinite, walkToCenter7 5s linear forwards;
+}
+
+.animateSlimeWalk8 {
+    visibility: visible;
+    opacity: 1;
+    animation: slimeWalk8 0.7s steps(12) infinite, walkToCenter8 5s linear forwards;
+}
+
+.animateSlimeWalk9 {
+    visibility: visible;
+    opacity: 1;
+    animation: slimeWalk9 0.7s steps(12) infinite, walkToCenter9 5s linear forwards;
+}
+
+.animateSlimeWalk10 {
+    visibility: visible;
+    opacity: 1;
+    animation: slimeWalk10 0.7s steps(12) infinite, walkToCenter10 5s linear forwards;
+}
+
+.animateSlimeWalk11 {
+    visibility: visible;
+    opacity: 1;
+    animation: slimeWalk11 0.7s steps(12) infinite, walkToCenter11 5s linear forwards;
+}
+
+.animateSlimeWalk12 {
+    visibility: visible;
+    opacity: 1;
+    animation: slimeWalk12 0.7s steps(12) infinite, walkToCenter12 5s linear forwards;
+}
+
+.animateSlimeWalk13 {
+    visibility: visible;
+    opacity: 1;
+    animation: slimeWalk13 0.7s steps(12) infinite, walkToCenter13 5s linear forwards;
+}
+
+/* Style for the popup container */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0,0,0,0.8);
+    border-raidus: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* Hidden class to hide elements by default */
+.hidden {
+    display: none;
+}
+
+/* Style for popup buttons */
+.popup button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Hover effect for buttons */
+.popup button:hover {
+    background-color: #0056b3;
+}
+
+/* Style for popup text */
+.popup p {
+	font-family: Poppins;
+	color: white;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+
+
+.popup-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    pointer-events: none;
+}
+
+.popup-message {
+	font-family: Poppins;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    animation: fadeOut 4s forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+.hidden {
+    visibility: hidden;
+}
+
+#timerContainer {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#timerCircle {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+#timerText {
+	font-family: Poppins;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+	z-index: 10;
+}
+
+svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg); 
+}
+
+svg circle {
+    fill: white;
+    stroke: #4caf50; 
+    stroke-width: 10;
+    stroke-dasharray: 283; 
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1s linear;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+	body{
+		background-size: cover;
+		background-position: center;
+	}
+	
+    .land {
+        height: 810px; /* Further adjust frame height for very small screens */
+        background-size: 100% 18630px; /* Adjust to fit the sprite sheet */
+    }
+    
+    .Slime-walk0, .Slime-walk1, .Slime-walk2, .Slime-walk3, .Slime-walk4, .Slime-walk5, .Slime-walk6, .Slime-walk7, .Slime-walk8, .Slime-walk9, .Slime-walk10, .Slime-walk11, .Slime-walk12, .Slime-walk13 {
+        width: 150px;
+		height: 100px;
+        top: 73%;
+		left: 29%;
+        background-size: 150px 1260px;/* Adjust for smaller screens */ /* Adjust for very small screens */
+    }
+	
+	.IceQueen-walk {
+        width: 1244px;
+		height: 245px;
+        left: 100%;
+        top: 50%;
+    }
+
+    .IceQueen-idle {
+        width: 200px;
+        height: 315px;
+        top: 35%;
+        left: 75%;
+    }
+
+    .IceQueen-attack {
+        width: 894px; 
+		height: 312px;
+        top: 20%;
+        left: 80%;
+    }
+
+    #startButton, #goButton {
+        padding: 15px 20px;
+        font-size: 16px;
+    }
+
+    #backButton {
+        width: 200px;
+    }
+
+    #bookModule {
+        width: 70px;
+        height: 70px;
+    }
+
+    .book-image {
+        width: 120%;
+    }
+
+    #slidingDiv {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .coin-image {
+        width: 25px;
+        height: 25px;
+    }
+
+    .coin-count, .point-box {
+        min-width: 60px;
+        height: 40px;
+        font-size: 15px;
+    }
+
+    #heartsContainer {
+		top: 90%; /* Adjust top margin for tablets */
+        left: 50px; /* Adjust right margin for tablets */
+        width: 20px;
+        height: 20px;
+    }
+    
+    #hintButton {
+        bottom: 15px;
+        right: 15px;
+        padding: 8px 16px; /* Adjust padding for smaller screens */
+        font-size: 14px; /* Adjust font size */
+    }
+
+    #gameContainer {
+        width: 90%;
+        padding: 15px;
+    }
+	
+	.popup {
+        width: 90%;
+        max-width: 350px;
+    }
+
+    .popup button {
+        width: calc(50% - 15px);
+    }
+}
+
+
+@media (max-width: 480px) {
+	body{
+		background-size: cover;
+		background-position: center;
+	}
+	
+    .land {
+        height: 810px; /* Further adjust frame height for very small screens */
+        background-size: 200% 18630px; /* Adjust to fit the sprite sheet */
+    }
+    
+    .Slime-walk0, .Slime-walk1, .Slime-walk2, .Slime-walk3, .Slime-walk4, .Slime-walk5, .Slime-walk6, .Slime-walk7, .Slime-walk8, .Slime-walk9, .Slime-walk10, .Slime-walk11, .Slime-walk12, .Slime-walk13 {
+        width: 150px;
+		height: 100px;
+        top: 75%;
+		left: 29%;
+        background-size: 150px 1260px;/* Adjust for smaller screens */ /* Adjust for very small screens */
+    }
+
+/* Keyframes for the horizontal movement animation */
+@keyframes walkToCenter0 {
+    0% { left: 40%; }
+    100% { left: 10%; }
+}
+
+@keyframes walkToCenter1 {
+    0% { left: 40%; }
+    100% { left: 20%; }
+}
+
+@keyframes walkToCenter2 {
+    0% { left: 40%; }
+    100% { left: 20%; }
+}
+
+@keyframes walkToCenter3 {
+    0% { left: 40%; }
+    100% { left: 20%; }
+}
+
+@keyframes walkToCenter4 {
+    0% { left: 40%; }
+    100% { left: 20%; }
+}
+
+@keyframes walkToCenter5 {
+    0% { left: 40%; }
+    100% { left: 20%; }
+}
+
+@keyframes walkToCenter6 {
+    0% { left: 40%; }
+    100% { left: 20%; }
+}
+
+@keyframes walkToCenter7 {
+    0% { left: 40%; }
+    100% { left: 20%; }
+}
+
+@keyframes walkToCenter8 {
+    0% { left: 40%; }
+    100% { left: 20%; }
+}
+
+@keyframes walkToCenter9 {
+    0% { left: 40%; }
+    100% { left: 20%; }
+}
+
+@keyframes walkToCenter10 {
+    0% { left: 40%; }
+    100% { left: 20%; }
+}
+
+@keyframes walkToCenter11 {
+    0% { left: 40%; }
+    100% { left: 20%; }
+}
+
+@keyframes walkToCenter12 {
+    0% { left: 40%; }
+    100% { left: 20%; }
+}
+
+@keyframes walkToCenter13 {
+    0% { left: 40%; }
+    100% { left: 20%; }
+}
+
+	.IceQueen-walk {
+        width: 1244px;
+		height: 245px;
+        left: 90%;
+        top: 50%;
+    }
+
+    .IceQueen-idle {
+        width: 200px;
+        height: 315px;
+        top: 35%;
+        left: 70%;
+    }
+
+    .IceQueen-attack {
+        width: 894px;
+        height: 312px;
+        top: 18%;
+        left: 75%;
+    }
+
+    #startButton, #goButton {
+        padding: 15px 20px;
+        font-size: 15px;
+    }
+
+    #backButton {
+        width: 200px;
+    }
+
+    #bookModule {
+        width: 60px;
+        height: 60px;
+    }
+
+    .book-image {
+        width: 120%;
+    }
+
+    #slidingDiv {
+        width: 100%;
+        max-width: 400px;
+		z-index: 10;
+    }
+
+    .coins-container {
+    display: flex;
+    flex-direction: column; /* Aligns all children vertically */
+    align-items: center; /* Centers content horizontally */
+    gap: 10px; /* Adds space between each `.coin` and `.point-box` */
+}
+
+.coin {
+    display: flex;
+    align-items: center; /* Vertically aligns `.coin-image` and `.coin-count` */
+    gap: 5px; /* Adds space between `.coin-image` and `.coin-count` */
+}
+
+.coin-image {
+    width: 40px;
+    height: 40px;
+}
+
+.coin-count {
+    min-width: 70px;
+    height: 30px;
+    font-size: 14px;
+    display: flex;
+    align-items: center; /* Vertically centers text */
+    justify-content: center; /* Horizontally centers text */
+}
+
+.point-box {
+    font-size: 14px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Vertically centers text */
+    min-width: 100px; /* Optional: adjust width to fit content */
+    height: 50px; /* Optional: adjust height to fit content */
+	padding: 5px;
+}
+
+
+    #heartsContainer {
+		top: 90%; /* Adjust top margin for tablets */
+        left: 50px; /* Adjust right margin for tablets */
+        width: 20px;
+        height: 20px;
+    }
+    
+    #hintButton {
+        bottom: 10px;
+        right: 10px;
+        padding: 6px 12px; /* Adjust padding for very small screens */
+        font-size: 12px; /* Adjust font size */
+    }
+
+    #gameContainer {
+        width: 100%;
+        padding: 10px;
+    }
+	
+	.popup {
+        width: 95%;
+        max-width: 300px;
+        padding: 15px;
+    }
+
+    .popup p {
+        font-size: 16px;
+    }
+
+    .popup button {
+        width: calc(50% - 10px);
+        padding: 8px 15px;
+    }
+}

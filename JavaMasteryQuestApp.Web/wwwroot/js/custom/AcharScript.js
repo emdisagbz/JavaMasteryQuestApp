@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     let nextDom = document.getElementById('next');
     let prevDom = document.getElementById('prev');
 
@@ -13,13 +13,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let timeRunning = 3000;
     let runTimeOut;
-    
 
-    nextDom.onclick = function() {
+
+    nextDom.onclick = function () {
         showSlider('next');
     }
 
-    prevDom.onclick = function() {
+    prevDom.onclick = function () {
         showSlider('prev');
     }
 
@@ -41,57 +41,12 @@ document.addEventListener('DOMContentLoaded', function() {
         runTimeOut = setTimeout(() => {
             carouselDom.classList.remove('next');
             carouselDom.classList.remove('prev');
-        }, timeRunning); 
+        }, timeRunning);
     }
 });
 
-//LOGIN FORM
-document.addEventListener('DOMContentLoaded', function() {
-    // Access the modal and the close button
-    var modal = document.getElementById('formModal');
-    var closeBtn = document.querySelector('.close');
-
-    // Function to open modal
-    function openModal(event) {
-        event.preventDefault(); // Prevent the link from directing immediately
-        modal.style.display = 'block';
-    }
-
-    // Close the modal when the close button is clicked
-    closeBtn.onclick = function() {
-        modal.style.display = 'none';
-    }
-
-    // Close the modal on outside click
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = 'none';
-        }
-    }
-
-    // Attach openModal function to each SELECT button
-    document.querySelectorAll('.buttons a').forEach(function(element) {
-        element.onclick = openModal;
-    });
-
-    // Handle form submission
-    document.getElementById('userInfoForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const username = document.getElementById('username').value;
-        const studentID = document.getElementById('studentID').value;
-		const section = document.getElementById('section').value;
-
-        // Save data to localStorage
-        localStorage.setItem('username', username);
-        localStorage.setItem('studentID', studentID);
-		localStorage.setItem('section', section);
-
-        // Close the modal
-        modal.style.display = 'none';
-
-        // Redirect to Lobby.html
-        window.location.href = 'AdvancedLobby.html';
-    });
+backButton.addEventListener("click", function () {
+    window.location.href = "Home.html";
 });
 
 

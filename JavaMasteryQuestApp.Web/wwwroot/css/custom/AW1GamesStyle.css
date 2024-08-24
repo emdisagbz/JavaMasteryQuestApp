@@ -1,60 +1,73 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Poppins, sans-serif;
+}
+
 body {
-	background-image: url("ALavaCastle.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
+    background-image: url("ALavaCastle.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     padding: 0;
     margin: 0;
     overflow: hidden;
 }
 
 .land {
-    width: 1365px;
-    height: 870px;
+    width: 100%;
+    height: 809px; /* Height of one frame */
     position: absolute;
     transform: translate(-50%, -50%);
     left: 50%;
     top: 50%;
-    background-image: url("AW1.png"); /* Replace with path to your sprite sheet */
+    background-image: url("AW1.png"); /* Path to your sprite sheet */
     background-repeat: no-repeat;
+    background-size: 100% 17010px; /* Fit the entire sprite sheet vertically */
+    background-position: 0 0; /* Show the first frame */
+    overflow: hidden;
+}
+
+/* Animation to scroll through frames */
+@keyframes animate {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 -17010px;
+    }
+    /* Scroll through the full height of the sprite sheet */
 }
 
 .animate {
-    animation: animate 1.5s steps(21); /* Adjust animation speed as needed */
-}
-
-@keyframes animate {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 -17010px; } /* Adjusted Y-axis movement */
+    animation: animate 1.5s steps(21); /* Smooth animation */
 }
 
 .warning-screen {
-	font-family: Poppins;
     position: fixed;
     top: 50%;
-    left: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    visibility: hidden;
-    opacity: 0;
-    z-index: 1000;
-    background-color: rgba(255, 99, 71, 0.8); /* Blue-green background with transparency */
+    background-color: rgba(181, 51, 216, 0.8);
     color: white;
     text-align: center;
     padding: 20px;
-    box-shadow: 0 0 70px rgba(255, 99, 71, 0.5); /* Glowing effect */
+    box-shadow: 0 0 70px rgba(136, 25, 181, 0.5);
     animation: slideIn 1s forwards, blink 1s step-start infinite;
-    overflow: hidden; /* Ensure glitters stay within the container */
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
 }
 
-.warning-screen h2,
-.warning-screen h3 {
-    margin: 10px 0;
-}
+    .warning-screen h2,
+    .warning-screen h3 {
+        margin: 10px 0;
+    }
 
 .glitters {
     position: absolute;
@@ -62,7 +75,7 @@ body {
     height: 100%;
     top: 0;
     left: 0;
-    pointer-events: none; /* Prevent interaction with glitters */
+    pointer-events: none;
 }
 
 .glitter {
@@ -77,45 +90,57 @@ body {
 
 @keyframes slideIn {
     0% {
-        left: 100%;
+        top: 100%;
         opacity: 0;
     }
+
     100% {
-        left: 0;
+        top: 50%;
         opacity: 1;
     }
 }
 
 @keyframes blink {
-    50% { box-shadow: 0 0 20px rgba(255, 99, 71, 1); }
+    50% {
+        box-shadow: 0 0 20px rgba(136, 25, 181, 1);
+    }
 }
 
 @keyframes sparkle {
     0%, 100% {
         opacity: 0;
     }
+
     50% {
         opacity: 1;
         transform: scale(1.5);
     }
 }
 
-/* Add glitter elements dynamically */
-@keyframes glitterAnimation {
-    0% { opacity: 0; }
-    50% { opacity: 1; transform: scale(1.5); }
-    100% { opacity: 0; }
+/* Sprite animations */
+@keyframes animateWalk1 {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -13786px;
+    }
 }
+
+/* Add similar keyframes for other animations as needed */
 
 .LavaPrince-walk {
     width: 1244px;
     height: 245px;
     position: absolute;
     transform: translateX(-100%);
-    left: 111%;
+    left: 100%;
     top: 53%;
     background-image: url("AW1BossWalk.png"); /* Replace with path to your sprite sheet */
     background-repeat: no-repeat;
+    visibility: hidden;
+    opacity: 0;
 }
 
 .animateWalk1 {
@@ -123,8 +148,14 @@ body {
 }
 
 @keyframes animateWalk1 {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 -13786px; } /* Adjusted Y-axis movement */
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -13786px;
+    }
+    /* Adjusted Y-axis movement */
 }
 
 .LavaPrince-idle {
@@ -132,297 +163,205 @@ body {
     height: 350px; /* Adjusted height for the container */
     position: absolute;
     transform: translateX(-100%);
-	top: 37%;
+    top: 37%;
     left: 78%;
     background-image: url("AW1BossIdle.png"); /* Replace with path to your sprite sheet */
     background-repeat: no-repeat;
     background-size: 250px 10000px; /* Adjust background size */
-	visibility: hidden; 
-	opacity: 0;
+    visibility: hidden;
+    opacity: 0;
 }
 
 .animateIdle1 {
-    animation: animateIdle1 1s steps(30) 5s alternate; /* Adjust animation speed as needed */
+    animation: animateIdle1 1s steps(30) 5 alternate; /* Adjust animation speed as needed */
 }
 
 @keyframes animateIdle1 {
-    0% { background-position: 0 0; }
-  100% { background-position: 0 -10000px; } /* Adjust based on new height */
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -10000px;
+    }
+    /* Adjust based on new height */
 }
 
 .LavaPrince-attack {
     width: 1274px; /* Adjusted width for the container */
-	height: 580px; /* Adjusted height for the container */
-	position: absolute;
-	transform: translateX(-100%) scaleX(-1);
-	top: 22%;
-	left: 85%;
-	background-image: url("AW1BossAttack.png"); /* Replace with path to your sprite sheet */
-	background-repeat: no-repeat;
-	background-size: 1274px 46400px; /* Adjust background size */
-	visibility: hidden; 
-	opacity: 0;
+    height: 580px; /* Adjusted height for the container */
+    position: absolute;
+    transform: translateX(-100%) scaleX(-1);
+    top: 22%;
+    left: 85%;
+    background-image: url("AW1BossAttack.png"); /* Replace with path to your sprite sheet */
+    background-repeat: no-repeat;
+    background-size: 1274px 46400px; /* Adjust background size */
+    visibility: hidden;
+    opacity: 0;
 }
 
 .animateAttack1 {
-	animation: animateAttack1 2s steps(80) infinite; /* Adjust animation speed as needed */
+    animation: animateAttack1 2s steps(80) infinite; /* Adjust animation speed as needed */
 }
 
 @keyframes animateAttack1 {
-	0% { background-position: 0 0; }
-	100% { background-position: 0 -46400px; } /* Adjust based on new height */
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -46400px;
+    }
+    /* Adjust based on new height */
 }
 
-.Slime-walk0 {
-    width: 150px;
-    height: 100px;
-    position: absolute;
-    transform: translateX(100%) scaleX(-1); /* Start off-screen to the right and flip */
-    top: 71%;
-    left: 100%; /* Start off-screen to the right */
-    background-image: url("Slime.png");
-    background-repeat: no-repeat;
-    background-size: 150px 1260px;
-	filter: hue-rotate(180deg) saturate(3) brightness(1.2) contrast(1.1);
-	/*filter: hue-rotate(30deg); ADVANCED W2*/
-	/*filter: hue-rotate(30deg) saturate(3); ADVANCED W2*/
-	/*filter: hue-rotate(60deg) saturate(3); BASIC W2*/
-	/*filter: hue-rotate(180deg) saturate(3) brightness(1.2) contrast(1.1); ADVANCED W1*/
-    visibility: hidden;
-    opacity: 0;
+/* Buttons */
+#startButton,
+#backButton,
+#goButton,
+#submitAnswer,
+#hintButton {
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
-
-/* Keyframes for the sprite sheet animation */
-@keyframes slimeWalk0 {
-0% { background-position: 0 0; }
-100% { background-position: 0 -1260px; } 
-}
-
-/* Keyframes for the horizontal movement animation */
-@keyframes walkToCenter0 {
-0% { left: 100%; }
-100% { left: 50%; }
-}
-
-.animateSlimeWalk0 {
-  visibility: visible;
-  opacity: 1;
-  animation: slimeWalk0 1s steps(12) infinite, walkToCenter0 5s linear forwards;
-}
-
-.Slime-walk1 {
-    width: 150px;
-    height: 170px;
-    position: absolute;
-    transform: translateX(100%) scaleX(-1); /* Start off-screen to the right and flip */
-    top: 62%;
-    left: 100%; /* Start off-screen to the right */
-    background-image: url("Slime.png");
-    background-repeat: no-repeat;
-	filter: hue-rotate(180deg) saturate(3) brightness(1.2) contrast(1.1);
-    background-size: 150px 2040px;
-    visibility: hidden;
-    opacity: 0;
-}
-
-/* Keyframes for the sprite sheet animation */
-@keyframes slimeWalk1 {
-0% { background-position: 0 0; }
-100% { background-position: 0 -2040px; } 
-}
-
-/* Keyframes for the horizontal movement animation */
-@keyframes walkToCenter1 {
-0% { left: 100%; }
-100% { left: 50%; }
-}
-
-.animateSlimeWalk1 {
-  visibility: visible;
-  opacity: 1;
-  animation: slimeWalk1 1s steps(12) infinite, walkToCenter1 5s linear forwards;
-}
-
-.Slime-walk2 {
-    width: 170px;
-    height: 220px;
-    position: absolute;
-    transform: translateX(100%) scaleX(-1); /* Start off-screen to the right and flip */
-    top: 55%;
-    left: 100%; /* Start off-screen to the right */
-    background-image: url("Slime.png");
-    background-repeat: no-repeat;
-	filter: hue-rotate(180deg) saturate(3) brightness(1.2) contrast(1.1);
-    background-size: 170px 2640px;
-    visibility: hidden;
-    opacity: 0;
-}
-
-/* Keyframes for the sprite sheet animation */
-@keyframes slimeWalk2 {
-0% { background-position: 0 0; }
-100% { background-position: 0 -2640px; } 
-}
-
-/* Keyframes for the horizontal movement animation */
-@keyframes walkToCenter2 {
-0% { left: 100%; }
-100% { left: 50%; }
-}
-
-.animateSlimeWalk2 {
-  visibility: visible;
-  opacity: 1;
-  animation: slimeWalk2 1s steps(12) infinite, walkToCenter2 5s linear forwards;
-}
-
-.Slime-walk3 {
-    width: 200px;
-    height: 250px;
-    position: absolute;
-    transform: translateX(100%) scaleX(-1); /* Start off-screen to the right and flip */
-    top: 50%;
-    left: 100%; /* Start off-screen to the right */
-    background-image: url("Slime.png");
-    background-repeat: no-repeat;
-    background-size: 200px 3000px;
-	filter: hue-rotate(180deg) saturate(3) brightness(1.2) contrast(1.1);
-    visibility: hidden;
-    opacity: 0;
-}
-
-/* Keyframes for the sprite sheet animation */
-@keyframes slimeWalk3 {
-0% { background-position: 0 0; }
-100% { background-position: 0 -3000px; } 
-}
-
-/* Keyframes for the horizontal movement animation */
-@keyframes walkToCenter3 {
-0% { left: 100%; }
-100% { left: 50%; }
-}
-
-.animateSlimeWalk3 {
-  visibility: visible;
-  opacity: 1;
-  animation: slimeWalk3 1s steps(12) infinite, walkToCenter3 5s linear forwards;
-}
-
 
 #startButton {
-	font-family: Poppins;
+    background-color: #007bff;
+    color: white;
     position: absolute;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    padding: 15px 30px;
-    font-size: 18px;
-    color: white;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-	z-index: 10;
 }
 
-#startButton:hover {
-    background-color: #0056b3;
-    transform: translateX(-50%) scale(0.95);
+    #startButton:hover {
+        background-color: #0056b3;
+        transform: translateX(-50%) scale(0.95);
+    }
+
+#submitAnswer {
+    background-color: #007bff;
+    color: white;
+    position: absolute;
+    margin-bottom: 10px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }
+
+    #submitAnswer:hover {
+        background-color: #0056b3;
+        transform: translateX(-50%) scale(0.95);
+    }
+
+#hintButton {
+    background-color: #007bff;
+    color: white;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 10px;
+    right: 20px; /* Change from left: 50% to right: 20px */
+    transform: translateX(0); /* Remove the translateX(-50%) to center it */
+}
+
+    #hintButton:hover {
+        background-color: #0056b3;
+        transform: scale(0.95); /* Update transform to scale only */
+    }
 
 #backButton {
-	font-family: Poppins;
+    background: linear-gradient(to right, #007bff 0%, #007bff 50%, rgba(0, 123, 255, 0) 75%);
+    color: white;
     position: absolute;
     top: 10px;
     left: 20px;
-    width: 250px; /* Set explicit width */
-    padding: 15px; /* Adjust padding to fit within the width */
-    font-size: 20px;
-    color: white;
-    background: linear-gradient(to right, #007bff 0%, #007bff 0%, rgba(0, 123, 255, 0) 75%);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 200px;
 }
 
-#backButton::before {
-    content: "";
-    background-image: url('back.png'); /* Replace 'your-image-url.jpg' with the URL of your image */
-    background-size: cover;
-    background-position: center;
-    position: absolute;
+    #backButton::before {
+        content: "";
+        background-image: url('back.png');
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        width: 31px;
+        height: 21px;
+        transform: translateY(-50%);
+    }
+
+    #backButton:hover {
+        background: linear-gradient(to right, #007bff 0%, #007bff 50%, rgba(0, 123, 255, 0) 75%);
+        transform: scale(0.95);
+    }
+
+#goButton {
+    background-color: #007bff;
+    color: white;
+    position: fixed;
     top: 50%;
-    left: 20px; /* Adjust the left position as needed */
-    width: 31px; /* Adjust the width of the image */
-    height: 21px; /* Adjust the height of the image */
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-#backButton:hover {
-    background-color: #0056b3;
-	background: linear-gradient(to right, #007bff 0%, #007bff 50%, rgba(0, 123, 255, 0) 75%);
-	transform: scale(0.95);
-}
+    #goButton:hover {
+        background-color: #007bff#0056b3;
+        transform: translateX(-50%) scale(0.95);
+    }
 
+/* Interactive elements */
 #bookModule {
-    position: absolute;
-    bottom: 30px; /* Adjust the distance from the top as needed */
-    left: 20px; /* Adjust the distance from the right as needed */
-    width: 70px; /* Increase the size to accommodate the circle */
-    height: 70px; /* Make the height equal to the width */
-    background-color: transparent; 
-    color: white;
-    border: 0.5px solid white;
-    border-radius: 50%; /* Make the div circular */
+    width: 60px;
+    height: 60px;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 50%;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    overflow: visible; /* Allow image to overflow the button */
-    z-index: 1; /* Ensure the button is above other elements */
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
 }
 
 .book-image {
-    position: absolute;
-    bottom: -75%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center the image */
-    width: 130%; /* Make the image larger than the button */
-    height: auto; /* Maintain aspect ratio */
-    z-index: -1; /* Ensure the image is below the button text */
+    width: 130%;
+    height: auto;
 }
 
 #bookModule:hover {
-    background-color: rgba(255, 255, 0, 0.5); /* Adjust transparency and color to achieve glowing yellow effect */
-    transform: scale(0.9); /* Slightly scale down the button */
-    box-shadow: 0 0 15px 5px yellow; /* Glowing yellow shadow */
+    background-color: rgba(255, 255, 0, 0.5);
+    transform: scale(0.9);
+    box-shadow: 0 0 15px 5px yellow;
 }
 
 #slidingDiv {
-  font-family: Poppins;
-  position: fixed;
-  top: 0; /* Hide above the top of the viewport */
-  left: 0;
-  width: 80%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-  color: white;
-  padding: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-  transition: transform 0.5s ease-in-out; /* Smooth slide-in effect */
-  z-index: 1000; /* Ensure the sliding div is above other content */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 600px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s ease-in-out;
 }
 
-/* Classes to toggle visibility */
 .hidden {
-  transform: translateY(-100%); /* Hide above the top of the viewport */
+    display: none;
 }
 
 .visible {
-  transform: translateY(0); /* Slide down to center */
+    display: block;
 }
 
 .coins-container {
@@ -446,7 +385,7 @@ body {
     padding: 5px;
 }
 
-.coin-count {
+.coin-count, .point-box {
     font-family: Poppins;
     min-width: 100px; /* Set a minimum width */
     height: 40px; /* Set a fixed height */
@@ -457,13 +396,19 @@ body {
     border: 1px solid #ccc; /* Border for the count box */
     border-radius: 10px; /* Rounded corners for the count box */
     font-size: 15px;
-	color: white;
+    color: white;
     font-weight: bold;
     flex: 1; /* Allow the container to grow flexibly */
 }
 
-.hidden {
-    display: none;
+#heartsContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 20px; /* Change from left: 50% to right: 20px */
+    transform: translateX(0);
 }
 
 #gameContainer {
@@ -474,29 +419,8 @@ body {
     background: rgba(0, 0, 0, 0.8);
     padding: 20px;
     border-radius: 10px;
-    color: white;
     text-align: center;
-    font-family: Poppins;
-}
-
-#goButton {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    font-size: 18px;
     color: white;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-#goButton:hover {
-    background-color: #0056b3;
-    transform: translateX(-50%) scale(0.95);
 }
 
 #questionContainer {
@@ -504,43 +428,464 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%; /* Ensure it takes full height */
+    height: 100%;
 }
 
-#question {
-    margin-bottom: 10px;
-}
-
-#choices {
-    margin-bottom: 10px;
-	gap: 5px;
-}
-
+#question,
+#choices,
 #answer {
-    padding: 5px;
     margin-bottom: 10px;
 }
 
-#submitAnswer {
-	font-family: Poppins;
-    padding: 5px 10px;
-    cursor: pointer;
-	background-color: #007bff;
-	color: white;
-	border: none;
-	border-radius: 10px;
+#answer, #answerTextarea {
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 70%; /* Make it full width */
+    max-width: 600px; /* Set a maximum width */
+    margin-bottom: 50px; /* Add margin for spacing */
+    font-size: 18px; /* Adjust font size */
+    line-height: 1.5; /* Adjust line height for readability */
 }
 
-#submitAnswer:hover {
-	font-family: Poppins;
-    padding: 5px 10px;
-    cursor: pointer;
-	background-color: #0056b3;
-    transform: scale(0.95);
-	color: white;
-	border: none;
-	border-radius: 10px;
+@keyframes slimeWalk0 {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -1260px;
+    }
 }
+
+@keyframes slimeWalk1 {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -1260px;
+    }
+}
+
+@keyframes slimeWalk2 {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -1260px;
+    }
+}
+
+@keyframes slimeWalk3 {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -1260px;
+    }
+}
+
+@keyframes slimeWalk4 {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -1260px;
+    }
+}
+
+@keyframes slimeWalk5 {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -1260px;
+    }
+}
+
+@keyframes slimeWalk6 {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -1260px;
+    }
+}
+
+@keyframes slimeWalk7 {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -1260px;
+    }
+}
+
+@keyframes slimeWalk8 {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -1260px;
+    }
+}
+
+@keyframes slimeWalk9 {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -1260px;
+    }
+}
+
+@keyframes slimeWalk10 {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -1260px;
+    }
+}
+
+@keyframes slimeWalk11 {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -1260px;
+    }
+}
+
+@keyframes slimeWalk12 {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -1260px;
+    }
+}
+
+@keyframes slimeWalk13 {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -1260px;
+    }
+}
+
+/* Keyframes for the horizontal movement animation */
+@keyframes walkToCenter0 {
+    0% {
+        left: 65%;
+    }
+
+    100% {
+        left: 55%;
+    }
+}
+
+@keyframes walkToCenter1 {
+    0% {
+        left: 65%;
+    }
+
+    100% {
+        left: 55%;
+    }
+}
+
+@keyframes walkToCenter2 {
+    0% {
+        left: 65%;
+    }
+
+    100% {
+        left: 55%;
+    }
+}
+
+@keyframes walkToCenter3 {
+    0% {
+        left: 65%;
+    }
+
+    100% {
+        left: 55%;
+    }
+}
+
+@keyframes walkToCenter4 {
+    0% {
+        left: 65%;
+    }
+
+    100% {
+        left: 55%;
+    }
+}
+
+@keyframes walkToCenter5 {
+    0% {
+        left: 65%;
+    }
+
+    100% {
+        left: 55%;
+    }
+}
+
+@keyframes walkToCenter6 {
+    0% {
+        left: 65%;
+    }
+
+    100% {
+        left: 55%;
+    }
+}
+
+@keyframes walkToCenter7 {
+    0% {
+        left: 65%;
+    }
+
+    100% {
+        left: 55%;
+    }
+}
+
+@keyframes walkToCenter8 {
+    0% {
+        left: 65%;
+    }
+
+    100% {
+        left: 55%;
+    }
+}
+
+@keyframes walkToCenter9 {
+    0% {
+        left: 65%;
+    }
+
+    100% {
+        left: 55%;
+    }
+}
+
+@keyframes walkToCenter10 {
+    0% {
+        left: 65%;
+    }
+
+    100% {
+        left: 55%;
+    }
+}
+
+@keyframes walkToCenter11 {
+    0% {
+        left: 65%;
+    }
+
+    100% {
+        left: 55%;
+    }
+}
+
+@keyframes walkToCenter12 {
+    0% {
+        left: 65%;
+    }
+
+    100% {
+        left: 55%;
+    }
+}
+
+@keyframes walkToCenter13 {
+    0% {
+        left: 65%;
+    }
+
+    100% {
+        left: 55%;
+    }
+}
+
+.Slime-walk0,
+.Slime-walk1,
+.Slime-walk2,
+.Slime-walk3,
+.Slime-walk4,
+.Slime-walk5,
+.Slime-walk6,
+.Slime-walk7,
+.Slime-walk8,
+.Slime-walk9,
+.Slime-walk10,
+.Slime-walk11,
+.Slime-walk12,
+.Slime-walk13 {
+    width: 150px;
+    height: 100px;
+    position: absolute;
+    transform: translateX(100%) scaleX(-1);
+    left: 60%;
+    top: 70%;
+    background-image: url("Slime.png");
+    background-repeat: no-repeat;
+    background-size: 150px 1260px;
+    filter: hue-rotate(180deg) saturate(3) brightness(1.2) contrast(1.1);
+    visibility: hidden;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.animateSlimeWalk0 {
+    visibility: visible;
+    opacity: 1;
+    animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter0 5s linear forwards;
+}
+
+.animateSlimeWalk1 {
+    visibility: visible;
+    opacity: 1;
+    animation: slimeWalk1 0.7s steps(12) infinite, walkToCenter1 5s linear forwards;
+}
+
+.animateSlimeWalk2 {
+    visibility: visible;
+    opacity: 1;
+    animation: slimeWalk2 0.7s steps(12) infinite, walkToCenter2 5s linear forwards;
+}
+
+.animateSlimeWalk3 {
+    visibility: visible;
+    opacity: 1;
+    animation: slimeWalk3 0.7s steps(12) infinite, walkToCenter3 5s linear forwards;
+}
+
+.animateSlimeWalk4 {
+    visibility: visible;
+    opacity: 1;
+    animation: slimeWalk4 0.7s steps(12) infinite, walkToCenter4 5s linear forwards;
+}
+
+.animateSlimeWalk5 {
+    visibility: visible;
+    opacity: 1;
+    animation: slimeWalk5 0.7s steps(12) infinite, walkToCenter5 5s linear forwards;
+}
+
+.animateSlimeWalk6 {
+    visibility: visible;
+    opacity: 1;
+    animation: slimeWalk6 0.7s steps(12) infinite, walkToCenter6 5s linear forwards;
+}
+
+.animateSlimeWalk7 {
+    visibility: visible;
+    opacity: 1;
+    animation: slimeWalk7 0.7s steps(12) infinite, walkToCenter7 5s linear forwards;
+}
+
+.animateSlimeWalk8 {
+    visibility: visible;
+    opacity: 1;
+    animation: slimeWalk8 0.7s steps(12) infinite, walkToCenter8 5s linear forwards;
+}
+
+.animateSlimeWalk9 {
+    visibility: visible;
+    opacity: 1;
+    animation: slimeWalk9 0.7s steps(12) infinite, walkToCenter9 5s linear forwards;
+}
+
+.animateSlimeWalk10 {
+    visibility: visible;
+    opacity: 1;
+    animation: slimeWalk10 0.7s steps(12) infinite, walkToCenter10 5s linear forwards;
+}
+
+.animateSlimeWalk11 {
+    visibility: visible;
+    opacity: 1;
+    animation: slimeWalk11 0.7s steps(12) infinite, walkToCenter11 5s linear forwards;
+}
+
+.animateSlimeWalk12 {
+    visibility: visible;
+    opacity: 1;
+    animation: slimeWalk12 0.7s steps(12) infinite, walkToCenter12 5s linear forwards;
+}
+
+.animateSlimeWalk13 {
+    visibility: visible;
+    opacity: 1;
+    animation: slimeWalk13 0.7s steps(12) infinite, walkToCenter13 5s linear forwards;
+}
+
+/* Style for the popup container */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0,0,0,0.8);
+    border-raidus: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* Hidden class to hide elements by default */
+.hidden {
+    display: none;
+}
+
+/* Style for popup buttons */
+.popup button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    /* Hover effect for buttons */
+    .popup button:hover {
+        background-color: #0056b3;
+    }
+
+/* Style for popup text */
+.popup p {
+    font-family: Poppins;
+    color: white;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
 
 
 .popup-container {
@@ -553,7 +898,7 @@ body {
 }
 
 .popup-message {
-	font-family: Poppins;
+    font-family: Poppins;
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
     padding: 10px 20px;
@@ -563,79 +908,866 @@ body {
 }
 
 @keyframes fadeOut {
-    0% { opacity: 1; }
-    80% { opacity: 1; }
-    100% { opacity: 0; }
+    0% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 .fade-out {
     opacity: 0;
     transition: opacity 1s ease-out;
 }
+
 .hidden {
     visibility: hidden;
 }
 
-
-
-.completion-warning {
-	font-family: Poppins;
+#timerContainer {
     position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#timerCircle {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+#timerText {
+    font-family: Poppins;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    z-index: 1000;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.completion-warning.visible {
-    opacity: 1;
-}
-
-.completion-warning.hidden {
-    opacity: 0;
-}
-
-#heartsContainer{
-	position: absolute;
-	top: 20px;
-	right: 27%;
-}
-
-.heart {
-    font-size: 24px;
-    margin: 0 5px;
-}
-
-
-#hintButton {
-	font-family: Poppins;
-	text-align: center;
-    position: fixed;
-    top: 70%;
-    right: 5px;
-	width: 40px;
-	height: 35px;
-    transform: translateX(-50%);
-    font-size: 15px;
-	font-weight: bold;
+    font-size: 20px;
+    font-weight: bold;
     color: black;
-    background-color: rgba(255,255,255,0.8);
-    border: 1px solid black;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 10;
 }
 
-#hintButton:hover {
-    background-color: rgba(10,10,10,1);
-	border: 1px solid white;
-	color: white;
-    transform: translateX(-50%) scale(0.95);
+svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+    svg circle {
+        fill: white;
+        stroke: #4caf50;
+        stroke-width: 10;
+        stroke-dasharray: 283;
+        stroke-dashoffset: 0;
+        transition: stroke-dashoffset 1s linear;
+    }
+
+/* Media Queries */
+@media (max-width: 768px) {
+    body {
+        background-size: cover;
+        background-position: center;
+    }
+
+    .land {
+        height: 809px; /* Further adjust frame height for very small screens */
+        background-size: 100% 17010px; /* Adjust to fit the sprite sheet */
+    }
+
+    .Slime-walk0, .Slime-walk1, .Slime-walk2, .Slime-walk3, .Slime-walk4, .Slime-walk5, .Slime-walk6, .Slime-walk7, .Slime-walk8, .Slime-walk9, .Slime-walk10, .Slime-walk11, .Slime-walk12, .Slime-walk13 {
+        width: calc(150px / 1.5);
+        height: calc(100px / 1.5);
+        top: 75%;
+        left: 25%;
+        background-size: calc(150px / 1.5) calc(1260px / 1.5);
+    }
+
+    .animateSlimeWalk0 {
+        visibility: visible;
+        opacity: 1;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter0 5s linear forwards;
+    }
+
+    .animateSlimeWalk1 {
+        visibility: visible;
+        opacity: 1;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter1 5s linear forwards;
+    }
+
+    .animateSlimeWalk2 {
+        visibility: visible;
+        opacity: 1;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter2 5s linear forwards;
+    }
+
+    .animateSlimeWalk3 {
+        visibility: visible;
+        opacity: 1;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter3 5s linear forwards;
+    }
+
+    .animateSlimeWalk4 {
+        visibility: visible;
+        opacity: 1;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter4 5s linear forwards;
+    }
+
+    .animateSlimeWalk5 {
+        visibility: visible;
+        opacity: 1;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter5 5s linear forwards;
+    }
+
+    .animateSlimeWalk6 {
+        visibility: visible;
+        opacity: 1;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter6 5s linear forwards;
+    }
+
+    .animateSlimeWalk7 {
+        visibility: visible;
+        opacity: 1;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter7 5s linear forwards;
+    }
+
+    .animateSlimeWalk8 {
+        visibility: visible;
+        opacity: 1;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter8 5s linear forwards;
+    }
+
+    .animateSlimeWalk9 {
+        visibility: visible;
+        opacity: 1;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter9 5s linear forwards;
+    }
+
+    .animateSlimeWalk10 {
+        visibility: visible;
+        opacity: 1;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter10 5s linear forwards;
+    }
+
+    .animateSlimeWalk11 {
+        visibility: visible;
+        opacity: 1;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter11 5s linear forwards;
+    }
+
+    .animateSlimeWalk12 {
+        visibility: visible;
+        opacity: 1;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter12 5s linear forwards;
+    }
+
+    .animateSlimeWalk13 {
+        visibility: visible;
+        opacity: 1;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter13 5s linear forwards;
+    }
+
+
+    @keyframes slimeWalk0 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-1260px / 1.5);
+        }
+    }
+
+    @keyframes slimeWalk1 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-1260px / 1.5);
+        }
+    }
+
+    @keyframes slimeWalk2 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-1260px / 1.5);
+        }
+    }
+
+    @keyframes slimeWalk3 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-1260px / 1.5);
+        }
+    }
+
+    @keyframes slimeWalk4 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-1260px / 1.5);
+        }
+    }
+
+    @keyframes slimeWalk5 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-1260px / 1.5);
+        }
+    }
+
+    @keyframes slimeWalk6 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-1260px / 1.5);
+        }
+    }
+
+    @keyframes slimeWalk7 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-1260px / 1.5);
+        }
+    }
+
+    @keyframes slimeWalk8 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-1260px / 1.5);
+        }
+    }
+
+    @keyframes slimeWalk9 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-1260px / 1.5);
+        }
+    }
+
+    @keyframes slimeWalk10 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-1260px / 1.5);
+        }
+    }
+
+    @keyframes slimeWalk11 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-1260px / 1.5);
+        }
+    }
+
+    @keyframes slimeWalk12 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-1260px / 1.5);
+        }
+    }
+
+    @keyframes slimeWalk13 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-1260px / 1.5);
+        }
+    }
+
+    .LavaPrince-walk {
+        width: calc(1244px / 1.8); /* Scale down width */
+        height: calc(245px / 1.8); /* Scale down height */
+        left: 26%;
+        top: 65%;
+        transform: translateX(-50%);
+        background-size: calc(1244px / 1.8) calc(13786px / 1.8); /* Adjust background size */
+    }
+
+    .animateWalk1 {
+        animation: animateWalk1 2.5s steps(61); /* Keep animation settings */
+    }
+
+    @keyframes animateWalk1 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-13786px / 1.8);
+        }
+        /* Adjust Y-axis movement */
+    }
+
+    .LavaPrince-idle {
+        width: calc(250px / 1.8); /* Scale down width */
+        height: calc(350px / 1.8); /* Scale down height */
+        top: 60%;
+        left: 75%;
+        transform: translateX(-50%);
+        background-size: calc(250px / 1.8) calc(10000px / 1.8); /* Adjust background size */
+    }
+
+    .animateIdle1 {
+        animation: animateIdle1 1s steps(30) 5 alternate; /* Keep animation settings */
+    }
+
+    @keyframes animateIdle1 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-10000px / 1.8);
+        }
+        /* Adjust Y-axis movement */
+    }
+
+    .LavaPrince-attack {
+        width: calc(1274px / 1.8); /* Scale down width */
+        height: calc(580px / 1.8); /* Scale down height */
+        top: 75%;
+        left: 25%;
+        transform: translate(-50%, -50%) scaleX(-1);
+        background-size: calc(1274px / 1.8) calc(46400px / 1.8); /* Adjust background size */
+    }
+
+    .animateAttack1 {
+        animation: animateAttack1 2s steps(80) infinite; /* Keep animation settings */
+    }
+
+    @keyframes animateAttack1 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-46400px / 1.8);
+        }
+        /* Adjust Y-axis movement */
+    }
+
+    #startButton, #goButton {
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+
+    #backButton {
+        width: 180px;
+    }
+
+    #bookModule {
+        width: 50px;
+        height: 50px;
+    }
+
+    .book-image {
+        width: 120%;
+    }
+
+    #slidingDiv {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .coin-image {
+        width: 25px;
+        height: 25px;
+    }
+
+    .coin-count, .point-box {
+        min-width: 60px;
+        height: 25px;
+        font-size: 12px;
+    }
+
+    #heartsContainer {
+        top: 90%; /* Adjust top margin for tablets */
+        left: 50px; /* Adjust right margin for tablets */
+        width: 20px;
+        height: 20px;
+    }
+
+    #hintButton {
+        bottom: 15px;
+        right: 15px;
+        padding: 8px 16px; /* Adjust padding for smaller screens */
+        font-size: 14px; /* Adjust font size */
+    }
+
+    #gameContainer {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .popup {
+        width: 90%;
+        max-width: 350px;
+    }
+
+        .popup button {
+            width: calc(50% - 15px);
+        }
+}
+
+@media (max-width: 480px) {
+    body {
+        background-size: cover;
+        background-position: center;
+    }
+
+    .land {
+        height: 809px; /* Further adjust frame height for very small screens */
+        background-size: 200% 17010px; /* Adjust to fit the sprite sheet */
+    }
+
+    .Slime-walk0, .Slime-walk1, .Slime-walk2, .Slime-walk3, .Slime-walk4, .Slime-walk5, .Slime-walk6, .Slime-walk7, .Slime-walk8, .Slime-walk9, .Slime-walk10, .Slime-walk11, .Slime-walk12, .Slime-walk13 {
+        width: calc(150px / 2);
+        height: calc(100px / 2);
+        top: 77%;
+        left: 40%;
+        background-size: calc(150px / 2) calc(1260px / 2);
+    }
+
+    .animateSlimeWalk0 {
+        visibility: visible;
+        opacity: 1;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter0 5s linear forwards;
+    }
+
+    @keyframes slimeWalk0 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-1260px / 2);
+        }
+    }
+
+    /* Keyframes for the horizontal movement animation */
+    @keyframes walkToCenter0 {
+        0% {
+            left: 70%;
+        }
+
+        100% {
+            left: 55%;
+        }
+    }
+
+    @keyframes walkToCenter1 {
+        0% {
+            left: 40%;
+        }
+
+        100% {
+            left: 20%;
+        }
+    }
+
+    @keyframes walkToCenter2 {
+        0% {
+            left: 40%;
+        }
+
+        100% {
+            left: 20%;
+        }
+    }
+
+    @keyframes walkToCenter3 {
+        0% {
+            left: 40%;
+        }
+
+        100% {
+            left: 20%;
+        }
+    }
+
+    @keyframes walkToCenter4 {
+        0% {
+            left: 40%;
+        }
+
+        100% {
+            left: 20%;
+        }
+    }
+
+    @keyframes walkToCenter5 {
+        0% {
+            left: 40%;
+        }
+
+        100% {
+            left: 20%;
+        }
+    }
+
+    @keyframes walkToCenter6 {
+        0% {
+            left: 40%;
+        }
+
+        100% {
+            left: 20%;
+        }
+    }
+
+    @keyframes walkToCenter7 {
+        0% {
+            left: 40%;
+        }
+
+        100% {
+            left: 20%;
+        }
+    }
+
+    @keyframes walkToCenter8 {
+        0% {
+            left: 40%;
+        }
+
+        100% {
+            left: 20%;
+        }
+    }
+
+    @keyframes walkToCenter9 {
+        0% {
+            left: 40%;
+        }
+
+        100% {
+            left: 20%;
+        }
+    }
+
+    @keyframes walkToCenter10 {
+        0% {
+            left: 40%;
+        }
+
+        100% {
+            left: 20%;
+        }
+    }
+
+    @keyframes walkToCenter11 {
+        0% {
+            left: 40%;
+        }
+
+        100% {
+            left: 20%;
+        }
+    }
+
+    @keyframes walkToCenter12 {
+        0% {
+            left: 40%;
+        }
+
+        100% {
+            left: 20%;
+        }
+    }
+
+    @keyframes walkToCenter13 {
+        0% {
+            left: 40%;
+        }
+
+        100% {
+            left: 20%;
+        }
+    }
+
+    .LavaPrince-walk {
+        width: calc(1244px / 1.8); /* Scale down width */
+        height: calc(245px / 1.8); /* Scale down height */
+        left: 26%;
+        top: 65%;
+        transform: translateX(-50%);
+        background-size: calc(1244px / 1.8) calc(13786px / 1.8); /* Adjust background size */
+    }
+
+    .animateWalk1 {
+        animation: animateWalk1 2.5s steps(61); /* Keep animation settings */
+    }
+
+    @keyframes animateWalk1 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-13786px / 1.8);
+        }
+        /* Adjust Y-axis movement */
+    }
+
+    .LavaPrince-idle {
+        width: calc(250px / 1.8); /* Scale down width */
+        height: calc(350px / 1.8); /* Scale down height */
+        top: 60%;
+        left: 75%;
+        transform: translateX(-50%);
+        background-size: calc(250px / 1.8) calc(10000px / 1.8); /* Adjust background size */
+    }
+
+    .animateIdle1 {
+        animation: animateIdle1 1s steps(30) 5 alternate; /* Keep animation settings */
+    }
+
+    @keyframes animateIdle1 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-10000px / 1.8);
+        }
+        /* Adjust Y-axis movement */
+    }
+
+    .LavaPrince-attack {
+        width: calc(1274px / 1.8); /* Scale down width */
+        height: calc(580px / 1.8); /* Scale down height */
+        top: 75%;
+        left: 25%;
+        transform: translate(-50%, -50%) scaleX(-1);
+        background-size: calc(1274px / 1.8) calc(46400px / 1.8); /* Adjust background size */
+    }
+
+    .animateAttack1 {
+        animation: animateAttack1 2s steps(80) infinite; /* Keep animation settings */
+    }
+
+    @keyframes animateAttack1 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-46400px / 1.8);
+        }
+        /* Adjust Y-axis movement */
+    }
+
+    #startButton, #goButton {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    #backButton {
+        width: 150px;
+    }
+
+    #bookModule {
+        width: 40px;
+        height: 40px;
+    }
+
+    .book-image {
+        width: 110%;
+    }
+
+    #slidingDiv {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .coins-container {
+        display: flex;
+        flex-direction: column; /* Aligns all children vertically */
+        align-items: center; /* Centers content horizontally */
+        gap: 10px; /* Adds space between each `.coin` and `.point-box` */
+    }
+
+    .coin {
+        display: flex;
+        align-items: center; /* Vertically aligns `.coin-image` and `.coin-count` */
+        gap: 5px; /* Adds space between `.coin-image` and `.coin-count` */
+    }
+
+    .coin-image {
+        width: 40px;
+        height: 40px;
+    }
+
+    .coin-count {
+        min-width: 70px;
+        height: 30px;
+        font-size: 14px;
+        display: flex;
+        align-items: center; /* Vertically centers text */
+        justify-content: center; /* Horizontally centers text */
+    }
+
+    .point-box {
+        font-size: 14px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center; /* Vertically centers text */
+        min-width: 100px; /* Optional: adjust width to fit content */
+        height: 50px; /* Optional: adjust height to fit content */
+        padding: 5px;
+    }
+
+
+    #heartsContainer {
+        top: 90%; /* Adjust top margin for tablets */
+        left: 50px; /* Adjust right margin for tablets */
+        width: 20px;
+        height: 20px;
+    }
+
+    #hintButton {
+        bottom: 10px;
+        right: 10px;
+        padding: 6px 12px; /* Adjust padding for very small screens */
+        font-size: 12px; /* Adjust font size */
+    }
+
+    #gameContainer {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .popup {
+        width: 95%;
+        max-width: 300px;
+        padding: 15px;
+    }
+
+        .popup p {
+            font-size: 16px;
+        }
+
+        .popup button {
+            width: calc(50% - 10px);
+            padding: 8px 15px;
+        }
+}
+
+@media (max-width: 360px) {
+    .LavaPrince-walk {
+        width: calc(1244px / 3.2); /* Scale down width */
+        height: calc(245px / 3.2); /* Scale down height */
+        left: 26%;
+        top: 65%;
+        transform: translateX(-50%);
+        background-size: calc(1244px / 3.2) calc(13786px / 3.2); /* Adjust background size */
+    }
+
+    .animateWalk1 {
+        animation: animateWalk1 2.5s steps(61); /* Keep animation settings */
+    }
+
+    @keyframes animateWalk1 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-13786px / 3.2);
+        }
+        /* Adjust Y-axis movement */
+    }
+
+    .LavaPrince-idle {
+        width: calc(250px / 3.2); /* Scale down width */
+        height: calc(350px / 3.2); /* Scale down height */
+        top: 60%;
+        left: 75%;
+        transform: translateX(-50%);
+        background-size: calc(250px / 3.2) calc(10000px / 3.2); /* Adjust background size */
+    }
+
+    .animateIdle1 {
+        animation: animateIdle1 1s steps(30) 5 alternate; /* Keep animation settings */
+    }
+
+    @keyframes animateIdle1 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-10000px / 3.2);
+        }
+        /* Adjust Y-axis movement */
+    }
+
+    .LavaPrince-attack {
+        width: calc(1274px / 3.2); /* Scale down width */
+        height: calc(580px / 3.2); /* Scale down height */
+        top: 70%;
+        left: 25%;
+        transform: translate(-50%, -50%) scaleX(-1);
+        background-size: calc(1274px / 3.2) calc(46400px / 3.2); /* Adjust background size */
+    }
+
+    .animateAttack1 {
+        animation: animateAttack1 2s steps(80) infinite; /* Keep animation settings */
+    }
+
+    @keyframes animateAttack1 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-46400px / 3.2);
+        }
+        /* Adjust Y-axis movement */
+    }
 }

@@ -1,200 +1,247 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-<div class="world-container">
-	<div class="list">
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Advanced Java Lobby</title>
+	<link rel="stylesheet" href="AdvancedLobby.css">
+</head>
+<body>
+	<div class="world-container">
+		<div class="list">
 
-		<!--> WORLD 1<-->
-		<div class="item">
-			<img src="~/image/Custom/LilacGate.jpg">
-			<div class="content">
-				<div id="author-1" class="author">WELCOME TO WORLD 1</div>
-				<div class="title">LILAC</div>
-				<div id="topic-1" class="topic">DEATH</div>
-				<div class="des">
-					In the suffocating heat of a world choked by lilac flames,<br>
-					desperate scavengers brave grotesque mutations, <br>
-					seeking a flicker of life before succumbing to Lilac Death.
+			<!--> WORLD 1<-->
+			<div class="item">
+				<img src="LilacGate.jpg">
+				<div class="content">
+					<div id="author-1" class="author">WELCOME TO WORLD 1</div>
+					<div class="title">LILAC</div>
+					<div id="topic-1" class="topic">DEATH</div>
+					<div class="des">
+						In the suffocating heat of a world choked by lilac flames,<br>
+						desperate scavengers brave grotesque mutations, <br>
+						seeking a flicker of life before succumbing to Lilac Death.
+					</div>
+					<div class="buttons">
+						<button id="openDiv1">CHALLENGE</button>
+					</div>
 				</div>
-				<div class="buttons">
-					<button id="openDiv1">CHALLENGE</button>
-				</div>
+				<div class="particle-container"></div>
 			</div>
-			<div class="particle-container"></div>
-		</div>
 
 
 
-		<!--> WORLD 2<-->
+			<!--> WORLD 2<-->
 
-		<div class="item">
-			<img src="~/image/Custom/ViridianGate.jpg">
-			<div class="content">
-				<div id="author-2" class="author">WELCOME TO WORLD 2</div>
-				<div class="title">VIRIDIAN</div>
-				<div id="topic-2" class="topic">ABYSS</div>
-				<div class="des">
-					Descend into the Viridian Abyss, a world where glaciers shimmer<br>
-					with an otherworldly emerald glow and the air hangs crisp,<br>
-					pierce a sky painted with ethereal hues.<br>
-					a frozen tomb illuminated by the aurora borealis<br>
-					dancing across the jade sky.
+			<div class="item">
+				<img src="ViridianGate.jpg">
+				<div class="content">
+					<div id="author-2" class="author">WELCOME TO WORLD 2</div>
+					<div class="title">VIRIDIAN</div>
+					<div id="topic-2" class="topic">ABYSS</div>
+					<div class="des">
+						Descend into the Viridian Abyss, a world where glaciers shimmer<br>
+						with an otherworldly emerald glow and the air hangs crisp,<br>
+						pierce a sky painted with ethereal hues.<br>
+						a frozen tomb illuminated by the aurora borealis<br>
+						dancing across the jade sky.
+					</div>
+					<div class="buttons">
+						<button id="openDiv2">CHALLENGE</button>
+					</div>
 				</div>
-				<div class="buttons">
-					<button id="openDiv2">CHALLENGE</button>
-				</div>
+				<div class="ice-storm"></div>
 			</div>
-			<div class="ice-storm"></div>
-		</div>
 
-		<!--> WORLD 3<-->
+			<!--> WORLD 3<-->
 
-		<div class="item">
-			<img src="~/image/Custom/ScarletGate.jpg">
-			<div class="content">
-				<div id="author-1" class="author">WELCOME TO WORLD 3</div>
-				<div class="title">SCARLET</div>
-				<div id="topic-3" class="topic">SANCTUM</div>
-				<div class="des">
-					Beneath a perpetually crimson sky, the Scarlet Sanctum sprawls,<br>
-					its ancient trees adorned with leaves the color of spilled blood.<br>
-					A haunting beauty masks a hidden danger,<br>
-					a whisper of a forgotten power staining the very essence of the forest.
+			<div class="item">
+				<img src="ScarletGate.jpg">
+				<div class="content">
+					<div id="author-1" class="author">WELCOME TO WORLD 3</div>
+					<div class="title">SCARLET</div>
+					<div id="topic-3" class="topic">SANCTUM</div>
+					<div class="des">
+						Beneath a perpetually crimson sky, the Scarlet Sanctum sprawls,<br>
+						its ancient trees adorned with leaves the color of spilled blood.<br>
+						A haunting beauty masks a hidden danger,<br>
+						a whisper of a forgotten power staining the very essence of the forest.
+					</div>
+					<div class="buttons">
+						<button id="openDiv3">CHALLENGE</button>
+					</div>
 				</div>
-				<div class="buttons">
-					<button id="openDiv3">CHALLENGE</button>
-				</div>
-			</div>
-			<div class="leaf-container"></div>
-		</div>
-	</div>
-
-	<!--> SLIDE 1 <-->
-	<div id="Bslide1" class="b-slide1">
-		<div class="slide1">
-			<h1>Challenge World 1</h1>
-			<h2>This is the gateway to the challenges of World 1.</h2>
-			<a href="AW1Games.html" class="Bslide1-button">Go to Challenges</a>
-		</div>
-	</div>
-
-	<!-->SLIDE 2<-->
-	<div id="Bslide2" class="b-slide2">
-		<div class="slide2">
-			<h1>Challenge World 2</h1>
-			<h2>This is the gateway to the challenges of World 2.</h2>
-			<a href="AW2Games.html" class="Bslide2-button">Go to Challenges</a>
-		</div>
-	</div>
-
-
-	<!-->SLIDE 3<-->
-	<div id="Bslide3" class="b-slide3">
-		<div class="slide3">
-			<h1>Challenge World 3</h1>
-			<h2>This is the gateway to the challenges of World 3.</h2>
-			<a href="AW3Games.html" class="Bslide3-button">Go to Challenges</a>
-		</div>
-	</div>
-
-	<!-->thumbnail<-->
-	<div class="thumbnail">
-		<div class="item">
-			<img src="~/image/Custom/LilacGate.jpg">
-			<div class="content">
-				<div class="title">
-					LILAC DEATH
-				</div>
-				<div class="description">
-					Lava World
-				</div>
+				<div class="leaf-container"></div>
 			</div>
 		</div>
-		<div class="item">
-			<img src="ViridianGate.jpg">
-			<div class="content">
-				<div class="title">
-					VIRIDIAN ABYSS
+
+		<!--> SLIDE 1 <-->
+		<div id="Bslide1" class="b-slide1">
+			<div class="slide1">
+				<h1>Challenge World 1</h1>
+				<h2>This is the gateway to the challenges of World 1.</h2>
+				<a href="AW1Part.html" class="Bslide1-button">Go to Challenges</a>
+			</div>
+		</div>
+
+		<!-->SLIDE 2<-->
+		<div id="Bslide2" class="b-slide2">
+			<div class="slide2">
+				<h1>Challenge World 2</h1>
+				<h2>This is the gateway to the challenges of World 2.</h2>
+				<a href="AW2Part.html" class="Bslide2-button">Go to Challenges</a>
+			</div>
+		</div>
+
+
+		<!-->SLIDE 3<-->
+		<div id="Bslide3" class="b-slide3">
+			<div class="slide3">
+				<h1>Challenge World 3</h1>
+				<h2>This is the gateway to the challenges of World 3.</h2>
+				<a href="AW3Part.html" class="Bslide3-button">Go to Challenges</a>
+			</div>
+		</div>
+
+		<!-->thumbnail<-->
+		<div class="thumbnail">
+			<div class="item">
+				<img src="LilacGate.jpg">
+				<div class="content">
+					<div class="title">
+						LILAC DEATH
+					</div>
+					<div class="description">
+						Lava World
+					</div>
 				</div>
-				<div class="description">
-					Ice World
+			</div>
+			<div class="item">
+				<img src="ViridianGate.jpg">
+				<div class="content">
+					<div class="title">
+						VIRIDIAN ABYSS
+					</div>
+					<div class="description">
+						Ice World
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<img src="ScarletGate.jpg">
+				<div class="content">
+					<div class="title">
+						SCARLET SANCTUM
+					</div>
+					<div class="description">
+						Nature World
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="item">
-			<img src="ScarletGate.jpg">
-			<div class="content">
-				<div class="title">
-					SCARLET SANCTUM
+		<div class="arrows">
+			<button id="prev"><</button>
+			<button id="next">></button>
+		</div>
+
+		<div class="time"></div>
+
+		<div class="profile" onclick="showModal()">
+			<img src="ex.jfif" alt="Student's Image">
+			<div class="text-container">
+				<span id="studentName">Student's Name</span>
+				<div id="studentID">StudentID</div>
+			</div>
+		</div>
+
+		<div id="detailsModal">
+			<div class="modal-content">
+				<div class="left-section">
+					<div class="student-details">
+						<h1>Student Details</h1>
+						<p>Username: <span id="modalName">-</span></p>
+						<p>Student ID: <span id="modalId">-</span></p>
+						<p>Section: <span id="modalSection">-</span></p>
+						<p>Class: <span id="modalClass">-</span></p>
+					</div>
+					<div class="activities">
+
+						<!-- Add the activities content here -->
+					</div>
+					<div class="buttons1">
+						<button class="close" onclick="hideModal()">Close</button>
+						<button class="Logout" onclick="logout()">Log out</button>
+						<button class="save" onclick="save()">Save</button>
+					</div>
 				</div>
-				<div class="description">
-					Nature World
+				<div class="right-section">
+					<h1>Student's Record</h1>
+					<div id="records" class="hidden">
+						<div class="box" id="world-1">
+							<div class="box-details">
+								<h2>World 1</h2>
+								<p>Total Points: <span id="world-1-total">0</span></p>
+								<p>Cleared Floor: <span id="world-1-cleared">0</span></p>
+							</div>
+							<div class="box-floors" id="world-1-floors"></div>
+						</div>
+						<div class="box" id="world-2">
+							<div class="box-details">
+								<h2>World 2</h2>
+								<p>Total Points: <span id="world-2-total">0</span></p>
+								<p>Cleared Floor: <span id="world-2-cleared">0</span></p>
+							</div>
+							<div class="box-floors" id="world-2-floors"></div>
+						</div>
+						<div class="box" id="world-3">
+							<div class="box-details">
+								<h2>World 3</h2>
+								<p>Total Points: <span id="world-3-total">0</span></p>
+								<p>Cleared Floor: <span id="world-3-cleared">0</span></p>
+							</div>
+							<div class="box-floors" id="world-3-floors"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="coins-container">
+			<div class="coin">
+				<img src="gold.png" alt="Gold Coin" class="coin-image">
+				<div class="coin-count" id="goldCountContainer">
+					<span id="goldCount">0</span>
+				</div>
+			</div>
+			<div class="coin">
+				<img src="silver.png" alt="Silver Coin" class="coin-image">
+				<div class="coin-count" id="silverCountContainer">
+					<span id="silverCount">0</span>
 				</div>
 			</div>
 		</div>
+
+		<button id="heroShop">
+			<img src="heroshop.png" class="heroShop-image">
+			<span class="hover-text">Hero Shop</span>
+		</button>
+
+		<button id="skinShop">
+			<img src="skinShop.png" class="skinShop-image">
+			<span class="hover-text">Skin Shop</span>
+		</button>
+
+		<button id="freeCoins">
+			<img src="freeCoins.png" class="freeCoins-image">
+			<span class="hover-text">Free Coins</span>
+		</button>
+
+		<button id="practice">
+			<img src="practice.png" class="practice-image">
+			<span class="hover-text">Practice Coding</span>
+		</button>
 	</div>
-	<div class="arrows">
-		<button id="prev"><</button>
-		<button id="next">></button>
-	</div>
-
-	<div class="time"></div>
-
-	<div class="username" onclick="showModal()">
-		<img src="~/image/Custom/ex.jfif" alt="Student's Image">
-		<div class="text-container">
-			<span id="studentName">Student's Name</span>
-			<div id="studentID">StudentID</div>
-		</div>
-	</div>
-
-	<div id="detailsModal">
-		<div>
-			<h1>Student Details</h1>
-			<p>Username: <span id="modalName">-</span></p>
-			<p>Student ID: <span id="modalId">-</span></p>
-			<p>Section: <span id="modalSection">-</span></p>
-			<button onclick="hideModal()">Close</button>
-			<button class="Logout" onclick="logout()">Log out</button>
-		</div>
-	</div>
-</div>
-
-<div class="coins-container">
-	<div class="coin">
-		<img src="~/image/Custom/gold.png" alt="Gold Coin" class="coin-image">
-		<div class="coin-count" id="goldCountContainer">
-			<span id="goldCount">0</span>
-		</div>
-	</div>
-	<div class="coin">
-		<img src="~/image/Custom/silver.png" alt="Silver Coin" class="coin-image">
-		<div class="coin-count" id="silverCountContainer">
-			<span id="silverCount">0</span>
-		</div>
-	</div>
-</div>
-
-<button id="bookModule">
-	<img src="~/image/Custom/bookModule.png" class="book-image">
-	<span class="hover-text">Modules</span>
-</button>
-
-<button id="skinShop">
-	<img src="~/image/Custom/skinShop.png" class="skinShop-image">
-	<span class="hover-text">Skin Shop</span>
-</button>
-
-<button id="freeCoins">
-	<img src="~/image/Custom/freeCoins.png" class="freeCoins-image">
-	<span class="hover-text">Free Coins</span>
-</button>
-
-<button id="practice">
-	<img src="~/image/Custom/practice.png" class="practice-image">
-	<span class="hover-text">Practice Coding</span>
-</button>
-
-<script src="~/js/custom/AdvancedLobby.js"></script>
+	<script src="AdvancedLobby.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Advanced Java World 3 Games</title>
+	<link rel="stylesheet" href="AW3P1F1GamesStyle.css">
+</head>
+<body>
+	<div class="land"></div>
+	<button id="bookModule">
+		<img src="bookModule.png" class="book-image">
+	</button>
+	<button id="startButton">ADVANCE</button>
+	<button id="backButton">Floor 2</button>
+	<div id="slidingDiv" class="hidden">
+		<h1>MODULE 1</h1>
+		<div id="moduleContent">
+		</div>
+	</div>
+
+	<div class="GuardianNature-walk"></div>
+	<div class="GuardianNature-idle"></div>
+	<div class="GuardianNature-attack"></div>
+	<div class="Slime-walk0"></div>
+	<div class="Slime-walk1"></div>
+	<div class="Slime-walk2"></div>
+	<div class="Slime-walk3"></div>
+	<div class="Slime-walk4"></div>
+	<div class="Slime-walk5"></div>
+	<div class="Slime-walk6"></div>
+	<div class="Slime-walk7"></div>
+	<div class="Slime-walk8"></div>
+	<div class="Slime-walk9"></div>
+	<div class="Slime-walk10"></div>
+	<div class="Slime-walk11"></div>
+	<div class="Slime-walk12"></div>
+	<div class="Slime-walk13"></div>
+
+
+
+	<div class="warning-screen" id="warningScreen">
+		<h2>Guardian Nature Appeared</h2>
+		<h3>Advanced Level 1 Boss</h3>
+		<div class="glitters"></div>
+	</div>
+
+	<div id="popupContainer" class="popup-container"></div>
+
+	<!-- Lost Popup -->
+	<div id="lostPopup" class="popup hidden">
+		<p>You Lost</p>
+		<button id="restartButton">Restart</button>
+		<button id="finishButton">Exit</button>
+	</div>
+
+	<!-- Finish Confirmation Popup -->
+	<div id="finishPopup" class="popup hidden">
+		<p>Are you sure you want to finish?</p>
+		<button id="confirmFinishButton">Yes</button>
+		<button id="cancelFinishButton">No</button>
+	</div>
+
+
+	<div class="coins-container">
+		<div class="coin">
+			<img src="gold.png" alt="Gold Coin" class="coin-image">
+			<div class="coin-count" id="goldCountContainer">
+				<span id="goldCount">0</span>
+			</div>
+		</div>
+		<div class="coin">
+			<img src="silver.png" alt="Silver Coin" class="coin-image">
+			<div class="coin-count" id="silverCountContainer">
+				<span id="silverCount">0</span>
+			</div>
+		</div>
+		<div class="point-box">Points: <span id="pointCount">0</span></div>
+	</div>
+
+	<div id="gameContainer" class="hidden">
+		<div id="questionContainer">
+			<p id="question"></p>
+			<div id="choices"></div>
+			<div id="imageContainer"></div>
+			<input type="text" id="answer" class="answer-input">
+			<textarea id="answerTextarea" class="answer-input"></textarea>
+
+			<button id="submitAnswer">Submit</button>
+		</div>
+		<button id="hintButton" class="hint">?</button>
+		<div id="heartsContainer"></div>
+	</div>
+
+
+
+	<div id="completionWarning" class="completion-warning hidden">
+		<div class="glitters"></div>
+	</div>
+	<iframe id="preloadIframe" src="A_Module1.pdf" style="display:none;"></iframe>
+	<button id="goButton" class="hidden">Go</button>
+
+	<div id="timerContainer">
+		<div id="timerCircle">
+			<div id="timerText">10:00</div>
+			<svg>
+				<circle cx="50%" cy="50%" r="45"></circle>
+			</svg>
+		</div>
+	</div>
+
+	<script src="AW3P1F1GamesScript.js"></script>
+</body>
+</html>

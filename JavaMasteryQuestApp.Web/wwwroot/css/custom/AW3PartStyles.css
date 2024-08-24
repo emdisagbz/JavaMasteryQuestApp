@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url("AW3.jpg");
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+.button-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.button-container button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    width: 250px;
+    height: 50vh;
+    padding: 15px 30px;
+    font-size: 16px;
+    color: white;
+    background-color: rgb(175, 17, 28);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button-container button:hover {
+    background-color: rgb(139, 0 , 0);
+    transform: scale(0.95);
+}
+
+.button-container h1, .button-container h3 {
+    margin: 0;
+}
+
+#backButton {
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    width: 250px;
+    padding: 15px;
+    font-size: 20px;
+    color: white;
+    background: linear-gradient(to right, #007bff 0%, #007bff 0%, rgba(0, 123, 255, 0) 75%);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#backButton:hover {
+    background-color: #0056b3;
+    background: linear-gradient(to right, #007bff 0%, #007bff 50%, rgba(0, 123, 255, 0) 75%);
+    transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+    .button-container {
+        gap: 20px;
+    }
+
+    .button-container button {
+        width: 200px;
+        height: 40vh;
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    #backButton {
+        width: 200px;
+        padding: 10px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .button-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .button-container button {
+        width: 100%;
+        height: auto;
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    #backButton {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        left: 10px;
+        right: 10px;
+    }
+}
