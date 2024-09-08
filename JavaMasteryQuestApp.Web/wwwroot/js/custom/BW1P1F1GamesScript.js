@@ -346,16 +346,29 @@ function setProgress(percent) {
     }
 }
 
-function disableGame() {
-    const inputs = document.querySelectorAll("input, button, textarea");
-    inputs.forEach(input => {
-        if (input !== backButton) {
-            input.disabled = true; // Disable all inputs except the backButton
-        }
-    });
-    showPopupMessage("Time's up! You can no longer answer the questions.");
-    backButton.disabled = false; // Ensure backButton is enabled
-}
+    function disableGame() {
+        // Apply a grayscale filter to the entire document body
+        document.body.style.filter = "grayscale(100%)";
+
+        // Select all inputs, buttons, and textarea elements
+        const inputs = document.querySelectorAll("input, button, textarea");
+
+        inputs.forEach(input => {
+            if (input !== backButton) {
+                input.disabled = true; // Disable all inputs except the backButton
+                input.style.backgroundColor = "red"; // Turn the button background color to red
+            }
+        });
+
+        // Remove grayscale filter from the backButton
+        backButton.style.filter = "none";
+        backButton.style.backgroundColor = ""; // Optional: Reset any background color changes to the backButton
+
+        showPopupMessage("Time's up! You can no longer answer the questions.");
+
+        // Ensure backButton is enabled
+        backButton.disabled = false;
+    }
 
 goButton.addEventListener("click", function() {
     if (!timerStarted) {
