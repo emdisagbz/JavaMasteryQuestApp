@@ -55,209 +55,147 @@ document.addEventListener("DOMContentLoaded", function() {
     updateHearts(); // Initialize hearts display
 
     const questions = [
-	{
-        type: "Identification",
-        points: 3,
-        question: "2 + 2",
-        answer: "4",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "3 + 3",
-        answer: "6",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "4 + 4",
-        answer: "8",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "5 + 5",
-        answer: "10",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Modifier in the code snippet shown in the image?",
-        answer: "public",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "6 + 6",
-        answer: "12",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Modifier in the code snippet shown in the image?",
-        answer: "public",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Return Type in the code snippet shown in the image?",
-        answer: "int",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Name in the code snippet shown in the image?",
-        answer: "add",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Parameters in the code snippet shown in the image?",
-        answer: "int a, int b",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Body in the code snippet shown in the image?",
-        answer: "{ return a + b; }",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Multiple Choice",
-        points: 2,
-        question: "Which of the following statements is true about Java methods?",
-        choices: [
-            "A. A method in Java cannot return an array",
-            "B. Method overloading in Java is the process of defining multiple methods with the same name but different parameter lists.",
-            "C. The void return type indicates that the method returns an integer.",
-            "D. A method must always have parameters."
-        ],
-        answer: "B",
-        hints: [
-            "Hint 1: Common in many programming languages.",
-            "Hint 2: It's an abbreviation.",
-            "Hint 3: Short for integer."
-        ]
-    },
-    {
-        type: "fill_in_the_code",
-        points: 5,
-        question: "Complete the following Java method to calculate the factorial of a given number `n`",
-        answer: `public int factorial(int n) {
-if (n == 0) {
-return 1;
-} else {
-return n * factorial(n - 1);
-}
-}`,
-        image: "AF1_FITC.jpg",
-        hints: [
-            "Hint 1: Getter methods are used to access object properties.",
-            "Hint 2: The 'getItems' method should return the 'items' list.",
-            "Hint 3: Use the 'this' keyword to access the object's property."
-        ]
-    },
-	{
-        type: "fill_in_the_code",
-        points: 5,
-        question: "Complete the following code to implement a method named `isEven` that checks if a given integer `num` is even.",
-        answer: `public boolean isEven(int num) {
-return num % 2 == 0;
-}`,
-        image: "AF1_FITC2.jpg",
-        hints: [
-            "Hint 1: Getter methods are used to access object properties.",
-            "Hint 2: The 'getItems' method should return the 'items' list.",
-            "Hint 3: Use the 'this' keyword to access the object's property."
-        ]
-    },
-	
-    {
-        type: "write_the_code",
-        points: 10,
-        question: 'Write a Java method named `greet` that takes a `String` parameter called `name` and prints "Hello, `name`!"',
-        answer: `public void greet(String name) {
-System.out.println("Hello, " + name + "!");
-}`,
-        hints: [
-            "Hint 1: The constructor should initialize 'name' and 'species'.",
-            "Hint 2: The 'describe' method should return a string.",
-            "Hint 3: Use template literals to create the description."
-        ]
-    }
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "How do you call a method named display?",
+            choices: [
+                "A) call display();",
+                "B) invoke display();",
+                "C) display();",
+                "D) execute display();"
+            ],
+            answer: "C",
+            hints: [
+                "Hint 1: It is as simple as writing the method name followed by parentheses.",
+                "Hint 2: No special keywords are required to call a method in Java.",
+                "Hint 3: Parentheses must always be included even if no arguments are passed."
+            ]
+        } ,
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What will happen if you call a method that requires parameters without passing any arguments?",
+            choices: [
+                "A) It will throw an error",
+                "B) It will run with default values",
+                "C) It will call another method",
+                "D) Nothing will happen"
+            ],
+            answer: "A",
+            hints: [
+                "Hint 1: Parameters in a method must always be matched by the arguments provided.",
+                "Hint 2: If a method expects parameters, calling it without them will result in a compilation error.",
+                "Hint 3: You must pass the correct number of arguments when calling the method."
+            ]
+        } ,
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which part of the method call calculateSum(5, 10) are the arguments?",
+            choices: [
+                "A) calculateSum",
+                "B) 5, 10",
+                "C) ()",
+                "D) calculate"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: Arguments are the actual values passed to the method when it is called.",
+                "Hint 2: They are enclosed inside the parentheses following the method name.",
+                "Hint 3: These values match the data types and positions of the method’s parameters."
+            ]
+        },
+         {
+             type: "Identification",
+             points: 3,
+             question: "The action of executing a method's statements.",
+             answer: "Method Call",
+             hints: [
+                 "Hint 1: It is performed by using the method's name followed by parentheses.",
+                 "Hint 2: This is how you instruct the program to run the code in the method.",
+                 "Hint 3: It can be done with or without passing arguments."
+             ]
+        },
+        {
+            type: "Identification",
+            points: 3,
+            question: "The values passed to a method when it is called.",
+            answer: "Arguments",
+            hints: [
+                "Hint 1: They provide the data the method needs to work with.",
+                "Hint 2: These values must match the data types of the method’s parameters.",
+                "Hint 3: They are specified inside the parentheses of the method call."
+            ]
+        },
+        {
+            type: "Identification",
+            points: 2,
+            question: "The set of parentheses used to call a method.",
+            answer: "Method Call",
+            hints: [
+                "Hint 1: These parentheses are mandatory, even if no arguments are passed.",
+                "Hint 2: They are part of the syntax when invoking a method.",
+                "Hint 3: Parentheses distinguish method calls from other operations."
+            ],
+        },
+
+        {
+            type: "Whats the Output",
+            points: 3,
+            question: "Whats the Output of the Code snippet below?",
+            answer: "Hi!",
+            image: "/image/Custom/AW1F2WTO1.png"
+        },
+        {
+            type: "Whats the Output",
+            points: 3,
+            question: "Whats the Output of the Code snippet below?",
+            answer: "10",
+            image: "/image/Custom/AW1F2WTO2.png"
+        },
+        {
+            type: "Whats the Output",
+            points: 3,
+            question: "Whats the Output of the Code snippet below?",
+            answer: "Hello, Java",
+            image: "/image/Custom/AW1F2WTO3.png"
+        },
+        {
+            type: "Whats the Output",
+            points: 3,
+            question: "Whats the Output of the Code snippet below?",
+            answer: "78.53981633974483",
+            image: "/image/Custom/AW1F2WTO4.png"
+        },
+        {
+            type: "Complete the Code",
+            points: 4,
+            question: "Supply whats missing the code snippet below",
+            answer: "greet",
+            image: "/image/Custom/AW1F2CTC1.png"
+        },
+        {
+            type: "Complete the Code",
+            points: 4,
+            question: "Supply whats missing the code snippet below",
+            answer: "int",
+            image: "/image/Custom/AW1F2CTC2.png"
+        },
+        {
+            type: "Complete the Code",
+            points: 4,
+            question: "Supply whats missing the code snippet below",
+            answer: "message",
+            image: "/image/Custom/AW1F2CTC3.png"
+        },
+        {
+            type: "Complete the Code",
+            points: 4,
+            question: "Supply whats missing the code snippet below",
+            answer: "printMessage",
+            image: "/image/Custom/AW1F2CTC4.png"
+        }
 ];
 
 let timer; // Holds the timer reference
@@ -304,16 +242,29 @@ function setProgress(percent) {
     }
 }
 
-function disableGame() {
-    const inputs = document.querySelectorAll("input, button, textarea");
-    inputs.forEach(input => {
-        if (input !== backButton) {
-            input.disabled = true; // Disable all inputs except the backButton
-        }
-    });
-    showPopupMessage("Time's up! You can no longer answer the questions.");
-    backButton.disabled = false; // Ensure backButton is enabled
-}
+    function disableGame() {
+        // Apply a grayscale filter to the entire document body
+        document.body.style.filter = "grayscale(100%)";
+
+        // Select all inputs, buttons, and textarea elements
+        const inputs = document.querySelectorAll("input, button, textarea");
+
+        inputs.forEach(input => {
+            if (input !== backButton) {
+                input.disabled = true; // Disable all inputs except the backButton
+                input.style.backgroundColor = "red"; // Turn the button background color to red
+            }
+        });
+
+        // Remove grayscale filter from the backButton
+        backButton.style.filter = "none";
+        backButton.style.backgroundColor = ""; // Optional: Reset any background color changes to the backButton
+
+        showPopupMessage("Time's up! You can no longer answer the questions.");
+
+        // Ensure backButton is enabled
+        backButton.disabled = false;
+    }
 
 goButton.addEventListener("click", function() {
     if (!timerStarted) {

@@ -56,209 +56,147 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const questions = [
         {
-            type: "Identification",
-            points: 3,
-            question: "2 + 2",
-            answer: "4",
-            hints: [
-                "Hint 1: It's related to shapes.",
-                "Hint 2: Think about transformation.",
-                "Hint 3: It's a synonym for shapes."
+            type: "Multiple Choice",
+            points: 2,
+            question: "What is the correct syntax to define a method in Java?",
+            choices: [
+                "A) public static void methodName() { // body }",
+                "B) static public void methodName() { // body }",
+                "C) public void static methodName() { // body }",
+                "D) void public static methodName() { // body }"
             ],
-            image: "AF1_IDENTIFICATION.jpg"
-        },
-
+            answer: "A",
+            hints: [
+                "Hint 1: Modifiers should follow a specific order in Java.",
+                "Hint 2: The return type comes before the method name.",
+                "Hint 3: public static is a common modifier sequence."
+            ],
+        } ,
         {
-            type: "Identification",
-            points: 3,
-            question: "3 + 3",
-            answer: "6",
-            hints: [
-                "Hint 1: It's related to shapes.",
-                "Hint 2: Think about transformation.",
-                "Hint 3: It's a synonym for shapes."
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which part of the method declaration specifies the method's access type?",
+            choices: [
+                "A) Method name",
+                "B) Parameter list",
+                "C) Modifier",
+                "D) Return type"
             ],
-            image: "AF1_IDENTIFICATION.jpg"
-        },
-
-        {
-            type: "Identification",
-            points: 3,
-            question: "4 + 4",
-            answer: "8",
+            answer: "C",
             hints: [
-                "Hint 1: It's related to shapes.",
-                "Hint 2: Think about transformation.",
-                "Hint 3: It's a synonym for shapes."
+                "Hint 1: The keyword can be public, private, or protected.",
+                "Hint 2: This determines whether the method can be accessed by other classes.",
+                "Hint 3: It is optional but often seen in method declarations."
             ],
-            image: "AF1_IDENTIFICATION.jpg"
-        },
-
-        {
-            type: "Identification",
-            points: 3,
-            question: "5 + 5",
-            answer: "10",
-            hints: [
-                "Hint 1: It's related to shapes.",
-                "Hint 2: Think about transformation.",
-                "Hint 3: It's a synonym for shapes."
-            ],
-            image: "AF1_IDENTIFICATION.jpg"
-        },
-
-        {
-            type: "Identification",
-            points: 3,
-            question: "Identify the Method Modifier in the code snippet shown in the image?",
-            answer: "public",
-            hints: [
-                "Hint 1: It's related to shapes.",
-                "Hint 2: Think about transformation.",
-                "Hint 3: It's a synonym for shapes."
-            ],
-            image: "AF1_IDENTIFICATION.jpg"
-        },
-
-        {
-            type: "Identification",
-            points: 3,
-            question: "6 + 6",
-            answer: "12",
-            hints: [
-                "Hint 1: It's related to shapes.",
-                "Hint 2: Think about transformation.",
-                "Hint 3: It's a synonym for shapes."
-            ],
-            image: "AF1_IDENTIFICATION.jpg"
-        },
-
-
-
-        {
-            type: "Identification",
-            points: 3,
-            question: "Identify the Method Modifier in the code snippet shown in the image?",
-            answer: "public",
-            hints: [
-                "Hint 1: It's related to shapes.",
-                "Hint 2: Think about transformation.",
-                "Hint 3: It's a synonym for shapes."
-            ],
-            image: "AF1_IDENTIFICATION.jpg"
-        },
-        {
-            type: "Identification",
-            points: 3,
-            question: "Identify the Return Type in the code snippet shown in the image?",
-            answer: "int",
-            hints: [
-                "Hint 1: It's related to shapes.",
-                "Hint 2: Think about transformation.",
-                "Hint 3: It's a synonym for shapes."
-            ],
-            image: "AF1_IDENTIFICATION.jpg"
-        },
-        {
-            type: "Identification",
-            points: 3,
-            question: "Identify the Method Name in the code snippet shown in the image?",
-            answer: "add",
-            hints: [
-                "Hint 1: It's related to shapes.",
-                "Hint 2: Think about transformation.",
-                "Hint 3: It's a synonym for shapes."
-            ],
-            image: "AF1_IDENTIFICATION.jpg"
-        },
-        {
-            type: "Identification",
-            points: 3,
-            question: "Identify the Parameters in the code snippet shown in the image?",
-            answer: "int a, int b",
-            hints: [
-                "Hint 1: It's related to shapes.",
-                "Hint 2: Think about transformation.",
-                "Hint 3: It's a synonym for shapes."
-            ],
-            image: "AF1_IDENTIFICATION.jpg"
-        },
-        {
-            type: "Identification",
-            points: 3,
-            question: "Identify the Method Body in the code snippet shown in the image?",
-            answer: "{ return a + b; }",
-            hints: [
-                "Hint 1: It's related to shapes.",
-                "Hint 2: Think about transformation.",
-                "Hint 3: It's a synonym for shapes."
-            ],
-            image: "AF1_IDENTIFICATION.jpg"
         },
         {
             type: "Multiple Choice",
             points: 2,
-            question: "Which of the following statements is true about Java methods?",
+            question: "What does the void keyword indicate in a method declaration?",
             choices: [
-                "A. A method in Java cannot return an array",
-                "B. Method overloading in Java is the process of defining multiple methods with the same name but different parameter lists.",
-                "C. The void return type indicates that the method returns an integer.",
-                "D. A method must always have parameters."
+                "A) Method returns an integer",
+                "B) Method returns nothing",
+                "C) Method is private",
+                "D) Method takes no parameters"
             ],
             answer: "B",
             hints: [
-                "Hint 1: Common in many programming languages.",
-                "Hint 2: It's an abbreviation.",
-                "Hint 3: Short for integer."
-            ]
+                "Hint 1: This keyword specifies that the method does not return any value.",
+                "Hint 2: If you want to return something, you must replace void with a return type.",
+                "Hint 3: Common return types are int, String, and boolean."
+            ],
+        }
+        , {
+            type: "Identification",
+            points: 2,
+            question: "The group of statements that perform an operation in a Java program.",
+            answer: "Method",
+            hints: [
+                "Hint 1: It is also referred to as a function in some programming languages.",
+                "Hint 2: It can have parameters and a return type.",
+                "Hint 3: Methods are usually declared inside a class."
+            ],
         },
         {
-            type: "fill_in_the_code",
-            points: 5,
-            question: "Complete the following Java method to calculate the factorial of a given number `n`",
-            answer: `public int factorial(int n) {
-if (n == 0) {
-return 1;
-} else {
-return n * factorial(n - 1);
-}
-}`,
-            image: "AF1_FITC.jpg",
+            type: "Identification",
+            points: 2,
+            question: "The component of a method that lists parameters.",
+            answer: "Parameter List",
             hints: [
-                "Hint 1: Getter methods are used to access object properties.",
-                "Hint 2: The 'getItems' method should return the 'items' list.",
-                "Hint 3: Use the 'this' keyword to access the object's property."
-            ]
+                "Hint 1: It appears inside the parentheses after the method name.",
+                "Hint 2: These variables are placeholders for the actual values passed when the method is called.",
+                "Hint 3: The data types of the parameters must be specified."
+            ],
         },
         {
-            type: "fill_in_the_code",
-            points: 5,
-            question: "Complete the following code to implement a method named `isEven` that checks if a given integer `num` is even.",
-            answer: `public boolean isEven(int num) {
-return num % 2 == 0;
-}`,
-            image: "AF1_FITC2.jpg",
+            type: "Identification",
+            points: 2,
+            question: "The part of the method where the operations are defined.",
+            answer: "Method Body",
             hints: [
-                "Hint 1: Getter methods are used to access object properties.",
-                "Hint 2: The 'getItems' method should return the 'items' list.",
-                "Hint 3: Use the 'this' keyword to access the object's property."
-            ]
+                "Hint 1: It is enclosed within curly braces {}.",
+                "Hint 2: This part contains the logic of the method.",
+                "Hint 3: It can contain control structures like loops and conditionals."
+            ],
         },
 
         {
-            type: "write_the_code",
-            points: 10,
-            question: 'Write a Java method named `greet` that takes a `String` parameter called `name` and prints "Hello, `name`!"',
-            answer: `public void greet(String name) {
-System.out.println("Hello, " + name + "!");
-}`,
-            hints: [
-                "Hint 1: The constructor should initialize 'name' and 'species'.",
-                "Hint 2: The 'describe' method should return a string.",
-                "Hint 3: Use template literals to create the description."
-            ]
+            type: "Whats the Output",
+            points: 3,
+            question: "Whats the Output of the Code snippet below?",
+            answer: "Hello, World!",
+            image: "/image/Custom/AW1WTO1.png"
+        },
+        {
+            type: "Whats the Output",
+            points: 3,
+            question: "Whats the Output of the Code snippet below?",
+            answer: "15",
+            image: "/image/Custom/AW1WTO2.png"
+        },
+        {
+            type: "Whats the Output",
+            points: 3,
+            question: "Whats the Output of the Code snippet below?",
+            answer: "14",
+            image: "/image/Custom/AW1WTO3.png"
+        },
+        {
+            type: "Whats the Output",
+            points: 3,
+            question: "Whats the Output of the Code snippet below?",
+            answer: "Hello, Alice",
+            image: "/image/Custom/AW1WTO4.png"
+        },
+        {
+            type: "Complete the Code",
+            points: 4,
+            question: "Supply whats missing the code snippet below",
+            answer: "void",
+            image: "/image/Custom/AW1CTC1.png"
+        },
+        {
+            type: "Complete the Code",
+            points: 4,
+            question: "Supply whats missing the code snippet below",
+            answer: "b",
+            image: "/image/Custom/AW1CTC2.png"
+        },
+        {
+            type: "Complete the Code",
+            points: 4,
+            question: "Supply whats missing the code snippet below",
+            answer: "name",
+            image: "/image/Custom/AW1CTC3.png"
+        },
+        {
+            type: "Complete the Code",
+            points: 4,
+            question: "Supply whats missing the code snippet below",
+            answer: "void",
+            image: "/image/Custom/AW1CTC4.png"
         }
-    ];
+    ];      
 
     let timer; // Holds the timer reference
     let timeLeft = 600; // 5 minutes = 300 seconds
@@ -305,14 +243,27 @@ System.out.println("Hello, " + name + "!");
     }
 
     function disableGame() {
+        // Apply a grayscale filter to the entire document body
+        document.body.style.filter = "grayscale(100%)";
+
+        // Select all inputs, buttons, and textarea elements
         const inputs = document.querySelectorAll("input, button, textarea");
+
         inputs.forEach(input => {
             if (input !== backButton) {
                 input.disabled = true; // Disable all inputs except the backButton
+                input.style.backgroundColor = "red"; // Turn the button background color to red
             }
         });
+
+        // Remove grayscale filter from the backButton
+        backButton.style.filter = "none";
+        backButton.style.backgroundColor = ""; // Optional: Reset any background color changes to the backButton
+
         showPopupMessage("Time's up! You can no longer answer the questions.");
-        backButton.disabled = false; // Ensure backButton is enabled
+
+        // Ensure backButton is enabled
+        backButton.disabled = false;
     }
 
     goButton.addEventListener("click", function () {
@@ -452,7 +403,7 @@ System.out.println("Hello, " + name + "!");
     });
 
     confirmFinishButton.addEventListener("click", function () {
-        window.location.href = "AW1P1Floor.html";
+        window.location.href = '/Capstone/AW1P1Floor';
     });
 
     cancelFinishButton.addEventListener("click", function () {

@@ -55,163 +55,211 @@ document.addEventListener("DOMContentLoaded", function() {
     updateHearts(); // Initialize hearts display
 
     const questions = [
-	{
-        type: "Identification",
-        points: 3,
-        question: "2 + 2",
-        answer: "4",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "3 + 3",
-        answer: "6",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "4 + 4",
-        answer: "8",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "5 + 5",
-        answer: "10",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Modifier in the code snippet shown in the image?",
-        answer: "public",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "6 + 6",
-        answer: "12",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Modifier in the code snippet shown in the image?",
-        answer: "public",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
+        {
+            type: "Identification",
+            points: 3,
+            question: "Name the method that serves as the entry point for Java programs.",
+            answer: "main()",
+            hints: [
+                "Hint 1: It is the first method called when a Java program starts.",
+                "Hint 2: It is always required in a Java application.",
+                "Hint 3: The method is `main()`."
+            ]
+        },
+
+        {
+            type: "Identification",
+            points: 3,
+            question: "What is the symbol used for equality comparison in Java?",
+            answer: "==",
+            hints: [
+                "Hint 1: It consists of two identical characters.",
+                "Hint 2: It is different from the assignment operator.",
+                "Hint 3: You just need to double the symbol"
+            ]
+        },
+
+        {
+            type: "Identification",
+            points: 3,
+            question: "How do you begin a single-line comment in Java?",
+            answer: "//",
+            hints: [
+                "Hint 1: It starts with a pair of slashes.",
+                "Hint 2: It is used for inline comments.",
+                "Hint 3: It is facing to the right"
+
+            ]
+        },
+
+        {
+            type: "Identification",
+            points: 3,
+            question: "Which keyword is used to define a constant in Java?",
+            answer: "final",
+            hints: [
+                "Hint 1: It prevents modification after initialization.",
+                "Hint 2: It is used instead of `const`.",
+                "Hint 3: It is usually known for ending."
+
+            ]
+        },
+
+        {
+            type: "Identification",
+            points: 3,
+            question: "What does the following Java program display?",
+            answer: "My first Java program. The sum of 2 and 3 = 5 7 + 8 = 15",
+            hints: [
+                "Hint 1: The output includes three lines of text.",
+                "Hint 2: The first line is a simple greeting.",
+                "Hint 3: The second and third lines display the results of arithmetic operations."
+            ],
+            image: "BW1P2F2PIC.jpg"
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which of the following is a single-line comment in Java?",
+            choices: [
+                "A. /* This is a comment */",
+                "B. // This is a comment",
+                "C. <!-- This is a comment -->",
+                "D. # This is a comment"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: It starts with two characters.",
+                "Hint 2: It’s used for adding short notes in the code.",
+                "Hint 3: It is facing to the right."
+            ]
+        },
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which symbol is used for comparison in Java?",
+            choices: [
+                "A. +",
+                "B. -",
+                "C. <=",
+                "D. /"
+            ],
+            answer: "C",
+            hints: [
+                "Hint 1: It is a combination of symbols used for conditions.",
+                "Hint 2: It is often used to compare two values.",
+                "Hint 3: It is used to check if the condition is satisfied or not."
+            ]
+
+        },
+        
     {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Return Type in the code snippet shown in the image?",
-        answer: "int",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
+        type: "Multiple Choice",
+        points: 2,
+        question: "Which of the following is a legal identifier in Java?",
+        choices: [
+            "A. 1counter",
+            "B. $Amount",
+            "C. #rate",
+            "D. -total"
         ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Name in the code snippet shown in the image?",
-        answer: "add",
+        answer: "B",
         hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Parameters in the code snippet shown in the image?",
-        answer: "int a, int b",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Body in the code snippet shown in the image?",
-        answer: "{ return a + b; }",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
+            "Hint 1: It can start with a special character but not with a digit.",
+            "Hint 2: It can include letters, digits, and certain symbols.",
+            "Hint 3: It usually means money."
+        ]
+
     },
     {
         type: "Multiple Choice",
         points: 2,
-        question: "Which of the following statements is true about Java methods?",
+        question: "Which of the following is a reserved word in Java?",
         choices: [
-            "A. A method in Java cannot return an array",
-            "B. Method overloading in Java is the process of defining multiple methods with the same name but different parameter lists.",
-            "C. The void return type indicates that the method returns an integer.",
-            "D. A method must always have parameters."
+            "A. String",
+            "B. main",
+            "C. public",
+            "D. myVariable"
+        ],
+        answer: "C",
+        hints: [
+            "Hint 1: It is used to make a method or variable accessible outside its class.",
+            "Hint 2: It is not a user-defined identifier.",
+            "Hint 3: Sometimes, it is accessible to all."
+        ]
+
+    },
+    {
+        type: "Multiple Choice",
+        points: 2,
+        question: "Which of the following is a reserved word in Java?",
+        choices: [
+            "A. String",
+            "B. main",
+            "C. public",
+            "D. myVariable"
+        ],
+        answer: "C",
+        hints: [
+            "Hint 1: It is used to make a method or variable accessible outside its class.",
+            "Hint 2: It is not a user-defined identifier.",
+            "Hint 3: Sometimes, it is accessible to all."
+        ]
+    },
+    {
+        type: "Multiple Choice",
+        points: 2,
+        question: "What does the keyword 'void' in the main method signify?",
+        choices: [
+            "A. It returns a value",
+            "B. It does not return any value",
+            "C. It takes input from the user",
+            "D. It is optional in Java"
         ],
         answer: "B",
         hints: [
-            "Hint 1: Common in many programming languages.",
-            "Hint 2: It's an abbreviation.",
-            "Hint 3: Short for integer."
+            "Hint 1: It indicates something about return values.",
+            "Hint 2: Does it need to give something back?",
+            "Hint 3: It is used when the method does not return any value."
         ]
+
     },
+    {
+        type: "Multiple Choice",
+        points: 2,
+        question: "What data type would be suitable for storing a character in Java?",
+        choices: [
+            "A. int",
+            "B. float",
+            "C. char",
+            "D. double"
+        ],
+        answer: "C",
+        hints: [
+            "Hint 1: It is used to store single letters or symbols.",
+            "Hint 2: It occupies 2 bytes in memory.",
+            "Hint 3: It can be seen in the character."
+        ]
+        },
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which of the following is a primitive data type in Java?",
+            choices: [
+                "A. String",
+                "B. Integer",
+                "C. Boolean",
+                "D. Class"
+            ],
+            answer: "C",
+            hints: [
+                "Hint 1: It is not an object or a class.",
+                "Hint 2: It can hold 0 or 1 values.",
+                "Hint 3: It can hold true or false values."
+            ]
+        },
+
     {
         type: "fill_in_the_code",
         points: 5,
@@ -304,16 +352,29 @@ function setProgress(percent) {
     }
 }
 
-function disableGame() {
-    const inputs = document.querySelectorAll("input, button, textarea");
-    inputs.forEach(input => {
-        if (input !== backButton) {
-            input.disabled = true; // Disable all inputs except the backButton
-        }
-    });
-    showPopupMessage("Time's up! You can no longer answer the questions.");
-    backButton.disabled = false; // Ensure backButton is enabled
-}
+    function disableGame() {
+        // Apply a grayscale filter to the entire document body
+        document.body.style.filter = "grayscale(100%)";
+
+        // Select all inputs, buttons, and textarea elements
+        const inputs = document.querySelectorAll("input, button, textarea");
+
+        inputs.forEach(input => {
+            if (input !== backButton) {
+                input.disabled = true; // Disable all inputs except the backButton
+                input.style.backgroundColor = "red"; // Turn the button background color to red
+            }
+        });
+
+        // Remove grayscale filter from the backButton
+        backButton.style.filter = "none";
+        backButton.style.backgroundColor = ""; // Optional: Reset any background color changes to the backButton
+
+        showPopupMessage("Time's up! You can no longer answer the questions.");
+
+        // Ensure backButton is enabled
+        backButton.disabled = false;
+    }
 
 goButton.addEventListener("click", function() {
     if (!timerStarted) {

@@ -56,27 +56,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const questions = [
 	{
-        type: "Identification",
-        points: 3,
-        question: "Name a high-level programming language mentioned in the module.",
-        answer: "Java",
-        hints: [
-            "Hint 1: This language is widely used for object-oriented programming.",
-            "Hint 2: It's known for its platform independence and is often associated with web development.",
-            "Hint 3: It's named after a warm beverage."
-        ],
-        
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "What type of Java program is a small application?",
-        answer: "Applet",
-        hints: [
-            "Hint 1: It can run in a web browser.",
-            "Hint 2: It's smaller than a full application but can perform specific tasks.",
-            "Hint 3: Its name sounds like a small piece of fruit."
+            type: "Identification",
+            points: 3,
+            question: "What type of Java program is a small application?",
+            answer: "Applet",
+            hints: [
+                "Hint 1: It can run in a web browser.",
+                "Hint 2: It's smaller than a full application but can perform specific tasks.",
+                "Hint 3: Its name sounds like a small piece of fruit."
+
         ],
         
     },
@@ -90,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
             "Hint 1: It's composed entirely of 0s and 1s.",
             "Hint 2: This language interacts directly with the CPU.",
             "Hint 3: It's the most fundamental level of code, understood by the machine without any translation."
+
         ],
         
     },
@@ -103,9 +92,23 @@ document.addEventListener("DOMContentLoaded", function() {
             "Hint 1: This programming paradigm models real-world entities.",
             "Hint 2: It's based on classes and objects, where objects represent data and methods.",
             "Hint 3: It's abbreviated as OOP and is central to languages like Java and Python."
+
         ],
         
-    },
+     },
+        {
+            type: "Identification",
+            points: 3,
+            question: "Name a high-level programming language mentioned in the module.",
+            answer: "Java",
+            hints: [
+                "Hint 1: This language is widely used for object-oriented programming.",
+                "Hint 2: It's known for its platform independence and is often associated with web development.",
+                "Hint 3: It's named after a warm beverage."
+            ],
+
+        },
+
 	
 	{
         type: "Identification",
@@ -116,9 +119,11 @@ document.addEventListener("DOMContentLoaded", function() {
             "Hint 1: It's a tool that works at a very low level, closer to the hardware.",
             "Hint 2: This program converts human-readable code into a format the CPU can directly execute.",
             "Hint 3: It's known as an assembler and is crucial in system-level programming."
+
         ],
         
     },
+	
 	
     {
         type: "Multiple Choice",
@@ -231,7 +236,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	{
         type: "Multiple Choice",
         points: 2,
-        question: "7.What programming methodology breaks down problems into procedures or blocks of code?",
+        question: "What programming methodology breaks down problems into procedures or blocks of code?",
         choices: [
             "A. Object-oriented Programming",
             "B. Procedural Programming",
@@ -249,7 +254,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	{
         type: "Multiple Choice",
         points: 2,
-        question: "8.Which of the following is true about pseudocode?",
+        question: "Which of the following is true about pseudocode?",
         choices: [
             "A. It is written in a high-level language",
             "B. It is a mixture of English and Java",
@@ -346,16 +351,29 @@ function setProgress(percent) {
     }
 }
 
-function disableGame() {
-    const inputs = document.querySelectorAll("input, button, textarea");
-    inputs.forEach(input => {
-        if (input !== backButton) {
-            input.disabled = true; // Disable all inputs except the backButton
-        }
-    });
-    showPopupMessage("Time's up! You can no longer answer the questions.");
-    backButton.disabled = false; // Ensure backButton is enabled
-}
+    function disableGame() {
+        // Apply a grayscale filter to the entire document body
+        document.body.style.filter = "grayscale(100%)";
+
+        // Select all inputs, buttons, and textarea elements
+        const inputs = document.querySelectorAll("input, button, textarea");
+
+        inputs.forEach(input => {
+            if (input !== backButton) {
+                input.disabled = true; // Disable all inputs except the backButton
+                input.style.backgroundColor = "red"; // Turn the button background color to red
+            }
+        });
+
+        // Remove grayscale filter from the backButton
+        backButton.style.filter = "none";
+        backButton.style.backgroundColor = ""; // Optional: Reset any background color changes to the backButton
+
+        showPopupMessage("Time's up! You can no longer answer the questions.");
+
+        // Ensure backButton is enabled
+        backButton.disabled = false;
+    }
 
 goButton.addEventListener("click", function() {
     if (!timerStarted) {
