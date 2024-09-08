@@ -348,12 +348,32 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    max-width: 600px;
+    max-width: 1000px;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     padding: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     transition: transform 0.5s ease-in-out;
+    z-index: 1;
+    box-sizing: border-box; /* Include padding in width calculation */
+    height: 90vh; /* Set height of the slidingDiv */
+}
+
+#preloadIframe {
+    width: 100%; /* Ensure it doesn’t exceed the width of slidingDiv */
+    height: 100%; /* Make it fill the height of slidingDiv */
+    background-color: rgba(0, 0, 0, 0.5); /* Match slidingDiv background */
+    color: white; /* Match text color */
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    overflow-y: auto; /* Allow scrolling if content exceeds height */
+    transition: transform 0.5s ease-in-out;
+    z-index: 1;
+    box-sizing: border-box; /* Include padding in width and height calculation */
+}
+
+#moduleContent {
+    height: 80%;
 }
 
 .hidden {
@@ -1089,12 +1109,113 @@ svg {
     }
 
     .Slime-walk0, .Slime-walk1, .Slime-walk2, .Slime-walk3, .Slime-walk4, .Slime-walk5, .Slime-walk6, .Slime-walk7, .Slime-walk8, .Slime-walk9, .Slime-walk10, .Slime-walk11, .Slime-walk12, .Slime-walk13 {
-        width: 150px;
-        height: 100px;
-        top: 60%;
-        left: 29%;
-        background-size: 150px 1260px; /* Adjust for smaller screens */ /* Adjust for very small screens */
+        width: calc(150px / 2);
+        height: calc(100px / 2);
+        top: 77%;
+        left: 40%;
+        background-size: calc(150px / 2) calc(1260px / 2);
     }
+
+    .animateSlimeWalk0 {
+        visibility: visible;
+        opacity: 1;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter0 5s linear forwards;
+    }
+
+    @keyframes slimeWalk0 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-1260px / 2);
+        }
+    }
+
+    /* Keyframes for the horizontal movement animation */
+    @keyframes walkToCenter0 {
+        UNTIL WALKTOCENTER13 0% {
+            left: 70%;
+        }
+
+        100% {
+            left: 55%;
+        }
+    }
+
+
+    .LavaPrince-walk {
+        width: calc(1244px / 1.8); /* Scale down width */
+        height: calc(245px / 1.8); /* Scale down height */
+        left: 26%;
+        top: 65%;
+        transform: translateX(-50%);
+        background-size: calc(1244px / 1.8) calc(13786px / 1.8); /* Adjust background size */
+    }
+
+    .animateWalk1 {
+        animation: animateWalk1 2.5s steps(61); /* Keep animation settings */
+    }
+
+    @keyframes animateWalk1 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-13786px / 1.8);
+        }
+        /* Adjust Y-axis movement */
+    }
+
+    .LavaPrince-idle {
+        width: calc(250px / 1.8); /* Scale down width */
+        height: calc(350px / 1.8); /* Scale down height */
+        top: 60%;
+        left: 75%;
+        transform: translateX(-50%);
+        background-size: calc(250px / 1.8) calc(10000px / 1.8); /* Adjust background size */
+    }
+
+    .animateIdle1 {
+        animation: animateIdle1 1s steps(30) 5 alternate; /* Keep animation settings */
+    }
+
+    @keyframes animateIdle1 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-10000px / 1.8);
+        }
+        /* Adjust Y-axis movement */
+    }
+
+    .LavaPrince-attack {
+        width: calc(1274px / 1.8); /* Scale down width */
+        height: calc(580px / 1.8); /* Scale down height */
+        top: 75%;
+        left: 25%;
+        transform: translate(-50%, -50%) scaleX(-1);
+        background-size: calc(1274px / 1.8) calc(46400px / 1.8); /* Adjust background size */
+    }
+
+    .animateAttack1 {
+        animation: animateAttack1 2s steps(80) infinite; /* Keep animation settings */
+    }
+
+    @keyframes animateAttack1 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-46400px / 1.8);
+        }
+        /* Adjust Y-axis movement */
+    }
+
 
     /* Keyframes for the horizontal movement animation */
     @keyframes walkToCenter0 {

@@ -6,6 +6,7 @@
     const changePasswordContainer = document.querySelector('.change-password-container');
     const signInContainer = document.querySelector('.sign-in-container');
     const signUpContainer = document.querySelector('.sign-up-container');
+    const loginForm = document.querySelector('.sign-in-container form');
 
     // Handle sign up and sign in panel switching
     signUpButton.addEventListener('click', () => {
@@ -52,12 +53,12 @@
     // Show the sign-in form
     function showSignInForm() {
         signInContainer.style.display = 'block';
-        signUpContainer.style.display = 'block';
+        signUpContainer.style.display = 'none'; // Hide the sign-up form
     }
 
     // Show the sign-up form
     function showSignUpForm() {
-        signInContainer.style.display = 'block';
+        signInContainer.style.display = 'none'; // Hide the sign-in form
         signUpContainer.style.display = 'block';
     }
 
@@ -71,5 +72,11 @@
     const backButton = document.getElementById('backButton');
     backButton.addEventListener('click', () => {
         window.location.href = '/Capstone/Home';
+    });
+
+    // Handle login form submission
+    loginForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        window.location.href = '/Capstone/profDashboard';
     });
 });

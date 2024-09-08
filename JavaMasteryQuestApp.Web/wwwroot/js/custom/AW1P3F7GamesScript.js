@@ -38,6 +38,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const confirmFinishButton = document.getElementById("confirmFinishButton");
     const cancelFinishButton = document.getElementById("cancelFinishButton");
 
+    const GRangerWalk = document.querySelector(".GRanger-walk");
+    const GRangerIdle = document.querySelector(".GRanger-idle");
+    const GRangerAttack = document.querySelector(".GRanger-attack");
+
 	
     let currentQuestionIndex = 0;
     let silverCoins = localStorage.getItem("silverCoins") ? parseInt(localStorage.getItem("silverCoins")) : 0;
@@ -53,212 +57,157 @@ document.addEventListener("DOMContentLoaded", function() {
 	
     updateCoinAndPointCount();
     updateHearts(); // Initialize hearts display
+    // Initially display the idle animation BEFORE QUESTIONS
+    GRangerIdle.style.visibility = "visible";
+    GRangerIdle.style.opacity = "1";
+
 
     const questions = [
-	{
-        type: "Identification",
-        points: 3,
-        question: "2 + 2",
-        answer: "4",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "3 + 3",
-        answer: "6",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "4 + 4",
-        answer: "8",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "5 + 5",
-        answer: "10",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Modifier in the code snippet shown in the image?",
-        answer: "public",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "6 + 6",
-        answer: "12",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Modifier in the code snippet shown in the image?",
-        answer: "public",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Return Type in the code snippet shown in the image?",
-        answer: "int",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Name in the code snippet shown in the image?",
-        answer: "add",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Parameters in the code snippet shown in the image?",
-        answer: "int a, int b",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Body in the code snippet shown in the image?",
-        answer: "{ return a + b; }",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Multiple Choice",
-        points: 2,
-        question: "Which of the following statements is true about Java methods?",
-        choices: [
-            "A. A method in Java cannot return an array",
-            "B. Method overloading in Java is the process of defining multiple methods with the same name but different parameter lists.",
-            "C. The void return type indicates that the method returns an integer.",
-            "D. A method must always have parameters."
-        ],
-        answer: "B",
-        hints: [
-            "Hint 1: Common in many programming languages.",
-            "Hint 2: It's an abbreviation.",
-            "Hint 3: Short for integer."
-        ]
-    },
-    {
-        type: "fill_in_the_code",
-        points: 5,
-        question: "Complete the following Java method to calculate the factorial of a given number `n`",
-        answer: `public int factorial(int n) {
-if (n == 0) {
-return 1;
-} else {
-return n * factorial(n - 1);
-}
-}`,
-        image: "AF1_FITC.jpg",
-        hints: [
-            "Hint 1: Getter methods are used to access object properties.",
-            "Hint 2: The 'getItems' method should return the 'items' list.",
-            "Hint 3: Use the 'this' keyword to access the object's property."
-        ]
-    },
-	{
-        type: "fill_in_the_code",
-        points: 5,
-        question: "Complete the following code to implement a method named `isEven` that checks if a given integer `num` is even.",
-        answer: `public boolean isEven(int num) {
-return num % 2 == 0;
-}`,
-        image: "AF1_FITC2.jpg",
-        hints: [
-            "Hint 1: Getter methods are used to access object properties.",
-            "Hint 2: The 'getItems' method should return the 'items' list.",
-            "Hint 3: Use the 'this' keyword to access the object's property."
-        ]
-    },
-	
-    {
-        type: "write_the_code",
-        points: 10,
-        question: 'Write a Java method named `greet` that takes a `String` parameter called `name` and prints "Hello, `name`!"',
-        answer: `public void greet(String name) {
-System.out.println("Hello, " + name + "!");
-}`,
-        hints: [
-            "Hint 1: The constructor should initialize 'name' and 'species'.",
-            "Hint 2: The 'describe' method should return a string.",
-            "Hint 3: Use template literals to create the description."
-        ]
-    }
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What does OOP stand for?",
+            choices: [
+                "A) Object-Originated Programming",
+                "B) Object-Oriented Programming",
+                "C) Objective-Oriented Programming",
+                "D) Object-Oriented Process"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: It is a programming paradigm that uses objects and classes.",
+                "Hint 2: OOP principles include encapsulation, inheritance, and polymorphism.",
+                "Hint 3: This paradigm models real-world entities."
+            ]
+        },
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which of the following is not a principle of OOP?",
+            choices: [
+                "A) Encapsulation",
+                "B) Polymorphism",
+                "C) Inheritance",
+                "D) Compilation"
+            ],
+            answer: "D",
+            hints: [
+                "Hint 1: OOP focuses on object creation and interaction.",
+                "Hint 2: Compilation is a process that turns code into machine language.",
+                "Hint 3: Polymorphism, inheritance, and encapsulation are fundamental concepts of OOP."
+            ]
+        },
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What is a class in Java?",
+            choices: [
+                "A) A blueprint for creating objects",
+                "B) A data type",
+                "C) An instance of an object",
+                "D) A method in Java"
+            ],
+            answer: "A",
+            hints: [
+                "Hint 1: A class defines properties and behaviors of objects.",
+                "Hint 2: Objects are instances of this blueprint.",
+                "Hint 3: It encapsulates data and methods into a single entity."
+            ]
+        },
+        {
+            type: "Identification",
+            points: 3,
+            question: "A paradigm in programming that uses objects.",
+            answer: "Object-oriented programming (OOP)",
+            hints: [
+                "Hint 1: It focuses on the use of objects to represent data and functionality.",
+                "Hint 2: It stands for Object-Oriented Programming.",
+                "Hint 3: This approach models real-world systems."
+            ]
+        },
+        {
+            type: "Identification",
+            points: 3,
+            question: "A blueprint for creating objects in Java.",
+            answer: "Class",
+            hints: [
+                "Hint 1: It defines properties and methods.",
+                "Hint 2: Objects are instances of this blueprint.",
+                "Hint 3: It defines properties and behaviors that objects can have."
+            ]
+        },
+        {
+            type: "Identification",
+            points: 3,
+            question: "An entity in the real world that can be distinctly identified.",
+            answer: "Object",
+            hints: [
+                "Hint 1: It has both state and behavior.",
+                "Hint 2: It is an instance of a class.",
+                "Hint 3: It represents real-world entities like cars, animals, or books."
+            ]
+        },
+
+        {
+            type: "Whats the Output",
+            points: 3,
+            question: "Whats the Output of the Code snippet below?",
+            answer: "5",
+            image: "/image/Custom/AW1P3F7WTO1.png"
+        },
+        {
+            type: "Whats the Output",
+            points: 3,
+            question: "Whats the Output of the Code snippet below?",
+            answer: "Toyota",
+            image: "/image/Custom/AW1P3F7WTO2.png"
+        },
+        {
+            type: "Whats the Output",
+            points: 3,
+            question: "Whats the Output of the Code snippet below?",
+            answer: "Buddy is 3 years old.",
+            image: "/image/Custom/AW1P3F7WTO3.png"
+        },
+        {
+            type: "Whats the Output",
+            points: 3,
+            question: "Whats the Output of the Code snippet below?",
+            answer: "Title: 1984, Author: George Orwell",
+            image: "/image/Custom/AW1P3F7WTO4.png"
+        },
+        {
+            type: "Complete the Code",
+            points: 4,
+            question: "Supply whats missing the code snippet below",
+            answer: "main",
+            image: "/image/Custom/AW1P3F7CTC1.png"
+        },
+        {
+            type: "Complete the Code",
+            points: 4,
+            question: "Supply whats missing the code snippet below",
+            answer: "name",
+            image: "/image/Custom/AW1P3F7CTC2.png"
+        },
+        {
+            type: "Complete the Code",
+            points: 4,
+            question: "Supply whats missing the code snippet below",
+            answer: "age",
+            image: "/image/Custom/AW1P3F7CTC3.png"
+        },
+        {
+            type: "Complete the Code",
+            points: 4,
+            question: "Supply whats missing the code snippet below",
+            answer: "grade",
+            image: "/image/Custom/AW1P3F7CTC4.png"
+        }
 ];
+    function stopTimer() {
+        clearInterval(timer);
+    }
 
 let timer; // Holds the timer reference
 let timeLeft = 600; // 5 minutes = 300 seconds
@@ -328,13 +277,24 @@ function setProgress(percent) {
         backButton.disabled = false;
     }
 
-goButton.addEventListener("click", function() {
-    if (!timerStarted) {
-        startTimer();
-        timerStarted = true;
-    }
-    displayQuestion(); // Assuming this function displays the next question
-});
+    goButton.addEventListener("click", function () {
+        if (!timerStarted) {
+            startTimer();
+            timerStarted = true;
+        }
+        // Hide idle and show attack animation
+        const GRangerIdle = document.querySelector(".GRanger-idle");
+        const GRangerAttack = document.querySelector(".GRanger-attack");
+
+        GRangerIdle.style.visibility = "hidden";
+        GRangerIdle.style.opacity = "0";
+
+        GRangerAttack.style.visibility = "visible";
+        GRangerAttack.style.opacity = "1";
+
+        displayQuestion(); // Assuming this function displays the next question
+    });
+
 
 function selectRandomQuestions() {
     const shuffledQuestions = questions.slice(0, -3).sort(() => Math.random() - 0.5);
@@ -526,6 +486,10 @@ restartButton.addEventListener("click", restartGame);
         updateCoinAndPointCount();
         showPopupMessage(`Correct! You got ${pointsEarned} points and 100 silver coins`);
         gameContainer.classList.add("hidden");
+        GRangerAttack.style.visibility = "hidden";
+        GRangerAttack.style.opacity = "0";
+        GRangerIdle.style.visibility = "visible";
+        GRangerIdle.style.opacity = "1";
 
         if (currentQuestionIndex === 0) fadeOutCharacter(SlimeWalk0);
         else if (currentQuestionIndex === 1) fadeOutCharacter(SlimeWalk1);
@@ -572,6 +536,11 @@ restartButton.addEventListener("click", restartGame);
             updateCoinAndPointCount();
             showPopupMessage("You lost all hearts. 50 silver coins deducted.");
             gameContainer.classList.add("hidden");
+            GRangerAttack.style.visibility = "hidden";
+            GRangerAttack.style.opacity = "0";
+            GRangerIdle.style.visibility = "visible";
+            GRangerIdle.style.opacity = "1";
+
             if (currentQuestionIndex === 0) fadeOutCharacter(SlimeWalk0);
             else if (currentQuestionIndex === 1) fadeOutCharacter(SlimeWalk1);
             else if (currentQuestionIndex === 2) fadeOutCharacter(SlimeWalk2);
@@ -600,6 +569,10 @@ restartButton.addEventListener("click", restartGame);
 			
             if (currentQuestionIndex < randomQuestions.length) {
                 goButton.classList.remove("hidden");
+                GRangerAttack.style.visibility = "hidden";
+                GRangerAttack.style.opacity = "0";
+                GRangerIdle.style.visibility = "visible";
+                GRangerIdle.style.opacity = "1";
             } else {
                 showCompletionWarning();
                 const answeredAllQuestions = JSON.stringify(answeredQuestions.sort()) === JSON.stringify(Array.from({ length: randomQuestions.length }, (_, i) => i).sort());
@@ -615,20 +588,35 @@ restartButton.addEventListener("click", restartGame);
 
     const startButtonClicked = new Array(randomQuestions.length).fill(false);
 
-function startSequence() {
-    // Check if the start button has not been clicked for the current question index
-    if (!startButtonClicked[currentQuestionIndex]) {
-        startButtonClicked[currentQuestionIndex] = true; // Mark the start button as clicked for the current question index
+    function startSequence() {
+        // Check if the start button has not been clicked for the current question index
+        if (!startButtonClicked[currentQuestionIndex]) {
+            startButtonClicked[currentQuestionIndex] = true; // Mark the start button as clicked for the current question index
 
-        const land = document.querySelector('.land');
-        land.classList.add('animate');
+            const GRangerWalk = document.querySelector('.GRanger-walk');
+            const land = document.querySelector('.land');
 
-        land.addEventListener('animationend', function() {
-            land.classList.remove('animate');
-            animateCharacters();
-        }, { once: true });
+
+            // Hide idle and show walk animation
+            GRangerIdle.style.visibility = "hidden";
+            GRangerIdle.style.opacity = "0";
+            GRangerWalk.style.visibility = "visible";
+            GRangerWalk.style.opacity = "1";
+            GRangerWalk.classList.add('character-walk');
+            land.classList.add('animate');
+
+            // When the land animation ends, switch the walk back to idle
+            land.addEventListener('animationend', function () {
+                land.classList.remove('animate');
+                GRangerWalk.style.visibility = "hidden";
+                GRangerWalk.style.opacity = "0";
+                GRangerIdle.style.visibility = "visible";
+                GRangerIdle.style.opacity = "1";
+
+                animateCharacters();
+            }, { once: true });
+        }
     }
-}
 
     function animateCharacters() {
         if (currentQuestionIndex === 0) {
@@ -827,6 +815,7 @@ function startSequence() {
 
     startButton.addEventListener("click", function() {
         startSequence();
+        bookModule.disabled = true;
     });
 
     goButton.addEventListener("click", function() {

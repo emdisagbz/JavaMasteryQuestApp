@@ -38,6 +38,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const confirmFinishButton = document.getElementById("confirmFinishButton");
     const cancelFinishButton = document.getElementById("cancelFinishButton");
 
+    const GRangerWalk = document.querySelector(".GRanger-walk");
+    const GRangerIdle = document.querySelector(".GRanger-idle");
+    const GRangerAttack = document.querySelector(".GRanger-attack");
 	
     let currentQuestionIndex = 0;
     let silverCoins = localStorage.getItem("silverCoins") ? parseInt(localStorage.getItem("silverCoins")) : 0;
@@ -53,212 +56,262 @@ document.addEventListener("DOMContentLoaded", function() {
 	
     updateCoinAndPointCount();
     updateHearts(); // Initialize hearts display
+    // Initially display the idle animation BEFORE QUESTIONS
+    GRangerIdle.style.visibility = "visible";
+    GRangerIdle.style.opacity = "1";
+
 
     const questions = [
-	{
-        type: "Identification",
-        points: 3,
-        question: "2 + 2",
-        answer: "4",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "3 + 3",
-        answer: "6",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "4 + 4",
-        answer: "8",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "5 + 5",
-        answer: "10",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Modifier in the code snippet shown in the image?",
-        answer: "public",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "6 + 6",
-        answer: "12",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Modifier in the code snippet shown in the image?",
-        answer: "public",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Return Type in the code snippet shown in the image?",
-        answer: "int",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Name in the code snippet shown in the image?",
-        answer: "add",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Parameters in the code snippet shown in the image?",
-        answer: "int a, int b",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Body in the code snippet shown in the image?",
-        answer: "{ return a + b; }",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Multiple Choice",
-        points: 2,
-        question: "Which of the following statements is true about Java methods?",
-        choices: [
-            "A. A method in Java cannot return an array",
-            "B. Method overloading in Java is the process of defining multiple methods with the same name but different parameter lists.",
-            "C. The void return type indicates that the method returns an integer.",
-            "D. A method must always have parameters."
-        ],
-        answer: "B",
-        hints: [
-            "Hint 1: Common in many programming languages.",
-            "Hint 2: It's an abbreviation.",
-            "Hint 3: Short for integer."
-        ]
-    },
-    {
-        type: "fill_in_the_code",
-        points: 5,
-        question: "Complete the following Java method to calculate the factorial of a given number `n`",
-        answer: `public int factorial(int n) {
-if (n == 0) {
-return 1;
-} else {
-return n * factorial(n - 1);
-}
-}`,
-        image: "AF1_FITC.jpg",
-        hints: [
-            "Hint 1: Getter methods are used to access object properties.",
-            "Hint 2: The 'getItems' method should return the 'items' list.",
-            "Hint 3: Use the 'this' keyword to access the object's property."
-        ]
-    },
-	{
-        type: "fill_in_the_code",
-        points: 5,
-        question: "Complete the following code to implement a method named `isEven` that checks if a given integer `num` is even.",
-        answer: `public boolean isEven(int num) {
-return num % 2 == 0;
-}`,
-        image: "AF1_FITC2.jpg",
-        hints: [
-            "Hint 1: Getter methods are used to access object properties.",
-            "Hint 2: The 'getItems' method should return the 'items' list.",
-            "Hint 3: Use the 'this' keyword to access the object's property."
-        ]
-    },
-	
-    {
-        type: "write_the_code",
-        points: 10,
-        question: 'Write a Java method named `greet` that takes a `String` parameter called `name` and prints "Hello, `name`!"',
-        answer: `public void greet(String name) {
-System.out.println("Hello, " + name + "!");
-}`,
-        hints: [
-            "Hint 1: The constructor should initialize 'name' and 'species'.",
-            "Hint 2: The 'describe' method should return a string.",
-            "Hint 3: Use template literals to create the description."
-        ]
-    }
+        {
+            type: "Identification",
+            points: 3,
+            question: "Name the method of the Scanner class that retrieves input as a double.",
+            answer: "nextDouble()",
+            hints: [
+                "Hint 1: It retrieves floating-point numbers.",
+                "Hint 2: It is similar to `nextFloat()` but with more precision.",
+                "Hint 3: The method is `nextDouble()`."
+            ],
+
+        },
+
+        {
+            type: "Identification",
+            points: 3,
+            question: "Which method of the Scanner class retrieves the next complete token as a String?",
+            answer: "next()",
+            hints: [
+                "Hint 1: It does not read until a new line.",
+                "Hint 2: It returns the next token found.",
+                "Hint 3: The method is `next()`."
+            ],
+
+        },
+
+        {
+            type: "Identification",
+            points: 3,
+            question: "What is the method used to display output in Java that advances to a new line after displaying its output?",
+            answer: "System.out.println()",
+            hints: [
+                "Hint 1: It adds a line break after printing.",
+                "Hint 2: It is the most common method for printing output in Java.",
+                "Hint 3: This method is used for printing."
+            ],
+
+        },
+
+        {
+            type: "Identification",
+            points: 3,
+            question: "How do you import all classes from the java.util package in Java?",
+            answer: " import java.util.*;",
+            hints: [
+                "Hint 1: It uses the wildcard symbol.",
+                "Hint 2: It imports all classes in the package.",
+                "Hint 3: The statement is `import java.util.*`;"
+            ],
+
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which class in Java is used to read data from the standard input device?",
+            choices: [
+                "A. System",
+                "B. Scanner",
+                "C. InputStream",
+                "D. BufferedReader"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: It’s part of the `java.util` package.",
+                "Hint 2: It is used to capture user input.",
+                "Hint 3: The class is `Scanner`."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which statement correctly imports the Scanner class from the java.util package?",
+            choices: [
+                "A. import java.Scanner;",
+                "B. import java.util.Scanner;",
+                "C. import Scanner.java.util.*",
+                "D. import Scanner.util.*"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: It starts with `import`.",
+                "Hint 2: It mentions both the package and class name.",
+                "Hint 3: The answer is in the question already."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "How do you create a Scanner object to read input from the standard input device?",
+            choices: [
+                "A. Scanner input = Scanner(System.in);",
+                "B. Scanner input = new Scanner(System.out);",
+                "C. Scanner input = new Scanner(System.in);",
+                "D. Scanner input = System.in.Scanner();"
+            ],
+            answer: "C",
+            hints: [
+                "Hint 1: It requires the `new` keyword.",
+                "Hint 2: It reads input from the keyboard.",
+                "Hint 3: Empahsize on the word `INPUT`"
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which method of the Scanner class retrieves input as an integer?",
+            choices: [
+                "A. nextDouble()",
+                "B. nextInt()",
+                "C. nextString()",
+                "D. next()"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: It’s a method that returns whole numbers.",
+                "Hint 2: It does not deal with decimals.",
+                "Hint 3: Empahsize on the word `INTEGER`"
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What does the nextLine() method of the Scanner class do?",
+            choices: [
+                "A. Retrieves input as a double.",
+                "B. Retrieves input as a single character.",
+                "C. Retrieves the next line of data and returns it as a String.",
+                "D. Retrieves input as an integer."
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: It reads input until a new line is detected.",
+                "Hint 2: It returns a string.",
+                "Hint 3: The method retrieves the next line of data."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "How can you retrieve a single character from the keyboard using the Scanner class?",
+            choices: [
+                "A. nextChar(0)",
+                "B. next(0)",
+                "C. next().charAt(0)",
+                "D. nextCharacter(1)"
+            ],
+            answer: "C",
+            hints: [
+                "Hint 1: It involves the `next()` method.",
+                "Hint 2: You must access the character at index 0.",
+                "Hint 3: The correct approach is `next().charAt(0)`."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which Scanner method is used to retrieve input as a floating-point number?",
+            choices: [
+                "A. nextFloat()",
+                "B. nextDouble()",
+                "C. nextInt()",
+                "D. nextLong()"
+            ],
+            answer: "A",
+            hints: [
+                "Hint 1: It deals with numbers that have decimals.",
+                "Hint 2: It’s not the same as `nextInt()`.",
+                "Hint 3: Integer is int, Boolean is bool. So for floating-point number is for?"
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What is the difference between System.out.println and System.out.print?",
+            choices: [
+                "A. System.out.println does not advance to a new line after displaying output",
+                "B. System.out.print advances to a new line after displaying output",
+                "C. System.out.println advances to a new line after displaying output",
+                "D. There is no difference"
+            ],
+            answer: "C",
+            hints: [
+                "Hint 1: They both display output, but differently.",
+                "Hint 2: One of them moves to a new line after printing.",
+                "Hint 3: One of them advances to a new line after displaying output."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which method would you use to display `Hello out there!` on the screen?",
+            choices: [
+                "A. System.out.printin(`Hello out there!`);",
+                "B. System.print(`Hello out there!`);",
+                "C. System.out.println(`Hello out there!`);",
+                "D. System.println(`Hello out there!`);"
+            ],
+            answer: "C",
+            hints: [
+                "Hint 1: It is a print method that moves to the next line.",
+                "Hint 2: It begins with `System.out`.",
+                "Hint 3: The correct method is `System.out.println(`Hello out there!`)`."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What will be the output of the following code?",
+            choices: [
+                "A. one two three four",
+                "B. one two three four",
+                "C. one two three four",
+                "D. one two three four"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: ",
+                "Hint 2: ",
+                "Hint 3: "
+            ],
+            image: "BW2P1F1PIC.jpg"
+        },
+
+        {
+            type: "Identification",
+            points: 3,
+            question: "Which keyword is required by Java to create objects that are more complex than the primitive data types?",
+            answer: "new",
+            hints: [
+                "Hint 1: It is used when creating an instance of a class.",
+                "Hint 2: It precedes the class name in the object creation.",
+                "Hint 3: This keyword is same as to `latest`."
+            ]
+        }
+
+
 ];
+    function stopTimer() {
+        clearInterval(timer);
+    }
 
 let timer; // Holds the timer reference
 let timeLeft = 600; // 5 minutes = 300 seconds
@@ -328,13 +381,24 @@ function setProgress(percent) {
         backButton.disabled = false;
     }
 
-goButton.addEventListener("click", function() {
-    if (!timerStarted) {
-        startTimer();
-        timerStarted = true;
-    }
-    displayQuestion(); // Assuming this function displays the next question
-});
+    goButton.addEventListener("click", function () {
+        if (!timerStarted) {
+            startTimer();
+            timerStarted = true;
+        }
+        // Hide idle and show attack animation
+        const GRangerIdle = document.querySelector(".GRanger-idle");
+        const GRangerAttack = document.querySelector(".GRanger-attack");
+
+        GRangerIdle.style.visibility = "hidden";
+        GRangerIdle.style.opacity = "0";
+
+        GRangerAttack.style.visibility = "visible";
+        GRangerAttack.style.opacity = "1";
+
+        displayQuestion(); // Assuming this function displays the next question
+    });
+
 
 function selectRandomQuestions() {
     const shuffledQuestions = questions.slice(0, -3).sort(() => Math.random() - 0.5);
@@ -526,6 +590,10 @@ restartButton.addEventListener("click", restartGame);
         updateCoinAndPointCount();
         showPopupMessage(`Correct! You got ${pointsEarned} points and 100 silver coins`);
         gameContainer.classList.add("hidden");
+        GRangerAttack.style.visibility = "hidden";
+        GRangerAttack.style.opacity = "0";
+        GRangerIdle.style.visibility = "visible";
+        GRangerIdle.style.opacity = "1";
 
         if (currentQuestionIndex === 0) fadeOutCharacter(SlimeWalk0);
         else if (currentQuestionIndex === 1) fadeOutCharacter(SlimeWalk1);
@@ -572,6 +640,11 @@ restartButton.addEventListener("click", restartGame);
             updateCoinAndPointCount();
             showPopupMessage("You lost all hearts. 50 silver coins deducted.");
             gameContainer.classList.add("hidden");
+            GRangerAttack.style.visibility = "hidden";
+            GRangerAttack.style.opacity = "0";
+            GRangerIdle.style.visibility = "visible";
+            GRangerIdle.style.opacity = "1";
+
             if (currentQuestionIndex === 0) fadeOutCharacter(SlimeWalk0);
             else if (currentQuestionIndex === 1) fadeOutCharacter(SlimeWalk1);
             else if (currentQuestionIndex === 2) fadeOutCharacter(SlimeWalk2);
@@ -600,6 +673,10 @@ restartButton.addEventListener("click", restartGame);
 			
             if (currentQuestionIndex < randomQuestions.length) {
                 goButton.classList.remove("hidden");
+                GRangerAttack.style.visibility = "hidden";
+                GRangerAttack.style.opacity = "0";
+                GRangerIdle.style.visibility = "visible";
+                GRangerIdle.style.opacity = "1";
             } else {
                 showCompletionWarning();
                 const answeredAllQuestions = JSON.stringify(answeredQuestions.sort()) === JSON.stringify(Array.from({ length: randomQuestions.length }, (_, i) => i).sort());
@@ -615,20 +692,35 @@ restartButton.addEventListener("click", restartGame);
 
     const startButtonClicked = new Array(randomQuestions.length).fill(false);
 
-function startSequence() {
-    // Check if the start button has not been clicked for the current question index
-    if (!startButtonClicked[currentQuestionIndex]) {
-        startButtonClicked[currentQuestionIndex] = true; // Mark the start button as clicked for the current question index
+    function startSequence() {
+        // Check if the start button has not been clicked for the current question index
+        if (!startButtonClicked[currentQuestionIndex]) {
+            startButtonClicked[currentQuestionIndex] = true; // Mark the start button as clicked for the current question index
 
-        const land = document.querySelector('.land');
-        land.classList.add('animate');
+            const GRangerWalk = document.querySelector('.GRanger-walk');
+            const land = document.querySelector('.land');
 
-        land.addEventListener('animationend', function() {
-            land.classList.remove('animate');
-            animateCharacters();
-        }, { once: true });
+
+            // Hide idle and show walk animation
+            GRangerIdle.style.visibility = "hidden";
+            GRangerIdle.style.opacity = "0";
+            GRangerWalk.style.visibility = "visible";
+            GRangerWalk.style.opacity = "1";
+            GRangerWalk.classList.add('character-walk');
+            land.classList.add('animate');
+
+            // When the land animation ends, switch the walk back to idle
+            land.addEventListener('animationend', function () {
+                land.classList.remove('animate');
+                GRangerWalk.style.visibility = "hidden";
+                GRangerWalk.style.opacity = "0";
+                GRangerIdle.style.visibility = "visible";
+                GRangerIdle.style.opacity = "1";
+
+                animateCharacters();
+            }, { once: true });
+        }
     }
-}
 
     function animateCharacters() {
         if (currentQuestionIndex === 0) {
@@ -827,6 +919,7 @@ function startSequence() {
 
     startButton.addEventListener("click", function() {
         startSequence();
+        bookModule.disabled = true;
     });
 
     goButton.addEventListener("click", function() {

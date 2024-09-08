@@ -25,13 +25,13 @@ body {
 }
 
 .logo {
-    width: 800px; /* Adjust the width as needed */
-    height: 240px; /* Adjust the height as needed */
+    width: 400px; /* Adjust the width as needed */
+    height: 400px; /* Adjust the height as needed */
     background-size: contain; /* Ensure the logo fits within the div */
     background-repeat: no-repeat; /* Do not repeat the logo */
     background-position: center; /* Center the logo */
-    margin-bottom: 20px; /* Add space between the logo and the buttons */
 }
+
 
 .button-container {
     display: flex;

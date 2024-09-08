@@ -38,6 +38,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const confirmFinishButton = document.getElementById("confirmFinishButton");
     const cancelFinishButton = document.getElementById("cancelFinishButton");
 
+    const GRangerWalk = document.querySelector(".GRanger-walk");
+    const GRangerIdle = document.querySelector(".GRanger-idle");
+    const GRangerAttack = document.querySelector(".GRanger-attack");
 	
     let currentQuestionIndex = 0;
     let silverCoins = localStorage.getItem("silverCoins") ? parseInt(localStorage.getItem("silverCoins")) : 0;
@@ -53,212 +56,267 @@ document.addEventListener("DOMContentLoaded", function() {
 	
     updateCoinAndPointCount();
     updateHearts(); // Initialize hearts display
+    // Initially display the idle animation BEFORE QUESTIONS
+    GRangerIdle.style.visibility = "visible";
+    GRangerIdle.style.opacity = "1";
+
+
 
     const questions = [
-	{
-        type: "Identification",
-        points: 3,
-        question: "2 + 2",
-        answer: "4",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "3 + 3",
-        answer: "6",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "4 + 4",
-        answer: "8",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "5 + 5",
-        answer: "10",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Modifier in the code snippet shown in the image?",
-        answer: "public",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "6 + 6",
-        answer: "12",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Modifier in the code snippet shown in the image?",
-        answer: "public",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Return Type in the code snippet shown in the image?",
-        answer: "int",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Name in the code snippet shown in the image?",
-        answer: "add",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Parameters in the code snippet shown in the image?",
-        answer: "int a, int b",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Body in the code snippet shown in the image?",
-        answer: "{ return a + b; }",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Multiple Choice",
-        points: 2,
-        question: "Which of the following statements is true about Java methods?",
-        choices: [
-            "A. A method in Java cannot return an array",
-            "B. Method overloading in Java is the process of defining multiple methods with the same name but different parameter lists.",
-            "C. The void return type indicates that the method returns an integer.",
-            "D. A method must always have parameters."
-        ],
-        answer: "B",
-        hints: [
-            "Hint 1: Common in many programming languages.",
-            "Hint 2: It's an abbreviation.",
-            "Hint 3: Short for integer."
-        ]
-    },
-    {
-        type: "fill_in_the_code",
-        points: 5,
-        question: "Complete the following Java method to calculate the factorial of a given number `n`",
-        answer: `public int factorial(int n) {
-if (n == 0) {
-return 1;
-} else {
-return n * factorial(n - 1);
-}
-}`,
-        image: "AF1_FITC.jpg",
-        hints: [
-            "Hint 1: Getter methods are used to access object properties.",
-            "Hint 2: The 'getItems' method should return the 'items' list.",
-            "Hint 3: Use the 'this' keyword to access the object's property."
-        ]
-    },
-	{
-        type: "fill_in_the_code",
-        points: 5,
-        question: "Complete the following code to implement a method named `isEven` that checks if a given integer `num` is even.",
-        answer: `public boolean isEven(int num) {
-return num % 2 == 0;
-}`,
-        image: "AF1_FITC2.jpg",
-        hints: [
-            "Hint 1: Getter methods are used to access object properties.",
-            "Hint 2: The 'getItems' method should return the 'items' list.",
-            "Hint 3: Use the 'this' keyword to access the object's property."
-        ]
-    },
-	
-    {
-        type: "write_the_code",
-        points: 10,
-        question: 'Write a Java method named `greet` that takes a `String` parameter called `name` and prints "Hello, `name`!"',
-        answer: `public void greet(String name) {
-System.out.println("Hello, " + name + "!");
-}`,
-        hints: [
-            "Hint 1: The constructor should initialize 'name' and 'species'.",
-            "Hint 2: The 'describe' method should return a string.",
-            "Hint 3: Use template literals to create the description."
-        ]
-    }
+        {
+            type: "Identification",
+            points: 3,
+            question: "What method is used to return the character at a specified index in a string?",
+            answer: "charAt(index)",
+            hints: [
+                "Hint 1: This method retrieves a single character from the string.",
+                "Hint 2: The method name suggests accessing a character by its position.",
+                "Hint 3: The position (index) starts from 0."
+            ],
+
+        },
+
+        {
+            type: "Identification",
+            points: 3,
+            question: "What method returns the length of a string?",
+            answer: "length()",
+            hints: [
+                "Hint 1: This method counts the number of characters in the string.",
+                "Hint 2: The result is an integer value.",
+                "Hint 3: The method name is a synonym for size."
+            ],
+
+        },
+
+        {
+            type: "Identification",
+            points: 3,
+            question: "What method returns a new string with leading and trailing whitespace removed?",
+            answer: "trim()",
+            hints: [
+                "Hint 1: This method cleans up strings by removing unnecessary spaces.",
+                "Hint 2: The spaces within the string are not removed, only those at the edges.",
+                "Hint 3: The method name is short and reflects the action of cutting or cleaning."
+            ],
+
+        },
+
+        {
+            type: "Identification",
+            points: 3,
+            question: "What method checks if two strings are equal ignoring case differences?",
+            answer: "equalsIgnoreCase(string)",
+            hints: [
+                "Hint 1: This method is similar to `equals()` but is case-insensitive.",
+                "Hint 2: The method name suggests it `ignores` the case.",
+                "Hint 3: This method is useful when comparing strings where case does not matter."
+            ],
+
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which of the following statements creates a String object using a string literal?",
+            choices: [
+                "A. String str = new String(`Hello`);",
+                "B. String str = `Hello`;",
+                "C. String str = String(`Hello`);",
+                "D. String str = new(`Hello`);"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: It directly assigns a string value without using `new`.",
+                "Hint 2: It is a simpler way to create a string.",
+                "Hint 3: The correct statement is `String str = `Hello`;`."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What will be the output of the following code?",
+            choices: [
+                "A. 10",
+                "B. 11",
+                "C. 12",
+                "D. 13"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: Pay attention to the operation performed on the integer value.",
+                "Hint 2: The result is affected by the increment operator.",
+                "Hint 3: The increment operation adds one to the initial value."
+            ],
+            image: "image/Custom/BW3P1F1PIC_1.jpg"
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which method would you use to compare the contents of two String objects?",
+            choices: [
+                "A. ==",
+                "B. equals()",
+                "C. compareTo()",
+                "D. charAt()"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: The `==` operator checks reference equality, not content equality.",
+                "Hint 2: This method is part of the `String` class.",
+                "Hint 3: This method returns `true` if both strings have the same sequence of characters."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What will be the output of the following code?",
+            choices: [
+                "A. true",
+                "B. false",
+                "C. java",
+                "D. Java"
+            ],
+            answer: "A",
+            hints: [
+                "Hint 1: Consider the case sensitivity of the comparison.",
+                "Hint 2: The `equals` method returns a boolean value.",
+                "Hint 3: The comparison is between two strings with identical characters in different cases."
+            ],
+            image: "/image/Custom/BW3P1F1PIC_2.jpg"
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which method returns a new string with all characters converted to uppercase?",
+            choices: [
+                "A. toUpperCase()",
+                "B. toLowerCase()",
+                "C. substring()",
+                "D. trim()"
+            ],
+            answer: "A",
+            hints: [
+                "Hint 1: This method is part of the `String` class.",
+                "Hint 2: It converts every character in the string to its uppercase equivalent.",
+                "Hint 3: The method name includes `upper in it."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What will be the output of the following code?",
+            choices: [
+                "A. ` Java `",
+                "B. `Java`",
+                "C. `  Java  `",
+                "D. ` JAVA `"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: Pay attention to whether the method removes spaces from the string.",
+                "Hint 2: This method is often used to clean up input.",
+                "Hint 3: The method removes spaces from the beginning and end of the string."
+            ],
+            image: "/image/Custom/BW3P1F1PIC_3.jpg"
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which method returns the index of the first occurrence of a specified character in a string?",
+            choices: [
+                "A. indexOf()",
+                "B. lastIndexOf()",
+                "C. charAt()",
+                "D. substring()"
+            ],
+            answer: "A",
+            hints: [
+                "Hint 1: This method searches for the position of a character.",
+                "Hint 2: It returns an integer representing the position of the character.",
+                "Hint 3: The method name includes `index` in it."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What will be the output of the following code?",
+            choices: [
+                "A. Pro",
+                "B. ram",
+                "C. gram",
+                "D. mming"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: Focus on the substring method used in the code.",
+                "Hint 2: The substring method extracts part of the string based on specified indices.",
+                "Hint 3: The output is a segment of the original string."
+            ],
+            image: "/image/Custom/BW3P1F1PIC_4.jpg"
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which of the following statements correctly compares the references of two String objects?",
+            choices: [
+                "A. str1.equals(str2)",
+                "B. str1.compareTo(str2)",
+                "C. str1 == str2",
+                "D. str1.equalsIgnoreCase(str2)"
+            ],
+            answer: "C",
+            hints: [
+                "Hint 1: The `==` operator checks if two references point to the same object.",
+                "Hint 2: This operator does not check if the contents of the strings are equal.",
+                "Hint 3: Use this operator to compare memory locations, not string content."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What will be the output of the following code?",
+            choices: [
+                "A. Heplo",
+                "B. Heppo",
+                "C. Hello",
+                "D. Heppe"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: Look at the specific character being replaced in the string.",
+                "Hint 2: The `replace` method replaces all occurrences of the specified character.",
+                "Hint 3: The original string is not modified; a new string is returned."
+            ],
+            image: "/image/Custom/BW3P1F1PIC_5.jpg"
+        },
+
+        {
+            type: "Identification",
+            points: 3,
+            question: "What method compares two strings lexicographically?",
+            answer: "compareTo(string)",
+            hints: [
+                "Hint 1: This method compares based on Unicode values of characters.",
+                "Hint 2: It returns an integer value indicating the result of the comparison.",
+                "Hint 3: The method name suggests it "compares" something."
+            ]
+        }
+
+
 ];
+    function stopTimer() {
+        clearInterval(timer);
+    }
 
 let timer; // Holds the timer reference
 let timeLeft = 600; // 5 minutes = 300 seconds
@@ -328,13 +386,23 @@ function setProgress(percent) {
         backButton.disabled = false;
     }
 
-goButton.addEventListener("click", function() {
-    if (!timerStarted) {
-        startTimer();
-        timerStarted = true;
-    }
-    displayQuestion(); // Assuming this function displays the next question
-});
+    goButton.addEventListener("click", function () {
+        if (!timerStarted) {
+            startTimer();
+            timerStarted = true;
+        }
+        // Hide idle and show attack animation
+        const GRangerIdle = document.querySelector(".GRanger-idle");
+        const GRangerAttack = document.querySelector(".GRanger-attack");
+
+        GRangerIdle.style.visibility = "hidden";
+        GRangerIdle.style.opacity = "0";
+
+        GRangerAttack.style.visibility = "visible";
+        GRangerAttack.style.opacity = "1";
+
+        displayQuestion(); // Assuming this function displays the next question
+    });
 
 function selectRandomQuestions() {
     const shuffledQuestions = questions.slice(0, -3).sort(() => Math.random() - 0.5);
@@ -526,6 +594,10 @@ restartButton.addEventListener("click", restartGame);
         updateCoinAndPointCount();
         showPopupMessage(`Correct! You got ${pointsEarned} points and 100 silver coins`);
         gameContainer.classList.add("hidden");
+        GRangerAttack.style.visibility = "hidden";
+        GRangerAttack.style.opacity = "0";
+        GRangerIdle.style.visibility = "visible";
+        GRangerIdle.style.opacity = "1";
 
         if (currentQuestionIndex === 0) fadeOutCharacter(SlimeWalk0);
         else if (currentQuestionIndex === 1) fadeOutCharacter(SlimeWalk1);
@@ -572,6 +644,11 @@ restartButton.addEventListener("click", restartGame);
             updateCoinAndPointCount();
             showPopupMessage("You lost all hearts. 50 silver coins deducted.");
             gameContainer.classList.add("hidden");
+            GRangerAttack.style.visibility = "hidden";
+            GRangerAttack.style.opacity = "0";
+            GRangerIdle.style.visibility = "visible";
+            GRangerIdle.style.opacity = "1";
+
             if (currentQuestionIndex === 0) fadeOutCharacter(SlimeWalk0);
             else if (currentQuestionIndex === 1) fadeOutCharacter(SlimeWalk1);
             else if (currentQuestionIndex === 2) fadeOutCharacter(SlimeWalk2);
@@ -600,6 +677,10 @@ restartButton.addEventListener("click", restartGame);
 			
             if (currentQuestionIndex < randomQuestions.length) {
                 goButton.classList.remove("hidden");
+                GRangerAttack.style.visibility = "hidden";
+                GRangerAttack.style.opacity = "0";
+                GRangerIdle.style.visibility = "visible";
+                GRangerIdle.style.opacity = "1";
             } else {
                 showCompletionWarning();
                 const answeredAllQuestions = JSON.stringify(answeredQuestions.sort()) === JSON.stringify(Array.from({ length: randomQuestions.length }, (_, i) => i).sort());
@@ -615,20 +696,35 @@ restartButton.addEventListener("click", restartGame);
 
     const startButtonClicked = new Array(randomQuestions.length).fill(false);
 
-function startSequence() {
-    // Check if the start button has not been clicked for the current question index
-    if (!startButtonClicked[currentQuestionIndex]) {
-        startButtonClicked[currentQuestionIndex] = true; // Mark the start button as clicked for the current question index
+    function startSequence() {
+        // Check if the start button has not been clicked for the current question index
+        if (!startButtonClicked[currentQuestionIndex]) {
+            startButtonClicked[currentQuestionIndex] = true; // Mark the start button as clicked for the current question index
 
-        const land = document.querySelector('.land');
-        land.classList.add('animate');
+            const GRangerWalk = document.querySelector('.GRanger-walk');
+            const land = document.querySelector('.land');
 
-        land.addEventListener('animationend', function() {
-            land.classList.remove('animate');
-            animateCharacters();
-        }, { once: true });
+
+            // Hide idle and show walk animation
+            GRangerIdle.style.visibility = "hidden";
+            GRangerIdle.style.opacity = "0";
+            GRangerWalk.style.visibility = "visible";
+            GRangerWalk.style.opacity = "1";
+            GRangerWalk.classList.add('character-walk');
+            land.classList.add('animate');
+
+            // When the land animation ends, switch the walk back to idle
+            land.addEventListener('animationend', function () {
+                land.classList.remove('animate');
+                GRangerWalk.style.visibility = "hidden";
+                GRangerWalk.style.opacity = "0";
+                GRangerIdle.style.visibility = "visible";
+                GRangerIdle.style.opacity = "1";
+
+                animateCharacters();
+            }, { once: true });
+        }
     }
-}
 
     function animateCharacters() {
         if (currentQuestionIndex === 0) {
@@ -827,6 +923,7 @@ function startSequence() {
 
     startButton.addEventListener("click", function() {
         startSequence();
+        bookModule.disabled = true;
     });
 
     goButton.addEventListener("click", function() {

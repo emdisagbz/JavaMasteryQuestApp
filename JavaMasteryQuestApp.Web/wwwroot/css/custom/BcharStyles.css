@@ -8,6 +8,60 @@ body {
     font-size: 12px;
 }
 
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Centers the modal */
+    width: 50vw; /* Modal width (40% of the viewport width) */
+    height: 80vh; /* Modal height (50% of the viewport height) */
+    background-color: rgba(0, 0, 0, 0.8); /* Black background with transparency */
+    border-radius: 10px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+/* Sprite container with 40% width and 50% height */
+.sprite-container {
+    width: 50vw; /* 40% of the viewport width */
+    height: 80vh; /* 50% of the viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Optional light background for visibility */
+    border-radius: 10px;
+    overflow-Y: scroll;
+    z-index: 10;
+}
+
+/* Sprite sheet scaled down using calc */
+.sprite-sheet {
+    background-repeat: no-repeat;
+    filter: blur(2.5px);
+    width: calc(10%);
+    height: calc(10%);
+    background-size: 100% 100%; /* Ensures the sprite sheet fits inside */
+}
+
+
+/* Close button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+
+
 a {
     text-decoration: none;
 }
@@ -143,7 +197,7 @@ header {
     position: absolute;
     top: 80%;
     right: 52%;
-    z-index: 100;
+    z-index: 1;
     width: 300px;
     max-width: 30%;
     display: flex;
@@ -230,7 +284,7 @@ header {
     }
 }
 
-.carousel.next .thumbnail .item:nth-last-child(1) {
+.carousel.next .thumbnail .item:nth-last-child(2) {
     overflow: hidden;
     animation: showThumbnail .5s linear 1 forwards;
 }
@@ -306,19 +360,6 @@ header {
     }
 }
 
-a {
-    font-size: 15px;
-    text-decoration: none; /* Removes underline from links */
-    background: white; /* Adds a semi-transparent background for better readability */
-    text-align: center;
-    padding: 10px 10px;
-    color: black; /* Sets text color to white */
-}
-
-    a:hover {
-        background-color: gray; /* Darkens the background on hover for visual feedback */
-    }
-
 #backButton {
     font-family: Poppins;
     position: absolute;
@@ -360,6 +401,19 @@ a {
     }
 
         .carousel .list .item .content .title {
-            font-size: 30px;
+            font-size: 70px;
         }
 }
+
+a {
+    font-size: 15px;
+    text-decoration: none; /* Removes underline from links */
+    background: white; /* Adds a semi-transparent background for better readability */
+    text-align: center;
+    padding: 10px 10px;
+    color: black; /* Sets text color to white */
+}
+
+    a:hover {
+        background-color: gray; /* Darkens the background on hover for visual feedback */
+    }

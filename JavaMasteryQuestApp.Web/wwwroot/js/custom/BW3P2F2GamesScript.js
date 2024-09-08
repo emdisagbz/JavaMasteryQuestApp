@@ -38,6 +38,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const confirmFinishButton = document.getElementById("confirmFinishButton");
     const cancelFinishButton = document.getElementById("cancelFinishButton");
 
+    const GRangerWalk = document.querySelector(".GRanger-walk");
+    const GRangerIdle = document.querySelector(".GRanger-idle");
+    const GRangerAttack = document.querySelector(".GRanger-attack");
 	
     let currentQuestionIndex = 0;
     let silverCoins = localStorage.getItem("silverCoins") ? parseInt(localStorage.getItem("silverCoins")) : 0;
@@ -53,212 +56,262 @@ document.addEventListener("DOMContentLoaded", function() {
 	
     updateCoinAndPointCount();
     updateHearts(); // Initialize hearts display
+    // Initially display the idle animation BEFORE QUESTIONS
+    GRangerIdle.style.visibility = "visible";
+    GRangerIdle.style.opacity = "1";
+
 
     const questions = [
-	{
-        type: "Identification",
-        points: 3,
-        question: "2 + 2",
-        answer: "4",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "3 + 3",
-        answer: "6",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "4 + 4",
-        answer: "8",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "5 + 5",
-        answer: "10",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Modifier in the code snippet shown in the image?",
-        answer: "public",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "6 + 6",
-        answer: "12",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Modifier in the code snippet shown in the image?",
-        answer: "public",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Return Type in the code snippet shown in the image?",
-        answer: "int",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Name in the code snippet shown in the image?",
-        answer: "add",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Parameters in the code snippet shown in the image?",
-        answer: "int a, int b",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Body in the code snippet shown in the image?",
-        answer: "{ return a + b; }",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Multiple Choice",
-        points: 2,
-        question: "Which of the following statements is true about Java methods?",
-        choices: [
-            "A. A method in Java cannot return an array",
-            "B. Method overloading in Java is the process of defining multiple methods with the same name but different parameter lists.",
-            "C. The void return type indicates that the method returns an integer.",
-            "D. A method must always have parameters."
-        ],
-        answer: "B",
-        hints: [
-            "Hint 1: Common in many programming languages.",
-            "Hint 2: It's an abbreviation.",
-            "Hint 3: Short for integer."
-        ]
-    },
-    {
-        type: "fill_in_the_code",
-        points: 5,
-        question: "Complete the following Java method to calculate the factorial of a given number `n`",
-        answer: `public int factorial(int n) {
-if (n == 0) {
-return 1;
-} else {
-return n * factorial(n - 1);
-}
-}`,
-        image: "AF1_FITC.jpg",
-        hints: [
-            "Hint 1: Getter methods are used to access object properties.",
-            "Hint 2: The 'getItems' method should return the 'items' list.",
-            "Hint 3: Use the 'this' keyword to access the object's property."
-        ]
-    },
-	{
-        type: "fill_in_the_code",
-        points: 5,
-        question: "Complete the following code to implement a method named `isEven` that checks if a given integer `num` is even.",
-        answer: `public boolean isEven(int num) {
-return num % 2 == 0;
-}`,
-        image: "AF1_FITC2.jpg",
-        hints: [
-            "Hint 1: Getter methods are used to access object properties.",
-            "Hint 2: The 'getItems' method should return the 'items' list.",
-            "Hint 3: Use the 'this' keyword to access the object's property."
-        ]
-    },
-	
-    {
-        type: "write_the_code",
-        points: 10,
-        question: 'Write a Java method named `greet` that takes a `String` parameter called `name` and prints "Hello, `name`!"',
-        answer: `public void greet(String name) {
-System.out.println("Hello, " + name + "!");
-}`,
-        hints: [
-            "Hint 1: The constructor should initialize 'name' and 'species'.",
-            "Hint 2: The 'describe' method should return a string.",
-            "Hint 3: Use template literals to create the description."
-        ]
-    }
+        {
+            type: "Identification",
+            points: 3,
+            question: "Identify the code to allocate memory to a one-dimensional array.",
+            answer: "intArray = new int[];",
+            hints: [
+                "Hint 1: It uses the `new` keyword.",
+                "Hint 2: The array size must be specified.",
+                "Hint 3: The code is `intArray = new int[];`."
+            ],
+
+        },
+
+        {
+            type: "Identification",
+            points: 3,
+            question: "Identify the code to declare a two-dimensional array of floats.",
+            answer: "float[][] floatArray;",
+            hints: [
+                "Hint 1: It uses double square brackets.",
+                "Hint 2: It declares a 2D array.",
+                "Hint 3: The code is `float[][] floatArray;`."
+            ],
+
+        },
+
+        {
+            type: "Identification",
+            points: 3,
+            question: "Identify the code to sort an array.",
+            answer: "Arrays.sort(array);",
+            hints: [
+                "Hint 1: It belongs to the `Arrays` class.",
+                "Hint 2: It sorts elements in ascending order.",
+                "Hint 3: The code is `Arrays.sort(array);`."
+            ],
+
+        },
+
+        {
+            type: "Identification",
+            points: 3,
+            question: "Identify the code to fill an array with a specific value.",
+            answer: "Arrays.fill(array, value);",
+            hints: [
+                "Hint 1: It is a method in the `Arrays` class.",
+                "Hint 2: It assigns a value to all elements.",
+                "Hint 3: The code is `Arrays.fill(array, value);`."
+            ],
+
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What is an array in Java?",
+            choices: [
+                "A. A collection of different data types",
+                "B. A collection of elements of the same data type",
+                "C. A collection of variables with different names",
+                "D. A single variable that can hold multiple values"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: It stores multiple elements of the same type.",
+                "Hint 2: It is indexed starting from 0.",
+                "Hint 3: It’s a collection of elements of the same data type."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "How do you declare a one-dimensional array in Java?",
+            choices: [
+                "A. intArray[] int;",
+                "B. int intArray[];",
+                "C. array int intArray;",
+                "D. array intArray[];"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: The brackets can come after the type or the variable name.",
+                "Hint 2: It is an array of integers.",
+                "Hint 3: The correct syntax is `int[] intArray;` or `int intArray[];`."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What is the correct way to allocate memory to an array in Java?",
+            choices: [
+                "A. intArray = allocate int[20];",
+                "B. intArray = int[20];",
+                "C. intArray = new int[20];",
+                "D. intArray = int allocate[20];"
+            ],
+            answer: "c",
+            hints: [
+                "Hint 1: It uses the `new` keyword.",
+                "Hint 2: You must specify the array size.",
+                "Hint 3: The correct syntax is `intArray = new int[20];`."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "How are elements in an array accessed?",
+            choices: [
+                "A. Using a unique identifier",
+                "B. Using the array's length",
+                "C. Using an index starting from 1",
+                "D. Using an index starting from 0"
+            ],
+            answer: "D",
+            hints: [
+                "Hint 1: It uses an index.",
+                "Hint 2: The index starts from a specific number.",
+                "Hint 3: They are accessed using an index starting from `0`."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What is a two-dimensional array in Java?",
+            choices: [
+                "A. An array of arrays",
+                "B. A single array with two indexes",
+                "C. A collection of single arrays",
+                "D. An array with two elements"
+            ],
+            answer: "A",
+            hints: [
+                "Hint 1: It has rows and columns.",
+                "Hint 2: It is an array of arrays",
+                "Hint 3: It’s an array where each element is another array."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "How do you declare a two-dimensional array in Java?",
+            choices: [
+                "A. int [][] array_name = new int[row][column];",
+                "B. int array_name[row][column];",
+                "C. array_name[][] int = new array[row][column];",
+                "D. new int [][] array_name;"
+            ],
+            answer: "A",
+            hints: [
+                "Hint 1: It uses double square brackets.",
+                "Hint 2: It’s declared with two sizes: row and column.",
+                "Hint 3: The correct syntax is `int [][] array_name = new int[row][column];`."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What is the result of the following code snippet?",
+            choices: [
+                "A. 0",
+                "B. Null",
+                "C. 1",
+                "D. Compilation error"
+            ],
+            answer: "A",
+            hints: [
+                "Hint 1: ",
+                "Hint 2: ",
+                "Hint 3: "
+            ],
+            image: "/image/Custom/BW3P2F2PIC.jpg"
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which method is used to sort an array in Java?",
+            choices: [
+                "A. Collections.sort(array);",
+                "B. Array.sort(array);",
+                "C. Arrays.sort(array);",
+                "D. sort(array);"
+            ],
+            answer: "C",
+            hints: [
+                "Hint 1: It belongs to the `Arrays` class.",
+                "Hint 2: It sorts elements in ascending order.",
+                "Hint 3: The method is `Arrays.sort(array);`."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What does the Arrays.binarySearch method return if the key is not found in the array?",
+            choices: [
+                "A. -1",
+                "B. The index of the first element greater than the key",
+                "C. The index of the last element less than the key",
+                "D. A negative insertion point minus one"
+            ],
+            answer: "D",
+            hints: [
+                "Hint 1: It returns a negative value.",
+                "Hint 2: It returns the position where the element should be inserted.",
+                "Hint 3: It returns a negative insertion point minus one."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What does the Arrays.equals method return if two arrays are equal?",
+            choices: [
+                "A. TRUE",
+                "B. FALSE",
+                "C. NULL",
+                "D. The index of the first mismatched element"
+            ],
+            answer: "A",
+            hints: [
+                "Hint 1: It returns a boolean value.",
+                "Hint 2: It returns `true` if both arrays have the same elements.",
+                "Hint 3: The method returns `true`."
+            ]
+        },
+
+        {
+            type: "Identification",
+            points: 3,
+            question: "Identify the code to declare a one-dimensional array of integers.",
+            answer: " int[] intArray;",
+            hints: [
+                "Hint 1: It uses square brackets.",
+                "Hint 2: It declares an array variable.",
+                "Hint 3: The code is `int[] intArray;`."
+            ]
+        }
+
+
 ];
+    function stopTimer() {
+        clearInterval(timer);
+    }
 
 let timer; // Holds the timer reference
 let timeLeft = 600; // 5 minutes = 300 seconds
@@ -328,13 +381,24 @@ function setProgress(percent) {
         backButton.disabled = false;
     }
 
-goButton.addEventListener("click", function() {
-    if (!timerStarted) {
-        startTimer();
-        timerStarted = true;
-    }
-    displayQuestion(); // Assuming this function displays the next question
-});
+    goButton.addEventListener("click", function () {
+        if (!timerStarted) {
+            startTimer();
+            timerStarted = true;
+        }
+        // Hide idle and show attack animation
+        const GRangerIdle = document.querySelector(".GRanger-idle");
+        const GRangerAttack = document.querySelector(".GRanger-attack");
+
+        GRangerIdle.style.visibility = "hidden";
+        GRangerIdle.style.opacity = "0";
+
+        GRangerAttack.style.visibility = "visible";
+        GRangerAttack.style.opacity = "1";
+
+        displayQuestion(); // Assuming this function displays the next question
+    });
+
 
 function selectRandomQuestions() {
     const shuffledQuestions = questions.slice(0, -3).sort(() => Math.random() - 0.5);
@@ -526,6 +590,10 @@ restartButton.addEventListener("click", restartGame);
         updateCoinAndPointCount();
         showPopupMessage(`Correct! You got ${pointsEarned} points and 100 silver coins`);
         gameContainer.classList.add("hidden");
+        GRangerAttack.style.visibility = "hidden";
+        GRangerAttack.style.opacity = "0";
+        GRangerIdle.style.visibility = "visible";
+        GRangerIdle.style.opacity = "1";
 
         if (currentQuestionIndex === 0) fadeOutCharacter(SlimeWalk0);
         else if (currentQuestionIndex === 1) fadeOutCharacter(SlimeWalk1);
@@ -572,6 +640,11 @@ restartButton.addEventListener("click", restartGame);
             updateCoinAndPointCount();
             showPopupMessage("You lost all hearts. 50 silver coins deducted.");
             gameContainer.classList.add("hidden");
+            GRangerAttack.style.visibility = "hidden";
+            GRangerAttack.style.opacity = "0";
+            GRangerIdle.style.visibility = "visible";
+            GRangerIdle.style.opacity = "1";
+
             if (currentQuestionIndex === 0) fadeOutCharacter(SlimeWalk0);
             else if (currentQuestionIndex === 1) fadeOutCharacter(SlimeWalk1);
             else if (currentQuestionIndex === 2) fadeOutCharacter(SlimeWalk2);
@@ -600,6 +673,10 @@ restartButton.addEventListener("click", restartGame);
 			
             if (currentQuestionIndex < randomQuestions.length) {
                 goButton.classList.remove("hidden");
+                GRangerAttack.style.visibility = "hidden";
+                GRangerAttack.style.opacity = "0";
+                GRangerIdle.style.visibility = "visible";
+                GRangerIdle.style.opacity = "1";
             } else {
                 showCompletionWarning();
                 const answeredAllQuestions = JSON.stringify(answeredQuestions.sort()) === JSON.stringify(Array.from({ length: randomQuestions.length }, (_, i) => i).sort());
@@ -615,20 +692,35 @@ restartButton.addEventListener("click", restartGame);
 
     const startButtonClicked = new Array(randomQuestions.length).fill(false);
 
-function startSequence() {
-    // Check if the start button has not been clicked for the current question index
-    if (!startButtonClicked[currentQuestionIndex]) {
-        startButtonClicked[currentQuestionIndex] = true; // Mark the start button as clicked for the current question index
+    function startSequence() {
+        // Check if the start button has not been clicked for the current question index
+        if (!startButtonClicked[currentQuestionIndex]) {
+            startButtonClicked[currentQuestionIndex] = true; // Mark the start button as clicked for the current question index
 
-        const land = document.querySelector('.land');
-        land.classList.add('animate');
+            const GRangerWalk = document.querySelector('.GRanger-walk');
+            const land = document.querySelector('.land');
 
-        land.addEventListener('animationend', function() {
-            land.classList.remove('animate');
-            animateCharacters();
-        }, { once: true });
+
+            // Hide idle and show walk animation
+            GRangerIdle.style.visibility = "hidden";
+            GRangerIdle.style.opacity = "0";
+            GRangerWalk.style.visibility = "visible";
+            GRangerWalk.style.opacity = "1";
+            GRangerWalk.classList.add('character-walk');
+            land.classList.add('animate');
+
+            // When the land animation ends, switch the walk back to idle
+            land.addEventListener('animationend', function () {
+                land.classList.remove('animate');
+                GRangerWalk.style.visibility = "hidden";
+                GRangerWalk.style.opacity = "0";
+                GRangerIdle.style.visibility = "visible";
+                GRangerIdle.style.opacity = "1";
+
+                animateCharacters();
+            }, { once: true });
+        }
     }
-}
 
     function animateCharacters() {
         if (currentQuestionIndex === 0) {
@@ -827,6 +919,7 @@ function startSequence() {
 
     startButton.addEventListener("click", function() {
         startSequence();
+        bookModule.disabled = true;
     });
 
     goButton.addEventListener("click", function() {

@@ -37,6 +37,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const finishPopup = document.getElementById("finishPopup");
     const confirmFinishButton = document.getElementById("confirmFinishButton");
     const cancelFinishButton = document.getElementById("cancelFinishButton");
+    const GRangerWalk = document.querySelector(".GRanger-walk");
+    const GRangerIdle = document.querySelector(".GRanger-idle");
+    const GRangerAttack = document.querySelector(".GRanger-attack");
 
 	
     let currentQuestionIndex = 0;
@@ -53,9 +56,12 @@ document.addEventListener("DOMContentLoaded", function() {
 	
     updateCoinAndPointCount();
     updateHearts(); // Initialize hearts display
+    // Initially display the idle animation BEFORE QUESTIONS
+    GRangerIdle.style.visibility = "visible";
+    GRangerIdle.style.opacity = "1";
 
     const questions = [
-	{
+        {
             type: "Identification",
             points: 3,
             question: "What type of Java program is a small application?",
@@ -64,38 +70,229 @@ document.addEventListener("DOMContentLoaded", function() {
                 "Hint 1: It can run in a web browser.",
                 "Hint 2: It's smaller than a full application but can perform specific tasks.",
                 "Hint 3: Its name sounds like a small piece of fruit."
+            ],
 
-        ],
-        
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "What is the language that a computer can directly understand?",
-        answer: "Machine Language",
-        hints: [
-            "Hint 1: It's composed entirely of 0s and 1s.",
-            "Hint 2: This language interacts directly with the CPU.",
-            "Hint 3: It's the most fundamental level of code, understood by the machine without any translation."
+        },
 
-        ],
-        
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "What type of programming involves objects and their interactions?",
-        answer: "Object-oriented Programming",
-        hints: [
-            "Hint 1: This programming paradigm models real-world entities.",
-            "Hint 2: It's based on classes and objects, where objects represent data and methods.",
-            "Hint 3: It's abbreviated as OOP and is central to languages like Java and Python."
+        {
+            type: "Identification",
+            points: 3,
+            question: "What is the language that a computer can directly understand?",
+            answer: "Machine Language",
+            hints: [
+                "Hint 1: It's composed entirely of 0s and 1s.",
+                "Hint 2: This language interacts directly with the CPU.",
+                "Hint 3: It's the most fundamental level of code, understood by the machine without any translation."
+            ],
 
-        ],
-        
-     },
+        },
+
+        {
+            type: "Identification",
+            points: 3,
+            question: "What type of programming involves objects and their interactions?",
+            answer: "Object-oriented Programming",
+            hints: [
+                "Hint 1: This programming paradigm models real-world entities.",
+                "Hint 2: It's based on classes and objects, where objects represent data and methods.",
+                "Hint 3: It's abbreviated as OOP and is central to languages like Java and Python."
+            ],
+
+        },
+
+        {
+            type: "Identification",
+            points: 3,
+            question: "What is a program that translates a program written in assembly language into an equivalent program in machine language called?",
+            answer: "Assembler",
+            hints: [
+                "Hint 1: It's a tool that works at a very low level, closer to the hardware.",
+                "Hint 2: This program converts human-readable code into a format the CPU can directly execute.",
+                "Hint 3: It's known as an assembler and is crucial in system-level programming."
+            ],
+
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which of the following is a high-level programming language?",
+            choices: [
+                "A. Assembly",
+                "B. Machine Language",
+                "C. Java",
+                "D. Binary"
+            ],
+            answer: "C",
+            hints: [
+                "Hint 1: It's a language often used to create web applications and mobile apps.",
+                "Hint 2: This language is known for its `Write Once, Run Anywhere` capability.",
+                "Hint 3: It's named after a type of coffee."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What does a compiler do?",
+            choices: [
+                "A. Translates a program written in a high-level language into machine language.",
+                "B. Executes portions of code at a time",
+                "C. Translates machine language into assembly language",
+                "D. Executes machine code directly"
+            ],
+            answer: "A",
+            hints: [
+                "Hint 1: It plays a crucial role in making your code understandable by the computer.",
+                "Hint 2: It processes the entire code before execution.",
+                "Hint 3: It converts your entire high-level program into a form that the computer can execute."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What is an algorithm?",
+            choices: [
+                "A. A program written in assembly language",
+                "B. A step-by-step problem-solving process",
+                "C. A type of compiler",
+                "D. A high-level language"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: It's essential in solving any computational problem systematically.",
+                "Hint 2: This concept can be compared to a recipe in cooking.",
+                "Hint 3: It's a step-by-step guide to solving a problem."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which of the following languages is considered a low-level language?",
+            choices: [
+                "A. Java",
+                "B. Python",
+                "C. Assembly",
+                "D. Ruby"
+            ],
+            answer: "C",
+            hints: [
+                "Hint 1: This language is close to the hardware and often used for system-level programming.",
+                "Hint 2: It requires you to understand the architecture of the computer.",
+                "Hint 3: It's one step above machine language and often abbreviated as `ASM.`"
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What is an applet in Java?",
+            choices: [
+                "A. A full-fledged application",
+                "B. A small application",
+                "C. A type of compiler",
+                "D. A low-level language"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: It's often used in a web browser environment.",
+                "Hint 2: It's smaller and more specialized than a full application.",
+                "Hint 3: It's a mini-program that can run inside another application or on a webpage."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What is the first step in the algorithm to find the perimeter and area of a rectangle?",
+            choices: [
+                "A. Get the width of the rectangle",
+                "B. Start",
+                "C. Find the area using the equation",
+                "D. Get the length of the rectangle"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: Before doing anything, you need to begin the process.",
+                "Hint 2: It's the initial step that sets the stage for the rest of the algorithm.",
+                "Hint 3: It's the action you take before any calculations."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What programming methodology breaks down problems into procedures or blocks of code?",
+            choices: [
+                "A. Object-oriented Programming",
+                "B. Procedural Programming",
+                "C. Functional Programming",
+                "D. Declarative Programming"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: It’s often used for structured programming.",
+                "Hint 2: This methodology was popular before Object-Oriented Programming.",
+                "Hint 3: It involves writing functions or procedures to solve different parts of a problem."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which of the following is true about pseudocode?",
+            choices: [
+                "A. It is written in a high-level language",
+                "B. It is a mixture of English and Java",
+                "C. It is machine language",
+                "D. It is a compiled code"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: It's not actual code that you can run on a computer.",
+                "Hint 2: It's written in a way that humans can understand easily.",
+                "Hint 3: It's a combination of everyday language and coding logic."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What is the purpose of an interpreter?",
+            choices: [
+                "A. To compile code into machine language",
+                "B. To translate and execute portions of code at a time",
+                "C. To convert assembly language into machine language",
+                "D. To optimize high-level code"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: It works differently from a compiler, processing code on the go.",
+                "Hint 2: It handles code in smaller sections rather than all at once.",
+                "Hint 3: It translates and executes your code one piece at a time."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which of the following is not an example of a high-level language?",
+            choices: [
+                "A. C++",
+                "B. C#",
+                "C. COBOL",
+                "D. Assembly"
+            ],
+            answer: "D",
+            hints: [
+                "Hint 1: It's used in programming close to the hardware.",
+                "Hint 2: Unlike the others, it's not designed for general-purpose programming.",
+                "Hint 3: It's much closer to machine language than to human languages like Java or Python."
+            ]
+        },
+
         {
             type: "Identification",
             points: 3,
@@ -107,205 +304,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 "Hint 3: It's named after a warm beverage."
             ],
 
-        },
+        }
 
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "What is a program that translates a program written in assembly language into an equivalent program in machine language called?",
-        answer: "Assembler",
-        hints: [
-            "Hint 1: It's a tool that works at a very low level, closer to the hardware.",
-            "Hint 2: This program converts human-readable code into a format the CPU can directly execute.",
-            "Hint 3: It's known as an assembler and is crucial in system-level programming."
-
-        ],
-        
-    },
-	
-	
-    {
-        type: "Multiple Choice",
-        points: 2,
-        question: "Which of the following is a high-level programming language?",
-        choices: [
-            "A. Assembly",
-            "B. Machine Language",
-            "C. Java",
-            "D. Binary"
-        ],
-        answer: "C",
-        hints: [
-            "Hint 1: It's a language often used to create web applications and mobile apps.",
-            "Hint 2: This language is known for its `Write Once, Run Anywhere` capability.",
-            "Hint 3: It's named after a type of coffee."
-        ]
-    },
-	
-	{
-        type: "Multiple Choice",
-        points: 2,
-        question: "2.What does a compiler do?",
-        choices: [
-            "A. Translates a program written in a high-level language into machine language.",
-            "B. Executes portions of code at a time",
-            "C. Translates machine language into assembly language",
-            "D. Executes machine code directly"
-        ],
-        answer: "A",
-        hints: [
-            "Hint 1: It plays a crucial role in making your code understandable by the computer.",
-            "Hint 2: It processes the entire code before execution.",
-            "Hint 3: It converts your entire high-level program into a form that the computer can execute."
-        ]
-    },
-	
-	{
-        type: "Multiple Choice",
-        points: 2,
-        question: "3.What is an algorithm?",
-        choices: [
-            "A. A program written in assembly language",
-            "B. A step-by-step problem-solving process",
-            "C. A type of compiler",
-            "D. A high-level language"
-        ],
-        answer: "B",
-        hints: [
-            "Hint 1: It's essential in solving any computational problem systematically.",
-            "Hint 2: This concept can be compared to a recipe in cooking.",
-            "Hint 3: It's a step-by-step guide to solving a problem."
-        ]
-    },
-	
-	{
-        type: "Multiple Choice",
-        points: 2,
-        question: "Which of the following languages is considered a low-level language?",
-        choices: [
-            "A. Java",
-            "B. Python",
-            "C. Assembly",
-            "D. Ruby"
-        ],
-        answer: "C",
-        hints: [
-            "Hint 1: This language is close to the hardware and often used for system-level programming.",
-            "Hint 2: It requires you to understand the architecture of the computer.",
-            "Hint 3: It's one step above machine language and often abbreviated as `ASM.`"
-        ]
-    },
-	
-	{
-        type: "Multiple Choice",
-        points: 2,
-        question: "What is an applet in Java?",
-        choices: [
-            "A. A full-fledged application",
-            "B. A small application",
-            "C. A type of compiler",
-            "D. A low-level language"
-        ],
-        answer: "B",
-        hints: [
-            "Hint 1: It's often used in a web browser environment.",
-            "Hint 2: It's smaller and more specialized than a full application.",
-            "Hint 3: It's a mini-program that can run inside another application or on a webpage."
-        ]
-    },
-	
-	{
-        type: "Multiple Choice",
-        points: 2,
-        question: "What is the first step in the algorithm to find the perimeter and area of a rectangle?",
-        choices: [
-            "A. Get the width of the rectangle",
-            "B. Start",
-            "C. Find the area using the equation",
-            "D. Get the length of the rectangle"
-        ],
-        answer: "B",
-        hints: [
-            "Hint 1: Before doing anything, you need to begin the process.",
-            "Hint 2: It's the initial step that sets the stage for the rest of the algorithm.",
-            "Hint 3: It's the action you take before any calculations."
-        ]
-    },
-	
-	{
-        type: "Multiple Choice",
-        points: 2,
-        question: "What programming methodology breaks down problems into procedures or blocks of code?",
-        choices: [
-            "A. Object-oriented Programming",
-            "B. Procedural Programming",
-            "C. Functional Programming",
-            "D. Declarative Programming"
-        ],
-        answer: "B",
-        hints: [
-            "Hint 1: It’s often used for structured programming.",
-            "Hint 2: This methodology was popular before Object-Oriented Programming.",
-            "Hint 3: It involves writing functions or procedures to solve different parts of a problem."
-        ]
-    },
-	
-	{
-        type: "Multiple Choice",
-        points: 2,
-        question: "Which of the following is true about pseudocode?",
-        choices: [
-            "A. It is written in a high-level language",
-            "B. It is a mixture of English and Java",
-            "C. It is machine language",
-            "D. It is a compiled code"
-        ],
-        answer: "B",
-        hints: [
-            "Hint 1: It's not actual code that you can run on a computer.",
-            "Hint 2: It's written in a way that humans can understand easily.",
-            "Hint 3: It's a combination of everyday language and coding logic."
-        ]
-    },
-	
-	{
-        type: "Multiple Choice",
-        points: 2,
-        question: "What is the purpose of an interpreter?",
-        choices: [
-            "A. To compile code into machine language",
-            "B. To translate and execute portions of code at a time",
-            "C. To convert assembly language into machine language",
-            "D. To optimize high-level code"
-        ],
-        answer: "B",
-        hints: [
-            "Hint 1: It works differently from a compiler, processing code on the go.",
-            "Hint 2: It handles code in smaller sections rather than all at once.",
-            "Hint 3: It translates and executes your code one piece at a time."
-        ]
-    },
-	
-	{
-        type: "Multiple Choice",
-        points: 2,
-        question: "Which of the following is not an example of a high-level language?",
-        choices: [
-            "A. C++",
-            "B. C#",
-            "C. COBOL",
-            "D. Assembly"
-        ],
-        answer: "D",
-        hints: [
-            "Hint 1: It's used in programming close to the hardware.",
-            "Hint 2: Unlike the others, it's not designed for general-purpose programming.",
-            "Hint 3: It's much closer to machine language than to human languages like Java or Python."
-        ]
-    }
-	
 ];
+    function stopTimer() {
+        clearInterval(timer);
+    }
 
 let timer; // Holds the timer reference
 let timeLeft = 600; // 5 minutes = 300 seconds
@@ -375,13 +379,23 @@ function setProgress(percent) {
         backButton.disabled = false;
     }
 
-goButton.addEventListener("click", function() {
-    if (!timerStarted) {
-        startTimer();
-        timerStarted = true;
-    }
-    displayQuestion(); // Assuming this function displays the next question
-});
+    goButton.addEventListener("click", function () {
+        if (!timerStarted) {
+            startTimer();
+            timerStarted = true;
+        }
+        // Hide idle and show attack animation
+        const GRangerIdle = document.querySelector(".GRanger-idle");
+        const GRangerAttack = document.querySelector(".GRanger-attack");
+
+        GRangerIdle.style.visibility = "hidden";
+        GRangerIdle.style.opacity = "0";
+
+        GRangerAttack.style.visibility = "visible";
+        GRangerAttack.style.opacity = "1";
+
+        displayQuestion(); // Assuming this function displays the next question
+    });
 
 function selectRandomQuestions() {
     const shuffledQuestions = questions.slice(0, -3).sort(() => Math.random() - 0.5);
@@ -572,6 +586,11 @@ function checkAnswer() {
         updateCoinAndPointCount();
         showPopupMessage(`Correct! You got ${pointsEarned} points and 100 silver coins`);
         gameContainer.classList.add("hidden");
+        GRangerAttack.style.visibility = "hidden";
+        GRangerAttack.style.opacity = "0";
+        GRangerIdle.style.visibility = "visible";
+        GRangerIdle.style.opacity = "1";
+
 
         if (currentQuestionIndex === 0) fadeOutCharacter(SlimeWalk0);
         else if (currentQuestionIndex === 1) fadeOutCharacter(SlimeWalk1);
@@ -618,6 +637,12 @@ function checkAnswer() {
             updateCoinAndPointCount();
             showPopupMessage("You lost all hearts. 50 silver coins deducted.");
             gameContainer.classList.add("hidden");
+            GRangerAttack.style.visibility = "hidden";
+            GRangerAttack.style.opacity = "0";
+            GRangerIdle.style.visibility = "visible";
+            GRangerIdle.style.opacity = "1";
+
+
             if (currentQuestionIndex === 0) fadeOutCharacter(SlimeWalk0);
             else if (currentQuestionIndex === 1) fadeOutCharacter(SlimeWalk1);
             else if (currentQuestionIndex === 2) fadeOutCharacter(SlimeWalk2);
@@ -644,6 +669,11 @@ function checkAnswer() {
 
             if (currentQuestionIndex < randomQuestions.length) {
                 goButton.classList.remove("hidden");
+                GRangerAttack.style.visibility = "hidden";
+                GRangerAttack.style.opacity = "0";
+                GRangerIdle.style.visibility = "visible";
+                GRangerIdle.style.opacity = "1";
+
             } else {
                 showCompletionWarning();
                 const answeredAllQuestions = JSON.stringify(answeredQuestions.sort()) === JSON.stringify(Array.from({ length: randomQuestions.length }, (_, i) => i).sort());
@@ -660,20 +690,35 @@ function checkAnswer() {
 
     const startButtonClicked = new Array(randomQuestions.length).fill(false);
 
-function startSequence() {
-    // Check if the start button has not been clicked for the current question index
-    if (!startButtonClicked[currentQuestionIndex]) {
-        startButtonClicked[currentQuestionIndex] = true; // Mark the start button as clicked for the current question index
+    function startSequence() {
+        // Check if the start button has not been clicked for the current question index
+        if (!startButtonClicked[currentQuestionIndex]) {
+            startButtonClicked[currentQuestionIndex] = true; // Mark the start button as clicked for the current question index
 
-        const land = document.querySelector('.land');
-        land.classList.add('animate');
+            const GRangerWalk = document.querySelector('.GRanger-walk');
+            const land = document.querySelector('.land');
 
-        land.addEventListener('animationend', function() {
-            land.classList.remove('animate');
-            animateCharacters();
-        }, { once: true });
+
+            // Hide idle and show walk animation
+            GRangerIdle.style.visibility = "hidden";
+            GRangerIdle.style.opacity = "0";
+            GRangerWalk.style.visibility = "visible";
+            GRangerWalk.style.opacity = "1";
+            GRangerWalk.classList.add('character-walk');
+            land.classList.add('animate');
+
+            // When the land animation ends, switch the walk back to idle
+            land.addEventListener('animationend', function () {
+                land.classList.remove('animate');
+                GRangerWalk.style.visibility = "hidden";
+                GRangerWalk.style.opacity = "0";
+                GRangerIdle.style.visibility = "visible";
+                GRangerIdle.style.opacity = "1";
+
+                animateCharacters();
+            }, { once: true });
+        }
     }
-}
 
     function animateCharacters() {
         if (currentQuestionIndex === 0) {
@@ -872,6 +917,7 @@ function startSequence() {
 
     startButton.addEventListener("click", function() {
         startSequence();
+        bookModule.disabled = true;
     });
 
     goButton.addEventListener("click", function() {

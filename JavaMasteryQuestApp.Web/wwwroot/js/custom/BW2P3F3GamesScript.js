@@ -38,6 +38,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const confirmFinishButton = document.getElementById("confirmFinishButton");
     const cancelFinishButton = document.getElementById("cancelFinishButton");
 
+    const GRangerWalk = document.querySelector(".GRanger-walk");
+    const GRangerIdle = document.querySelector(".GRanger-idle");
+    const GRangerAttack = document.querySelector(".GRanger-attack");
 	
     let currentQuestionIndex = 0;
     let silverCoins = localStorage.getItem("silverCoins") ? parseInt(localStorage.getItem("silverCoins")) : 0;
@@ -52,213 +55,264 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	
     updateCoinAndPointCount();
-    updateHearts(); // Initialize hearts display
+    // Initially display the idle animation BEFORE QUESTIONS
+    GRangerIdle.style.visibility = "visible";
+    GRangerIdle.style.opacity = "1"; updateHearts(); // Initialize hearts display
 
     const questions = [
-	{
-        type: "Identification",
-        points: 3,
-        question: "2 + 2",
-        answer: "4",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "3 + 3",
-        answer: "6",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "4 + 4",
-        answer: "8",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "5 + 5",
-        answer: "10",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Modifier in the code snippet shown in the image?",
-        answer: "public",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "6 + 6",
-        answer: "12",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Modifier in the code snippet shown in the image?",
-        answer: "public",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Return Type in the code snippet shown in the image?",
-        answer: "int",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Name in the code snippet shown in the image?",
-        answer: "add",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Parameters in the code snippet shown in the image?",
-        answer: "int a, int b",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Body in the code snippet shown in the image?",
-        answer: "{ return a + b; }",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Multiple Choice",
-        points: 2,
-        question: "Which of the following statements is true about Java methods?",
-        choices: [
-            "A. A method in Java cannot return an array",
-            "B. Method overloading in Java is the process of defining multiple methods with the same name but different parameter lists.",
-            "C. The void return type indicates that the method returns an integer.",
-            "D. A method must always have parameters."
-        ],
-        answer: "B",
-        hints: [
-            "Hint 1: Common in many programming languages.",
-            "Hint 2: It's an abbreviation.",
-            "Hint 3: Short for integer."
-        ]
-    },
-    {
-        type: "fill_in_the_code",
-        points: 5,
-        question: "Complete the following Java method to calculate the factorial of a given number `n`",
-        answer: `public int factorial(int n) {
-if (n == 0) {
-return 1;
-} else {
-return n * factorial(n - 1);
-}
-}`,
-        image: "AF1_FITC.jpg",
-        hints: [
-            "Hint 1: Getter methods are used to access object properties.",
-            "Hint 2: The 'getItems' method should return the 'items' list.",
-            "Hint 3: Use the 'this' keyword to access the object's property."
-        ]
-    },
-	{
-        type: "fill_in_the_code",
-        points: 5,
-        question: "Complete the following code to implement a method named `isEven` that checks if a given integer `num` is even.",
-        answer: `public boolean isEven(int num) {
-return num % 2 == 0;
-}`,
-        image: "AF1_FITC2.jpg",
-        hints: [
-            "Hint 1: Getter methods are used to access object properties.",
-            "Hint 2: The 'getItems' method should return the 'items' list.",
-            "Hint 3: Use the 'this' keyword to access the object's property."
-        ]
-    },
-	
-    {
-        type: "write_the_code",
-        points: 10,
-        question: 'Write a Java method named `greet` that takes a `String` parameter called `name` and prints "Hello, `name`!"',
-        answer: `public void greet(String name) {
-System.out.println("Hello, " + name + "!");
-}`,
-        hints: [
-            "Hint 1: The constructor should initialize 'name' and 'species'.",
-            "Hint 2: The 'describe' method should return a string.",
-            "Hint 3: Use template literals to create the description."
-        ]
-    }
+        {
+            type: "Identification",
+            points: 3,
+            question: "What is the variable called that controls the number of times a loop executes?",
+            answer: "Loop control variable",
+            hints: [
+                "Hint 1: This variable is often used in for loops.",
+                "Hint 2: It is incremented or decremented with each iteration of the loop.",
+                "Hint 3: It is usually compared with a condition to determine when the loop stops."
+            ],
+
+        },
+
+        {
+            type: "Identification",
+            points: 3,
+            question: "What is a loop that never terminates called?",
+            answer: "Infinite loop",
+            hints: [
+                "Hint 1: This type of loop runs endlessly if not properly controlled.",
+                "Hint 2: It can cause the program to become unresponsive.",
+                "Hint 3: It occurs when the loop condition always evaluates to true."
+            ],
+
+        },
+
+        {
+            type: "Identification",
+            points: 3,
+            question: "What type of loop always executes its body at least once before evaluating its condition?",
+            answer: "do-while loop",
+            hints: [
+                "Hint 1: This loop checks its condition after executing its body.",
+                "Hint 2: It is useful when you want to ensure the loop body runs at least once.",
+                "Hint 3: The loop starts with the keyword `do`."
+            ],
+
+        },
+
+        {
+            type: "Identification",
+            points: 3,
+            question: "What statement in Java immediately exits the innermost loop or switch structure?",
+            answer: "break",
+            hints: [
+                "Hint 1: This statement is used when you want to terminate a loop or switch.",
+                "Hint 2: It’s commonly used in loops to prevent further iterations.",
+                "Hint 3: It can also be used to exit a switch-case structure."
+            ],
+
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which of the following is the correct syntax for a while loop in Java?",
+            choices: [
+                "A. while (condition) { statement }",
+                "B. while condition { statement }",
+                "C. while (condition); statement;",
+                "D. while { condition: statement }"
+            ],
+            answer: "A",
+            hints: [
+                "Hint 1: It checks the condition before each iteration.",
+                "Hint 2: The condition is enclosed in parentheses.",
+                "Hint 3: The correct syntax is `while (condition) { statement }`."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What will be the output of the following code snippet?",
+            choices: [
+                "A. 0 1",
+                "B. 1 2 3",
+                "C. 0 1 2",
+                "D. 0 1 2 3"
+            ],
+            answer: "C",
+            hints: [
+                "Hint 1: Pay attention to the initial value and the update statement in the loop.",
+                "Hint 2: The loop will continue until the condition is no longer satisfied.",
+                "Hint 3: The loop increments the counter with each iteration."
+            ],
+            image: "/image/Custom/BW2P3F3PIC_1.jpg"
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What is the main difference between a while loop and a do...while loop?",
+            choices: [
+                "A. if (expression) { statements; }",
+                "B. if (expression) { statements; } else { statements; }",
+                "C. switch (expression) { case value: statements; break; }",
+                "D. while (expression) { statements; }"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: It involves two blocks of code.",
+                "Hint 2: It uses `else` to specify an alternative block.",
+                "Hint 3: The syntax is `if (expression) { statements; } else { statements; }`."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which of the following is the correct syntax for a for loop in Java?",
+            choices: [
+                "A. for (initialization; condition; update) statement",
+                "B. for initialization; condition; update statement",
+                "C. for (initialization: condition: update) statement",
+                "D. for (initialization: condition: update) statement"
+            ],
+            answer: "A",
+            hints: [
+                "Hint 1: The loop header contains initialization, condition, and update statements.",
+                "Hint 2: Each part of the loop header is separated by a semicolon `;`.",
+                "Hint 3: The loop iterates as long as the condition is true."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What will be the output of the following code snippet?",
+            choices: [
+                "A. 0 1 2 3",
+                "B. 0 1 2 ",
+                "C. 0 1 2 3 4",
+                "D. 0 1 2 3 4 5"
+            ],
+            answer: "C",
+            hints: [
+                "Hint 1: Look at the loop condition to determine how many times the loop will execute.",
+                "Hint 2: Each iteration increases the counter.",
+                "Hint 3: The loop ends when the condition is no longer true."
+            ],
+            image: "/image/Custom/BW2P3F3PIC_2.jpg"
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "How many times will the following do...while loop execute?",
+            choices: [
+                "A. 2 times",
+                "B. 3 times",
+                "C. 4 times",
+                "D. 5 times"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: A do...while loop executes at least once.",
+                "Hint 2: The loop's condition determines whether the loop continues.",
+                "Hint 3: The number of executions depends on the initial condition and the changes within the loop body."
+            ],
+            image: "/image/Custom/BW2P3F3PIC_3.jpg"
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What does the continue statement do in a loop?",
+            choices: [
+                "A. Exits the loop",
+                "B. Skips the current iteration and proceeds with the next iteration",
+                "C. Restarts the loop",
+                "D. Ends the program"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: It doesn't exit the loop.",
+                "Hint 2: It affects only the current iteration of the loop.",
+                "Hint 3: The next iteration of the loop starts immediately after the statement."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which statement is true regarding nested loops in Java?",
+            choices: [
+                "A. You cannot nest loops in Java.",
+                "B. Only while loops can be nested.",
+                "C. Nested loops must have different loop control variables.",
+                "D. You can nest any type of loop within another loop."
+            ],
+            answer: "D",
+            hints: [
+                "Hint 1: Consider what types of loops can be used inside each other.",
+                "Hint 2: Think about whether loop types need to be the same or different.",
+                "Hint 3: Nested loops can be a combination of any loops."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What will be the output of the following code snippet?",
+            choices: [
+                "A. 1 2 3 1 2 3 1 2 3",
+                "B. 1 2 3 2 3 6 3 6 9",
+                "C. 1 2 3 2 6 3 6 9",
+                "D. 1 2 3 1 2 6 3 6 9"
+            ],
+            answer: "C",
+            hints: [
+                "Hint 1: Pay attention to the nested loops and their control variables.",
+                "Hint 2: Each loop iteration adds more values to the output.",
+                "Hint 3: The inner loop completes all iterations for each iteration of the outer loop."
+            ],
+            image: "/image/Custom/BW2P2F2PIC_4.jpg"
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What is an infinite loop?",
+            choices: [
+                "A. A loop that never executes.",
+                "B. A loop that executes a fixed number of times",
+                "C. A loop that continues to execute endlessly",
+                "D. A loop that skips its body entirely"
+            ],
+            answer: "C",
+            hints: [
+                "Hint 1: This type of loop lacks a termination condition.",
+                "Hint 2: It repeats endlessly because the loop condition never becomes false.",
+                "Hint 3: It’s important to avoid this type of loop unless intentionally used."
+            ]
+        },
+
+        {
+            type: "Identification",
+            points: 3,
+            question: "What statement in Java skips the current iteration of a loop and proceeds with the next iteration?",
+            answer: "Continue Statement",
+            hints: [
+                "Hint 1: This statement allows you to skip the remaining code in the current loop iteration.",
+                "Hint 2: It is useful for bypassing certain conditions within a loop.",
+                "Hint 3: It does not exit the loop but moves to the next iteration."
+            ]
+        }
+
+
 ];
+    function stopTimer() {
+        clearInterval(timer);
+    }
 
 let timer; // Holds the timer reference
 let timeLeft = 600; // 5 minutes = 300 seconds
@@ -328,13 +382,24 @@ function setProgress(percent) {
         backButton.disabled = false;
     }
 
-goButton.addEventListener("click", function() {
-    if (!timerStarted) {
-        startTimer();
-        timerStarted = true;
-    }
-    displayQuestion(); // Assuming this function displays the next question
-});
+    goButton.addEventListener("click", function () {
+        if (!timerStarted) {
+            startTimer();
+            timerStarted = true;
+        }
+        // Hide idle and show attack animation
+        const GRangerIdle = document.querySelector(".GRanger-idle");
+        const GRangerAttack = document.querySelector(".GRanger-attack");
+
+        GRangerIdle.style.visibility = "hidden";
+        GRangerIdle.style.opacity = "0";
+
+        GRangerAttack.style.visibility = "visible";
+        GRangerAttack.style.opacity = "1";
+
+        displayQuestion(); // Assuming this function displays the next question
+    });
+
 
 function selectRandomQuestions() {
     const shuffledQuestions = questions.slice(0, -3).sort(() => Math.random() - 0.5);
@@ -526,6 +591,10 @@ restartButton.addEventListener("click", restartGame);
         updateCoinAndPointCount();
         showPopupMessage(`Correct! You got ${pointsEarned} points and 100 silver coins`);
         gameContainer.classList.add("hidden");
+        GRangerAttack.style.visibility = "hidden";
+        GRangerAttack.style.opacity = "0";
+        GRangerIdle.style.visibility = "visible";
+        GRangerIdle.style.opacity = "1";
 
         if (currentQuestionIndex === 0) fadeOutCharacter(SlimeWalk0);
         else if (currentQuestionIndex === 1) fadeOutCharacter(SlimeWalk1);
@@ -572,6 +641,11 @@ restartButton.addEventListener("click", restartGame);
             updateCoinAndPointCount();
             showPopupMessage("You lost all hearts. 50 silver coins deducted.");
             gameContainer.classList.add("hidden");
+            GRangerAttack.style.visibility = "hidden";
+            GRangerAttack.style.opacity = "0";
+            GRangerIdle.style.visibility = "visible";
+            GRangerIdle.style.opacity = "1";
+
             if (currentQuestionIndex === 0) fadeOutCharacter(SlimeWalk0);
             else if (currentQuestionIndex === 1) fadeOutCharacter(SlimeWalk1);
             else if (currentQuestionIndex === 2) fadeOutCharacter(SlimeWalk2);
@@ -600,6 +674,10 @@ restartButton.addEventListener("click", restartGame);
 			
             if (currentQuestionIndex < randomQuestions.length) {
                 goButton.classList.remove("hidden");
+                GRangerAttack.style.visibility = "hidden";
+                GRangerAttack.style.opacity = "0";
+                GRangerIdle.style.visibility = "visible";
+                GRangerIdle.style.opacity = "1";
             } else {
                 showCompletionWarning();
                 const answeredAllQuestions = JSON.stringify(answeredQuestions.sort()) === JSON.stringify(Array.from({ length: randomQuestions.length }, (_, i) => i).sort());
@@ -615,20 +693,36 @@ restartButton.addEventListener("click", restartGame);
 
     const startButtonClicked = new Array(randomQuestions.length).fill(false);
 
-function startSequence() {
-    // Check if the start button has not been clicked for the current question index
-    if (!startButtonClicked[currentQuestionIndex]) {
-        startButtonClicked[currentQuestionIndex] = true; // Mark the start button as clicked for the current question index
+    function startSequence() {
+        // Check if the start button has not been clicked for the current question index
+        if (!startButtonClicked[currentQuestionIndex]) {
+            startButtonClicked[currentQuestionIndex] = true; // Mark the start button as clicked for the current question index
 
-        const land = document.querySelector('.land');
-        land.classList.add('animate');
+            const GRangerWalk = document.querySelector('.GRanger-walk');
+            const land = document.querySelector('.land');
 
-        land.addEventListener('animationend', function() {
-            land.classList.remove('animate');
-            animateCharacters();
-        }, { once: true });
+
+            // Hide idle and show walk animation
+            GRangerIdle.style.visibility = "hidden";
+            GRangerIdle.style.opacity = "0";
+            GRangerWalk.style.visibility = "visible";
+            GRangerWalk.style.opacity = "1";
+            GRangerWalk.classList.add('character-walk');
+            land.classList.add('animate');
+
+            // When the land animation ends, switch the walk back to idle
+            land.addEventListener('animationend', function () {
+                land.classList.remove('animate');
+                GRangerWalk.style.visibility = "hidden";
+                GRangerWalk.style.opacity = "0";
+                GRangerIdle.style.visibility = "visible";
+                GRangerIdle.style.opacity = "1";
+
+                animateCharacters();
+            }, { once: true });
+        }
     }
-}
+
 
     function animateCharacters() {
         if (currentQuestionIndex === 0) {
@@ -827,6 +921,7 @@ function startSequence() {
 
     startButton.addEventListener("click", function() {
         startSequence();
+        bookModule.disabled = true;
     });
 
     goButton.addEventListener("click", function() {

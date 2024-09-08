@@ -68,33 +68,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Skin Shop	
-document.addEventListener("DOMContentLoaded", function () {
-    const skinShopButton = document.getElementById("skinShop");
-
-    skinShopButton.addEventListener("click", function () {
-        window.location.href = '/Capstone/skinShop';
-    });
-});
-
-// Hero Shop
-document.addEventListener("DOMContentLoaded", function () {
-    const heroShopButton = document.getElementById("heroShop");
-
-    heroShopButton.addEventListener("click", function () {
-        window.location.href = '/Capstone/heroShop';
-    });
-});
-
-// Practice Coding
-document.addEventListener("DOMContentLoaded", function () {
-    const practiceButton = document.getElementById("practice");
-
-    practiceButton.addEventListener("click", function () {
-        window.location.href = '/Capstone/Practice';
-    });
-});
-
 //WORLD1 - LAVA
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -263,7 +236,7 @@ window.onload = function () {
 };
 
 function logout() {
-    window.location.href = '/Capstone/Home'; // Redirects to Homepage.html
+    window.location.href = 'Home.html'; // Redirects to Homepage.html
 }
 
 
@@ -381,11 +354,155 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+
+
     // Stop propagation of click events inside Bslide2 to prevent them from closing the modal
     bSlide3.addEventListener('click', function (event) {
         event.stopPropagation();
     });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('detailsModal').style.display = 'none';
+});
+
+
+function hideModal() {
+    document.getElementById('detailsModal').style.display = 'none';
+}
+
+function logout() {
+    // Add logout functionality here
+    window.location.href = "Home.html";
+}
+
+window.onclick = function (event) {
+    const modal = document.getElementById("detailsModal");
+    if (event.target === modal) {
+        hideModal();
+    }
+}
+
+
+function toggleRightContent() {
+    var studentRecord = document.getElementById('studentRecord');
+    var leaderboard = document.getElementById('leaderboard');
+    var saveButton = document.querySelector('saveButton');
+
+    if (studentRecord.classList.contains('hidden')) {
+        studentRecord.classList.remove('hidden');
+        leaderboard.classList.add('hidden');
+        saveButton.textContent = 'Leaderboard';
+    } else {
+        studentRecord.classList.add('hidden');
+        leaderboard.classList.remove('hidden');
+        saveButton.textContent = 'Record';
+        populateLeaderboards(); // Populate the leaderboard with data when showing it
+    }
+}
+
+// Function to populate the leaderboard with data
+function populateLeaderboards() {
+    var data = [
+        { name: 'Aniciete, Ricardo Jr. R.', score: 1500, world: 'World 1', floor: 'Floor 1' },
+        { name: 'Bayer', score: 1200, world: 'World 1', floor: 'Floor 2' },
+        { name: 'Cici', score: 1000, world: 'World 1', floor: 'Floor 3' },
+        { name: 'Dave', score: 900, world: 'World 2', floor: 'Floor 1' },
+        { name: 'Eep', score: 850, world: 'World 2', floor: 'Floor 2' },
+        { name: 'Franky', score: 800, world: 'World 2', floor: 'Floor 3' },
+        { name: 'Grasya', score: 750, world: 'World 3', floor: 'Floor 1' },
+        { name: 'Hid', score: 700, world: 'World 3', floor: 'Floor 2' },
+        { name: 'Shimenet', score: 250, world: 'World 3', floor: 'Floor 3' },
+        { name: 'Layk', score: 1300, world: 'World 1', floor: 'Floor 1' },
+        { name: 'May', score: 1200, world: 'World 1', floor: 'Floor 2' },
+        { name: 'Ans', score: 1100, world: 'World 1', floor: 'Floor 3' },
+        { name: 'Ser', score: 940, world: 'World 2', floor: 'Floor 1' },
+        { name: 'Heid', score: 350, world: 'World 2', floor: 'Floor 2' },
+        { name: 'Firr', score: 600, world: 'World 2', floor: 'Floor 3' },
+        { name: 'Gaz', score: 250, world: 'World 3', floor: 'Floor 1' },
+        { name: 'Nick', score: 200, world: 'World 3', floor: 'Floor 2' },
+        { name: 'Tom', score: 650, world: 'World 3', floor: 'Floor 3' }
+    ];
+
+    function populateWorldLeaderboard(worldId, floorFilterId, leaderboardId) {
+        var leaderboardTableBody = document.querySelector(leaderboardId + ' tbody');
+        var floorFilter = document.getElementById(floorFilterId);
+
+        leaderboardTableBody.innerHTML = '';
+
+        var worldData = data.filter(item => item.world.replace(' ', '-').toLowerCase() === worldId);
+        worldData.sort((a, b) => b.score - a.score); // Sort by score descending
+
+        var rank = 1;
+        var prevScore = null;
+
+        worldData.forEach(function (item, index) {
+            if (item.score !== prevScore) {
+                prevScore = item.score;
+            }
+
+            var row = document.createElement('tr');
+            row.classList.add(item.floor.replace(' ', '-').toLowerCase());
+
+            row.innerHTML = `
+            <td>${rank}</td>
+            <td>${item.name}</td>
+            <td>${item.score}</td>
+            <td>${item.floor}</td>
+        `;
+            leaderboardTableBody.appendChild(row);
+
+            // Increment rank if it's not a tie
+            if (index + 1 < worldData.length && worldData[index + 1].score !== item.score) {
+                rank++;
+            }
+        });
+
+        floorFilter.addEventListener('change', function () {
+            filterLeaderboard(floorFilterId, leaderboardId);
+        });
+
+        filterLeaderboard(floorFilterId, leaderboardId); // Initial filtering
+    }
+
+
+    function filterLeaderboard(floorFilterId, leaderboardId) {
+        var selectedFloor = document.getElementById(floorFilterId).value;
+        var rows = document.querySelectorAll(leaderboardId + ' tbody tr');
+        var rank = 1;
+
+        rows.forEach(function (row) {
+            if (selectedFloor === 'all' || row.classList.contains(selectedFloor)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    }
+
+    populateWorldLeaderboard('world-1', 'floorFilterWorld1', '#leaderboardTableWorld1');
+    populateWorldLeaderboard('world-2', 'floorFilterWorld2', '#leaderboardTableWorld2');
+    populateWorldLeaderboard('world-3', 'floorFilterWorld3', '#leaderboardTableWorld3');
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    populateLeaderboards();
+});
+
+// For demonstration purposes
+document.getElementById('detailsModal').style.display = 'flex';
+
+function showLeaderboard() {
+    document.querySelector('.right-section').style.display = 'none'; // Hide Student's Record
+    document.getElementById('leaderboard').style.display = 'block'; // Show Leaderboard
+
+}
+
+function showRecords() {
+    document.querySelector('.right-section').style.display = 'block'; // Show Student's Record
+    document.getElementById('leaderboard').style.display = 'none'; // Hide Leaderboard
+}
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const worlds = [
@@ -458,7 +575,5 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById('profile').classList.add('hidden');
     });
 
-    document.getElementById('logout-link').addEventListener('click', function () {
-        alert('Logged out!');
-    });
+
 });

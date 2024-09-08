@@ -165,45 +165,118 @@
 						<p>Class: <span id="modalClass">-</span></p>
 					</div>
 					<div class="activities">
-
 						<!-- Add the activities content here -->
 					</div>
 					<div class="buttons1">
-						<button class="close" onclick="hideModal()">Close</button>
 						<button class="Logout" onclick="logout()">Log out</button>
-						<button class="save" onclick="save()">Save</button>
+						<button class="saveButton" onclick="toggleRightContent()">Leaderboard</button>
 					</div>
 				</div>
 				<div class="right-section">
-					<h1>Student's Record</h1>
-					<div id="records" class="hidden">
-						<div class="box" id="world-1">
-							<div class="box-details">
-								<h2>World 1</h2>
-								<p>Total Points: <span id="world-1-total">0</span></p>
-								<p>Cleared Floor: <span id="world-1-cleared">0</span></p>
+					<div id="studentRecord" class="content">
+						<h1>Student Records</h1>
+						<div id="records">
+							<div class="box" id="world-1">
+								<div class="box-details">
+									<h2>World 1</h2>
+									<p>Total Points: <span id="world-1-total">0</span></p>
+									<p>Cleared Floor: <span id="world-1-cleared">0</span></p>
+								</div>
+								<div class="box-floors" id="world-1-floors"></div>
 							</div>
-							<div class="box-floors" id="world-1-floors"></div>
+							<div class="box" id="world-2">
+								<div class="box-details">
+									<h2>World 2</h2>
+									<p>Total Points: <span id="world-2-total">0</span></p>
+									<p>Cleared Floor: <span id="world-2-cleared">0</span></p>
+								</div>
+								<div class="box-floors" id="world-2-floors"></div>
+							</div>
+							<div class="box" id="world-3">
+								<div class="box-details">
+									<h2>World 3</h2>
+									<p>Total Points: <span id="world-3-total">0</span></p>
+									<p>Cleared Floor: <span id="world-3-cleared">0</span></p>
+								</div>
+								<div class="box-floors" id="world-3-floors"></div>
+							</div>
 						</div>
-						<div class="box" id="world-2">
-							<div class="box-details">
-								<h2>World 2</h2>
-								<p>Total Points: <span id="world-2-total">0</span></p>
-								<p>Cleared Floor: <span id="world-2-cleared">0</span></p>
-							</div>
-							<div class="box-floors" id="world-2-floors"></div>
+					</div>
+					<div id="leaderboard" class="content hidden">
+						<h1>Leaderboard</h1>
+						<div id="world-1-section" class="world-section">
+							<h1>World 1</h1>
+							<select class="floor-filter" id="floorFilterWorld1">
+								<option value="all">All Floors</option>
+								<option value="floor-1">Floor 1</option>
+								<option value="floor-2">Floor 2</option>
+								<option value="floor-3">Floor 3</option>
+								<option value="floor-4">Floor 4</option>
+								<option value="floor-5">Floor 5</option>
+								<option value="floor-6">Floor 6</option>
+								<option value="floor-7">Floor 7</option>
+							</select>
+							<table id="leaderboardTableWorld1">
+								<thead>
+									<tr>
+										<th>Rank</th>
+										<th>Name</th>
+										<th>Score</th>
+										<th>Floor</th>
+									</tr>
+								</thead>
+								<tbody>
+									<!-- Table rows will be populated here -->
+								</tbody>
+							</table>
 						</div>
-						<div class="box" id="world-3">
-							<div class="box-details">
-								<h2>World 3</h2>
-								<p>Total Points: <span id="world-3-total">0</span></p>
-								<p>Cleared Floor: <span id="world-3-cleared">0</span></p>
-							</div>
-							<div class="box-floors" id="world-3-floors"></div>
+						<div id="world-2-section" class="world-section">
+							<h1>World 2</h1>
+							<select class="floor-filter" id="floorFilterWorld2">
+								<option value="all">All Floors</option>
+								<option value="floor-1">Floor 1</option>
+								<option value="floor-2">Floor 2</option>
+								<option value="floor-3">Floor 3</option>
+								<option value="floor-4">Floor 4</option>
+							</select>
+							<table id="leaderboardTableWorld2">
+								<thead>
+									<tr>
+										<th>Rank</th>
+										<th>Name</th>
+										<th>Score</th>
+										<th>Floor</th>
+									</tr>
+								</thead>
+								<tbody>
+									<!-- Table rows will be populated here -->
+								</tbody>
+							</table>
+						</div>
+						<div id="world-3-section" class="world-section">
+							<h1>World 3</h1>
+							<select class="floor-filter" id="floorFilterWorld3">
+								<option value="all">All Floors</option>
+								<option value="floor-1">Floor 1</option>
+								<option value="floor-2">Floor 2</option>
+								<option value="floor-3">Floor 3</option>
+							</select>
+							<table id="leaderboardTableWorld3">
+								<thead>
+									<tr>
+										<th>Rank</th>
+										<th>Name</th>
+										<th>Score</th>
+										<th>Floor</th>
+									</tr>
+								</thead>
+								<tbody>
+									<!-- Table rows will be populated here -->
+								</tbody>
+							</table>
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 
@@ -222,26 +295,14 @@
 			</div>
 		</div>
 
-		<button id="heroShop">
-			<img src="~/image/Custom/heroshop.png" class="heroShop-image">
-			<span class="hover-text">Hero Shop</span>
-		</button>
-
-		<button id="skinShop">
-			<img src="~/image/Custom/skinShop.png" class="skinShop-image">
-			<span class="hover-text">Skin Shop</span>
-		</button>
 
 		<button id="freeCoins">
 			<img src="~/image/Custom/freeCoins.png" class="freeCoins-image">
 			<span class="hover-text">Free Coins</span>
 		</button>
 
-		<button id="practice">
-			<img src="~/image/Custom/practice.png" class="practice-image">
-			<span class="hover-text">Practice Coding</span>
-		</button>
 	</div>
+
 	<script src="~/js/custom/AdvancedLobby.js"></script>
 </body>
 </html>

@@ -38,6 +38,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const confirmFinishButton = document.getElementById("confirmFinishButton");
     const cancelFinishButton = document.getElementById("cancelFinishButton");
 
+    const GRangerWalk = document.querySelector(".GRanger-walk");
+    const GRangerIdle = document.querySelector(".GRanger-idle");
+    const GRangerAttack = document.querySelector(".GRanger-attack");
 	
     let currentQuestionIndex = 0;
     let silverCoins = localStorage.getItem("silverCoins") ? parseInt(localStorage.getItem("silverCoins")) : 0;
@@ -53,6 +56,9 @@ document.addEventListener("DOMContentLoaded", function() {
 	
     updateCoinAndPointCount();
     updateHearts(); // Initialize hearts display
+    // Initially display the idle animation BEFORE QUESTIONS
+    GRangerIdle.style.visibility = "visible";
+    GRangerIdle.style.opacity = "1";
 
     const questions = [
         {
@@ -64,7 +70,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 "Hint 1: It is the first method called when a Java program starts.",
                 "Hint 2: It is always required in a Java application.",
                 "Hint 3: The method is `main()`."
-            ]
+            ],
+
         },
 
         {
@@ -76,7 +83,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 "Hint 1: It consists of two identical characters.",
                 "Hint 2: It is different from the assignment operator.",
                 "Hint 3: You just need to double the symbol"
-            ]
+            ],
+
         },
 
         {
@@ -88,8 +96,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 "Hint 1: It starts with a pair of slashes.",
                 "Hint 2: It is used for inline comments.",
                 "Hint 3: It is facing to the right"
+            ],
 
-            ]
         },
 
         {
@@ -101,21 +109,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 "Hint 1: It prevents modification after initialization.",
                 "Hint 2: It is used instead of `const`.",
                 "Hint 3: It is usually known for ending."
-
-            ]
-        },
-
-        {
-            type: "Identification",
-            points: 3,
-            question: "What does the following Java program display?",
-            answer: "My first Java program. The sum of 2 and 3 = 5 7 + 8 = 15",
-            hints: [
-                "Hint 1: The output includes three lines of text.",
-                "Hint 2: The first line is a simple greeting.",
-                "Hint 3: The second and third lines display the results of arithmetic operations."
             ],
-            image: "BW1P2F2PIC.jpg"
+
         },
 
         {
@@ -135,6 +130,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 "Hint 3: It is facing to the right."
             ]
         },
+
         {
             type: "Multiple Choice",
             points: 2,
@@ -151,97 +147,80 @@ document.addEventListener("DOMContentLoaded", function() {
                 "Hint 2: It is often used to compare two values.",
                 "Hint 3: It is used to check if the condition is satisfied or not."
             ]
-
         },
-        
-    {
-        type: "Multiple Choice",
-        points: 2,
-        question: "Which of the following is a legal identifier in Java?",
-        choices: [
-            "A. 1counter",
-            "B. $Amount",
-            "C. #rate",
-            "D. -total"
-        ],
-        answer: "B",
-        hints: [
-            "Hint 1: It can start with a special character but not with a digit.",
-            "Hint 2: It can include letters, digits, and certain symbols.",
-            "Hint 3: It usually means money."
-        ]
 
-    },
-    {
-        type: "Multiple Choice",
-        points: 2,
-        question: "Which of the following is a reserved word in Java?",
-        choices: [
-            "A. String",
-            "B. main",
-            "C. public",
-            "D. myVariable"
-        ],
-        answer: "C",
-        hints: [
-            "Hint 1: It is used to make a method or variable accessible outside its class.",
-            "Hint 2: It is not a user-defined identifier.",
-            "Hint 3: Sometimes, it is accessible to all."
-        ]
-
-    },
-    {
-        type: "Multiple Choice",
-        points: 2,
-        question: "Which of the following is a reserved word in Java?",
-        choices: [
-            "A. String",
-            "B. main",
-            "C. public",
-            "D. myVariable"
-        ],
-        answer: "C",
-        hints: [
-            "Hint 1: It is used to make a method or variable accessible outside its class.",
-            "Hint 2: It is not a user-defined identifier.",
-            "Hint 3: Sometimes, it is accessible to all."
-        ]
-    },
-    {
-        type: "Multiple Choice",
-        points: 2,
-        question: "What does the keyword 'void' in the main method signify?",
-        choices: [
-            "A. It returns a value",
-            "B. It does not return any value",
-            "C. It takes input from the user",
-            "D. It is optional in Java"
-        ],
-        answer: "B",
-        hints: [
-            "Hint 1: It indicates something about return values.",
-            "Hint 2: Does it need to give something back?",
-            "Hint 3: It is used when the method does not return any value."
-        ]
-
-    },
-    {
-        type: "Multiple Choice",
-        points: 2,
-        question: "What data type would be suitable for storing a character in Java?",
-        choices: [
-            "A. int",
-            "B. float",
-            "C. char",
-            "D. double"
-        ],
-        answer: "C",
-        hints: [
-            "Hint 1: It is used to store single letters or symbols.",
-            "Hint 2: It occupies 2 bytes in memory.",
-            "Hint 3: It can be seen in the character."
-        ]
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which of the following is a legal identifier in Java?",
+            choices: [
+                "A. 1counter",
+                "B. $Amount",
+                "C. #rate",
+                "D. -total"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: It can start with a special character but not with a digit.",
+                "Hint 2: It can include letters, digits, and certain symbols.",
+                "Hint 3: It usually means money."
+            ]
         },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which of the following is a reserved word in Java?",
+            choices: [
+                "A. String",
+                "B. main",
+                "C. public",
+                "D. myVariable"
+            ],
+            answer: "C",
+            hints: [
+                "Hint 1: It is used to make a method or variable accessible outside its class.",
+                "Hint 2: It is not a user-defined identifier.",
+                "Hint 3: Sometimes, it is accessible to all."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What does the keyword 'void' in the main method signify?",
+            choices: [
+                "A. It returns a value",
+                "B. It does not return any value",
+                "C. It takes input from the user",
+                "D. It is optional in Java"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: It indicates something about return values.",
+                "Hint 2: Does it need to give something back?",
+                "Hint 3: It is used when the method does not return any value."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What data type would be suitable for storing a character in Java?",
+            choices: [
+                "A. int",
+                "B. float",
+                "C. char",
+                "D. double"
+            ],
+            answer: "C",
+            hints: [
+                "Hint 1: It is used to store single letters or symbols.",
+                "Hint 2: It occupies 2 bytes in memory.",
+                "Hint 3: It can be seen in the character."
+            ]
+        },
+
         {
             type: "Multiple Choice",
             points: 2,
@@ -260,53 +239,81 @@ document.addEventListener("DOMContentLoaded", function() {
             ]
         },
 
-    {
-        type: "fill_in_the_code",
-        points: 5,
-        question: "Complete the following Java method to calculate the factorial of a given number `n`",
-        answer: `public int factorial(int n) {
-if (n == 0) {
-return 1;
-} else {
-return n * factorial(n - 1);
-}
-}`,
-        image: "AF1_FITC.jpg",
-        hints: [
-            "Hint 1: Getter methods are used to access object properties.",
-            "Hint 2: The 'getItems' method should return the 'items' list.",
-            "Hint 3: Use the 'this' keyword to access the object's property."
-        ]
-    },
-	{
-        type: "fill_in_the_code",
-        points: 5,
-        question: "Complete the following code to implement a method named `isEven` that checks if a given integer `num` is even.",
-        answer: `public boolean isEven(int num) {
-return num % 2 == 0;
-}`,
-        image: "AF1_FITC2.jpg",
-        hints: [
-            "Hint 1: Getter methods are used to access object properties.",
-            "Hint 2: The 'getItems' method should return the 'items' list.",
-            "Hint 3: Use the 'this' keyword to access the object's property."
-        ]
-    },
-	
-    {
-        type: "write_the_code",
-        points: 10,
-        question: 'Write a Java method named `greet` that takes a `String` parameter called `name` and prints "Hello, `name`!"',
-        answer: `public void greet(String name) {
-System.out.println("Hello, " + name + "!");
-}`,
-        hints: [
-            "Hint 1: The constructor should initialize 'name' and 'species'.",
-            "Hint 2: The 'describe' method should return a string.",
-            "Hint 3: Use template literals to create the description."
-        ]
-    }
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "How do you declare a constant in Java?",
+            choices: [
+                "A. const int MAX = 100;",
+                "B. constant int MAX = 100;",
+                "C. final int MAX = 100;",
+                "D. ostatic int MAX = 100;"
+            ],
+            answer: "C",
+            hints: [
+                "Hint 1: The keyword used is different from `const`",
+                "Hint 2: It makes the value immutable.",
+                "Hint 3: The correct declaration uses `final`."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What is the starting point for JVM to start execution of a Java program?",
+            choices: [
+                "A. static void()",
+                "B. main()",
+                "C. start()",
+                "D. public static void main(String[] args)"
+            ],
+            answer: "D",
+            hints: [
+                "Hint 1: It is a method with a specific signature.",
+                "Hint 2: It is where the program begins execution.",
+                "Hint 3: The method takes an array of strings as an argument."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which of the following is not an example of a high-level language?",
+            choices: [
+                "A. C++",
+                "B. C#",
+                "C. COBOL",
+                "D. Assembly"
+            ],
+            answer: "D",
+            hints: [
+                "Hint 1: It's used in programming close to the hardware.",
+                "Hint 2: Unlike the others, it's not designed for general-purpose programming.",
+                "Hint 3: It's much closer to machine language than to human languages like Java or Python."
+            ]
+        },
+
+        {
+            type: "Identification",
+            points: 3,
+            question: "What does the following Java program display?",
+            answer: "My first Java program. The sum of 2 and 3 = 5 7 + 8 = 15",
+            hints: [
+                "Hint 1: The output includes three lines of text.",
+                "Hint 2: The first line is a simple greeting.",
+                "Hint 3: The second and third lines display the results of arithmetic operations."
+            ],
+            image: "/image/Custom/BW1P2F2PIC.jpg"
+
+        }
+
+    ];
+
+
 ];
+    function stopTimer() {
+        clearInterval(timer);
+    }
 
 let timer; // Holds the timer reference
 let timeLeft = 600; // 5 minutes = 300 seconds
@@ -376,13 +383,23 @@ function setProgress(percent) {
         backButton.disabled = false;
     }
 
-goButton.addEventListener("click", function() {
-    if (!timerStarted) {
-        startTimer();
-        timerStarted = true;
-    }
-    displayQuestion(); // Assuming this function displays the next question
-});
+    goButton.addEventListener("click", function () {
+        if (!timerStarted) {
+            startTimer();
+            timerStarted = true;
+        }
+        // Hide idle and show attack animation
+        const GRangerIdle = document.querySelector(".GRanger-idle");
+        const GRangerAttack = document.querySelector(".GRanger-attack");
+
+        GRangerIdle.style.visibility = "hidden";
+        GRangerIdle.style.opacity = "0";
+
+        GRangerAttack.style.visibility = "visible";
+        GRangerAttack.style.opacity = "1";
+
+        displayQuestion(); // Assuming this function displays the next question
+    });
 
 function selectRandomQuestions() {
     const shuffledQuestions = questions.slice(0, -3).sort(() => Math.random() - 0.5);
@@ -576,6 +593,10 @@ restartButton.addEventListener("click", restartGame);
         updateCoinAndPointCount();
         showPopupMessage(`Correct! You got ${pointsEarned} points and 100 silver coins`);
         gameContainer.classList.add("hidden");
+        GRangerAttack.style.visibility = "hidden";
+        GRangerAttack.style.opacity = "0";
+        GRangerIdle.style.visibility = "visible";
+        GRangerIdle.style.opacity = "1";
 
         if (currentQuestionIndex === 0) fadeOutCharacter(SlimeWalk0);
         else if (currentQuestionIndex === 1) fadeOutCharacter(SlimeWalk1);
@@ -622,6 +643,11 @@ restartButton.addEventListener("click", restartGame);
             updateCoinAndPointCount();
             showPopupMessage("You lost all hearts. 50 silver coins deducted.");
             gameContainer.classList.add("hidden");
+            GRangerAttack.style.visibility = "hidden";
+            GRangerAttack.style.opacity = "0";
+            GRangerIdle.style.visibility = "visible";
+            GRangerIdle.style.opacity = "1";
+
             if (currentQuestionIndex === 0) fadeOutCharacter(SlimeWalk0);
             else if (currentQuestionIndex === 1) fadeOutCharacter(SlimeWalk1);
             else if (currentQuestionIndex === 2) fadeOutCharacter(SlimeWalk2);
@@ -650,6 +676,10 @@ restartButton.addEventListener("click", restartGame);
 			
             if (currentQuestionIndex < randomQuestions.length) {
                 goButton.classList.remove("hidden");
+                GRangerAttack.style.visibility = "hidden";
+                GRangerAttack.style.opacity = "0";
+                GRangerIdle.style.visibility = "visible";
+                GRangerIdle.style.opacity = "1";
             } else {
                 showCompletionWarning();
                 const answeredAllQuestions = JSON.stringify(answeredQuestions.sort()) === JSON.stringify(Array.from({ length: randomQuestions.length }, (_, i) => i).sort());
@@ -665,20 +695,35 @@ restartButton.addEventListener("click", restartGame);
 
     const startButtonClicked = new Array(randomQuestions.length).fill(false);
 
-function startSequence() {
-    // Check if the start button has not been clicked for the current question index
-    if (!startButtonClicked[currentQuestionIndex]) {
-        startButtonClicked[currentQuestionIndex] = true; // Mark the start button as clicked for the current question index
+    function startSequence() {
+        // Check if the start button has not been clicked for the current question index
+        if (!startButtonClicked[currentQuestionIndex]) {
+            startButtonClicked[currentQuestionIndex] = true; // Mark the start button as clicked for the current question index
 
-        const land = document.querySelector('.land');
-        land.classList.add('animate');
+            const GRangerWalk = document.querySelector('.GRanger-walk');
+            const land = document.querySelector('.land');
 
-        land.addEventListener('animationend', function() {
-            land.classList.remove('animate');
-            animateCharacters();
-        }, { once: true });
+
+            // Hide idle and show walk animation
+            GRangerIdle.style.visibility = "hidden";
+            GRangerIdle.style.opacity = "0";
+            GRangerWalk.style.visibility = "visible";
+            GRangerWalk.style.opacity = "1";
+            GRangerWalk.classList.add('character-walk');
+            land.classList.add('animate');
+
+            // When the land animation ends, switch the walk back to idle
+            land.addEventListener('animationend', function () {
+                land.classList.remove('animate');
+                GRangerWalk.style.visibility = "hidden";
+                GRangerWalk.style.opacity = "0";
+                GRangerIdle.style.visibility = "visible";
+                GRangerIdle.style.opacity = "1";
+
+                animateCharacters();
+            }, { once: true });
+        }
     }
-}
 
     function animateCharacters() {
         if (currentQuestionIndex === 0) {
@@ -877,6 +922,7 @@ function startSequence() {
 
     startButton.addEventListener("click", function() {
         startSequence();
+        bookModule.disabled = true;
     });
 
     goButton.addEventListener("click", function() {

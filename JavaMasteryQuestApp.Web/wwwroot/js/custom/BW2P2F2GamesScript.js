@@ -38,6 +38,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const confirmFinishButton = document.getElementById("confirmFinishButton");
     const cancelFinishButton = document.getElementById("cancelFinishButton");
 
+    const GRangerWalk = document.querySelector(".GRanger-walk");
+    const GRangerIdle = document.querySelector(".GRanger-idle");
+    const GRangerAttack = document.querySelector(".GRanger-attack");
+
+
 	
     let currentQuestionIndex = 0;
     let silverCoins = localStorage.getItem("silverCoins") ? parseInt(localStorage.getItem("silverCoins")) : 0;
@@ -53,212 +58,260 @@ document.addEventListener("DOMContentLoaded", function() {
 	
     updateCoinAndPointCount();
     updateHearts(); // Initialize hearts display
-
+    // Initially display the idle animation BEFORE QUESTIONS
+    GRangerIdle.style.visibility = "visible";
+    GRangerIdle.style.opacity = "1";
     const questions = [
-	{
-        type: "Identification",
-        points: 3,
-        question: "2 + 2",
-        answer: "4",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "3 + 3",
-        answer: "6",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "4 + 4",
-        answer: "8",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "5 + 5",
-        answer: "10",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Modifier in the code snippet shown in the image?",
-        answer: "public",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "6 + 6",
-        answer: "12",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Modifier in the code snippet shown in the image?",
-        answer: "public",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Return Type in the code snippet shown in the image?",
-        answer: "int",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Name in the code snippet shown in the image?",
-        answer: "add",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Parameters in the code snippet shown in the image?",
-        answer: "int a, int b",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Body in the code snippet shown in the image?",
-        answer: "{ return a + b; }",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Multiple Choice",
-        points: 2,
-        question: "Which of the following statements is true about Java methods?",
-        choices: [
-            "A. A method in Java cannot return an array",
-            "B. Method overloading in Java is the process of defining multiple methods with the same name but different parameter lists.",
-            "C. The void return type indicates that the method returns an integer.",
-            "D. A method must always have parameters."
-        ],
-        answer: "B",
-        hints: [
-            "Hint 1: Common in many programming languages.",
-            "Hint 2: It's an abbreviation.",
-            "Hint 3: Short for integer."
-        ]
-    },
-    {
-        type: "fill_in_the_code",
-        points: 5,
-        question: "Complete the following Java method to calculate the factorial of a given number `n`",
-        answer: `public int factorial(int n) {
-if (n == 0) {
-return 1;
-} else {
-return n * factorial(n - 1);
-}
-}`,
-        image: "AF1_FITC.jpg",
-        hints: [
-            "Hint 1: Getter methods are used to access object properties.",
-            "Hint 2: The 'getItems' method should return the 'items' list.",
-            "Hint 3: Use the 'this' keyword to access the object's property."
-        ]
-    },
-	{
-        type: "fill_in_the_code",
-        points: 5,
-        question: "Complete the following code to implement a method named `isEven` that checks if a given integer `num` is even.",
-        answer: `public boolean isEven(int num) {
-return num % 2 == 0;
-}`,
-        image: "AF1_FITC2.jpg",
-        hints: [
-            "Hint 1: Getter methods are used to access object properties.",
-            "Hint 2: The 'getItems' method should return the 'items' list.",
-            "Hint 3: Use the 'this' keyword to access the object's property."
-        ]
-    },
-	
-    {
-        type: "write_the_code",
-        points: 10,
-        question: 'Write a Java method named `greet` that takes a `String` parameter called `name` and prints "Hello, `name`!"',
-        answer: `public void greet(String name) {
-System.out.println("Hello, " + name + "!");
-}`,
-        hints: [
-            "Hint 1: The constructor should initialize 'name' and 'species'.",
-            "Hint 2: The 'describe' method should return a string.",
-            "Hint 3: Use template literals to create the description."
-        ]
-    }
+        {
+            type: "Identification",
+            points: 3,
+            question: "Name the control structure used for making selections in Java based on conditions.",
+            answer: "if...else",
+            hints: [
+                "Hint 1: It involves decision-making.",
+                "Hint 2: It can handle both single and multiple conditions.",
+                "Hint 3: The structure is `if...else`."
+            ],
+
+        },
+
+        {
+            type: "Identification",
+            points: 3,
+            question: "What keyword is used in Java to define a switch structure?",
+            answer: "switch",
+            hints: [
+                "Hint 1: It is used for multi-way branching.",
+                "Hint 2: It selects one of many possible cases.",
+                "Hint 3: The keyword is `switch`."
+            ],
+
+        },
+
+        {
+            type: "Identification",
+            points: 3,
+            question: "In a switch structure, what keyword is used to exit the switch statement immediately?",
+            answer: "break",
+            hints: [
+                "Hint 1: It prevents the execution of subsequent cases.",
+                "Hint 2: It’s often placed at the end of each case block.",
+                "Hint 3: The keyword is `break`."
+            ],
+
+        },
+
+        {
+            type: "Identification",
+            points: 3,
+            question: "Which reserved word is used in Java to provide a default case in a switch structure?",
+            answer: "default",
+            hints: [
+                "Hint 1: It handles cases that don't match any specific value.",
+                "Hint 2: It acts as a catch-all case.",
+                "Hint 3: The reserved word is `default`."
+            ],
+
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What are the three ways a computer can process a program?",
+            choices: [
+                "A. Selection, Loop, Switch",
+                "B. Sequence, Selection, Repetition",
+                "C. Sequence, Branch, Iteration",
+                "D. Selection, Iteration, Switch"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: One of them is Sequence.",
+                "Hint 2: It involves branching and looping.",
+                "Hint 3: The three ways are Sequence, Selection, and Repetition.."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which control structure in Java is used for one-way selection?",
+            choices: [
+                "A. if...else",
+                "B. switch",
+                "C. if",
+                "D. for"
+            ],
+            answer: "C",
+            hints: [
+                "Hint 1: It is the simplest form of decision-making.",
+                "Hint 2: It only executes a block if the condition is true.",
+                "Hint 3: The control structure is `if`."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What is the syntax of a two-way selection in Java?",
+            choices: [
+                "A. if (expression) { statements; }",
+                "B. if (expression) { statements; } else { statements; }",
+                "C. switch (expression) { case value: statements; break; }",
+                "D. while (expression) { statements; }"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: It involves two blocks of code.",
+                "Hint 2: It uses `else` to specify an alternative block.",
+                "Hint 3: The syntax is `if (expression) { statements; } else { statements; }`."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which keyword is used to create a block of statements in Java?",
+            choices: [
+                "A. do",
+                "B. loop",
+                "C. case",
+                "D. {}"
+            ],
+            answer: "D",
+            hints: [
+                "Hint 1: It’s not a word but a symbol.",
+                "Hint 2: It is used to group multiple statements.",
+                "Hint 3: The symbols are `{}`."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What is the purpose of the break statement in a switch structure?",
+            choices: [
+                "A. To continue the next iteration of the loop",
+                "B. To exit the switch structure immediately",
+                "C. To evaluate the next case",
+                "D. To skip to the default case"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: It prevents the fall-through behavior.",
+                "Hint 2: It exits the switch case immediately.",
+                "Hint 3: The purpose is to exit the switch structure."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "How does Java associate an else with an if in nested if statements?",
+            choices: [
+                "A. The else is paired with the nearest preceding if",
+                "B. The else is paired with the first if in the block",
+                "C. The else is paired with the last if in the block",
+                "D. The else is paired randomly with any if"
+            ],
+            answer: "A",
+            hints: [
+                "Hint 1: It pairs the else with the nearest unpaired if.",
+                "Hint 2: It follows a specific order of evaluation.",
+                "Hint 3: The else is paired with the nearest preceding if."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What is short-circuit evaluation in Java?",
+            choices: [
+                "A. Evaluating expressions from right to left",
+                "B. Evaluating expressions based on the operator precedence",
+                "C. Evaluating logical expressions from left to right and stopping as soon as the result is determined",
+                "D. Evaluating all expressions regardless of their values"
+            ],
+            answer: "C",
+            hints: [
+                "Hint 1: It involves logical operators.",
+                "Hint 2: It stops evaluating as soon as the result is known.",
+                "Hint 3: It evaluates expressions from left to right and stops when the result is determined."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which of the following is a valid switch expression in Java?",
+            choices: [
+                "A. switch (expression) { case value: statements; break; }",
+                "B. switch (expression) { if (value) { statements; break; } }",
+                "C. switch (expression) { while (value) { statements; break; } }",
+                "D.  switch (expression) { for (value) { statements; break; } }"
+            ],
+            answer: "A",
+            hints: [
+                "Hint 1: It uses case labels to define branches.",
+                "Hint 2: It includes the keyword `case`.",
+                "Hint 3: he valid expression is `switch (expression) { case value: statements; break; }`."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "Which data types are allowed for the switch expression in Java?",
+            choices: [
+                "A. int, byte, short, char",
+                "B. int, float, double, char",
+                "C. int, long, short, boolean",
+                "D. int, string, boolean, char"
+            ],
+            answer: "A",
+            hints: [
+                "Hint 1: They must be integral types or characters.",
+                "Hint 2: They include `int`, `byte`, `short`, and `char`.",
+                "Hint 3: The allowed types are `int`, `byte`, `short`, and `char`."
+            ]
+        },
+
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What will be the output of the following code if ‘grade = 'B'?’",
+            choices: [
+                "A. The grade is A",
+                "B. The grade is B",
+                "C. The grade is C",
+                "D. The grade is invalid"
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: It evaluates a character value.",
+                "Hint 2: The output corresponds to the matching case.",
+                "Hint 3: The output is `The grade is B`."
+            ],
+            image: "/image/Custom/BW2P2F2PIC.jpg"
+        },
+
+        {
+            type: "Identification",
+            points: 3,
+            question: "What is the process called when the computer evaluates a logical expression from left to right and stops as soon as the value of the expression is determined?",
+            answer: "Short-circuit evaluation",
+            hints: [
+                "Hint 1: It optimizes logical operations.",
+                "Hint 2: It stops evaluating once the result is known.",
+                "Hint 3: The process is called short-circuit evaluation."
+            ]
+        }
+
+
 ];
+    function stopTimer() {
+        clearInterval(timer);
+    }
 
 let timer; // Holds the timer reference
 let timeLeft = 600; // 5 minutes = 300 seconds
@@ -328,13 +381,23 @@ function setProgress(percent) {
         backButton.disabled = false;
     }
 
-goButton.addEventListener("click", function() {
-    if (!timerStarted) {
-        startTimer();
-        timerStarted = true;
-    }
-    displayQuestion(); // Assuming this function displays the next question
-});
+    goButton.addEventListener("click", function () {
+        if (!timerStarted) {
+            startTimer();
+            timerStarted = true;
+        }
+        // Hide idle and show attack animation
+        const GRangerIdle = document.querySelector(".GRanger-idle");
+        const GRangerAttack = document.querySelector(".GRanger-attack");
+
+        GRangerIdle.style.visibility = "hidden";
+        GRangerIdle.style.opacity = "0";
+
+        GRangerAttack.style.visibility = "visible";
+        GRangerAttack.style.opacity = "1";
+
+        displayQuestion(); // Assuming this function displays the next question
+    });
 
 function selectRandomQuestions() {
     const shuffledQuestions = questions.slice(0, -3).sort(() => Math.random() - 0.5);
@@ -526,6 +589,10 @@ restartButton.addEventListener("click", restartGame);
         updateCoinAndPointCount();
         showPopupMessage(`Correct! You got ${pointsEarned} points and 100 silver coins`);
         gameContainer.classList.add("hidden");
+        GRangerAttack.style.visibility = "hidden";
+        GRangerAttack.style.opacity = "0";
+        GRangerIdle.style.visibility = "visible";
+        GRangerIdle.style.opacity = "1";
 
         if (currentQuestionIndex === 0) fadeOutCharacter(SlimeWalk0);
         else if (currentQuestionIndex === 1) fadeOutCharacter(SlimeWalk1);
@@ -572,6 +639,11 @@ restartButton.addEventListener("click", restartGame);
             updateCoinAndPointCount();
             showPopupMessage("You lost all hearts. 50 silver coins deducted.");
             gameContainer.classList.add("hidden");
+            GRangerAttack.style.visibility = "hidden";
+            GRangerAttack.style.opacity = "0";
+            GRangerIdle.style.visibility = "visible";
+            GRangerIdle.style.opacity = "1";
+
             if (currentQuestionIndex === 0) fadeOutCharacter(SlimeWalk0);
             else if (currentQuestionIndex === 1) fadeOutCharacter(SlimeWalk1);
             else if (currentQuestionIndex === 2) fadeOutCharacter(SlimeWalk2);
@@ -600,6 +672,10 @@ restartButton.addEventListener("click", restartGame);
 			
             if (currentQuestionIndex < randomQuestions.length) {
                 goButton.classList.remove("hidden");
+                GRangerAttack.style.visibility = "hidden";
+                GRangerAttack.style.opacity = "0";
+                GRangerIdle.style.visibility = "visible";
+                GRangerIdle.style.opacity = "1";
             } else {
                 showCompletionWarning();
                 const answeredAllQuestions = JSON.stringify(answeredQuestions.sort()) === JSON.stringify(Array.from({ length: randomQuestions.length }, (_, i) => i).sort());
@@ -615,20 +691,36 @@ restartButton.addEventListener("click", restartGame);
 
     const startButtonClicked = new Array(randomQuestions.length).fill(false);
 
-function startSequence() {
-    // Check if the start button has not been clicked for the current question index
-    if (!startButtonClicked[currentQuestionIndex]) {
-        startButtonClicked[currentQuestionIndex] = true; // Mark the start button as clicked for the current question index
+    function startSequence() {
+        // Check if the start button has not been clicked for the current question index
+        if (!startButtonClicked[currentQuestionIndex]) {
+            startButtonClicked[currentQuestionIndex] = true; // Mark the start button as clicked for the current question index
 
-        const land = document.querySelector('.land');
-        land.classList.add('animate');
+            const GRangerWalk = document.querySelector('.GRanger-walk');
+            const land = document.querySelector('.land');
 
-        land.addEventListener('animationend', function() {
-            land.classList.remove('animate');
-            animateCharacters();
-        }, { once: true });
+
+            // Hide idle and show walk animation
+            GRangerIdle.style.visibility = "hidden";
+            GRangerIdle.style.opacity = "0";
+            GRangerWalk.style.visibility = "visible";
+            GRangerWalk.style.opacity = "1";
+            GRangerWalk.classList.add('character-walk');
+            land.classList.add('animate');
+
+            // When the land animation ends, switch the walk back to idle
+            land.addEventListener('animationend', function () {
+                land.classList.remove('animate');
+                GRangerWalk.style.visibility = "hidden";
+                GRangerWalk.style.opacity = "0";
+                GRangerIdle.style.visibility = "visible";
+                GRangerIdle.style.opacity = "1";
+
+                animateCharacters();
+            }, { once: true });
+        }
     }
-}
+
 
     function animateCharacters() {
         if (currentQuestionIndex === 0) {
@@ -827,6 +919,7 @@ function startSequence() {
 
     startButton.addEventListener("click", function() {
         startSequence();
+        bookModule.disabled = true;
     });
 
     goButton.addEventListener("click", function() {

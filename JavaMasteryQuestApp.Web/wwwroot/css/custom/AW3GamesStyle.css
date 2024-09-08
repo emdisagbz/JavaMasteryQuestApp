@@ -402,18 +402,38 @@ body {
 }
 
 #slidingDiv {
-  font-family: Poppins;
-  position: fixed;
-  top: 0; /* Hide above the top of the viewport */
-  left: 0;
-  width: 80%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-  color: white;
-  padding: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-  transition: transform 0.5s ease-in-out; /* Smooth slide-in effect */
-  z-index: 1000; /* Ensure the sliding div is above other content */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 1000px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s ease-in-out;
+    z-index: 1;
+    box-sizing: border-box; /* Include padding in width calculation */
+    height: 90vh; /* Set height of the slidingDiv */
 }
+
+#preloadIframe {
+    width: 100%; /* Ensure it doesn’t exceed the width of slidingDiv */
+    height: 100%; /* Make it fill the height of slidingDiv */
+    background-color: rgba(0, 0, 0, 0.5); /* Match slidingDiv background */
+    color: white; /* Match text color */
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    overflow-y: auto; /* Allow scrolling if content exceeds height */
+    transition: transform 0.5s ease-in-out;
+    z-index: 1;
+    box-sizing: border-box; /* Include padding in width and height calculation */
+}
+
+#moduleContent {
+    height: 80%;
+}
+
 
 /* Classes to toggle visibility */
 .hidden {

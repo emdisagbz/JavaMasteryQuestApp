@@ -38,6 +38,9 @@
     const confirmFinishButton = document.getElementById("confirmFinishButton");
     const cancelFinishButton = document.getElementById("cancelFinishButton");
 
+    const GRangerWalk = document.querySelector(".GRanger-walk");
+    const GRangerIdle = document.querySelector(".GRanger-idle");
+    const GRangerAttack = document.querySelector(".GRanger-attack");
 
     let currentQuestionIndex = 0;
     let silverCoins = localStorage.getItem("silverCoins") ? parseInt(localStorage.getItem("silverCoins")) : 0;
@@ -53,6 +56,11 @@
 
     updateCoinAndPointCount();
     updateHearts(); // Initialize hearts display
+
+    // Initially display the idle animation BEFORE QUESTIONS
+    GRangerIdle.style.visibility = "visible";
+    GRangerIdle.style.opacity = "1";
+
 
     const questions = [
         {
@@ -197,6 +205,9 @@
             image: "/image/Custom/AW1F5CTC4.png"
         }
     ];
+    function stopTimer() {
+        clearInterval(timer);
+    }
 
     let timer; // Holds the timer reference
     let timeLeft = 600; // 5 minutes = 300 seconds
@@ -258,8 +269,19 @@
             startTimer();
             timerStarted = true;
         }
+        // Hide idle and show attack animation
+        const GRangerIdle = document.querySelector(".GRanger-idle");
+        const GRangerAttack = document.querySelector(".GRanger-attack");
+
+        GRangerIdle.style.visibility = "hidden";
+        GRangerIdle.style.opacity = "0";
+
+        GRangerAttack.style.visibility = "visible";
+        GRangerAttack.style.opacity = "1";
+
         displayQuestion(); // Assuming this function displays the next question
     });
+
 
     function selectRandomQuestions() {
         const shuffledQuestions = questions.slice(0, -3).sort(() => Math.random() - 0.5);
@@ -451,6 +473,10 @@
             updateCoinAndPointCount();
             showPopupMessage(`Correct! You got ${pointsEarned} points and 100 silver coins`);
             gameContainer.classList.add("hidden");
+            GRangerAttack.style.visibility = "hidden";
+            GRangerAttack.style.opacity = "0";
+            GRangerIdle.style.visibility = "visible";
+            GRangerIdle.style.opacity = "1";
 
             if (currentQuestionIndex === 0) fadeOutCharacter(SlimeWalk0);
             else if (currentQuestionIndex === 1) fadeOutCharacter(SlimeWalk1);
@@ -497,6 +523,13 @@
                 updateCoinAndPointCount();
                 showPopupMessage("You lost all hearts. 50 silver coins deducted.");
                 gameContainer.classList.add("hidden");
+                GRangerAttack.style.visibility = "hidden";
+                GRangerAttack.style.opacity = "0";
+                GRangerIdle.style.visibility = "visible";
+                GRangerIdle.style.opacity = "1";
+
+
+
                 if (currentQuestionIndex === 0) fadeOutCharacter(SlimeWalk0);
                 else if (currentQuestionIndex === 1) fadeOutCharacter(SlimeWalk1);
                 else if (currentQuestionIndex === 2) fadeOutCharacter(SlimeWalk2);
@@ -525,6 +558,12 @@
 
                 if (currentQuestionIndex < randomQuestions.length) {
                     goButton.classList.remove("hidden");
+                    GRangerAttack.style.visibility = "hidden";
+                    GRangerAttack.style.opacity = "0";
+                    GRangerIdle.style.visibility = "visible";
+                    GRangerIdle.style.opacity = "1";
+
+
                 } else {
                     showCompletionWarning();
                     const answeredAllQuestions = JSON.stringify(answeredQuestions.sort()) === JSON.stringify(Array.from({ length: randomQuestions.length }, (_, i) => i).sort());
@@ -545,11 +584,26 @@
         if (!startButtonClicked[currentQuestionIndex]) {
             startButtonClicked[currentQuestionIndex] = true; // Mark the start button as clicked for the current question index
 
+            const GRangerWalk = document.querySelector('.GRanger-walk');
             const land = document.querySelector('.land');
+
+
+            // Hide idle and show walk animation
+            GRangerIdle.style.visibility = "hidden";
+            GRangerIdle.style.opacity = "0";
+            GRangerWalk.style.visibility = "visible";
+            GRangerWalk.style.opacity = "1";
+            GRangerWalk.classList.add('character-walk');
             land.classList.add('animate');
 
+            // When the land animation ends, switch the walk back to idle
             land.addEventListener('animationend', function () {
                 land.classList.remove('animate');
+                GRangerWalk.style.visibility = "hidden";
+                GRangerWalk.style.opacity = "0";
+                GRangerIdle.style.visibility = "visible";
+                GRangerIdle.style.opacity = "1";
+
                 animateCharacters();
             }, { once: true });
         }
@@ -752,6 +806,7 @@
 
     startButton.addEventListener("click", function () {
         startSequence();
+        bookModule.disabled = true;
     });
 
     goButton.addEventListener("click", function () {

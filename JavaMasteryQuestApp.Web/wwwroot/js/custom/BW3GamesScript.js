@@ -188,6 +188,9 @@ document.addEventListener("DOMContentLoaded", function() {
     ],
   },
 ];
+    function stopTimer() {
+        clearInterval(timer);
+    }
 
 	const answerElement = document.getElementById("answer");
 
@@ -465,6 +468,7 @@ function startSequence() {
 
     startButton.addEventListener("click", function() {
         startSequence();
+        bookModule.disabled = true;
     });
 
     goButton.addEventListener("click", function() {

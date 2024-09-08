@@ -200,6 +200,9 @@ class Dog extends Animal {
             ],
           },
         ];
+    function stopTimer() {
+        clearInterval(timer);
+    }
 
 	document.getElementById('missingButton').addEventListener('click', () => {
                 document.getElementById('missingImage').src = questions[currentQuestionIndex].image;
@@ -484,6 +487,7 @@ function startSequence() {
 
     startButton.addEventListener("click", function() {
         startSequence();
+        bookModule.disabled = true;
     });
 
     goButton.addEventListener("click", function() {

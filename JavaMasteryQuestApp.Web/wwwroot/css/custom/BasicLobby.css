@@ -1,22 +1,235 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+/* Base styles for the modal and sections */
 body {
-
-    
+    margin: 0;
     background-color: #000;
-    background-size: cover;
     color: #eee;
     font-family: Poppins;
     font-size: 12px;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-  
 }
 
 a {
     text-decoration: none;
 }
+
+#detailsModal {
+    font-family: Poppins;
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.hidden {
+    display: none;
+}
+
+.modal-content {
+    display: flex;
+    background: rgba(255, 255, 255, 0.3); /* semi-transparent gray background */
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    height: 80vh;
+    backdrop-filter: blur(10px); /* blur effect */
+}
+
+.left-section {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    background: rgba(255, 255, 255, 0.7); /* Background for the left section */
+    padding: 20px;
+    border-radius: 5px;
+    justify-content: flex-start;
+}
+
+.student-details {
+    margin-bottom: 20px; /* Gap between student details and activities */
+    color: black;
+}
+
+.activities {
+    flex: 1; /* Allow activities section to take up remaining space */
+    margin-bottom: 20px; /* Gap between activities and buttons */
+}
+
+.buttons1 {
+    display: flex;
+    justify-content: space-between; /* Align buttons horizontally with space between them */
+    align-items: flex-end; /* Align buttons at the bottom of the container */
+}
+
+.Logout, .close, .saveButton {
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 30%;
+    padding: 10px; /* Add padding for better spacing */
+    margin-right: 10px; /* Adjust margin between buttons */
+}
+
+    .Logout:hover, .close:hover, .saveButton:hover {
+        background-color: #0056b3;
+        transform: scale(0.95);
+    }
+
+.right-section {
+    width: 70%;
+    background: rgba(255, 255, 255, 0.7); /* slightly more transparent */
+    padding: 20px;
+    border-radius: 5px;
+    margin-left: 20px; /* Gap between left and right sections */
+    overflow: auto;
+}
+
+.box {
+    color: black;
+    margin-bottom: 10px; /* Gap between boxes */
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.7); /* Background for each box */
+    border-radius: 5px;
+}
+
+    .box h2 {
+        display: inline;
+        margin-right: 10px;
+    }
+
+    .box .floor-filter {
+        margin-left: 10px;
+    }
+
+    .box p {
+        margin-bottom: auto; /* Bottom margin for paragraphs */
+    }
+
+.box {
+    background-color: #ecf0f1;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.box-details, .box-floors {
+    width: 100%;
+}
+
+.box-details {
+    margin-bottom: 20px;
+}
+
+    .box-details p {
+        margin: 5px 0;
+    }
+
+.box-floors {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+    .box-floors div {
+        padding: 10px;
+        background-color: #bdc3c7;
+        border-radius: 3px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+.floor-number {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Leaderboard Styles */
+.leaderboard-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow sections to wrap to the next line if necessary */
+    gap: 10px; /* Space between the world sections */
+    justify-content: space-between; /* Distribute space between items */
+}
+
+.world-section {
+    flex: 1 1 calc(33.333% - 20px); /* Adjust width to fit 3 sections per row with space for gap */
+    background-color: rgba(255, 255, 255, 0.3); /* Light background color with transparency */
+    border: 2px solid rgba(0, 0, 0, 0.1); /* Light border around each section */
+    border-radius: 10px; /* Rounded corners */
+    padding: 15px; /* Padding inside the world sections */
+    margin-bottom: 20px; /* Space below each world section */
+    backdrop-filter: blur(5px); /* Blur effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for a 3D effect */
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+    .world-section h1 {
+        color: #333;
+        margin-bottom: 10px;
+        font-size: 1.2em;
+    }
+
+.floor-filter {
+    width: 100%; /* Make the filter button fit within the section */
+    padding: 10px; /* Increase padding for a larger button */
+    font-size: 1em; /* Increase font size */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #ddd; /* Border around the filter */
+    margin-bottom: 15px; /* Space below the filter dropdown */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+    .floor-filter:hover {
+        background-color: #e0e0e0;
+        transform: scale(1.05);
+    }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    table th, table td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+        font-size: 0.9em; /* Slightly smaller font for table data */
+        color: black;
+    }
+
+    table th {
+        background-color: #f4f4f4;
+        font-weight: bold;
+    }
+
+    /* Ranking colors */
+    table tbody tr:nth-of-type(1) {
+        background-color: rgba(255, 215, 0, 0.7); /* Gold */
+    }
+
+    table tbody tr:nth-of-type(2) {
+        background-color: rgba(192, 192, 192, 0.7); /* Silver */
+    }
+
+    table tbody tr:nth-of-type(3) {
+        background-color: rgba(205, 127, 50, 0.7); /* Bronze */
+    }
 
 .button {
     position: absolute;
@@ -126,7 +339,7 @@ h2 {
     height: 100vh; /* Full viewport height */
     width: 100vw; /* Full viewport width */
     overflow: hidden; /* Hides anything outside this container */
-    position: center, relative;
+    position: relative;
 }
 
     .world-container .list .item {
@@ -506,99 +719,6 @@ a {
         height: 70px; /* Adjust expanded image height as needed */
     }
 
-#detailsModal {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-}
-
-.modal-content {
-    display: flex;
-    background: rgba(255, 255, 255, 0.3); /* semi-transparent gray background */
-    padding: 20px;
-    border-radius: 5px;
-    width: 80%;
-    height: 80vh;
-    backdrop-filter: blur(10px); /* blur effect */
-}
-
-.left-section {
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    background: rgba(255, 255, 255, 0.7); /* Background for the left section */
-    padding: 20px;
-    border-radius: 5px;
-    justify-content: flex-start;
-}
-
-.student-details {
-    margin-bottom: 20px; /* Gap between student details and activities */
-    color: black;
-}
-
-.activities {
-    flex: 1; /* Allow activities section to take up remaining space */
-    margin-bottom: 20px; /* Gap between activities and buttons */
-}
-
-.buttons1 {
-    display: flex;
-    justify-content: space-between; /* Align buttons horizontally with space between them */
-    align-items: flex-end; /* Align buttons at the bottom of the container */
-}
-
-.Logout, .close, .save {
-    color: white;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    width: 30%; /* Allow buttons to adjust width based on content */
-    padding: 10px; /* Add padding for better spacing */
-    margin-right: 10px; /* Adjust margin between buttons */
-}
-
-    .Logout:hover, .close:hover, .save:hover {
-        background-color: #0056b3;
-        transform: scale(0.95);
-    }
-
-.right-section {
-    width: 70%;
-    background: rgba(255, 255, 255, 0.7); /* slightly more transparent */
-    padding: 20px;
-    border-radius: 5px;
-    margin-left: 20px; /* Gap between left and right sections */
-    overflow: scroll;
-}
-
-
-.box {
-    color: black;
-    margin-bottom: 10px; /* Gap between boxes */
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.7); /* Background for each box */
-    border-radius: 5px;
-}
-
-    .box h2 {
-        margin-top: auto; /* Remove default margin */
-    }
-
-    .box p {
-        margin-bottom: auto; /* Bottom margin for paragraphs */
-    }
-
-
 
 /* Image and content transition for sliding */
 .item img {
@@ -640,8 +760,8 @@ a {
     bottom: 50px; /* Distance from the bottom of their parent */
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Center horizontally */
-    width: 200px;
-    height: 30px;
+    width: 170px;
+    height: 22px;
     background-color: rgba(255, 255, 255, 0.5);
     border: 1px solid black;
     border-radius: 10px;
@@ -697,75 +817,6 @@ a {
     flex: 1; /* Allow the container to grow flexibly */
 }
 
-#heroShop {
-    position: absolute;
-    top: 10px;
-    right: 27%; /* Adjust the distance from the right as needed */
-    width: 50px; /* Increase the size to accommodate the circle */
-    height: 50px; /* Make the height equal to the width */
-    background-color: rgba(0,0,0,0.5);
-    color: white;
-    border: 0.5px solid white;
-    border-radius: 50%; /* Make the div circular */
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    overflow: visible; /* Allow image to overflow the button */
-    z-index: 1; /* Ensure the button is above other elements */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.heroShop-image {
-    position: absolute;
-    bottom: -78%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center the image */
-    width: 130%; /* Make the image larger than the button */
-    height: auto; /* Maintain aspect ratio */
-    z-index: -1; /* Ensure the image is below the button text */
-}
-
-#heroShop:hover {
-    background-color: rgba(255, 255, 0, 0.5); /* Adjust transparency and color to achieve glowing yellow effect */
-    transform: scale(0.9); /* Slightly scale down the button */
-    box-shadow: 0 0 15px 5px yellow; /* Glowing yellow shadow */
-}
-
-#skinShop {
-    position: absolute;
-    top: 10px;
-    right: 32%; /* Adjust the distance from the right as needed */
-    width: 50px; /* Increase the size to accommodate the circle */
-    height: 50px; /* Make the height equal to the width */
-    background-color: rgba(0,0,0,0.5);
-    color: white;
-    border: 0.5px solid white;
-    border-radius: 50%; /* Make the div circular */
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    overflow: visible; /* Allow image to overflow the button */
-    z-index: 1; /* Ensure the button is above other elements */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.skinShop-image {
-    position: absolute;
-    bottom: -58%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center the image */
-    width: 110%; /* Make the image larger than the button */
-    height: auto; /* Maintain aspect ratio */
-    z-index: -1; /* Ensure the image is below the button text */
-}
-
-#skinShop:hover {
-    background-color: rgba(255, 255, 0, 0.5); /* Adjust transparency and color to achieve glowing yellow effect */
-    transform: scale(0.9); /* Slightly scale down the button */
-    box-shadow: 0 0 15px 5px yellow; /* Glowing yellow shadow */
-}
 
 #freeCoins {
     position: absolute;
@@ -816,58 +867,7 @@ a {
     z-index: 2;
 }
 
-#practice {
-    position: absolute;
-    top: 10px;
-    right: 42%; /* Adjust the distance from the right as needed */
-    width: 50px; /* Increase the size to accommodate the circle */
-    height: 50px; /* Make the height equal to the width */
-    background-color: rgba(0,0,0,0.5);
-    color: white;
-    border: 0.5px solid white;
-    border-radius: 50%; /* Make the div circular */
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    overflow: visible; /* Allow image to overflow the button */
-    z-index: 1; /* Ensure the button is above other elements */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-.practice-image {
-    position: absolute;
-    bottom: -75%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center the image */
-    width: 130%; /* Make the image larger than the button */
-    height: auto; /* Maintain aspect ratio */
-    z-index: -1; /* Ensure the image is below the button text */
-}
-
-#practice:hover {
-    background-color: rgba(255, 255, 0, 0.5); /* Adjust transparency and color to achieve glowing yellow effect */
-    transform: scale(0.9); /* Slightly scale down the button */
-    box-shadow: 0 0 15px 5px yellow; /* Glowing yellow shadow */
-}
-
-.hover-text {
-    font-family: Poppins;
-    visibility: hidden;
-    position: absolute;
-    bottom: -40px;
-    background-color: black;
-    color: white;
-    padding: 5px;
-    border-radius: 3px;
-    white-space: nowrap;
-    font-size: 15px;
-    z-index: 2;
-}
-
-#heroShop:hover .hover-text,
-#skinShop:hover .hover-text,
-#practice:hover .hover-text,
 #freeCoins:hover .hover-text {
     visibility: visible;
 }
@@ -926,12 +926,12 @@ a {
     }
 
     .left-section {
-        width: 50%; /* Adjust width for medium devices */
+        width: 30%; /* Adjust width for medium devices */
         margin-bottom: 0; /* Remove bottom margin */
     }
 
     .right-section {
-        width: 50%; /* Adjust width for medium devices */
+        width: 70%; /* Adjust width for medium devices */
         margin-top: 0; /* Remove top margin */
     }
 
@@ -947,14 +947,13 @@ a {
             margin-bottom: 5px; /* Space between image and username text */
         }
 
-
     .buttons1 {
-        flex-direction: row; /* Stack buttons vertically */
+        flex-direction: flex; /* Stack buttons vertically */
         align-items: stretch; /* Allow buttons to stretch full width */
         gap: 10px;
     }
 
-    .Logout, .close, .save {
+    .Logout, .saveButton {
         width: 100%; /* Full width buttons */
         margin: 0 0 15px 0; /* Space between buttons */
     }
@@ -975,25 +974,13 @@ a {
         font-size: 14px; /* Smaller font size */
     }
 
-    #heroShop, #skinShop, #freeCoins, #practice {
+    #freeCoins {
         width: 45px; /* Reduce the size */
         height: 45px; /* Adjust height accordingly */
     }
 
-    #heroShop {
-        left: 20%;
-    }
-
-    #skinShop {
-        left: 35%;
-    }
-
     #freeCoins {
         left: 50%;
-    }
-
-    #practice {
-        left: 65%;
     }
 
     .b-slide1, .b-slide2, .b-slide3 {
@@ -1036,8 +1023,14 @@ a {
         gap: 10px;
     }
 
-    .left-section, .right-section {
-        width: 100%; /* Full width for each section */
+    .right-section {
+        width: 70%; /* Full width for each section */
+        margin: 0 0 10px 0; /* Space between sections */
+        padding: 10px; /* Reduce padding */
+    }
+
+    .left-section {
+        width: 30%; /* Full width for each section */
         margin: 0 0 10px 0; /* Space between sections */
         padding: 10px; /* Reduce padding */
     }
@@ -1047,7 +1040,7 @@ a {
         align-items: stretch; /* Allow buttons to stretch full width */
     }
 
-    .Logout, .close, .save {
+    .LogoutButton, .closeButton, .saveButton {
         width: 100%; /* Full width buttons */
         margin: 0 0 10px 0; /* Space between buttons */
     }
@@ -1140,7 +1133,7 @@ a {
         align-items: stretch; /* Allow buttons to stretch full width */
     }
 
-    .Logout, .close, .save {
+    .Logout, .saveButton {
         width: 100%; /* Full width buttons */
         margin: 0 0 10px 0; /* Space between buttons */
     }
@@ -1161,26 +1154,17 @@ a {
         font-size: 13px; /* Smaller font size */
     }
 
-    #heroShop, #skinShop, #freeCoins, #practice {
+    #freeCoins {
         width: 40px; /* Reduce the size */
         height: 40px; /* Adjust height accordingly */
     }
 
-    #heroShop {
-        left: 15%;
-    }
 
-    #skinShop {
-        left: 30%;
-    }
 
     #freeCoins {
         left: 45%;
     }
 
-    #practice {
-        left: 60%;
-    }
 
     .b-slide1, .b-slide2, .b-slide3 {
         width: 60%; /* Full width on small screens */
@@ -1206,5 +1190,12 @@ a {
 
     .box h2 {
         margin: 0; /* Remove default margin */
+    }
+
+    .world-section {
+        padding: 10px; /* Reduce padding for very small screens */
+        margin-bottom: 15px; /* Reduce margin for very small screens */
+        border-radius: 8px; /* Slightly smaller border radius */
+        width: fit-content;
     }
 }

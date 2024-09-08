@@ -42,6 +42,9 @@ document.addEventListener("DOMContentLoaded", function() {
         { question: "What is the process called to connect two string words", answer: "concatenation", hints: ["Hint 1: Joining strings.", "Hint 2: Think of '+'.", "Hint 3: Starts with 'c'."] },
         { question: "It is an access modifier that can be used to all", answer: "public", hints: ["Hint 1: It's about access control.", "Hint 2: Opposite of private.", "Hint 3: Starts with 'p'."] }
     ];
+    function stopTimer() {
+        clearInterval(timer);
+    }
 
     function selectRandomQuestions() {
         // Shuffle questions
@@ -294,6 +297,7 @@ function startSequence() {
 
     startButton.addEventListener("click", function() {
         startSequence();
+        bookModule.disabled = true;
     });
 
     goButton.addEventListener("click", function() {

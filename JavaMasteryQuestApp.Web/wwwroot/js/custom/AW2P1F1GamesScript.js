@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const startButton = document.getElementById("startButton");
     const goButton = document.getElementById("goButton");
     const backButton = document.getElementById("backButton");
@@ -17,28 +17,31 @@ document.addEventListener("DOMContentLoaded", function() {
     const SlimeWalk1 = document.querySelector(".Slime-walk1");
     const SlimeWalk2 = document.querySelector(".Slime-walk2");
     const SlimeWalk3 = document.querySelector(".Slime-walk3");
-	const SlimeWalk4 = document.querySelector(".Slime-walk4");
+    const SlimeWalk4 = document.querySelector(".Slime-walk4");
     const SlimeWalk5 = document.querySelector(".Slime-walk5");
     const SlimeWalk6 = document.querySelector(".Slime-walk6");
-	const SlimeWalk7 = document.querySelector(".Slime-walk7");
-	const SlimeWalk8 = document.querySelector(".Slime-walk8");
+    const SlimeWalk7 = document.querySelector(".Slime-walk7");
+    const SlimeWalk8 = document.querySelector(".Slime-walk8");
     const SlimeWalk9 = document.querySelector(".Slime-walk9");
     const SlimeWalk10 = document.querySelector(".Slime-walk10");
-	const SlimeWalk11 = document.querySelector(".Slime-walk11");
+    const SlimeWalk11 = document.querySelector(".Slime-walk11");
     const SlimeWalk12 = document.querySelector(".Slime-walk12");
     const SlimeWalk13 = document.querySelector(".Slime-walk13");
     const popupContainer = document.getElementById("popupContainer");
     const heartsContainer = document.getElementById("heartsContainer");
     const hintButton = document.getElementById("hintButton");
-	const lostPopup = document.getElementById("lostPopup");
+    const lostPopup = document.getElementById("lostPopup");
     const restartButton = document.getElementById("restartButton");
-	
-	const finishButton = document.getElementById("finishButton");
+
+    const finishButton = document.getElementById("finishButton");
     const finishPopup = document.getElementById("finishPopup");
     const confirmFinishButton = document.getElementById("confirmFinishButton");
     const cancelFinishButton = document.getElementById("cancelFinishButton");
 
-	
+    const GRangerWalk = document.querySelector(".GRanger-walk");
+    const GRangerIdle = document.querySelector(".GRanger-idle");
+    const GRangerAttack = document.querySelector(".GRanger-attack");
+
     let currentQuestionIndex = 0;
     let silverCoins = localStorage.getItem("silverCoins") ? parseInt(localStorage.getItem("silverCoins")) : 0;
     let goldCoins = localStorage.getItem("goldCoins") ? parseInt(localStorage.getItem("goldCoins")) : 0;
@@ -46,263 +49,206 @@ document.addEventListener("DOMContentLoaded", function() {
     let startButtonClicks = 0; // Initialize click counter
     let remainingAttempts = 3; // Initialize attempts
     let currentHintIndex = 0; // Track the current hint index
-	let totalHeartsLost = 0; // Initialize total hearts lost
-	let totalAttempts = 0; // Initialize total attempts
-	let AW2F1totalScore = points; // Initialize total score
+    let totalHeartsLost = 0; // Initialize total hearts lost
+    let totalAttempts = 0; // Initialize total attempts
+    let AW2F1totalScore = points; // Initialize total score
 
-	
+
     updateCoinAndPointCount();
     updateHearts(); // Initialize hearts display
+    // Initially display the idle animation BEFORE QUESTIONS
+    GRangerIdle.style.visibility = "visible";
+    GRangerIdle.style.opacity = "1";
 
     const questions = [
-	{
-        type: "Identification",
-        points: 3,
-        question: "2 + 2",
-        answer: "4",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "3 + 3",
-        answer: "6",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "4 + 4",
-        answer: "8",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "5 + 5",
-        answer: "10",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Modifier in the code snippet shown in the image?",
-        answer: "public",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "6 + 6",
-        answer: "12",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-	
-	
-	
-	{
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Modifier in the code snippet shown in the image?",
-        answer: "public",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Return Type in the code snippet shown in the image?",
-        answer: "int",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Name in the code snippet shown in the image?",
-        answer: "add",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Parameters in the code snippet shown in the image?",
-        answer: "int a, int b",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Identification",
-        points: 3,
-        question: "Identify the Method Body in the code snippet shown in the image?",
-        answer: "{ return a + b; }",
-        hints: [
-            "Hint 1: It's related to shapes.",
-            "Hint 2: Think about transformation.",
-            "Hint 3: It's a synonym for shapes."
-        ],
-        image: "AF1_IDENTIFICATION.jpg"
-    },
-    {
-        type: "Multiple Choice",
-        points: 2,
-        question: "Which of the following statements is true about Java methods?",
-        choices: [
-            "A. A method in Java cannot return an array",
-            "B. Method overloading in Java is the process of defining multiple methods with the same name but different parameter lists.",
-            "C. The void return type indicates that the method returns an integer.",
-            "D. A method must always have parameters."
-        ],
-        answer: "B",
-        hints: [
-            "Hint 1: Common in many programming languages.",
-            "Hint 2: It's an abbreviation.",
-            "Hint 3: Short for integer."
-        ]
-    },
-    {
-        type: "fill_in_the_code",
-        points: 5,
-        question: "Complete the following Java method to calculate the factorial of a given number `n`",
-        answer: `public int factorial(int n) {
-if (n == 0) {
-return 1;
-} else {
-return n * factorial(n - 1);
-}
-}`,
-        image: "AF1_FITC.jpg",
-        hints: [
-            "Hint 1: Getter methods are used to access object properties.",
-            "Hint 2: The 'getItems' method should return the 'items' list.",
-            "Hint 3: Use the 'this' keyword to access the object's property."
-        ]
-    },
-	{
-        type: "fill_in_the_code",
-        points: 5,
-        question: "Complete the following code to implement a method named `isEven` that checks if a given integer `num` is even.",
-        answer: `public boolean isEven(int num) {
-return num % 2 == 0;
-}`,
-        image: "AF1_FITC2.jpg",
-        hints: [
-            "Hint 1: Getter methods are used to access object properties.",
-            "Hint 2: The 'getItems' method should return the 'items' list.",
-            "Hint 3: Use the 'this' keyword to access the object's property."
-        ]
-    },
-	
-    {
-        type: "write_the_code",
-        points: 10,
-        question: 'Write a Java method named `greet` that takes a `String` parameter called `name` and prints "Hello, `name`!"',
-        answer: `public void greet(String name) {
-System.out.println("Hello, " + name + "!");
-}`,
-        hints: [
-            "Hint 1: The constructor should initialize 'name' and 'species'.",
-            "Hint 2: The 'describe' method should return a string.",
-            "Hint 3: Use template literals to create the description."
-        ]
-    }
-];
-
-let timer; // Holds the timer reference
-let timeLeft = 600; // 5 minutes = 300 seconds
-let timerStarted = false; // Track if the timer has started
-const circle = document.querySelector("#timerCircle svg circle");
-const radius = circle.r.baseVal.value;
-const circumference = 2 * Math.PI * radius;
-
-circle.style.strokeDasharray = circumference;
-circle.style.strokeDashoffset = 0;
-
-function startTimer() {
-    timer = setInterval(function() {
-        timeLeft--;
-        updateTimerDisplay();
-        setProgress((600 - timeLeft) / 600);
-
-        if (timeLeft <= 0) {
-            clearInterval(timer);
-            disableGame();
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What does the static keyword indicate in a method?",
+            choices: [
+                "A) The method cannot be accessed.",
+                "B) The method belongs to the class, not instances of the class.",
+                "C) The method returns nothing.",
+                "D) The method can only be accessed by objects."
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: This type of method can be called without creating an object of the class.",
+                "Hint 2: It is often used for utility or helper methods.",
+                "Hint 3: Static methods belong to the class itself, not to any specific instance."
+            ]
+        },
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "How do you call a static method in Java?",
+            choices: [
+                "A) By creating an object of the class.",
+                "B) Using the class name followed by the method name.",
+                "C) Using the new keyword.",
+                "D) Using the method name directly."
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: You don't need an instance of the class.",
+                "Hint 2: The method is directly associated with the class, not an object.",
+                "Hint 3: The syntax involves the class name followed by a dot and the method name."
+            ]
+        },
+        {
+            type: "Multiple Choice",
+            points: 2,
+            question: "What is the main difference between static and instance methods?",
+            choices: [
+                "A) Static methods can only be called once.",
+                "B) Static methods belong to the class while instance methods belong to objects.",
+                "C) Static methods cannot return values.",
+                "D) Instance methods cannot have parameters."
+            ],
+            answer: "B",
+            hints: [
+                "Hint 1: Instance methods need an object of the class to be called.",
+                "Hint 2: Static methods are class-level methods and do not require an instance.",
+                "Hint 3: Instance methods operate on the data that belongs to a particular instance."
+            ]
+        },
+        {
+            type: "Identification",
+            points: 3,
+            question: "A method that belongs to the class rather than instances of the class.",
+            answer: "Static method",
+            hints: [
+                "Hint 1: It is defined using the static keyword.",
+                "Hint 2: It can be called without creating an object.",
+                "Hint 3: It is often used for operations related to the class itself."
+            ]
+        },
+        {
+            type: "Identification",
+            points: 3,
+            question: "The keyword used to define a method that belongs to the class.",
+            answer: "static",
+            hints: [
+                "Hint 1: It precedes the return type in the method declaration.",
+                "Hint 2: It indicates that the method is class-level and can be called without an object.",
+                "Hint 3: This keyword is also used to declare class-level variables."
+            ]
+        },
+        {
+            type: "Identification",
+            points: 3,
+            question: "A method that must be accessed using the class name rather than an object.",
+            answer: "Static method",
+            hints: [
+                "Hint 1: These methods are part of the class, not tied to any specific instance.",
+                "Hint 2: They can be invoked using the class name.",
+                "Hint 3: You do not need to create an instance of the class to call this method."
+            ]
         }
-    }, 1000);
-}
-
-function updateTimerDisplay() {
-    const minutes = Math.floor(timeLeft / 60);
-    const seconds = timeLeft % 60;
-    const timerText = document.querySelector("#timerText");
-    timerText.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-}
-
-function setProgress(percent) {
-    const offset = circumference * percent; // Now the offset is proportional to the time left
-    circle.style.strokeDashoffset = offset;
-
-    // Change color based on percentage
-    if (timeLeft <= 10) {
-        circle.style.stroke = '#f44336'; // Red for <= 10 seconds
-    } else if (percent >= 0.5) {
-        circle.style.stroke = '#ffeb3b'; // Yellow for 25% to 50%
-    } else {
-        circle.style.stroke = '#4caf50'; // Green for 0% to 25%
+        {
+            type: "Whats the Output",
+            points: 3,
+            question: "Whats the Output of the Code snippet below?",
+            answer: "Hello, static method!",
+            image: "/image/Custom/AW2P1F1WTO1.png"
+        },
+        {
+            type: "Whats the Output",
+            points: 3,
+            question: "Whats the Output of the Code snippet below?",
+            answer: "8",
+            image: "/image/Custom/AW2P1F1WTO2.png"
+        },
+        {
+            type: "Whats the Output",
+            points: 3,
+            question: "Whats the Output of the Code snippet below?",
+            answer: "37.0",
+            image: "/image/Custom/AW2P1F1WTO3.png"
+        },
+        {
+            type: "Whats the Output",
+            points: 3,
+            question: "Whats the Output of the Code snippet below?",
+            answer: "78.53981633974483",
+            image: "/image/Custom/AW2P1F1WTO4.png"
+        },
+        {
+            type: "Complete the Code",
+            points: 4,
+            question: "Supply whats missing the code snippet below",
+            answer: "greet",
+            image: "/image/Custom/AW2P1F1CTC1.png"
+        },
+        {
+            type: "Complete the Code",
+            points: 4,
+            question: "Supply whats missing the code snippet below",
+            answer: "int",
+            image: "/image/Custom/AW2P1F1CTC2.png"
+        },
+        {
+            type: "Complete the Code",
+            points: 4,
+            question: "Supply whats missing the code snippet below",
+            answer: "32",
+            image: "/image/Custom/AW2P1F1CTC3.png"
+        },
+        {
+            type: "Complete the Code",
+            points: 4,
+            question: "Supply whats missing the code snippet below",
+            answer: "print",
+            image: "/image/Custom/AW2P1F1CTC4.png"
+        }
+    ];
+    function stopTimer() {
+        clearInterval(timer);
     }
-}
+
+    let timer; // Holds the timer reference
+    let timeLeft = 600; // 5 minutes = 300 seconds
+    let timerStarted = false; // Track if the timer has started
+    const circle = document.querySelector("#timerCircle svg circle");
+    const radius = circle.r.baseVal.value;
+    const circumference = 2 * Math.PI * radius;
+
+    circle.style.strokeDasharray = circumference;
+    circle.style.strokeDashoffset = 0;
+
+    function startTimer() {
+        timer = setInterval(function () {
+            timeLeft--;
+            updateTimerDisplay();
+            setProgress((600 - timeLeft) / 600);
+
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                disableGame();
+            }
+        }, 1000);
+    }
+
+    function updateTimerDisplay() {
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        const timerText = document.querySelector("#timerText");
+        timerText.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    }
+
+    function setProgress(percent) {
+        const offset = circumference * percent; // Now the offset is proportional to the time left
+        circle.style.strokeDashoffset = offset;
+
+        // Change color based on percentage
+        if (timeLeft <= 10) {
+            circle.style.stroke = '#f44336'; // Red for <= 10 seconds
+        } else if (percent >= 0.5) {
+            circle.style.stroke = '#ffeb3b'; // Yellow for 25% to 50%
+        } else {
+            circle.style.stroke = '#4caf50'; // Green for 0% to 25%
+        }
+    }
 
     function disableGame() {
         // Apply a grayscale filter to the entire document body
@@ -327,14 +273,24 @@ function setProgress(percent) {
         // Ensure backButton is enabled
         backButton.disabled = false;
     }
+}
+    goButton.addEventListener("click", function () {
+        if (!timerStarted) {
+            startTimer();
+            timerStarted = true;
+        }
+        // Hide idle and show attack animation
+        const GRangerIdle = document.querySelector(".GRanger-idle");
+        const GRangerAttack = document.querySelector(".GRanger-attack");
 
-goButton.addEventListener("click", function() {
-    if (!timerStarted) {
-        startTimer();
-        timerStarted = true;
-    }
-    displayQuestion(); // Assuming this function displays the next question
-});
+        GRangerIdle.style.visibility = "hidden";
+        GRangerIdle.style.opacity = "0";
+
+        GRangerAttack.style.visibility = "visible";
+        GRangerAttack.style.opacity = "1";
+
+        displayQuestion(); // Assuming this function displays the next question
+    });
 
 function selectRandomQuestions() {
     const shuffledQuestions = questions.slice(0, -3).sort(() => Math.random() - 0.5);
@@ -526,6 +482,11 @@ restartButton.addEventListener("click", restartGame);
         updateCoinAndPointCount();
         showPopupMessage(`Correct! You got ${pointsEarned} points and 100 silver coins`);
         gameContainer.classList.add("hidden");
+        GRangerAttack.style.visibility = "hidden";
+        GRangerAttack.style.opacity = "0";
+        GRangerIdle.style.visibility = "visible";
+        GRangerIdle.style.opacity = "1";
+
 
         if (currentQuestionIndex === 0) fadeOutCharacter(SlimeWalk0);
         else if (currentQuestionIndex === 1) fadeOutCharacter(SlimeWalk1);
@@ -572,6 +533,12 @@ restartButton.addEventListener("click", restartGame);
             updateCoinAndPointCount();
             showPopupMessage("You lost all hearts. 50 silver coins deducted.");
             gameContainer.classList.add("hidden");
+            GRangerAttack.style.visibility = "hidden";
+            GRangerAttack.style.opacity = "0";
+            GRangerIdle.style.visibility = "visible";
+            GRangerIdle.style.opacity = "1";
+
+
             if (currentQuestionIndex === 0) fadeOutCharacter(SlimeWalk0);
             else if (currentQuestionIndex === 1) fadeOutCharacter(SlimeWalk1);
             else if (currentQuestionIndex === 2) fadeOutCharacter(SlimeWalk2);
@@ -600,6 +567,11 @@ restartButton.addEventListener("click", restartGame);
 			
             if (currentQuestionIndex < randomQuestions.length) {
                 goButton.classList.remove("hidden");
+                GRangerAttack.style.visibility = "hidden";
+                GRangerAttack.style.opacity = "0";
+                GRangerIdle.style.visibility = "visible";
+                GRangerIdle.style.opacity = "1";
+
             } else {
                 showCompletionWarning();
                 const answeredAllQuestions = JSON.stringify(answeredQuestions.sort()) === JSON.stringify(Array.from({ length: randomQuestions.length }, (_, i) => i).sort());
@@ -620,11 +592,26 @@ function startSequence() {
     if (!startButtonClicked[currentQuestionIndex]) {
         startButtonClicked[currentQuestionIndex] = true; // Mark the start button as clicked for the current question index
 
+        const GRangerWalk = document.querySelector('.GRanger-walk');
         const land = document.querySelector('.land');
+
+
+        // Hide idle and show walk animation
+        GRangerIdle.style.visibility = "hidden";
+        GRangerIdle.style.opacity = "0";
+        GRangerWalk.style.visibility = "visible";
+        GRangerWalk.style.opacity = "1";
+        GRangerWalk.classList.add('character-walk');
         land.classList.add('animate');
 
-        land.addEventListener('animationend', function() {
+        // When the land animation ends, switch the walk back to idle
+        land.addEventListener('animationend', function () {
             land.classList.remove('animate');
+            GRangerWalk.style.visibility = "hidden";
+            GRangerWalk.style.opacity = "0";
+            GRangerIdle.style.visibility = "visible";
+            GRangerIdle.style.opacity = "1";
+
             animateCharacters();
         }, { once: true });
     }
@@ -827,6 +814,7 @@ function startSequence() {
 
     startButton.addEventListener("click", function() {
         startSequence();
+        bookModule.disabled = true;
     });
 
     goButton.addEventListener("click", function() {
