@@ -823,7 +823,7 @@ function startSequence() {
     });
 
     backButton.addEventListener("click", function() {
-        window.location.href = "AW2P3Floor.html";
+        window.location.href = '/Capstone/AW2P3Floor';
     });
 
     submitAnswerButton.addEventListener("click", function() {

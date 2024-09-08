@@ -9,7 +9,7 @@ function updateFloorTitle(level) {
 }
 
 document.getElementById("goButton").addEventListener("click", function () {
-    let url = "BW2P2F2Games.html";
+    let url = '/Capstone/BW2P2F2Games';
     window.location.href = url;
 });
 
@@ -18,5 +18,5 @@ document.getElementById("closeButton").addEventListener("click", function () {
 });
 
 document.getElementById("backButton").addEventListener("click", function () {
-    window.location.href = "BW2Part.html"; // Change this to the appropriate URL
+    window.location.href = '/Capstone/BW2Part'; // Change this to the appropriate URL
 });

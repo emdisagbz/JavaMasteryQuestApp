@@ -1,10 +1,9 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Basic Java Lobby</title>
-	<link rel="stylesheet" href="BasicLobby.css">
+	<link rel="stylesheet" href="~/css/custom/BasicLobby.css">
 </head>
 <body>
 	<div class="world-container">
@@ -12,7 +11,7 @@
 
 			<!--> WORLD 1<-->
 			<div class="item">
-				<img src="LavaGate.jpg">
+				<img src="~/image/Custom/LavaGate.jpg">
 				<div class="content">
 					<div id="author-1" class="author">WELCOME TO WORLD 1</div>
 					<div class="title">SEARING</div>
@@ -34,7 +33,7 @@
 			<!--> WORLD 2<-->
 
 			<div class="item">
-				<img src="IcyGate.jpg">
+				<img src="~/image/Custom/IcyGate.jpg">
 				<div class="content">
 					<div id="author-2" class="author">WELCOME TO WORLD 2</div>
 					<div class="title">SHIMMERING</div>
@@ -56,7 +55,7 @@
 			<!--> WORLD 3<-->
 
 			<div class="item">
-				<img src="NatureGate.jpg">
+				<img src="~/image/Custom/NatureGate.jpg">
 				<div class="content">
 					<div id="author-3" class="author">WELCOME TO WORLD 3</div>
 					<div class="title">VERDANT</div>
@@ -81,7 +80,8 @@
 			<div class="slide1">
 				<h1>Challenge World 1</h1>
 				<h2>This is the gateway to the challenges of World 1.</h2>
-				<a href="BW1Part.html" class="Bslide1-button">Go to Challenges</a>
+				<a href="@Url.Action("BW1Part", "Capstone")" class="Bslide1-button">Go to Challenges</a>
+				
 			</div>
 		</div>
 
@@ -90,7 +90,7 @@
 			<div class="slide2">
 				<h1>Challenge World 2</h1>
 				<h2>This is the gateway to the challenges of World 2.</h2>
-				<a href="BW2Part.html" class="Bslide2-button">Go to Challenges</a>
+				<a href="@Url.Action("BW2Part", "Capstone")" class="Bslide2-button">Go to Challenges</a>
 			</div>
 		</div>
 
@@ -100,7 +100,7 @@
 			<div class="slide3">
 				<h1>Challenge World 3</h1>
 				<h2>This is the gateway to the challenges of World 3.</h2>
-				<a href="BW3Part.html" class="Bslide3-button">Go to Challenges</a>
+				<a href="@Url.Action("BW3Part", "Capstone")" class="Bslide3-button">Go to Challenges</a>
 			</div>
 		</div>
 
@@ -108,7 +108,7 @@
 		<!-->thumbnail<-->
 		<div class="thumbnail">
 			<div class="item">
-				<img src="LavaGate.jpg">
+				<img src="~/image/Custom/LavaGate.jpg">
 				<div class="content">
 					<div class="title">
 						Searing Scar
@@ -119,7 +119,7 @@
 				</div>
 			</div>
 			<div class="item">
-				<img src="IcyGate.jpg">
+				<img src="~/image/Custom/IcyGate.jpg">
 				<div class="content">
 					<div class="title">
 						Shimmering Shroud
@@ -130,7 +130,7 @@
 				</div>
 			</div>
 			<div class="item">
-				<img src="NatureGate.jpg">
+				<img src="~/image/Custom/NatureGate.jpg">
 				<div class="content">
 					<div class="title">
 						Verdant Cradle
@@ -149,7 +149,7 @@
 		<div class="time"></div>
 
 		<div class="profile" onclick="showModal()">
-			<img src="ex.jfif" alt="Student's Image">
+			<img src="~/image/Custom/ex.jfif" alt="Student's Image">
 			<div class="text-container">
 				<span id="studentName">Student's Name</span>
 				<div id="studentID">StudentID</div>
@@ -211,13 +211,13 @@
 
 		<div class="coins-container">
 			<div class="coin">
-				<img src="gold.png" alt="Gold Coin" class="coin-image">
+				<img src="~/image/Custom/gold.png" alt="Gold Coin" class="coin-image">
 				<div class="coin-count" id="goldCountContainer">
 					<span id="goldCount">0</span>
 				</div>
 			</div>
 			<div class="coin">
-				<img src="silver.png" alt="Silver Coin" class="coin-image">
+				<img src="~/image/Custom/silver.png" alt="Silver Coin" class="coin-image">
 				<div class="coin-count" id="silverCountContainer">
 					<span id="silverCount">0</span>
 				</div>
@@ -225,26 +225,26 @@
 		</div>
 
 		<button id="heroShop">
-			<img src="heroshop.png" class="heroShop-image">
+			<img src="~/image/Custom/heroshop.png" class="heroShop-image">
 			<span class="hover-text">Hero Shop</span>
 		</button>
 
 		<button id="skinShop">
-			<img src="skinShop.png" class="skinShop-image">
+			<img src="~/image/Custom/skinShop.png" class="skinShop-image">
 			<span class="hover-text">Skin Shop</span>
 		</button>
 
 		<button id="freeCoins">
-			<img src="freeCoins.png" class="freeCoins-image">
+			<img src="~/image/Custom/freeCoins.png" class="freeCoins-image">
 			<span class="hover-text">Free Coins</span>
 		</button>
 
 		<button id="practice">
-			<img src="practice.png" class="practice-image">
+			<img src="~/image/Custom/practice.png" class="practice-image">
 			<span class="hover-text">Practice Coding</span>
 		</button>
 	</div>
 
-	<script src="BasicLobby.js"></script>
+	<script src="~/js/custom/BasicLobby.js"></script>
 </body>
-</html>
+

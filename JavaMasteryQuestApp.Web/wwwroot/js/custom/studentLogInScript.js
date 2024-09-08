@@ -1,49 +1,75 @@
-﻿const signUpButton = document.getElementById('signUp');
-const signInButton = document.getElementById('signIn');
-const container = document.getElementById('container');
+﻿document.addEventListener('DOMContentLoaded', () => {
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const forgotPasswordLink = document.getElementById('forgotPassword');
+    const container = document.getElementById('container');
+    const changePasswordContainer = document.querySelector('.change-password-container');
+    const signInContainer = document.querySelector('.sign-in-container');
+    const signUpContainer = document.querySelector('.sign-up-container');
 
-signUpButton.addEventListener('click', () => {
-    container.classList.add("right-panel-active");
-});
-
-signInButton.addEventListener('click', () => {
-    container.classList.remove("right-panel-active");
-});
-
-backButton.addEventListener("click", function () {
-    window.location.href = "/Dashboard/Home.html";
-});
-
-/*document.addEventListener('DOMContentLoaded', () => {
-    const loginForm = document.querySelector('.sign-in-container form');
-    loginForm.addEventListener('submit', (event) => {
-        event.preventDefault(); // Prevent the default form submission
-        window.location.href = 'javaType.html'; // Redirect to javaType.html
+    // Handle sign up and sign in panel switching
+    signUpButton.addEventListener('click', () => {
+        container.classList.add("right-panel-active");
+        hideChangePasswordForm();
+        showSignUpForm();
     });
-});*/
 
+    signInButton.addEventListener('click', () => {
+        container.classList.remove("right-panel-active");
+        hideChangePasswordForm();
+        showSignInForm();
+    });
 
-$(document).ready(function () {
-    $('#login').on('click', function () {
-        //console.log('test');
-        let sid = $('#uid').val();
-        let password = $('#pass').val();
-        $.ajax({
-            type: 'GET',
-            url: '/User/GetStudentById',
-            data: { sid, password },
-            contentType: 'application/x-www=form-url-urlencoded; charset=UTF-8',
-            dataType: 'json',
-            success: function (data) {
-                if (data.result != 0) {
-                    window.location.href = '/Capstone/javaType/';
-                }
-                //window.location.href = '@Url.Action("Capstone", "javaType")';
+    // Handle "Forgot Password" link click
+    forgotPasswordLink.addEventListener('click', (event) => {
+        event.preventDefault();
+        // Show the change password form only, without toggling the panel
+        changePasswordContainer.style.display = 'block';
+        hideSignInAndSignUpForms();
+    });
+
+    // Show/hide password functionality
+    const showPasswordButtons = document.querySelectorAll('.show-password');
+
+    showPasswordButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const input = document.querySelector(button.getAttribute('data-target'));
+            if (input.type === 'password') {
+                input.type = 'text';
+                button.textContent = 'Hide';
+            } else {
+                input.type = 'password';
+                button.textContent = 'Show';
             }
         });
-    })
+    });
 
-    $('#backButton').click(function () {
+    // Hide the change password form
+    function hideChangePasswordForm() {
+        changePasswordContainer.style.display = 'none';
+    }
+
+    // Show the sign-in form
+    function showSignInForm() {
+        signInContainer.style.display = 'block';
+        signUpContainer.style.display = 'block';
+    }
+
+    // Show the sign-up form
+    function showSignUpForm() {
+        signInContainer.style.display = 'block';
+        signUpContainer.style.display = 'block';
+    }
+
+    // Hide both sign-in and sign-up forms
+    function hideSignInAndSignUpForms() {
+        signInContainer.style.display = 'none';
+        signUpContainer.style.display = 'none';
+    }
+
+    // Redirect to home on back button click
+    const backButton = document.getElementById('backButton');
+    backButton.addEventListener('click', () => {
         window.location.href = '/Capstone/Home';
     });
-})
+});

@@ -452,7 +452,7 @@ restartButton.addEventListener("click", restartGame);
     });
 
     confirmFinishButton.addEventListener("click", function() {
-        window.location.href = "AW2P1Floor.html";
+        window.location.href = '/Capstone/AW2P1Floor';
     });
 
     cancelFinishButton.addEventListener("click", function() {
@@ -823,7 +823,7 @@ function startSequence() {
     });
 
     backButton.addEventListener("click", function() {
-        window.location.href = "AW2P1Floor.html";
+        window.location.href = '/Capstone/AW2P1Floor';
     });
 
     submitAnswerButton.addEventListener("click", function() {

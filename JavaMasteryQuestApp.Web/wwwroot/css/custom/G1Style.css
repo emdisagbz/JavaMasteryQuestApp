@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 body {
-	background-image: url("BG1.jpg");
+    background-image: url(~/image/Custom/BG1.jpg);
     font-family: Poppins;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-	overflow: hidden;
+    overflow: hidden;
 }
 
 #game-container {
@@ -121,18 +121,18 @@ h2  {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-#backButton::before {
-    content: "";
-    background-image: url('back.png'); /* Replace 'your-image-url.jpg' with the URL of your image */
-    background-size: cover;
-    background-position: center;
-    position: absolute;
-    top: 50%;
-    left: 20px; /* Adjust the left position as needed */
-    width: 31px; /* Adjust the width of the image */
-    height: 21px; /* Adjust the height of the image */
-    transform: translateY(-50%);
-}
+    #backButton::before {
+        content: "";
+        background-image: url(~/image/Custom/back.png); /* Replace 'your-image-url.jpg' with the URL of your image */
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        top: 50%;
+        left: 20px; /* Adjust the left position as needed */
+        width: 31px; /* Adjust the width of the image */
+        height: 21px; /* Adjust the height of the image */
+        transform: translateY(-50%);
+    }
 
 #backButton:hover {
     background-color: #0056b3;

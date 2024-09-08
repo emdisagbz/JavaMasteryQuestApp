@@ -72,11 +72,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Back to Basic Lobby
     document.getElementById('backButton').addEventListener('click', function() {
-        window.location.href = "BasicLobby.html";
+        window.location.href = '/Capstone/BasicLobby';
     });
 
     // Hero Shop
     document.getElementById('heroShopButton').addEventListener('click', function() {
-        window.location.href = 'heroShop.html';
+        window.location.href = '/Capstone/heroShop';
     });
 });

@@ -20,7 +20,7 @@ function updateFloorTitle(level) {
 }
 
 document.getElementById("goButton").addEventListener("click", function() {
-    let url = "AW3P2F3Games.html";
+    let url = '/Capstone/AW3P2F3Games';
     window.location.href = url;
 });
 
@@ -29,5 +29,5 @@ document.getElementById("closeButton").addEventListener("click", function() {
 });
 
 document.getElementById("backButton").addEventListener("click", function() {
-    window.location.href = "AW3Part.html"; // Change this to the appropriate URL
+    window.location.href = '/Capstone/AW3Part'; // Change this to the appropriate URL
 });

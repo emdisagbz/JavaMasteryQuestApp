@@ -6,16 +6,16 @@ html, body {
 }
 
 .home {
-    background-image: url("Homepage.jpg");
-    background-size: cover;       /* Cover the entire area of the body */
-    background-position: center;  /* Center the background image */
+    background-image: url(~/image/Custom/Homepage.jpg);
+    background-size: cover; /* Cover the entire area of the body */
+    background-position: center; /* Center the background image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-attachment: fixed; /* Fix the background in place (optional) */
-    width: 100%;                  /* Cover full width */
-    min-height: 100vh;            /* Ensure minimum height is the full viewport height */
-    display: flex;                /* Use Flexbox to align child elements */
-    justify-content: center;      /* Center horizontally */
-    align-items: center;          /* Center vertically */
+    width: 100%; /* Cover full width */
+    min-height: 100vh; /* Ensure minimum height is the full viewport height */
+    display: flex; /* Use Flexbox to align child elements */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
 }
 
 .start-button {

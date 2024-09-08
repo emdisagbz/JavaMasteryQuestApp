@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professor Dashboard</title>
-    <link rel="stylesheet" href="profDashboardStyles.css">
+    <link rel="stylesheet" href="~/css/custom/profDashboardStyles.css">
 </head>
 <body>
     <div class="container">
@@ -12,17 +12,17 @@
             <ul>
                 <h3>Faculty Dashboard</h3>
                 <li id="profileBtn" onclick="showTab('profileContent')">
-                    <img src="profilePic.png" alt="Profile" class="sidebar-icon"> Profile
+                    <img src="~/image/Custom/profilePic.png" alt="Profile" class="sidebar-icon"> Profile
                 </li>
                 <li id="classBtn" onclick="toggleButtonGroup('classButtonGroup', 'classBtn')">
-                    <img src="classPic.png" alt="Class" class="sidebar-icon"> Class
+                    <img src="~/image/Custom/classPic.png" alt="Class" class="sidebar-icon"> Class
                     <div class="button-group" id="classButtonGroup">
                         <button onclick="viewBasicJava()">IT-112</button>
                         <button onclick="viewAdvancedJava()">IT-122</button>
                     </div>
                 </li>
                 <li id="recordBtn" onclick="toggleButtonGroup('recordButtonGroup', 'recordBtn')">
-                    <img src="recordPic.png" alt="Record" class="sidebar-icon"> Leaderboard
+                    <img src="~/image/Custom/recordPic.png" alt="Record" class="sidebar-icon"> Leaderboard
                     <div class="button-group" id="recordButtonGroup">
                         <button onclick="viewRecordJava('Basic')">IT-112</button>
                         <button onclick="viewRecordJava('Advanced')">IT-122</button>
@@ -30,7 +30,7 @@
                 </li>
 
                 <li id="logoutBtn" onclick="showTab('logoutContent')">
-                    <img src="logoutPic.png" alt="Logout" class="sidebar-icon"> Logout
+                    <img src="~/image/Custom/logoutPic.png" alt="Logout" class="sidebar-icon"> Logout
                 </li>
             </ul>
         </div>
@@ -292,6 +292,6 @@
         </div>
     </div>
 
-    <script src="profDashboardScript.js"></script>
+    <script src="~/js/custom/profDashboardScript.js"></script>
 </body>
 </html>

@@ -11,7 +11,7 @@
 <div class="home">
         <div class="content">
             <img src="~/image/Custom/logo.png" alt="Logo" class="logo">
-            <a asp-controller="User" asp-action="studentLogIn" class="studentSignUp-button">Student</a>
-			<a asp-controller="User" asp-action="profLogin" class="profSignUp-button">Faculty</a>
+            <a href="@Url.Action("studentLogIn", "User")" class="studentSignUp-button">Student</a>
+            <a href="@Url.Action("profLogIn", "User")" class="profSignUp-button">Faculty</a>
         </div>
 	</div>	

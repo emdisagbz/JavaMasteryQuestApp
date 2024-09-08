@@ -823,7 +823,7 @@ System.out.println("Hello, " + name + "!");
     });
 
     backButton.addEventListener("click", function () {
-        window.location.href = "AW1P1Floor.html";
+        window.location.href = '/Capstone/AW1P1Floor.html';
     });
 
     submitAnswerButton.addEventListener("click", function () {

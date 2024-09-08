@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Back to Basic Lobby
     backButton.addEventListener('click', function() {
-        window.location.href = 'BasicLobby.html';
+        window.location.href = '/Capstone/BasicLobby';
     });
 });
 	

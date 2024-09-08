@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 backButton.addEventListener("click", function () {
-    window.location.href = "Home.html";
+    window.location.href = '/Capstone/Home';
 });
 
 

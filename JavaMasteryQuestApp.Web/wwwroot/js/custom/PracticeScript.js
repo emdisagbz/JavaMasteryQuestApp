@@ -159,5 +159,5 @@ function executeJava(javaCode) {
 document.getElementById('compile').addEventListener('click', compileAndRun);
 
 backButton.addEventListener("click", function() {
-    window.location.href = "BasicLobby.html";
+    window.location.href = '/Capstone/BasicLobby';
 });

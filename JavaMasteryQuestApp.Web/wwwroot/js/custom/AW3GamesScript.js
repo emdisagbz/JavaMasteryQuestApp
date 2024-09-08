@@ -330,7 +330,7 @@ document.addEventListener("DOMContentLoaded", function() {
         } else {
             showPopupMessage("You Lose!");
             setTimeout(() => {
-                window.location.href = "AdvancedLobby.html";
+                window.location.href = '/Capstone/AdvancedLobby';
             }, 2000); // Redirect after 2 seconds
         }
     }
@@ -474,7 +474,7 @@ function startSequence() {
     });
 
     backButton.addEventListener("click", function() {
-        window.location.href = "AdvancedLobby.html";
+        window.location.href = '/Capstone/AdvancedLobby';
     });
 
     submitAnswerButton.addEventListener("click", function() {

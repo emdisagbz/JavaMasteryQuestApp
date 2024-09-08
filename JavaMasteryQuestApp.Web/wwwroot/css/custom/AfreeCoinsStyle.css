@@ -1,15 +1,71 @@
-y: grid;
-grid-template-columns: repeat(4, 170px);
-grid-template-rows: repeat(2, 250px);
-gap: 10px;
-opacity: 0; /* Initially hidden */
-transition: opacity 1s; /* Fade-in effect */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-image: url(/image/Custom/CardBG.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
 }
 
+.coins-container {
+    position: fixed;
+    top: 10px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 10;
+}
+
+.coin {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.coin-image {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+}
+
+.coin-count {
+    font-family: Poppins;
+    min-width: 100px; /* Set a minimum width */
+    height: 40px; /* Set a fixed height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.5); /* Background color for the count box */
+    border: 1px solid #ccc; /* Border for the count box */
+    border-radius: 10px; /* Rounded corners for the count box */
+    font-size: 15px;
+    color: white;
+    font-weight: bold;
+    flex: 1; /* Allow the container to grow flexibly */
+}
+
+.card-container {
+    position: fixed;
+    display: grid;
+    grid-template-columns: repeat(4, 170px);
+    grid-template-rows: repeat(2, 250px);
+    gap: 10px;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 1s; /* Fade-in effect */
+}
 .card {
     width: 170px;
     height: 250px;
-    background-image: url("CardSymbol.png"), linear-gradient(250deg, rgba(0, 0, 139, 1), rgba(138, 43, 226, 1)); /* Darker blue and violet with transparency */
+    background-image: url(/image/Custom/CardSymbol.png), linear-gradient(250deg, rgba(0, 0, 139, 1), rgba(138, 43, 226, 1)); /* Darker blue and violet with transparency */
     background-size: cover; /* Ensures the background image covers the entire card */
     background-blend-mode: overlay; /* Blends the image with the gradient */
     color: white;
@@ -148,7 +204,7 @@ transition: opacity 1s; /* Fade-in effect */
 
     #backButton::before {
         content: "";
-        background-image: url('back.png'); /* Replace 'your-image-url.jpg' with the URL of your image */
+        background-image: url(/image/Custom/back.png); /* Replace 'your-image-url.jpg' with the URL of your image */
         background-size: cover;
         background-position: center;
         position: absolute;

@@ -35,19 +35,19 @@ document.getElementById("goButton").addEventListener("click", function() {
     let url = "";
     switch (selectedLevel) {
         case 1:
-            url = "AW1Games.html";
+            url = '/Capstone/AW1Games.html';
             break;
         case 2:
-            url = "AW1F2Games.html";
+            url = '/Capstone/AW1F2Games.html';
             break;
         case 3:
-            url = "AW1F3Games.html";
+            url = '/Capstone/AW1F3Games.htm';
             break;
         case 4:
-            url = "AW1F4Games.html";
+            url = 'A/Capstone/W1F4Games.html';
             break;
         case 5:
-            url = "AW1F5Games.html";
+            url = '/Capstone/AW1F5Games.html';
             break;
         default:
             console.error("Invalid level:", selectedLevel);
@@ -61,5 +61,5 @@ document.getElementById("closeButton").addEventListener("click", function() {
 });
 
 document.getElementById("backButton").addEventListener("click", function() {
-    window.location.href = "AW1Part.html"; // Change this to the appropriate URL
+    window.location.href = '/Capstone/AW1Part'; // Change this to the appropriate URL
 });

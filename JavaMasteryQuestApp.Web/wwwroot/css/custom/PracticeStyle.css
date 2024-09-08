@@ -55,18 +55,18 @@ body {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-#backButton::before {
-    content: "";
-    background-image: url('back.png'); /* Replace 'your-image-url.jpg' with the URL of your image */
-    background-size: cover;
-    background-position: center;
-    position: absolute;
-    top: 50%;
-    left: 20px; /* Adjust the left position as needed */
-    width: 31px; /* Adjust the width of the image */
-    height: 21px; /* Adjust the height of the image */
-    transform: translateY(-50%);
-}
+    #backButton::before {
+        content: "";
+        background-image: url(~/image/Custom/back.png); /* Replace 'your-image-url.jpg' with the URL of your image */
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        top: 50%;
+        left: 20px; /* Adjust the left position as needed */
+        width: 31px; /* Adjust the width of the image */
+        height: 21px; /* Adjust the height of the image */
+        transform: translateY(-50%);
+    }
 
 #backButton:hover {
     background-color: #0056b3;

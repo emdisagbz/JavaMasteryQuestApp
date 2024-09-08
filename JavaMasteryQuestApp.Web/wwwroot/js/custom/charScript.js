@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.style.display = 'none';
 
         // Redirect to Lobby.html
-        window.location.href = 'BasicLobby.html';
+        window.location.href = '/Capstone/BasicLobby';
     });
 });
 

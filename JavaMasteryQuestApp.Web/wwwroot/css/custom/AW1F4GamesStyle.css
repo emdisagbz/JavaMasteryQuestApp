@@ -8,9 +8,9 @@ html, body {
 }
 
 body {
-    background-image: url("ALavaCastle.jpg");
-	background-size: cover;
-	background-position: center;
+    background-image: url(/image/Custom/ALavaCastle.jpg);
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     padding: 0;
     margin: 0;
@@ -131,13 +131,13 @@ body {
     height: 350px; /* Adjusted height for the container */
     position: absolute;
     transform: translateX(-100%);
-	top: 37%;
+    top: 37%;
     left: 78%;
-    background-image: url("PB1.png"); /* Replace with path to your sprite sheet */
+    background-image: url(/image/Custom/PB1.png); /* Replace with path to your sprite sheet */
     background-repeat: no-repeat;
     background-size: 250px 10000px; /* Adjust background size */
-	visibility: hidden; 
-	opacity: 0;
+    visibility: hidden;
+    opacity: 0;
 }
 
 .animateIdle1 {
@@ -151,16 +151,16 @@ body {
 
 .LavaPrince-attack {
     width: 1274px; /* Adjusted width for the container */
-	height: 580px; /* Adjusted height for the container */
-	position: absolute;
-	transform: translateX(-100%) scaleX(-1);
-	top: 22%;
-	left: 85%;
-	background-image: url("S_not.png"); /* Replace with path to your sprite sheet */
-	background-repeat: no-repeat;
-	background-size: 1274px 46400px; /* Adjust background size */
-	visibility: hidden; 
-	opacity: 0;
+    height: 580px; /* Adjusted height for the container */
+    position: absolute;
+    transform: translateX(-100%) scaleX(-1);
+    top: 22%;
+    left: 85%;
+    background-image: url(/image/Custom/S_not.png); /* Replace with path to your sprite sheet */
+    background-repeat: no-repeat;
+    background-size: 1274px 46400px; /* Adjust background size */
+    visibility: hidden;
+    opacity: 0;
 }
 
 .animateAttack1 {
@@ -239,18 +239,18 @@ body {
     width: 200px;
 }
 
-#backButton::before {
-    content: "";
-    background-image: url('back.png');
-    background-size: cover;
-    background-position: center;
-    position: absolute;
-    top: 50%;
-    left: 20px;
-    width: 31px;
-    height: 21px;
-    transform: translateY(-50%);
-}
+    #backButton::before {
+        content: "";
+        background-image: url(/image/Custom/back.png);
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        width: 31px;
+        height: 21px;
+        transform: translateY(-50%);
+    }
 
 #backButton:hover {
     background: linear-gradient(to right, #007bff 0%, #007bff 50%, rgba(0, 123, 255, 0) 75%);
@@ -568,13 +568,13 @@ body {
     transform: translateX(100%) scaleX(-1);
     left: 60%;
     top: 70%;
-    background-image: url("Slime.png");
+    background-image: url(/image/Custom/Slime.png);
     background-repeat: no-repeat;
     background-size: 150px 1260px;
     filter: hue-rotate(180deg) saturate(3) brightness(1.2) contrast(1.1);
     visibility: hidden;
     opacity: 0;
-	overflow: hidden;
+    overflow: hidden;
 }
 
 .animateSlimeWalk0 {

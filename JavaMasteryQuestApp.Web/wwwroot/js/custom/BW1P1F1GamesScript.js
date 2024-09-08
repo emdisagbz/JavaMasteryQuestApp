@@ -493,7 +493,7 @@ finishButton.addEventListener("click", function() {
 });
 
 confirmFinishButton.addEventListener("click", function() {
-    window.location.href = "BW1P1Floor.html";
+    window.location.href = '/Capstone/BW1P1Floor';
 });
 
 cancelFinishButton.addEventListener("click", function() {
@@ -863,7 +863,7 @@ function startSequence() {
     });
 
     backButton.addEventListener("click", function() {
-        window.location.href = "BW1P1Floor.html";
+        window.location.href = '/Capstone/BW1P1Floor';
     });
 
     submitAnswerButton.addEventListener("click", function() {

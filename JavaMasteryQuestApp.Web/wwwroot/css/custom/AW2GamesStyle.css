@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 body {
-	background-image: url("AIceCastle.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
+    background-image: url(/image/Custom/AIceCastle.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
     padding: 0;
     margin: 0;
     overflow: hidden;
@@ -113,7 +113,7 @@ body {
     transform: translateX(-100%);
     left: 110%;
     top: 50%;
-    background-image: url("AW2BossWalk.png"); /* Replace with path to your sprite sheet */
+    background-image: url(/image/Custom/AW2BossWalk.png); /* Replace with path to your sprite sheet */
     background-repeat: no-repeat;
 }
 
@@ -131,13 +131,13 @@ body {
     height: 315px; /* Adjusted height for the container */
     position: absolute;
     transform: translateX(-100%);
-	top: 41%;
+    top: 41%;
     left: 70%;
-    background-image: url("AW2BossIdle.png"); /* Replace with path to your sprite sheet */
+    background-image: url(/image/Custom/AW2BossIdle.png); /* Replace with path to your sprite sheet */
     background-repeat: no-repeat;
     background-size: 95%; /* Adjust background size */
-	visibility: hidden; 
-	opacity: 0;
+    visibility: hidden;
+    opacity: 0;
 }
 
 .animateIdle {
@@ -148,19 +148,19 @@ body {
   0% { background-position: 0 0; }
   100% { background-position: 0 -8978px; } /* Adjust based on new height */
 }
-	
+
 .IceQueen-attack {
     width: 894px; /* Adjusted width for the container */
     height: 312px; /* Adjusted height for the container */
     position: absolute;
     transform: translateX(-100%) scaleX(-1);
-	top: 45%;
+    top: 45%;
     left: 82%;
-    background-image: url("AW2BossAttack.png"); /* Replace with path to your sprite sheet */
+    background-image: url(/image/Custom/AW2BossAttack.png); /* Replace with path to your sprite sheet */ 
     background-repeat: no-repeat;
     background-size: 894px 21528px; /* Adjust background size */
-	visibility: hidden; 
-	opacity: 0;
+    visibility: hidden;
+    opacity: 0;
 }
 
 .animateAttack {
@@ -346,18 +346,18 @@ body {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-#backButton::before {
-    content: "";
-    background-image: url('back.png'); /* Replace 'your-image-url.jpg' with the URL of your image */
-    background-size: cover;
-    background-position: center;
-    position: absolute;
-    top: 50%;
-    left: 20px; /* Adjust the left position as needed */
-    width: 31px; /* Adjust the width of the image */
-    height: 21px; /* Adjust the height of the image */
-    transform: translateY(-50%);
-}
+    #backButton::before {
+        content: "";
+        background-image: url(/image/Custom/back.png); /* Replace 'your-image-url.jpg' with the URL of your image */
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        top: 50%;
+        left: 20px; /* Adjust the left position as needed */
+        width: 31px; /* Adjust the width of the image */
+        height: 21px; /* Adjust the height of the image */
+        transform: translateY(-50%);
+    }
 
 #backButton:hover {
     background-color: #0056b3;
@@ -614,8 +614,8 @@ body {
     transform: translateX(100%);
     right: 111%;
     top: 53%;
-	bacground-size: 70%;
-    background-image: url("GRangerWalk.png"); /* Replace with path to your sprite sheet */
+    bacground-size: 70%;
+    background-image: url(/image/Custom/GRangerWalk.png); /* Replace with path to your sprite sheet */
     background-repeat: no-repeat;
 }
 
@@ -633,13 +633,13 @@ body {
     height: 350px; /* Adjusted height for the container */
     position: absolute;
     transform: translateX(100%);
-	top: 37%;
+    top: 37%;
     right: 78%;
-    background-image: url("GRangerIdle.png"); /* Replace with path to your sprite sheet */
+    background-image: url(/image/Custom/GRangerIdle.png); /* Replace with path to your sprite sheet */
     background-repeat: no-repeat;
     background-size: 250px 27404px; /* Adjust background size */
-	visibility: hidden; 
-	opacity: 0;
+    visibility: hidden;
+    opacity: 0;
 }
 
 .animateIdle1 {

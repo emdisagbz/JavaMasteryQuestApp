@@ -6,7 +6,7 @@ body {
     align-items: center;
     flex-direction: column;
     height: 100vh;
-    background-image: url("CardBG.jpg");
+    background-image: url(~/image/Custom/CardBG.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     overflow: hidden;
@@ -66,7 +66,7 @@ body {
 .card {
     width: 170px;
     height: 250px;
-    background-image: url("CardSymbol.png"), linear-gradient(250deg, rgba(0, 0, 139, 1), rgba(138, 43, 226, 1)); /* Darker blue and violet with transparency */
+    background-image: url(~/image/Custom/CardSymbol.png), linear-gradient(250deg, rgba(0, 0, 139, 1), rgba(138, 43, 226, 1)); /* Darker blue and violet with transparency */
     background-size: cover; /* Ensures the background image covers the entire card */
     background-blend-mode: overlay; /* Blends the image with the gradient */
     color: white;
@@ -205,7 +205,7 @@ body {
 
     #backButton::before {
         content: "";
-        background-image: url('back.png'); /* Replace 'your-image-url.jpg' with the URL of your image */
+        background-image: url(~/image/Custom/back.png); /* Replace 'your-image-url.jpg' with the URL of your image */
         background-size: cover;
         background-position: center;
         position: absolute;

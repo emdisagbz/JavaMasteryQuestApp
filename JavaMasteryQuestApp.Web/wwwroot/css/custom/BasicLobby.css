@@ -1,11 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 body {
-    margin: 0;
+
+    
     background-color: #000;
+    background-size: cover;
     color: #eee;
     font-family: Poppins;
     font-size: 12px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  
 }
 
 a {
@@ -120,7 +126,7 @@ h2 {
     height: 100vh; /* Full viewport height */
     width: 100vw; /* Full viewport width */
     overflow: hidden; /* Hides anything outside this container */
-    position: relative;
+    position: center, relative;
 }
 
     .world-container .list .item {
@@ -634,8 +640,8 @@ a {
     bottom: 50px; /* Distance from the bottom of their parent */
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Center horizontally */
-    width: 170px;
-    height: 22px;
+    width: 200px;
+    height: 30px;
     background-color: rgba(255, 255, 255, 0.5);
     border: 1px solid black;
     border-radius: 10px;

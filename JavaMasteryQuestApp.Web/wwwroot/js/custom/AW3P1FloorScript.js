@@ -26,10 +26,10 @@ document.getElementById("goButton").addEventListener("click", function() {
     let url = "";
     switch (selectedLevel) {
         case 1:
-            url = "AW3P1F1Games.html";
+            url = '/Capstone/AW3P1F1Games';
             break;
         case 2:
-            url = "AW3P1F2Games.html";
+            url = '/Capstone/AW3P1F2Games';
             break;
         default:
             url = "#";
@@ -43,5 +43,5 @@ document.getElementById("closeButton").addEventListener("click", function() {
 });
 
 document.getElementById("backButton").addEventListener("click", function() {
-    window.location.href = "AW3Part.html"; // Change this to the appropriate URL
+    window.location.href = '/Capstone/AW3Part'; // Change this to the appropriate URL
 });

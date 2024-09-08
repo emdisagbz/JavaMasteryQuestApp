@@ -13,7 +13,7 @@ body, html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-image: url('skinShop.jpg');
+    background-image: url(/image/Custom/skinShop.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -121,7 +121,7 @@ body, html {
 
     #backButton::before {
         content: "";
-        background-image: url('back.png');
+        background-image: url(/image/Custom/back.png);
         background-size: cover;
         background-position: center;
         position: absolute;
@@ -230,7 +230,7 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("hero.png");
+    background-image: url(/image/Custom/hero.png);
     background-size: cover;
     border-radius: 50%;
     border: none;

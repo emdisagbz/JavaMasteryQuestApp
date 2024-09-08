@@ -5,8 +5,7 @@
 }
 
 body {
-    background-image: url(/image/custom/HomeScreen.jpg);
-    background-size: cover;
+    background-image: url(~/image/Custom/HomeScreen.jpg); background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -91,16 +90,7 @@ input {
     background-color: #eee;
     border: none;
     padding: 12px 15px;
-    margin: 4px 0;
-    width: 100%;
-}
-
-
-select {
-    background-color: #eee;
-    border: none;
-    padding: 12px 15px;
-    margin: 4px 0;
+    margin: 8px 0;
     width: 100%;
 }
 
@@ -227,12 +217,11 @@ select {
 }
 
 #backButton {
-    content: "";
     font-family: Poppins;
     position: absolute;
     top: 10px;
     left: 20px;
-    width: 200px; /* Set explicit width */
+    width: 250px; /* Set explicit width */
     padding: 15px; /* Adjust padding to fit within the width */
     font-size: 20px;
     color: white;
@@ -241,17 +230,15 @@ select {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    z-index:10;
 }
 
     #backButton::before {
         content: "";
-       // background-image: url(/image/custom/back.png);
         background-size: cover;
         background-position: center;
         position: absolute;
         top: 50%;
-        left: 20px;
+        left: 20px; /* Adjust the left position as needed */
         width: 31px; /* Adjust the width of the image */
         height: 21px; /* Adjust the height of the image */
         transform: translateY(-50%);
@@ -261,4 +248,52 @@ select {
         background-color: #0056b3;
         background: linear-gradient(to right, #007bff 0%, #007bff 50%, rgba(0, 123, 255, 0) 75%);
         transform: scale(0.95);
+    }
+
+.change-password-container {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+    .password-container input {
+        padding-right: 50px;
+    }
+
+.show-password {
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #007bff;
+    font-size: 10px;
+    cursor: pointer;
+    outline: none;
+    transform-origin: center;
+}
+
+    .show-password:hover {
+        background-color: transparent;
+        transform: scale(0.75);
+        transform: translateY(-50%);
+    }
+
+#forgotPassword {
+    display: block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+    #forgotPassword:hover {
+        text-decoration: underline;
+        color: #0056b3;
     }

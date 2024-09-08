@@ -1,14 +1,14 @@
 body {
     margin: 0;
     padding: 0;
-    background: url('shop.jpg') no-repeat center center fixed;
+    background: url(~/image/Custom/shop.jpg) no-repeat center center fixed;
     background-size: cover;
-	background-repeat: no-repeat;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-	overflow: hidden;
+    overflow: hidden;
 }
 
 .container {

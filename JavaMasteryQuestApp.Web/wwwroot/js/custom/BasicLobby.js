@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const freeCoinsButton = document.getElementById("freeCoins");
 
     freeCoinsButton.addEventListener("click", function () {
-        window.location.href = "freeCoins.html";
+        window.location.href = '/Capstone/freeCoins';
     });
 });
 
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const skinShopButton = document.getElementById("skinShop");
 
     skinShopButton.addEventListener("click", function () {
-        window.location.href = "skinShop.html";
+        window.location.href = '/Capstone/skinShop';
     });
 });
 
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const heroShopButton = document.getElementById("heroShop");
 
     heroShopButton.addEventListener("click", function () {
-        window.location.href = "heroShop.html";
+        window.location.href = '/Capstone/heroShop';
     });
 });
 
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const practiceButton = document.getElementById("practice");
 
     practiceButton.addEventListener("click", function () {
-        window.location.href = "Practice.html";
+        window.location.href = '/Capstone/Practice';
     });
 });
 
@@ -263,7 +263,7 @@ window.onload = function () {
 };
 
 function logout() {
-    window.location.href = 'Home.html'; // Redirects to Homepage.html
+    window.location.href = '/Capstone/Home'; // Redirects to Homepage.html
 }
 
 

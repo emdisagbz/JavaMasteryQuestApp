@@ -63,18 +63,18 @@ body {
 }
 
 .world2 { /* Additional styles for world1 (feel free to add more classes) */
-      background-image: url("w2.png"); /* Set your image URL */
-      background-size: cover; /* Resize image to cover the entire element */
-      background-position: center; /* Center the image within the element */
-	  background-repeat: no-repeat;
-	  background-position: center center;
-	  background-size: contain;
-	  margin: 0 10px; /* Adjust margin for spacing between worlds */
-	  position: absolute;
-	  top: 15%; /* Center worlds vertically */
-	  left: 15%;
-	  animation: bouncing-floating 1.5s infinite ease-in-out;
-	  transition: transform 0.5s ease-in-out;
+    background-image: url(~/image/Custom/w2.png); /* Set your image URL */
+    background-size: cover; /* Resize image to cover the entire element */
+    background-position: center; /* Center the image within the element */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    margin: 0 10px; /* Adjust margin for spacing between worlds */
+    position: absolute;
+    top: 15%; /* Center worlds vertically */
+    left: 15%;
+    animation: bouncing-floating 1.5s infinite ease-in-out;
+    transition: transform 0.5s ease-in-out;
 }
 	
 .ice-crystal {
@@ -101,20 +101,20 @@ body {
     opacity: 0;
   }
 }
-	
+
 .world3 { /* Additional styles for world1 (feel free to add more classes) */
-      background-image: url("w3.png"); /* Set your image URL */
-      background-size: cover; /* Resize image to cover the entire element */
-      background-position: center; /* Center the image within the element */
-	  background-repeat: no-repeat;
-	  background-position: center center;
-	  background-size: contain;
-	  margin: 0 10px; /* Adjust margin for spacing between worlds */
-	  position: absolute;
-	  top: 15%; /* Center worlds vertically */
-	  left: 12%;
-	  animation: bouncing-floating 1.5s infinite ease-in-out;
-	  transition: transform 0.5s ease-in-out;
+    background-image: url(~/image/Custom/w3.png); /* Set your image URL */
+    background-size: cover; /* Resize image to cover the entire element */
+    background-position: center; /* Center the image within the element */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    margin: 0 10px; /* Adjust margin for spacing between worlds */
+    position: absolute;
+    top: 15%; /* Center worlds vertically */
+    left: 12%;
+    animation: bouncing-floating 1.5s infinite ease-in-out;
+    transition: transform 0.5s ease-in-out;
 }
 
 .leaf-container {
@@ -153,19 +153,19 @@ body {
 }
 
 .world4 { /* Additional styles for world1 (feel free to add more classes) */
-      background-image: url("w4.png"); /* Set your image URL */
-      background-size: cover; /* Resize image to cover the entire element */
-      background-position: center; /* Center the image within the element */
-	  background-repeat: no-repeat;
-	  background-position: center center;
-	  background-size: contain;
-	  margin: 0 10px; /* Adjust margin for spacing between worlds */
-	  position: absolute;
-	  top: 15%; /* Center worlds vertically */
-	  left: 15%;
-	  animation: bouncing-floating 1.5s infinite ease-in-out;
-	  transition: transform 0.5s ease-in-out;
-	  filter: brightness(0.1);
+    background-image: url(~/image/Custom/w4.png); /* Set your image URL */
+    background-size: cover; /* Resize image to cover the entire element */
+    background-position: center; /* Center the image within the element */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    margin: 0 10px; /* Adjust margin for spacing between worlds */
+    position: absolute;
+    top: 15%; /* Center worlds vertically */
+    left: 15%;
+    animation: bouncing-floating 1.5s infinite ease-in-out;
+    transition: transform 0.5s ease-in-out;
+    filter: brightness(0.1);
 }
 
 #ghost {
@@ -320,61 +320,61 @@ body {
 #ghost.active .ghost {
     animation: none;
 }
-	
+
 .world5 { /* Additional styles for world1 (feel free to add more classes) */
-      background-image: url("w5.png"); /* Set your image URL */
-      background-size: cover; /* Resize image to cover the entire element */
-      background-position: center; /* Center the image within the element */
-	  background-repeat: no-repeat;
-	  background-position: center center;
-	  background-size: contain;
-	  margin: 0 10px; /* Adjust margin for spacing between worlds */
-	  position: absolute;
-	  top: 15%; /* Center worlds vertically */
-	  left: 15%;
-	  animation: bouncing-floating 1.5s infinite ease-in-out;
-	  transition: transform 0.5s ease-in-out;
-	  filter: brightness(0.1);
+    background-image: url(~/image/Custom/w5.png); /* Set your image URL */
+    background-size: cover; /* Resize image to cover the entire element */
+    background-position: center; /* Center the image within the element */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    margin: 0 10px; /* Adjust margin for spacing between worlds */
+    position: absolute;
+    top: 15%; /* Center worlds vertically */
+    left: 15%;
+    animation: bouncing-floating 1.5s infinite ease-in-out;
+    transition: transform 0.5s ease-in-out;
+    filter: brightness(0.1);
 }
-	
+
 .world6 { /* Additional styles for world1 (feel free to add more classes) */
-      background-image: url("w6.png"); /* Set your image URL */
-      background-size: cover; /* Resize image to cover the entire element */
-      background-position: center; /* Center the image within the element */
-	  background-repeat: no-repeat;
-	  background-position: center center;
-	  background-size: contain;
-	  margin: 0 10px; /* Adjust margin for spacing between worlds */
-	  position: absolute;
-	  top: 15%; /* Center worlds vertically */
-	  left: 15%;
-	  animation: bouncing-floating 1.5s infinite ease-in-out;
-	  transition: transform 0.5s ease-in-out;
-	  filter: brightness(0.1);
+    background-image: url(~/image/Custom/w6.png); /* Set your image URL */
+    background-size: cover; /* Resize image to cover the entire element */
+    background-position: center; /* Center the image within the element */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    margin: 0 10px; /* Adjust margin for spacing between worlds */
+    position: absolute;
+    top: 15%; /* Center worlds vertically */
+    left: 15%;
+    animation: bouncing-floating 1.5s infinite ease-in-out;
+    transition: transform 0.5s ease-in-out;
+    filter: brightness(0.1);
 }
 
 .cloud-image {
-  background-image: url("cloud.png"); /* Set the cloud image as background */
-  background-size: contain; /* Adjust background size as needed */
-  background-repeat: no-repeat; /* Prevent image repetition */
-  position: absolute; /* Position the cloud on top */
-  top: 50px; /* Adjust top position as needed */
-  left: 50px; /* Adjust left position as needed */
-  width: 450px; /* Adjust width as needed */
-  height: 450px; /* Adjust height as needed */
-  animation: cloud-bounce 2s infinite ease-in-out;
+    background-image: url(~/image/Custom/cloud.png); /* Set the cloud image as background */
+    background-size: contain; /* Adjust background size as needed */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    position: absolute; /* Position the cloud on top */
+    top: 50px; /* Adjust top position as needed */
+    left: 50px; /* Adjust left position as needed */
+    width: 450px; /* Adjust width as needed */
+    height: 450px; /* Adjust height as needed */
+    animation: cloud-bounce 2s infinite ease-in-out;
 }
 
 .cloud-image1 {
-  background-image: url("cloud1.png"); /* Set the cloud image as background */
-  background-size: contain; /* Adjust background size as needed */
-  background-repeat: no-repeat; /* Prevent image repetition */
-  position: absolute; /* Position the cloud on top */
-  top: 200px; /* Adjust top position as needed */
-  left: 450px; /* Adjust left position as needed */
-  width: 450px; /* Adjust width as needed */
-  height:450px; /* Adjust height as needed */
-  animation: cloud-bounce 2.5s infinite ease-in-out;
+    background-image: url(~/image/Custom/cloud1.png); /* Set the cloud image as background */
+    background-size: contain; /* Adjust background size as needed */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    position: absolute; /* Position the cloud on top */
+    top: 200px; /* Adjust top position as needed */
+    left: 450px; /* Adjust left position as needed */
+    width: 450px; /* Adjust width as needed */
+    height: 450px; /* Adjust height as needed */
+    animation: cloud-bounce 2.5s infinite ease-in-out;
 }
 
 .username {
@@ -521,16 +521,16 @@ body {
 }
 
 .game-link {
-    width: 100%;  /* Ensure the link covers the entire area of its container */
-    height: 100%;  /* Ensure the link covers the entire area of its container */
+    width: 100%; /* Ensure the link covers the entire area of its container */
+    height: 100%; /* Ensure the link covers the entire area of its container */
     display: flex;
-    justify-content: center;  /* Center the text horizontally */
-    align-items: center;  /* Center the text vertically */
-    background-image: url('LavaGate.jpg');  /* Set the background image */
-    background-size: cover;  /* Cover the entire area of the link */
-    background-position: center;  /* Ensure the image is centered */
-    text-decoration: none;  /* Optional: remove underline from the link */
-    color: white;  /* Set text color for visibility */
-    font-size: 24px;  /* Adjust font size as needed */
+    justify-content: center; /* Center the text horizontally */
+    align-items: center; /* Center the text vertically */
+    background-image: url(~/image/Custom/LavaGate.jpg);  /* Set the background image */ 
+    background-size: cover; /* Cover the entire area of the link */
+    background-position: center; /* Ensure the image is centered */
+    text-decoration: none; /* Optional: remove underline from the link */
+    color: white; /* Set text color for visibility */
+    font-size: 24px; /* Adjust font size as needed */
 }
 
