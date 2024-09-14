@@ -19,8 +19,13 @@ function showTab(tabId) {
     document.getElementById(tabId).style.display = 'block';
     document.getElementById(tabId.replace('Content', 'Btn')).classList.add('active');
 
+   
+
     // Hide leaderboard by default when switching tabs
     document.getElementById('leaderboardContent').style.display = 'none';
+    document.getElementById('profileTable').style.display = 'none';
+    
+
 }
 
 function toggleButtonGroup(groupId, buttonId) {
@@ -45,6 +50,7 @@ function toggleButtonGroup(groupId, buttonId) {
         button.classList.remove('active');
     }
 }
+
 
 function viewBasicJava() {
     var contentSections = document.getElementsByClassName('content')[0].getElementsByTagName('div');
@@ -105,7 +111,7 @@ function importRecords() {
 }
 
 function logout() {
-    window.location.href = 'Home.html';
+    window.location.href = '/Capstone/Home';
 }
 
 function hideCarousels() {

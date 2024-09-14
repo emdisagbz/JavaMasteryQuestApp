@@ -606,8 +606,8 @@ table {
     }
 
     table th {
-        background-color: #34495e;
-        color: white;
+        background-color: #ADD8E6;
+        color: black;
     }
 
     table tr:nth-child(even) {
@@ -659,4 +659,7 @@ select {
     .content {
         padding: 60px;
     }
+
 }
+
+
