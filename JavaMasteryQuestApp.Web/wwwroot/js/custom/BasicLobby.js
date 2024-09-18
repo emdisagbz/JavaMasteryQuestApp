@@ -236,7 +236,7 @@ window.onload = function () {
 };
 
 function logout() {
-    window.location.href = 'Home.html'; // Redirects to Homepage.html
+    window.location.href = '/Capstone/Home'; // Redirects to Homepage.html
 }
 
 
@@ -245,6 +245,7 @@ function logout() {
 document.getElementById('openDiv1').addEventListener('click', function () {
     document.getElementById('Bslide1').style.right = '0'; // Bring the modal into view
     document.querySelector('.slide1').classList.add('dark'); // Darken and slide the background
+    window.location.href = '/Capstone/BW1Part'; // Ensure this URL is correct
 });
 
 // Optional: close modal when clicking outside the modal content (advanced behavior)
@@ -373,7 +374,7 @@ function hideModal() {
 
 function logout() {
     // Add logout functionality here
-    window.location.href = "Home.html";
+    window.location.href = '/Capstone/Home';
 }
 
 window.onclick = function (event) {

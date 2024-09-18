@@ -926,9 +926,11 @@ function checkAnswer() {
         displayQuestion();
     });
 
-    backButton.addEventListener("click", function() {
-        window.location.href = '/Capstone/BW1P1Floor';
+    document.getElementById("backButton").addEventListener("click", function () {
+        window.location.href = '/Capstone/BW1P1Floor'; // Change this to the appropriate URL
     });
+
+   
 
     submitAnswerButton.addEventListener("click", function() {
         checkAnswer();

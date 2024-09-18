@@ -77,6 +77,6 @@
     // Handle login form submission
     loginForm.addEventListener('submit', (event) => {
         event.preventDefault();
-        window.location.href = '/Capstone/profDashboard';
+        window.location.href = '/Dashboard/profDashboard';
     });
 });

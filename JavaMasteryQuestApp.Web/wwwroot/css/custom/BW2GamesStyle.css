@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 body {
     font-family: Poppins;
-    background-image: url(~/image/Custom/IceCastle.jpg);
+    background-image: url(/image/Custom/IceCastle.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     padding: 0;
@@ -16,7 +16,7 @@ body {
     transform: translate(-50%, -50%);
     left: 50%;
     top: 40%;
-    background-image: url(~/image/Custom/BW2.png); /* Replace with path to your sprite sheet */
+    background-image: url(/image/Custom/BW2.png); /* Replace with path to your sprite sheet */
     background-repeat: no-repeat;
 }
 
@@ -114,7 +114,7 @@ body {
     transform: translateX(-100%);
     left: 110%;
     top: 50%;
-    background-image: url(~/image/Custom/BW2BossWalk.png); /* Replace with path to your sprite sheet */
+    background-image: url(/image/Custom/BW2BossWalk.png); /* Replace with path to your sprite sheet */
     background-repeat: no-repeat;
 }
 
@@ -134,7 +134,7 @@ body {
     transform: translateX(-100%);
     top: 41%;
     left: 70%;
-    background-image: url(~/image/Custom/BW2BossIdle.png); /* Replace with path to your sprite sheet */
+    background-image: url(/image/Custom/BW2BossIdle.png); /* Replace with path to your sprite sheet */
     background-repeat: no-repeat;
     background-size: 95%; /* Adjust background size */
     visibility: hidden;
@@ -158,7 +158,7 @@ body {
     transform: translateX(-100%) scaleX(-1);
     top: 45%;
     left: 82%;
-    background-image: url(~/image/Custom/BW2BossAttack.png); /* Replace with path to your sprite sheet */
+    background-image: url(/image/Custom/BW2BossAttack.png); /* Replace with path to your sprite sheet */
     background-repeat: no-repeat;
     background-size: 894px 21528px; /* Adjust background size */
     visibility: hidden;
@@ -219,7 +219,7 @@ body {
     transform: translateX(100%) scaleX(-1); /* Start off-screen to the right and flip */
     top: 62%;
     left: 100%; /* Start off-screen to the right */
-    background-image: url(~/image/Custom/Slime.png);
+    background-image: url(/image/Custom/Slime.png);
     background-repeat: no-repeat;
     filter: hue-rotate(60deg) saturate(3);
     background-size: 150px 2040px;
@@ -252,7 +252,7 @@ body {
     transform: translateX(100%) scaleX(-1); /* Start off-screen to the right and flip */
     top: 55%;
     left: 100%; /* Start off-screen to the right */
-    background-image: url(~/image/Custom/Slime.png);
+    background-image: url(/image/Custom/Slime.png);
     background-repeat: no-repeat;
     filter: hue-rotate(60deg) saturate(3);
     background-size: 170px 2640px;
@@ -285,7 +285,7 @@ body {
     transform: translateX(100%) scaleX(-1); /* Start off-screen to the right and flip */
     top: 50%;
     left: 100%; /* Start off-screen to the right */
-    background-image: url(~/image/Custom/Slime.png);
+    background-image: url(/image/Custom/Slime.png);
     background-repeat: no-repeat;
     background-size: 200px 3000px;
     filter: hue-rotate(60deg) saturate(3);
@@ -351,7 +351,7 @@ body {
 
     #backButton::before {
         content: "";
-        background-image: url(~/image/Custom/back.png); /* Replace 'your-image-url.jpg' with the URL of your image */
+        background-image: url(/image/Custom/back.png); /* Replace 'your-image-url.jpg' with the URL of your image */
         background-size: cover;
         background-position: center;
         position: absolute;
@@ -642,7 +642,7 @@ body {
     right: 111%;
     top: 53%;
     bacground-size: 70%;
-    background-image: url(~/image/Custom/GRangerWalk.png); /* Replace with path to your sprite sheet */
+    background-image: url(/image/Custom/GRangerWalk.png); /* Replace with path to your sprite sheet */
     background-repeat: no-repeat;
 }
 
@@ -662,7 +662,7 @@ body {
     transform: translateX(100%);
     top: 37%;
     right: 78%;
-    background-image: url(~/image/Custom/GRangerIdle.png); /* Replace with path to your sprite sheet */
+    background-image: url(/image/Custom/GRangerIdle.png); /* Replace with path to your sprite sheet */
     background-repeat: no-repeat;
     background-size: 250px 27404px; /* Adjust background size */
     visibility: hidden;
