@@ -33,8 +33,14 @@ body {
 
 /* Animation to scroll through frames */
 @keyframes animate {
-    from { background-position: 0 0; }
-    to { background-position: 0 -18630px; } /* Scroll through the full height of the sprite sheet */
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 -18630px;
+    }
+    /* Scroll through the full height of the sprite sheet */
 }
 
 .animate {
@@ -58,10 +64,10 @@ body {
     opacity: 0;
 }
 
-.warning-screen h2,
-.warning-screen h3 {
-    margin: 10px 0;
-}
+    .warning-screen h2,
+    .warning-screen h3 {
+        margin: 10px 0;
+    }
 
 .glitters {
     position: absolute;
@@ -83,23 +89,43 @@ body {
 }
 
 @keyframes slideIn {
-    0% { top: 100%; opacity: 0; }
-    100% { top: 50%; opacity: 1; }
+    0% {
+        top: 100%;
+        opacity: 0;
+    }
+
+    100% {
+        top: 50%;
+        opacity: 1;
+    }
 }
 
 @keyframes blink {
-    50% { box-shadow: 0 0 70px rgba(0, 255, 255, 1); }
+    50% {
+        box-shadow: 0 0 70px rgba(0, 255, 255, 1);
+    }
 }
 
 @keyframes sparkle {
-    0%, 100% { opacity: 0; }
-    50% { opacity: 1; transform: scale(1.5); }
+    0%, 100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
 }
 
 /* Sprite animations */
 @keyframes animateWalk1 {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 -13786px; }
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -13786px;
+    }
 }
 
 /* Add similar keyframes for other animations as needed */
@@ -122,8 +148,14 @@ body {
 }
 
 @keyframes animateWalk1 {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 -20160px; } /* Adjusted Y-axis movement */
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -20160px;
+    }
+    /* Adjusted Y-axis movement */
 }
 
 .IceQueen-idle {
@@ -145,8 +177,14 @@ body {
 }
 
 @keyframes animateIdle1 {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 -10000px; } /* Adjust based on new height */
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -10000px;
+    }
+    /* Adjust based on new height */
 }
 
 
@@ -170,8 +208,14 @@ body {
 }
 
 @keyframes animateAttack1 {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 -21528px; } /* Adjust based on new height */
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -21528px;
+    }
+    /* Adjust based on new height */
 }
 
 
@@ -199,40 +243,40 @@ body {
     transform: translateX(-50%);
 }
 
-#startButton:hover {
-    background-color: #0056b3;
-    transform: translateX(-50%) scale(0.95);
-}
+    #startButton:hover {
+        background-color: #0056b3;
+        transform: translateX(-50%) scale(0.95);
+    }
 
 #submitAnswer {
     background-color: #007bff;
     color: white;
     position: absolute;
-	margin-bottom: 10px;
+    margin-bottom: 10px;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
 }
 
-#submitAnswer:hover {
-    background-color: #0056b3;
-    transform: translateX(-50%) scale(0.95);
-}
+    #submitAnswer:hover {
+        background-color: #0056b3;
+        transform: translateX(-50%) scale(0.95);
+    }
 
 #hintButton {
     background-color: #007bff;
     color: white;
-	border-radius: 10px;
+    border-radius: 10px;
     position: absolute;
     bottom: 10px;
     right: 20px; /* Change from left: 50% to right: 20px */
     transform: translateX(0); /* Remove the translateX(-50%) to center it */
 }
 
-#hintButton:hover {
-    background-color: #0056b3;
-    transform: scale(0.95); /* Update transform to scale only */
-}
+    #hintButton:hover {
+        background-color: #0056b3;
+        transform: scale(0.95); /* Update transform to scale only */
+    }
 
 #backButton {
     background: linear-gradient(to right, #007bff 0%, #007bff 50%, rgba(0, 123, 255, 0) 75%);
@@ -245,7 +289,7 @@ body {
 
     #backButton::before {
         content: "";
-        background-image: url(/image/Custom/back.png); 
+        background-image: url(/image/Custom/back.png);
         background-size: cover;
         background-position: center;
         position: absolute;
@@ -256,10 +300,10 @@ body {
         transform: translateY(-50%);
     }
 
-#backButton:hover {
-    background: linear-gradient(to right, #007bff 0%, #007bff 50%, rgba(0, 123, 255, 0) 75%);
-	transform: scale(0.95);
-}
+    #backButton:hover {
+        background: linear-gradient(to right, #007bff 0%, #007bff 50%, rgba(0, 123, 255, 0) 75%);
+        transform: scale(0.95);
+    }
 
 #goButton {
     background-color: #007bff;
@@ -270,10 +314,10 @@ body {
     transform: translateX(-50%);
 }
 
-#goButton:hover {
-    background-color: #007bff#0056b3;
-    transform: translateX(-50%) scale(0.95);
-}
+    #goButton:hover {
+        background-color: #007bff#0056b3;
+        transform: translateX(-50%) scale(0.95);
+    }
 
 /* Interactive elements */
 #bookModule {
@@ -308,34 +352,14 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    max-width: 1000px;
+    max-width: 600px;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     padding: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     transition: transform 0.5s ease-in-out;
     z-index: 1;
-    box-sizing: border-box; /* Include padding in width calculation */
-    height: 90vh; /* Set height of the slidingDiv */
 }
-
-#preloadIframe {
-    width: 100%; /* Ensure it doesn’t exceed the width of slidingDiv */
-    height: 100%; /* Make it fill the height of slidingDiv */
-    background-color: rgba(0, 0, 0, 0.5); /* Match slidingDiv background */
-    color: white; /* Match text color */
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    overflow-y: auto; /* Allow scrolling if content exceeds height */
-    transition: transform 0.5s ease-in-out;
-    z-index: 1;
-    box-sizing: border-box; /* Include padding in width and height calculation */
-}
-
-#moduleContent {
-    height: 80%;
-}
-
 
 .hidden {
     display: none;
@@ -377,7 +401,7 @@ body {
     border: 1px solid #ccc; /* Border for the count box */
     border-radius: 10px; /* Rounded corners for the count box */
     font-size: 15px;
-	color: white;
+    color: white;
     font-weight: bold;
     flex: 1; /* Allow the container to grow flexibly */
 }
@@ -386,11 +410,10 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-	position: absolute;
+    position: absolute;
     bottom: 10px;
     left: 20px; /* Change from left: 50% to right: 20px */
     transform: translateX(0);
-
 }
 
 #gameContainer {
@@ -433,144 +456,284 @@ body {
 }
 
 @keyframes slimeWalk0 {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 -1260px; }
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -1260px;
+    }
 }
 
 @keyframes slimeWalk1 {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 -1260px; }
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -1260px;
+    }
 }
 
 @keyframes slimeWalk2 {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 -1260px; }
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -1260px;
+    }
 }
 
 @keyframes slimeWalk3 {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 -1260px; }
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -1260px;
+    }
 }
 
 @keyframes slimeWalk4 {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 -1260px; }
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -1260px;
+    }
 }
 
 @keyframes slimeWalk5 {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 -1260px; }
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -1260px;
+    }
 }
 
 @keyframes slimeWalk6 {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 -1260px; }
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -1260px;
+    }
 }
 
 @keyframes slimeWalk7 {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 -1260px; }
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -1260px;
+    }
 }
 
 @keyframes slimeWalk8 {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 -1260px; }
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -1260px;
+    }
 }
 
 @keyframes slimeWalk9 {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 -1260px; }
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -1260px;
+    }
 }
 
 @keyframes slimeWalk10 {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 -1260px; }
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -1260px;
+    }
 }
 
 @keyframes slimeWalk11 {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 -1260px; }
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -1260px;
+    }
 }
 
 @keyframes slimeWalk12 {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 -1260px; }
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -1260px;
+    }
 }
 
 @keyframes slimeWalk13 {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 -1260px; }
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -1260px;
+    }
 }
 
 /* Keyframes for the horizontal movement animation */
 @keyframes walkToCenter0 {
-    0% { left: 80%; }
-    100% { left: 50%; }
+    0% {
+        left: 80%;
+    }
+
+    100% {
+        left: 50%;
+    }
 }
 
 @keyframes walkToCenter1 {
-    0% { left: 80%; }
-    100% { left: 50%; }
+    0% {
+        left: 80%;
+    }
+
+    100% {
+        left: 50%;
+    }
 }
 
 @keyframes walkToCenter2 {
-    0% { left: 80%; }
-    100% { left: 50%; }
+    0% {
+        left: 80%;
+    }
+
+    100% {
+        left: 50%;
+    }
 }
 
 @keyframes walkToCenter3 {
-    0% { left: 80%; }
-    100% { left: 50%; }
+    0% {
+        left: 80%;
+    }
+
+    100% {
+        left: 50%;
+    }
 }
 
 @keyframes walkToCenter4 {
-    0% { left: 80%; }
-    100% { left: 50%; }
+    0% {
+        left: 80%;
+    }
+
+    100% {
+        left: 50%;
+    }
 }
 
 @keyframes walkToCenter5 {
-    0% { left: 80%; }
-    100% { left: 50%; }
+    0% {
+        left: 80%;
+    }
+
+    100% {
+        left: 50%;
+    }
 }
 
 @keyframes walkToCenter6 {
-    0% { left: 80%; }
-    100% { left: 50%; }
+    0% {
+        left: 80%;
+    }
+
+    100% {
+        left: 50%;
+    }
 }
 
 @keyframes walkToCenter7 {
-    0% { left: 80%; }
-    100% { left: 50%; }
+    0% {
+        left: 80%;
+    }
+
+    100% {
+        left: 50%;
+    }
 }
 
 @keyframes walkToCenter8 {
-    0% { left: 80%; }
-    100% { left: 50%; }
+    0% {
+        left: 80%;
+    }
+
+    100% {
+        left: 50%;
+    }
 }
 
 @keyframes walkToCenter9 {
-    0% { left: 80%; }
-    100% { left: 50%; }
+    0% {
+        left: 80%;
+    }
+
+    100% {
+        left: 50%;
+    }
 }
 
 @keyframes walkToCenter10 {
-    0% { left: 80%; }
-    100% { left: 50%; }
+    0% {
+        left: 80%;
+    }
+
+    100% {
+        left: 50%;
+    }
 }
 
 @keyframes walkToCenter11 {
-    0% { left: 80%; }
-    100% { left: 50%; }
+    0% {
+        left: 80%;
+    }
+
+    100% {
+        left: 50%;
+    }
 }
 
 @keyframes walkToCenter12 {
-    0% { left: 80%; }
-    100% { left: 50%; }
+    0% {
+        left: 80%;
+    }
+
+    100% {
+        left: 50%;
+    }
 }
 
 @keyframes walkToCenter13 {
-    0% { left: 80%; }
-    100% { left: 50%; }
+    0% {
+        left: 80%;
+    }
+
+    100% {
+        left: 50%;
+    }
 }
 
 .Slime-walk0,
@@ -715,15 +878,15 @@ body {
     cursor: pointer;
 }
 
-/* Hover effect for buttons */
-.popup button:hover {
-    background-color: #0056b3;
-}
+    /* Hover effect for buttons */
+    .popup button:hover {
+        background-color: #0056b3;
+    }
 
 /* Style for popup text */
 .popup p {
-	font-family: Poppins;
-	color: white;
+    font-family: Poppins;
+    color: white;
     font-size: 18px;
     margin-bottom: 20px;
 }
@@ -740,7 +903,7 @@ body {
 }
 
 .popup-message {
-	font-family: Poppins;
+    font-family: Poppins;
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
     padding: 10px 20px;
@@ -750,15 +913,24 @@ body {
 }
 
 @keyframes fadeOut {
-    0% { opacity: 1; }
-    80% { opacity: 1; }
-    100% { opacity: 0; }
+    0% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 .fade-out {
     opacity: 0;
     transition: opacity 1s ease-out;
 }
+
 .hidden {
     visibility: hidden;
 }
@@ -777,7 +949,7 @@ body {
 }
 
 #timerText {
-	font-family: Poppins;
+    font-family: Poppins;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -785,7 +957,7 @@ body {
     font-size: 20px;
     font-weight: bold;
     color: black;
-	z-index: 10;
+    z-index: 10;
 }
 
 svg {
@@ -794,41 +966,41 @@ svg {
     left: 0;
     width: 100%;
     height: 100%;
-    transform: rotate(-90deg); 
+    transform: rotate(-90deg);
 }
 
-svg circle {
-    fill: white;
-    stroke: #4caf50; 
-    stroke-width: 10;
-    stroke-dasharray: 283; 
-    stroke-dashoffset: 0;
-    transition: stroke-dashoffset 1s linear;
-}
+    svg circle {
+        fill: white;
+        stroke: #4caf50;
+        stroke-width: 10;
+        stroke-dasharray: 283;
+        stroke-dashoffset: 0;
+        transition: stroke-dashoffset 1s linear;
+    }
 
 /* Media Queries */
 @media (max-width: 768px) {
-	body{
-		background-size: cover;
-		background-position: center;
-	}
-	
+    body {
+        background-size: cover;
+        background-position: center;
+    }
+
     .land {
         height: 810px; /* Further adjust frame height for very small screens */
         background-size: 100% 18630px; /* Adjust to fit the sprite sheet */
     }
-    
+
     .Slime-walk0, .Slime-walk1, .Slime-walk2, .Slime-walk3, .Slime-walk4, .Slime-walk5, .Slime-walk6, .Slime-walk7, .Slime-walk8, .Slime-walk9, .Slime-walk10, .Slime-walk11, .Slime-walk12, .Slime-walk13 {
         width: 150px;
-		height: 100px;
+        height: 100px;
         top: 73%;
-		left: 29%;
-        background-size: 150px 1260px;/* Adjust for smaller screens */ /* Adjust for very small screens */
+        left: 29%;
+        background-size: 150px 1260px; /* Adjust for smaller screens */ /* Adjust for very small screens */
     }
-	
-	.IceQueen-walk {
+
+    .IceQueen-walk {
         width: 1244px;
-		height: 245px;
+        height: 245px;
         left: 100%;
         top: 50%;
     }
@@ -841,8 +1013,8 @@ svg circle {
     }
 
     .IceQueen-attack {
-        width: 894px; 
-		height: 312px;
+        width: 894px;
+        height: 312px;
         top: 20%;
         left: 80%;
     }
@@ -882,12 +1054,12 @@ svg circle {
     }
 
     #heartsContainer {
-		top: 90%; /* Adjust top margin for tablets */
+        top: 90%; /* Adjust top margin for tablets */
         left: 50px; /* Adjust right margin for tablets */
         width: 20px;
         height: 20px;
     }
-    
+
     #hintButton {
         bottom: 15px;
         right: 15px;
@@ -899,212 +1071,181 @@ svg circle {
         width: 90%;
         padding: 15px;
     }
-	
-	.popup {
+
+    .popup {
         width: 90%;
         max-width: 350px;
     }
 
-    .popup button {
-        width: calc(50% - 15px);
-    }
+        .popup button {
+            width: calc(50% - 15px);
+        }
 }
 
 
 @media (max-width: 480px) {
-	body{
-		background-size: cover;
-		background-position: center;
-	}
-	
+    body {
+        background-size: cover;
+        background-position: center;
+    }
+
     .land {
         height: 810px; /* Further adjust frame height for very small screens */
         background-size: 200% 18630px; /* Adjust to fit the sprite sheet */
     }
 
     .Slime-walk0, .Slime-walk1, .Slime-walk2, .Slime-walk3, .Slime-walk4, .Slime-walk5, .Slime-walk6, .Slime-walk7, .Slime-walk8, .Slime-walk9, .Slime-walk10, .Slime-walk11, .Slime-walk12, .Slime-walk13 {
-        width: calc(150px / 2);
-        height: calc(100px / 2);
-        top: 77%;
-        left: 40%;
-        background-size: calc(150px / 2) calc(1260px / 2);
-    }
-
-    .animateSlimeWalk0 {
-        visibility: visible;
-        opacity: 1;
-        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter0 5s linear forwards;
-    }
-
-    @keyframes slimeWalk0 {
-        0% {
-            background-position: 0 0;
-        }
-
-        100% {
-            background-position: 0 calc(-1260px / 2);
-        }
+        width: 150px;
+        height: 100px;
+        top: 75%;
+        left: 29%;
+        background-size: 150px 1260px; /* Adjust for smaller screens */ /* Adjust for very small screens */
     }
 
     /* Keyframes for the horizontal movement animation */
     @keyframes walkToCenter0 {
-        UNTIL WALKTOCENTER13 0% {
-            left: 70%;
-        }
-
-        100% {
-            left: 55%;
-        }
-    }
-
-
-    .LavaPrince-walk {
-        width: calc(1244px / 1.8); /* Scale down width */
-        height: calc(245px / 1.8); /* Scale down height */
-        left: 26%;
-        top: 65%;
-        transform: translateX(-50%);
-        background-size: calc(1244px / 1.8) calc(13786px / 1.8); /* Adjust background size */
-    }
-
-    .animateWalk1 {
-        animation: animateWalk1 2.5s steps(61); /* Keep animation settings */
-    }
-
-    @keyframes animateWalk1 {
         0% {
-            background-position: 0 0;
+            left: 40%;
         }
 
         100% {
-            background-position: 0 calc(-13786px / 1.8);
+            left: 10%;
         }
-        /* Adjust Y-axis movement */
     }
 
-    .LavaPrince-idle {
-        width: calc(250px / 1.8); /* Scale down width */
-        height: calc(350px / 1.8); /* Scale down height */
-        top: 60%;
-        left: 75%;
-        transform: translateX(-50%);
-        background-size: calc(250px / 1.8) calc(10000px / 1.8); /* Adjust background size */
-    }
-
-    .animateIdle1 {
-        animation: animateIdle1 1s steps(30) 5 alternate; /* Keep animation settings */
-    }
-
-    @keyframes animateIdle1 {
+    @keyframes walkToCenter1 {
         0% {
-            background-position: 0 0;
+            left: 40%;
         }
 
         100% {
-            background-position: 0 calc(-10000px / 1.8);
+            left: 20%;
         }
-        /* Adjust Y-axis movement */
     }
 
-    .LavaPrince-attack {
-        width: calc(1274px / 1.8); /* Scale down width */
-        height: calc(580px / 1.8); /* Scale down height */
-        top: 75%;
-        left: 25%;
-        transform: translate(-50%, -50%) scaleX(-1);
-        background-size: calc(1274px / 1.8) calc(46400px / 1.8); /* Adjust background size */
-    }
-
-    .animateAttack1 {
-        animation: animateAttack1 2s steps(80) infinite; /* Keep animation settings */
-    }
-
-    @keyframes animateAttack1 {
+    @keyframes walkToCenter2 {
         0% {
-            background-position: 0 0;
+            left: 40%;
         }
 
         100% {
-            background-position: 0 calc(-46400px / 1.8);
+            left: 20%;
         }
-        /* Adjust Y-axis movement */
     }
 
+    @keyframes walkToCenter3 {
+        0% {
+            left: 40%;
+        }
 
-/* Keyframes for the horizontal movement animation */
-@keyframes walkToCenter0 {
-    0% { left: 40%; }
-    100% { left: 10%; }
-}
+        100% {
+            left: 20%;
+        }
+    }
 
-@keyframes walkToCenter1 {
-    0% { left: 40%; }
-    100% { left: 20%; }
-}
+    @keyframes walkToCenter4 {
+        0% {
+            left: 40%;
+        }
 
-@keyframes walkToCenter2 {
-    0% { left: 40%; }
-    100% { left: 20%; }
-}
+        100% {
+            left: 20%;
+        }
+    }
 
-@keyframes walkToCenter3 {
-    0% { left: 40%; }
-    100% { left: 20%; }
-}
+    @keyframes walkToCenter5 {
+        0% {
+            left: 40%;
+        }
 
-@keyframes walkToCenter4 {
-    0% { left: 40%; }
-    100% { left: 20%; }
-}
+        100% {
+            left: 20%;
+        }
+    }
 
-@keyframes walkToCenter5 {
-    0% { left: 40%; }
-    100% { left: 20%; }
-}
+    @keyframes walkToCenter6 {
+        0% {
+            left: 40%;
+        }
 
-@keyframes walkToCenter6 {
-    0% { left: 40%; }
-    100% { left: 20%; }
-}
+        100% {
+            left: 20%;
+        }
+    }
 
-@keyframes walkToCenter7 {
-    0% { left: 40%; }
-    100% { left: 20%; }
-}
+    @keyframes walkToCenter7 {
+        0% {
+            left: 40%;
+        }
 
-@keyframes walkToCenter8 {
-    0% { left: 40%; }
-    100% { left: 20%; }
-}
+        100% {
+            left: 20%;
+        }
+    }
 
-@keyframes walkToCenter9 {
-    0% { left: 40%; }
-    100% { left: 20%; }
-}
+    @keyframes walkToCenter8 {
+        0% {
+            left: 40%;
+        }
 
-@keyframes walkToCenter10 {
-    0% { left: 40%; }
-    100% { left: 20%; }
-}
+        100% {
+            left: 20%;
+        }
+    }
 
-@keyframes walkToCenter11 {
-    0% { left: 40%; }
-    100% { left: 20%; }
-}
+    @keyframes walkToCenter9 {
+        0% {
+            left: 40%;
+        }
 
-@keyframes walkToCenter12 {
-    0% { left: 40%; }
-    100% { left: 20%; }
-}
+        100% {
+            left: 20%;
+        }
+    }
 
-@keyframes walkToCenter13 {
-    0% { left: 40%; }
-    100% { left: 20%; }
-}
+    @keyframes walkToCenter10 {
+        0% {
+            left: 40%;
+        }
 
-	.IceQueen-walk {
+        100% {
+            left: 20%;
+        }
+    }
+
+    @keyframes walkToCenter11 {
+        0% {
+            left: 40%;
+        }
+
+        100% {
+            left: 20%;
+        }
+    }
+
+    @keyframes walkToCenter12 {
+        0% {
+            left: 40%;
+        }
+
+        100% {
+            left: 20%;
+        }
+    }
+
+    @keyframes walkToCenter13 {
+        0% {
+            left: 40%;
+        }
+
+        100% {
+            left: 20%;
+        }
+    }
+
+    .IceQueen-walk {
         width: 1244px;
-		height: 245px;
+        height: 245px;
         left: 90%;
         top: 50%;
     }
@@ -1144,55 +1285,55 @@ svg circle {
     #slidingDiv {
         width: 100%;
         max-width: 400px;
-		z-index: 10;
+        z-index: 10;
     }
 
     .coins-container {
-    display: flex;
-    flex-direction: column; /* Aligns all children vertically */
-    align-items: center; /* Centers content horizontally */
-    gap: 10px; /* Adds space between each `.coin` and `.point-box` */
-}
+        display: flex;
+        flex-direction: column; /* Aligns all children vertically */
+        align-items: center; /* Centers content horizontally */
+        gap: 10px; /* Adds space between each `.coin` and `.point-box` */
+    }
 
-.coin {
-    display: flex;
-    align-items: center; /* Vertically aligns `.coin-image` and `.coin-count` */
-    gap: 5px; /* Adds space between `.coin-image` and `.coin-count` */
-}
+    .coin {
+        display: flex;
+        align-items: center; /* Vertically aligns `.coin-image` and `.coin-count` */
+        gap: 5px; /* Adds space between `.coin-image` and `.coin-count` */
+    }
 
-.coin-image {
-    width: 40px;
-    height: 40px;
-}
+    .coin-image {
+        width: 40px;
+        height: 40px;
+    }
 
-.coin-count {
-    min-width: 70px;
-    height: 30px;
-    font-size: 14px;
-    display: flex;
-    align-items: center; /* Vertically centers text */
-    justify-content: center; /* Horizontally centers text */
-}
+    .coin-count {
+        min-width: 70px;
+        height: 30px;
+        font-size: 14px;
+        display: flex;
+        align-items: center; /* Vertically centers text */
+        justify-content: center; /* Horizontally centers text */
+    }
 
-.point-box {
-    font-size: 14px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Vertically centers text */
-    min-width: 100px; /* Optional: adjust width to fit content */
-    height: 50px; /* Optional: adjust height to fit content */
-	padding: 5px;
-}
+    .point-box {
+        font-size: 14px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center; /* Vertically centers text */
+        min-width: 100px; /* Optional: adjust width to fit content */
+        height: 50px; /* Optional: adjust height to fit content */
+        padding: 5px;
+    }
 
 
     #heartsContainer {
-		top: 90%; /* Adjust top margin for tablets */
+        top: 90%; /* Adjust top margin for tablets */
         left: 50px; /* Adjust right margin for tablets */
         width: 20px;
         height: 20px;
     }
-    
+
     #hintButton {
         bottom: 10px;
         right: 10px;
@@ -1204,19 +1345,19 @@ svg circle {
         width: 100%;
         padding: 10px;
     }
-	
-	.popup {
+
+    .popup {
         width: 95%;
         max-width: 300px;
         padding: 15px;
     }
 
-    .popup p {
-        font-size: 16px;
-    }
+        .popup p {
+            font-size: 16px;
+        }
 
-    .popup button {
-        width: calc(50% - 10px);
-        padding: 8px 15px;
-    }
+        .popup button {
+            width: calc(50% - 10px);
+            padding: 8px 15px;
+        }
 }

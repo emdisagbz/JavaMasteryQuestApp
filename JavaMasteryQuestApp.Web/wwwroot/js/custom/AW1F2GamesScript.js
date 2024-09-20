@@ -41,7 +41,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const GRangerIdle = document.querySelector(".GRanger-idle");
     const GRangerAttack = document.querySelector(".GRanger-attack");
 
-	
+    const moduleContent = document.getElementById('moduleContent');
+    const preloadIframe = document.getElementById('preloadIframe');
+
     let currentQuestionIndex = 0;
     let silverCoins = localStorage.getItem("silverCoins") ? parseInt(localStorage.getItem("silverCoins")) : 0;
     let goldCoins = localStorage.getItem("goldCoins") ? parseInt(localStorage.getItem("goldCoins")) : 0;
@@ -817,7 +819,8 @@ restartButton.addEventListener("click", restartGame);
 		localStorage.setItem("AW1F2totalScore", AW1F2totalScore);
 	}
 
-    startButton.addEventListener("click", function() {
+    startButton.addEventListener("click", function () {
+        console.log("Start button clicked");
         startSequence();
         bookModule.disabled = true;
     });
@@ -828,9 +831,11 @@ restartButton.addEventListener("click", restartGame);
         displayQuestion();
     });
 
-    backButton.addEventListener("click", function() {
+    backButton.addEventListener("click", function () {
+        console.log("Back button clicked");
         window.location.href = '/Capstone/AW1P1Floor';
     });
+
 
     submitAnswerButton.addEventListener("click", function() {
         checkAnswer();
