@@ -6,6 +6,7 @@ body {
     color: #eee;
     font-family: Poppins;
     font-size: 12px;
+    overflow:hidden;
 }
 
 a {
@@ -15,7 +16,7 @@ a {
 #detailsModal {
     font-family: Poppins;
     display: none;
-    position: fixed;
+    position: center;
     left: 0;
     top: 0;
     width: 100%;
@@ -339,7 +340,7 @@ h2 {
     height: 100vh; /* Full viewport height */
     width: 100vw; /* Full viewport width */
     overflow: hidden; /* Hides anything outside this container */
-    position: relative;
+    position: center;
 }
 
     .world-container .list .item {
@@ -756,7 +757,7 @@ a {
     font-family: Poppins;
     font-size: 15px;
     color: black;
-    position: absolute; /* Position absolutely relative to their parent */
+    position: inherit; /* Position absolutely relative to their parent */
     bottom: 50px; /* Distance from the bottom of their parent */
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Center horizontally */

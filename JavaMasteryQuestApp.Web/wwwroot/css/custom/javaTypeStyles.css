@@ -1,21 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
 body, html {
     margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
+    width: 100%;
+    height: 100%;
     overflow: hidden; /* Prevents any scrolling which might expose background edges */
 }
 
 .split-container {
-    position: relative;
-    width: 100%;
+    display: flex;
+    width: 100vw;
     height: 100vh; /* Uses the full height of the viewport */
+    overflow: hidden;
 }
 
 .left-half, .right-half {
     position: absolute;
     top: 0;
-    width: 50%; /* Cover the full width to ensure no gaps */
-    height: 100%;
+    width: 50vw; /* Cover the full width to ensure no gaps */
+    height: 100vh;
     display: flex;
     align-items: center; /* Centers content vertically within each half */
     color: white;
@@ -83,16 +89,16 @@ a:hover {
     padding: 15px; /* Adjust padding to fit within the width */
     font-size: 20px;
     color: white;
-    background: linear-gradient(to right, #007bff 0%, #007bff 0%, rgba(0, 123, 255, 0) 75%);
+    background: linear-gradient(to right, #007bff 30%, #007bff 20%, rgba(0, 123, 255, 0) 75%);
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
     #backButton::before {
         content: "";
-        background-image: url(~/image/Custom/back.png); /* Replace 'your-image-url.jpg' with the URL of your image */
+        background-image: url(/image/Custom/back.png); /* Replace 'your-image-url.jpg' with the URL of your image */
         background-size: cover;
         background-position: center;
         position: absolute;
