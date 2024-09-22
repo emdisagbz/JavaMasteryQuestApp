@@ -418,8 +418,19 @@ namespace JavaMasteryQuestApp.Web.Controllers
         {
             return View();
         }
-        #endregion
-
-    }
+		#endregion
+		#region BW2Part
+		public IActionResult BW2Part()
+		{
+			return View();
+		}
+		#endregion
+		#region BW3Part
+		public IActionResult BW3Part()
+		{
+			return View();
+		}
+		#endregion
+	}
 }
 

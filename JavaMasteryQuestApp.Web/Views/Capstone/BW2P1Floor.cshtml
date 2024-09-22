@@ -21,9 +21,9 @@
             <h2>Instructions</h2>
             <h4 id="floorTitle"></h4>
             <ol>
-                <li><b>Question Types:</b> There are 3 types (Identification, Multiple Choice, Complete the Code) with different point values (3, 2, 5 points each).</li>
-                <li><b>Time Limits:</b> Each question type has a time limit (15 seconds, 10 seconds, 45 seconds).</li>
-                <li><b>Lives:</b> You get 3 tries per question. Lose all 3 tries, lose 1 point.</li>
+                <li><b>Question Types:</b> There are 2 types (5-Identifications and 10-Multiple Choices) with different point values (3 and 2 points each total of 35).</li>
+                <li><b>Time Limits:</b> Finish all questions within 10 Minutes.</li>
+                <li><b>Lives:</b> You get 3 tries per question. Lose all 3 tries you'll' lose 1 point.</li>
                 <li><b>Hints:</b> Get 3 hints per question. 1st hint is free, 2nd & 3rd cost 100 silver coins.</li>
                 <li><b>Rewards:</b> Earn 100 silver coins for each correct answer and 100 gold coins for finishing this floor.</li>
             </ol>
@@ -34,6 +34,31 @@
         </div>
     </div>
 
-    <script src="~/js/custom/BW2P1FloorScript.js"></script>
+   
+<script>
+        function openModal(level) {
+        document.getElementById("modal").style.display = "block";
+        updateFloorTitle(level);
+    }
+
+    function updateFloorTitle(level) {
+        let title = "Input and Output";
+        document.getElementById("floorTitle").textContent = title;
+    }
+
+    document.getElementById("goButton").addEventListener("click", function () {
+        let url = '/Capstone/BW2P1F1Games';
+        window.location.href = url;
+    });
+
+    document.getElementById("closeButton").addEventListener("click", function () {
+        document.getElementById("modal").style.display = "none";
+    });
+
+    document.getElementById("backButton").addEventListener("click", function () {
+        window.location.href = '/Capstone/BW2Part'; // Change this to the appropriate URL
+    });
+
+	</script>
 </body>
 </html>

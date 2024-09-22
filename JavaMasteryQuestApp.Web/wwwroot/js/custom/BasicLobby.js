@@ -286,6 +286,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.getElementById('openDiv2').addEventListener('click', function () {
     document.getElementById('Bslide2').style.right = '0'; // Bring the modal into view
+
 });
 
 // Optional: close modal when clicking outside the modal content (advanced behavior)

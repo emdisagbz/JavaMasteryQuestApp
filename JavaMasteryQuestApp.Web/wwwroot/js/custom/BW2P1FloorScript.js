@@ -9,7 +9,7 @@ function updateFloorTitle(level) {
 }
 
 document.getElementById("goButton").addEventListener("click", function () {
-    let url = "'Capstone/BW2P1F1Games';
+    let url = '/Capstone/BW2P1F1Games';
     window.location.href = url;
 });
 

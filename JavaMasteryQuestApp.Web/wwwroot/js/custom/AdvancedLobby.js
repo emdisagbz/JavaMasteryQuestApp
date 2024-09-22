@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const freeCoinsButton = document.getElementById("freeCoins");
 
     freeCoinsButton.addEventListener("click", function () {
-        window.location.href = 'Capstone/AfreeCoins';
+        window.location.href = '/Capstone/AfreeCoins';
     });
 });
 
@@ -261,7 +261,7 @@ window.onload = function () {
 };
 
 function logout() {
-    window.location.href = '/Capstone/Home.html'; // Redirects to Homepage.html
+    window.location.href = '/Capstone/Home'; // Redirects to Homepage.html
 }
 
 
@@ -396,7 +396,7 @@ function hideModal() {
 
 function logout() {
     // Add logout functionality here
-    window.location.href = "Home.html";
+    window.location.href = '/Capstone/Home';
 }
 
 window.onclick = function (event) {

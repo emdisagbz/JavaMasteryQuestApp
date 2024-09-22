@@ -62,6 +62,7 @@ body {
     opacity: 0; /* Initially hidden */
     transition: opacity 1s; /* Fade-in effect */
 }
+
 .card {
     width: 170px;
     height: 250px;
@@ -534,3 +535,4 @@ body {
             justify-content: center; /* Horizontally centers text */
         }
     }
+}
