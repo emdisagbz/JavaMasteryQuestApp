@@ -29,7 +29,7 @@ body, html {
 
 .left-half {
     left: 0;
-	background: url(/image/custom/BNW_left.jpg);
+	background: url(/image/Custom/BNW_left.jpg);
     background-size: cover;
     background-position: left center; /* Focus the image to the left */
     background-repeat: no-repeat; /* Ensures the image does not repeat */
@@ -39,7 +39,7 @@ body, html {
 
 .right-half {
     right: 0;
-    background: url(/image/custom/BNW_right.jpg);
+    background: url(/image/Custom/BNW_right.jpg);
     background-size: cover;
     background-position: right center; /* Focus the image to the right */
     background-repeat: no-repeat; /* Ensures the image does not repeat */
