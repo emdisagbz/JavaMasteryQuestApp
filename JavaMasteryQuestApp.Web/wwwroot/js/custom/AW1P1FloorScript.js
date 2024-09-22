@@ -44,7 +44,7 @@ document.getElementById("goButton").addEventListener("click", function() {
             url = '/Capstone/AW1F3Games';
             break;
         case 4:
-            url = 'A/Capstone/W1F4Games';
+            url = '/Capstone/AW1F4Games';
             break;
         case 5:
             url = '/Capstone/AW1F5Games';
