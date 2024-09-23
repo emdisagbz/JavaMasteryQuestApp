@@ -16,7 +16,7 @@ a {
 #detailsModal {
     font-family: Poppins;
     display: none;
-    position: center;
+    position: fixed;
     left: 0;
     top: 0;
     width: 100%;
@@ -751,6 +751,7 @@ a {
     height: 600px;
     background-color: rgba(255, 255, 255, 0.5);
     text-align: center;
+    padding: 20px;
 }
 
 .Bslide1-button, .Bslide2-button, .Bslide3-button {

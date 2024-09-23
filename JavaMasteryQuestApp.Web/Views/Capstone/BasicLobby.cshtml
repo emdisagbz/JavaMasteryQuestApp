@@ -3,7 +3,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Basic Java Lobby</title>
-	<link rel="stylesheet" href="~/css/custom/BasicLobby.css">
+	<link rel="stylesheet" href="@Url.Content("~/css/custom/BasicLobby.css")">
 </head>
 <body>
 	<div class="world-container">
@@ -324,10 +324,10 @@
 	
 
 	<button id="freeCoins">
-		<img src="~/image/Custom/freeCoins.png" class="freeCoins-image">
+		<img src="@Url.Content("~/image/Custom/freeCoins.png")" class="freeCoins-image">
 		<span class="hover-text">Free Coins</span>
 	</button>
  
-	<script src="~/js/custom/BasicLobby.js"></script>
+	<script src="@Url.Content("~/js/custom/BasicLobby.js")"></script>
 </body>
 

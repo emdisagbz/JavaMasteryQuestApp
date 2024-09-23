@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Updated Gold and Silver Coins
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
     const silverCount = document.getElementById("silverCount");
     const goldCount = document.getElementById("goldCount");
 
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Free Coins
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
     const freeCoinsButton = document.getElementById("freeCoins");
 
     freeCoinsButton.addEventListener("click", function () {
@@ -506,7 +506,7 @@ function showRecords() {
 }
 
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
     const worlds = [
         { id: 'world-1', floors: 3 },
         { id: 'world-2', floors: 3 },

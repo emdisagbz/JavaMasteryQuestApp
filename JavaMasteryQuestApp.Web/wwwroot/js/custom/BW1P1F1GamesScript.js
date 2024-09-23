@@ -2,6 +2,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const startButton = document.getElementById("startButton");
     const goButton = document.getElementById("goButton");
     const backButton = document.getElementById("backButton");
+    const bookModule = document.getElementById("bookModule");
+    const slidingDiv = document.getElementById('slidingDiv');
+    const preloadIframe = document.getElementById('preloadIframe');
+    const moduleContent = document.getElementById('moduleContent');
     const gameContainer = document.getElementById("gameContainer");
     const questionContainer = document.getElementById("questionContainer");
     const submitAnswerButton = document.getElementById("submitAnswer");
@@ -915,18 +919,18 @@ function checkAnswer() {
 		localStorage.setItem("BW1F1totalScore", BW1F1totalScore);
 	}
 
-    startButton.addEventListener("click", function() {
+    startButton.addEventListener("click" , function() {
         startSequence();
         bookModule.disabled = true;
     });
 
-    goButton.addEventListener("click", function() {
-        gameContainer.classList.remove("hidden");
+    goButton.addEventListener("click" , function() {
+        document.getElementById('gameContainer').classList.remove("hidden");
         goButton.classList.add("hidden");
         displayQuestion();
     });
 
-    document.getElementById("backButton").addEventListener("click", function () {
+    backButton.addEventListener("click", function () {
         window.location.href = '/Capstone/BW1P1Floor'; // Change this to the appropriate URL
     });
 
@@ -940,19 +944,22 @@ function checkAnswer() {
         showHint();
     });
 	
-document.getElementById('bookModule').addEventListener('click', function(event) {
+bookModule.addEventListener('click', function(event) {
     console.log('bookModule button clicked');
 
-    const slidingDiv = document.getElementById('slidingDiv');
     slidingDiv.classList.toggle('visible');
     slidingDiv.classList.toggle('hidden');
 
-    const moduleContent = document.getElementById('moduleContent');
-    const preloadIframe = document.getElementById('preloadIframe');
-    moduleContent.innerHTML = ''; // Clear any existing content
-    moduleContent.appendChild(preloadIframe); // Move the preloaded iframe to moduleContent
-    preloadIframe.style.display = 'block'; // Make sure the iframe is visible
-    console.log('Preloaded PDF iframe added to moduleContent');
+    if (slidingDiv.classList.contains('visible')) {
+        preloadIframe.style.display = 'block'; // Show the iframe
+    } else {
+        preloadIframe.style.display = 'none'; // Hide the iframe
+    }
+
+    //moduleContent.innerHTML = ''; // Clear any existing content
+   // moduleContent.appendChild(preloadIframe); // Move the preloaded iframe to moduleContent
+   // preloadIframe.style.display = 'block'; // Make sure the iframe is visible
+    
 
     const windowWidth = window.innerWidth;
     const slidingDivWidth = slidingDiv.offsetWidth;
@@ -960,7 +967,7 @@ document.getElementById('bookModule').addEventListener('click', function(event) 
 
     slidingDiv.style.left = leftPosition + 'px';
     slidingDiv.style.height = '90vh';
-
+    console.log('Preloaded PDF iframe added to moduleContent');
     event.stopPropagation(); // Prevent the click event from propagating to the document
 });
 
@@ -969,12 +976,8 @@ document.addEventListener('click', function(event) {
     if (!slidingDiv.contains(event.target) && event.target.id !== 'bookModule') {
         slidingDiv.classList.add('hidden');
         slidingDiv.classList.remove('visible');
-        const moduleContent = document.getElementById('moduleContent');
-        const preloadIframe = document.getElementById('preloadIframe');
-        // Move the iframe back to its hidden container to keep it preloaded
         preloadIframe.style.display = 'none';
-        document.body.appendChild(preloadIframe);
-        console.log('Sliding div hidden and moduleContent cleared');
+        
     }
 });
 	

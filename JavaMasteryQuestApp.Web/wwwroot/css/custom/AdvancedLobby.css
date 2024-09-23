@@ -16,7 +16,7 @@ a {
 #detailsModal {
     font-family: Poppins;
     display: none;
-    position: center;
+    position: fixed;
     left: 0;
     top: 0;
     width: 100%;
