@@ -503,7 +503,7 @@
                 goldCoins += 100;
                 updateCoinAndPointCount();
                 showPopupMessage("You got 100 gold coins for Completing this Floor!");
-
+                stopTimer();
                 const answeredAllQuestions = JSON.stringify(answeredQuestions.sort()) === JSON.stringify(Array.from({ length: randomQuestions.length }, (_, i) => i).sort());
                 console.log("answeredAllQuestions: ", answeredAllQuestions);
                 if (answeredAllQuestions) localStorage.setItem("AW1Completed", "true");

@@ -584,8 +584,6 @@ restartButton.addEventListener("click", restartGame);
 
     const startButtonClicked = new Array(randomQuestions.length).fill(false);
 
-START SEQUENCE
-
     function startSequence() {
         // Check if the start button has not been clicked for the current question index
         if (!startButtonClicked[currentQuestionIndex]) {

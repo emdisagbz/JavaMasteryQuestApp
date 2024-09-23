@@ -308,7 +308,7 @@ document.addEventListener("DOMContentLoaded", function() {
             hints: [
                 "Hint 1: This method compares based on Unicode values of characters.",
                 "Hint 2: It returns an integer value indicating the result of the comparison.",
-                "Hint 3: The method name suggests it "compares" something."
+                "Hint 3: The method name suggests it 'compares' something."
             ]
         }
 

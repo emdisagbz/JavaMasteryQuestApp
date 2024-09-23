@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const startButton = document.getElementById("startButton");
     const goButton = document.getElementById("goButton");
     const backButton = document.getElementById("backButton");
@@ -21,30 +21,34 @@ document.addEventListener("DOMContentLoaded", function() {
     const SlimeWalk1 = document.querySelector(".Slime-walk1");
     const SlimeWalk2 = document.querySelector(".Slime-walk2");
     const SlimeWalk3 = document.querySelector(".Slime-walk3");
-	const SlimeWalk4 = document.querySelector(".Slime-walk4");
+    const SlimeWalk4 = document.querySelector(".Slime-walk4");
     const SlimeWalk5 = document.querySelector(".Slime-walk5");
     const SlimeWalk6 = document.querySelector(".Slime-walk6");
-	const SlimeWalk7 = document.querySelector(".Slime-walk7");
-	const SlimeWalk8 = document.querySelector(".Slime-walk8");
+    const SlimeWalk7 = document.querySelector(".Slime-walk7");
+    const SlimeWalk8 = document.querySelector(".Slime-walk8");
     const SlimeWalk9 = document.querySelector(".Slime-walk9");
     const SlimeWalk10 = document.querySelector(".Slime-walk10");
-	const SlimeWalk11 = document.querySelector(".Slime-walk11");
+    const SlimeWalk11 = document.querySelector(".Slime-walk11");
     const SlimeWalk12 = document.querySelector(".Slime-walk12");
     const SlimeWalk13 = document.querySelector(".Slime-walk13");
     const popupContainer = document.getElementById("popupContainer");
     const heartsContainer = document.getElementById("heartsContainer");
     const hintButton = document.getElementById("hintButton");
-	const lostPopup = document.getElementById("lostPopup");
+    const lostPopup = document.getElementById("lostPopup");
     const restartButton = document.getElementById("restartButton");
-	
-	const finishButton = document.getElementById("finishButton");
+
+    const finishButton = document.getElementById("finishButton");
     const finishPopup = document.getElementById("finishPopup");
     const confirmFinishButton = document.getElementById("confirmFinishButton");
     const cancelFinishButton = document.getElementById("cancelFinishButton");
+
     const GRangerWalk = document.querySelector(".GRanger-walk");
     const GRangerIdle = document.querySelector(".GRanger-idle");
     const GRangerAttack = document.querySelector(".GRanger-attack");
-
+    // Initially display the idle animation BEFORE QUESTIONS
+    GRangerIdle.style.visibility = "visible";
+    GRangerIdle.style.opacity = "1";
+  
 	
     let currentQuestionIndex = 0;
     let silverCoins = localStorage.getItem("silverCoins") ? parseInt(localStorage.getItem("silverCoins")) : 0;
@@ -60,10 +64,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	
     updateCoinAndPointCount();
     updateHearts(); // Initialize hearts display
-    // Initially display the idle animation BEFORE QUESTIONS
-    GRangerIdle.style.visibility = "visible";
-    GRangerIdle.style.opacity = "1";
-
+    
     const questions = [
         {
             type: "Identification",
@@ -621,7 +622,7 @@ function checkAnswer() {
             goldCoins += 100;
             updateCoinAndPointCount();
             showPopupMessage("You got 100 gold coins for Completing this Floor!");
-
+            stopTimer();
             const answeredAllQuestions = JSON.stringify(answeredQuestions.sort()) === JSON.stringify(Array.from({ length: randomQuestions.length }, (_, i) => i).sort());
             console.log("answeredAllQuestions: ", answeredAllQuestions);
             if (answeredAllQuestions) localStorage.setItem("AW1Completed", "true");
@@ -701,7 +702,6 @@ function checkAnswer() {
 
             const GRangerWalk = document.querySelector('.GRanger-walk');
             const land = document.querySelector('.land');
-
 
             // Hide idle and show walk animation
             GRangerIdle.style.visibility = "hidden";
@@ -919,7 +919,7 @@ function checkAnswer() {
 		localStorage.setItem("BW1F1totalScore", BW1F1totalScore);
 	}
 
-    startButton.addEventListener("click" , function() {
+    startButton.addEventListener("click", function () {
         startSequence();
         bookModule.disabled = true;
     });
@@ -946,19 +946,16 @@ function checkAnswer() {
 	
 bookModule.addEventListener('click', function(event) {
     console.log('bookModule button clicked');
-
+    const slidingDiv = document.getElementById('slidingDiv');
     slidingDiv.classList.toggle('visible');
     slidingDiv.classList.toggle('hidden');
 
-    if (slidingDiv.classList.contains('visible')) {
-        preloadIframe.style.display = 'block'; // Show the iframe
-    } else {
-        preloadIframe.style.display = 'none'; // Hide the iframe
-    }
-
-    //moduleContent.innerHTML = ''; // Clear any existing content
-   // moduleContent.appendChild(preloadIframe); // Move the preloaded iframe to moduleContent
-   // preloadIframe.style.display = 'block'; // Make sure the iframe is visible
+   
+    const moduleContent = document.getElementById('moduleContent');
+    const preloadIframe = document.getElementById('preloadIframe');
+    moduleContent.innerHTML = ''; // Clear any existing content
+    moduleContent.appendChild(preloadIframe); // Move the preloaded iframe to moduleContent
+    preloadIframe.style.display = 'block'; // Make sure the iframe is visible
     
 
     const windowWidth = window.innerWidth;
@@ -976,8 +973,12 @@ document.addEventListener('click', function(event) {
     if (!slidingDiv.contains(event.target) && event.target.id !== 'bookModule') {
         slidingDiv.classList.add('hidden');
         slidingDiv.classList.remove('visible');
+        const moduleContent = document.getElementById('moduleContent');
+        const preloadIframe = document.getElementById('preloadIframe');
+        // Move the iframe back to its hidden container to keep it preloaded
         preloadIframe.style.display = 'none';
-        
+        document.body.appendChild(preloadIframe);
+        console.log('Sliding div hidden and moduleContent cleared');
     }
 });
 	

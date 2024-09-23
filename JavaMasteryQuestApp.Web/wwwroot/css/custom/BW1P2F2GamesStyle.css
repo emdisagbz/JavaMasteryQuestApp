@@ -133,7 +133,7 @@ body {
     transform: translateX(-100%);
     top: 37%;
     left: 78%;
-    background-image: url(~/image/Custom/PB1.png); /* Replace with path to your sprite sheet */
+    background-image: url(/image/Custom/PB1.png); /* Replace with path to your sprite sheet */
     background-repeat: no-repeat;
     background-size: 250px 10000px; /* Adjust background size */
     visibility: hidden;
@@ -601,85 +601,85 @@ body {
 .animateSlimeWalk0 {
     visibility: visible;
     opacity: 1;
-    animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter0 5s linear forwards;
+    animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter0 1s linear forwards;
 }
 
 .animateSlimeWalk1 {
     visibility: visible;
     opacity: 1;
-    animation: slimeWalk1 0.7s steps(12) infinite, walkToCenter1 5s linear forwards;
+    animation: slimeWalk1 0.7s steps(12) infinite, walkToCenter1 1s linear forwards;
 }
 
 .animateSlimeWalk2 {
     visibility: visible;
     opacity: 1;
-    animation: slimeWalk2 0.7s steps(12) infinite, walkToCenter2 5s linear forwards;
+    animation: slimeWalk2 0.7s steps(12) infinite, walkToCenter2 1s linear forwards;
 }
 
 .animateSlimeWalk3 {
     visibility: visible;
     opacity: 1;
-    animation: slimeWalk3 0.7s steps(12) infinite, walkToCenter3 5s linear forwards;
+    animation: slimeWalk3 0.7s steps(12) infinite, walkToCenter3 1s linear forwards;
 }
 
 .animateSlimeWalk4 {
     visibility: visible;
     opacity: 1;
-    animation: slimeWalk4 0.7s steps(12) infinite, walkToCenter4 5s linear forwards;
+    animation: slimeWalk4 0.7s steps(12) infinite, walkToCenter4 1s linear forwards;
 }
 
 .animateSlimeWalk5 {
     visibility: visible;
     opacity: 1;
-    animation: slimeWalk5 0.7s steps(12) infinite, walkToCenter5 5s linear forwards;
+    animation: slimeWalk5 0.7s steps(12) infinite, walkToCenter5 1s linear forwards;
 }
 
 .animateSlimeWalk6 {
     visibility: visible;
     opacity: 1;
-    animation: slimeWalk6 0.7s steps(12) infinite, walkToCenter6 5s linear forwards;
+    animation: slimeWalk6 0.7s steps(12) infinite, walkToCenter6 1s linear forwards;
 }
 
 .animateSlimeWalk7 {
     visibility: visible;
     opacity: 1;
-    animation: slimeWalk7 0.7s steps(12) infinite, walkToCenter7 5s linear forwards;
+    animation: slimeWalk7 0.7s steps(12) infinite, walkToCenter7 1s linear forwards;
 }
 
 .animateSlimeWalk8 {
     visibility: visible;
     opacity: 1;
-    animation: slimeWalk8 0.7s steps(12) infinite, walkToCenter8 5s linear forwards;
+    animation: slimeWalk8 0.7s steps(12) infinite, walkToCenter8 1s linear forwards;
 }
 
 .animateSlimeWalk9 {
     visibility: visible;
     opacity: 1;
-    animation: slimeWalk9 0.7s steps(12) infinite, walkToCenter9 5s linear forwards;
+    animation: slimeWalk9 0.7s steps(12) infinite, walkToCenter9 1s linear forwards;
 }
 
 .animateSlimeWalk10 {
     visibility: visible;
     opacity: 1;
-    animation: slimeWalk10 0.7s steps(12) infinite, walkToCenter10 5s linear forwards;
+    animation: slimeWalk10 0.7s steps(12) infinite, walkToCenter10 1s linear forwards;
 }
 
 .animateSlimeWalk11 {
     visibility: visible;
     opacity: 1;
-    animation: slimeWalk11 0.7s steps(12) infinite, walkToCenter11 5s linear forwards;
+    animation: slimeWalk11 0.7s steps(12) infinite, walkToCenter11 1s linear forwards;
 }
 
 .animateSlimeWalk12 {
     visibility: visible;
     opacity: 1;
-    animation: slimeWalk12 0.7s steps(12) infinite, walkToCenter12 5s linear forwards;
+    animation: slimeWalk12 0.7s steps(12) infinite, walkToCenter12 1s linear forwards;
 }
 
 .animateSlimeWalk13 {
     visibility: visible;
     opacity: 1;
-    animation: slimeWalk13 0.7s steps(12) infinite, walkToCenter13 5s linear forwards;
+    animation: slimeWalk13 0.7s steps(12) infinite, walkToCenter13 1s linear forwards;
 }
 
 /* Style for the popup container */
@@ -928,8 +928,87 @@ svg circle {
     .animateSlimeWalk0 {
         visibility: visible;
         opacity: 1;
-        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter0 5s linear forwards;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter0 1s linear forwards;
     }
+
+    .animateSlimeWalk1 {
+        visibility: visible;
+        opacity: 1;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter1 1s linear forwards;
+    }
+
+    .animateSlimeWalk2 {
+        visibility: visible;
+        opacity: 1;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter2 1s linear forwards;
+    }
+
+    .animateSlimeWalk3 {
+        visibility: visible;
+        opacity: 1;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter3 1s linear forwards;
+    }
+
+    .animateSlimeWalk4 {
+        visibility: visible;
+        opacity: 1;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter4 1s linear forwards;
+    }
+
+    .animateSlimeWalk5 {
+        visibility: visible;
+        opacity: 1;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter5 1s linear forwards;
+    }
+
+    .animateSlimeWalk6 {
+        visibility: visible;
+        opacity: 1;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter6 1s linear forwards;
+    }
+
+    .animateSlimeWalk7 {
+        visibility: visible;
+        opacity: 1;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter7 1s linear forwards;
+    }
+
+    .animateSlimeWalk8 {
+        visibility: visible;
+        opacity: 1;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter8 1s linear forwards;
+    }
+
+    .animateSlimeWalk9 {
+        visibility: visible;
+        opacity: 1;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter9 1s linear forwards;
+    }
+
+    .animateSlimeWalk10 {
+        visibility: visible;
+        opacity: 1;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter10 1s linear forwards;
+    }
+
+    .animateSlimeWalk11 {
+        visibility: visible;
+        opacity: 1;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter11 1s linear forwards;
+    }
+
+    .animateSlimeWalk12 {
+        visibility: visible;
+        opacity: 1;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter12 1s linear forwards;
+    }
+
+    .animateSlimeWalk13 {
+        visibility: visible;
+        opacity: 1;
+        animation: slimeWalk0 0.7s steps(12) infinite, walkToCenter13 1s linear forwards;
+    }
+
 
     @keyframes slimeWalk0 {
         0% {
@@ -941,9 +1020,269 @@ svg circle {
         }
     }
 
+    @keyframes slimeWalk1 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-1260px / 2);
+        }
+    }
+
+    @keyframes slimeWalk2 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-1260px / 2);
+        }
+    }
+
+    @keyframes slimeWalk3 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-1260px / 2);
+        }
+    }
+
+    @keyframes slimeWalk4 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-1260px / 2);
+        }
+    }
+
+    @keyframes slimeWalk5 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-1260px / 2);
+        }
+    }
+
+    @keyframes slimeWalk6 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-1260px / 2);
+        }
+    }
+
+    @keyframes slimeWalk7 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-1260px / 2);
+        }
+    }
+
+    @keyframes slimeWalk8 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-1260px / 2);
+        }
+    }
+
+    @keyframes slimeWalk9 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-1260px / 2);
+        }
+    }
+
+    @keyframes slimeWalk10 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-1260px / 2);
+        }
+    }
+
+    @keyframes slimeWalk11 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-1260px / 2);
+        }
+    }
+
+    @keyframes slimeWalk12 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-1260px / 2);
+        }
+    }
+
+    @keyframes slimeWalk13 {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 0 calc(-1260px / 2);
+        }
+    }
+
     /* Keyframes for the horizontal movement animation */
     @keyframes walkToCenter0 {
-        UNTIL WALKTOCENTER13 0% {
+        0% {
+            left: 70%;
+        }
+
+        100% {
+            left: 55%;
+        }
+    }
+
+    @keyframes walkToCenter1 {
+        0% {
+            left: 70%;
+        }
+
+        100% {
+            left: 55%;
+        }
+    }
+
+    @keyframes walkToCenter2 {
+        0% {
+            left: 70%;
+        }
+
+        100% {
+            left: 55%;
+        }
+    }
+
+    @keyframes walkToCenter3 {
+        0% {
+            left: 70%;
+        }
+
+        100% {
+            left: 55%;
+        }
+    }
+
+    @keyframes walkToCenter4 {
+        0% {
+            left: 70%;
+        }
+
+        100% {
+            left: 55%;
+        }
+    }
+
+    @keyframes walkToCenter5 {
+        0% {
+            left: 70%;
+        }
+
+        100% {
+            left: 55%;
+        }
+    }
+
+    @keyframes walkToCenter6 {
+        0% {
+            left: 70%;
+        }
+
+        100% {
+            left: 55%;
+        }
+    }
+
+    @keyframes walkToCenter7 {
+        0% {
+            left: 70%;
+        }
+
+        100% {
+            left: 55%;
+        }
+    }
+
+    @keyframes walkToCenter8 {
+        0% {
+            left: 70%;
+        }
+
+        100% {
+            left: 55%;
+        }
+    }
+
+    @keyframes walkToCenter9 {
+        0% {
+            left: 70%;
+        }
+
+        100% {
+            left: 55%;
+        }
+    }
+
+    @keyframes walkToCenter10 {
+        0% {
+            left: 70%;
+        }
+
+        100% {
+            left: 55%;
+        }
+    }
+
+    @keyframes walkToCenter11 {
+        0% {
+            left: 70%;
+        }
+
+        100% {
+            left: 55%;
+        }
+    }
+
+    @keyframes walkToCenter12 {
+        0% {
+            left: 70%;
+        }
+
+        100% {
+            left: 55%;
+        }
+    }
+
+    @keyframes walkToCenter13 {
+        0% {
             left: 70%;
         }
 
@@ -1213,4 +1552,74 @@ svg circle {
         width: calc(50% - 10px);
         padding: 8px 15px;
     }
+}
+@keyframes character-walk {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 calc(-14400px/4);
+    }
+}
+
+@keyframes character-idle {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 calc(-27404px/3.5);
+    }
+}
+
+@keyframes character-attack {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 calc(-21172px/1.2);
+    }
+}
+
+.GRanger-walk {
+    background-image: url(/image/Custom/GRangerWalk.png);
+    width: calc(3186px/4);
+    height: calc(720px/4);
+    right: 50%;
+    bottom: 10%;
+    background-size: calc(3186px/4) calc(14400px/4);
+    animation: character-walk 1.5s steps(20) infinite;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    position: absolute;
+}
+
+.GRanger-idle {
+    background-image: url(/image/Custom/GRangerIdle.png);
+    width: calc(720px/3.5);
+    height: calc(884px/3.5);
+    left: 10%;
+    bottom: 7%;
+    background-size: calc(720px/3.5) calc(27404px/3.5);
+    animation: character-idle 2s steps(31) infinite;
+    transition: opacity 0.5s ease;
+    position: absolute;
+    opacity: 1;
+}
+
+.GRanger-attack {
+    background-image: url(/image/Custom/GRangerAttack.png);
+    width: calc(530px/1.2);
+    height: calc(316px/1.2);
+    left: 5%;
+    bottom: 8%;
+    background-size: calc(530px/1.2) calc(21172px/1.2);
+    animation: character-attack 1s steps(67) infinite;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    position: absolute;
 }

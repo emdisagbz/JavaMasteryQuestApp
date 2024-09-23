@@ -515,6 +515,7 @@ restartButton.addEventListener("click", restartGame);
             goldCoins += 100;
             updateCoinAndPointCount();
             showPopupMessage("You got 100 gold coins for Completing this Floor!");
+            stopTimer();
 
             const answeredAllQuestions = JSON.stringify(answeredQuestions.sort()) === JSON.stringify(Array.from({ length: randomQuestions.length }, (_, i) => i).sort());
             console.log("answeredAllQuestions: ", answeredAllQuestions);
@@ -826,7 +827,7 @@ restartButton.addEventListener("click", restartGame);
     });
 
     backButton.addEventListener("click", function() {
-        window.location.href = '/Capstone/AW1P2Floor.html';
+        window.location.href = '/Capstone/AW1P2Floor';
     });
 
     submitAnswerButton.addEventListener("click", function() {

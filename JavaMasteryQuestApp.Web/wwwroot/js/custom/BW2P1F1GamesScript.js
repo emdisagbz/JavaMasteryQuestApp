@@ -41,7 +41,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const GRangerWalk = document.querySelector(".GRanger-walk");
     const GRangerIdle = document.querySelector(".GRanger-idle");
     const GRangerAttack = document.querySelector(".GRanger-attack");
-	
+    // Initially display the idle animation BEFORE QUESTIONS
+    GRangerIdle.style.visibility = "visible";
+    GRangerIdle.style.opacity = "1";
+
     let currentQuestionIndex = 0;
     let silverCoins = localStorage.getItem("silverCoins") ? parseInt(localStorage.getItem("silverCoins")) : 0;
     let goldCoins = localStorage.getItem("goldCoins") ? parseInt(localStorage.getItem("goldCoins")) : 0;
@@ -56,9 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	
     updateCoinAndPointCount();
     updateHearts(); // Initialize hearts display
-    // Initially display the idle animation BEFORE QUESTIONS
-    GRangerIdle.style.visibility = "visible";
-    GRangerIdle.style.opacity = "1";
+   
 
 
     const questions = [
@@ -395,6 +396,7 @@ function setProgress(percent) {
 
         GRangerAttack.style.visibility = "visible";
         GRangerAttack.style.opacity = "1";
+       
 
         displayQuestion(); // Assuming this function displays the next question
     });
@@ -594,6 +596,7 @@ restartButton.addEventListener("click", restartGame);
         GRangerAttack.style.opacity = "0";
         GRangerIdle.style.visibility = "visible";
         GRangerIdle.style.opacity = "1";
+        
 
         if (currentQuestionIndex === 0) fadeOutCharacter(SlimeWalk0);
         else if (currentQuestionIndex === 1) fadeOutCharacter(SlimeWalk1);
@@ -620,6 +623,7 @@ restartButton.addEventListener("click", restartGame);
             goldCoins += 100;
             updateCoinAndPointCount();
             showPopupMessage("You got 100 gold coins for Completing this Floor!");
+            stopTimer();
 
             const answeredAllQuestions = JSON.stringify(answeredQuestions.sort()) === JSON.stringify(Array.from({ length: randomQuestions.length }, (_, i) => i).sort());
             console.log("answeredAllQuestions: ", answeredAllQuestions);
@@ -700,13 +704,12 @@ restartButton.addEventListener("click", restartGame);
             const GRangerWalk = document.querySelector('.GRanger-walk');
             const land = document.querySelector('.land');
 
-
             // Hide idle and show walk animation
             GRangerIdle.style.visibility = "hidden";
             GRangerIdle.style.opacity = "0";
             GRangerWalk.style.visibility = "visible";
             GRangerWalk.style.opacity = "1";
-            GRangerWalk.classList.add('character-walk');
+            GRangerWalk.classList.add('character-walk');           
             land.classList.add('animate');
 
             // When the land animation ends, switch the walk back to idle

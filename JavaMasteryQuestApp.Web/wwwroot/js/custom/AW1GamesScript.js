@@ -824,7 +824,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     backButton.addEventListener("click", function () {
-        window.location.href = '/Capstone/AW1P1Floor.html';
+        window.location.href = '/Capstone/AW1P1Floor';
     });
 
     submitAnswerButton.addEventListener("click", function () {

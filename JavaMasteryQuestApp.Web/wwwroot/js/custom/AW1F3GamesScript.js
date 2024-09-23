@@ -251,8 +251,6 @@ function setProgress(percent) {
         circle.style.stroke = '#4caf50'; // Green for 0% to 25%
     }
 }
-
-() {
     function disableGame() {
         // Apply a grayscale filter to the entire document body
         document.body.style.filter = "grayscale(100%)";
@@ -513,11 +511,16 @@ restartButton.addEventListener("click", restartGame);
 
         if (currentQuestionIndex < randomQuestions.length) {
             goButton.classList.remove("hidden");
+            goButton.classList.remove("hidden");
+            GRangerAttack.style.visibility = "hidden";
+            GRangerAttack.style.opacity = "0";
+            GRangerIdle.style.visibility = "visible";
+            GRangerIdle.style.opacity = "1";
         } else {
             goldCoins += 100;
             updateCoinAndPointCount();
             showPopupMessage("You got 100 gold coins for Completing this Floor!");
-
+            stopTimer();
             const answeredAllQuestions = JSON.stringify(answeredQuestions.sort()) === JSON.stringify(Array.from({ length: randomQuestions.length }, (_, i) => i).sort());
             console.log("answeredAllQuestions: ", answeredAllQuestions);
             if (answeredAllQuestions) localStorage.setItem("AW1Completed", "true");
@@ -828,7 +831,7 @@ restartButton.addEventListener("click", restartGame);
     });
 
     backButton.addEventListener("click", function() {
-        window.location.href = '/Capstone/AW1P1Floor.html';
+        window.location.href = '/Capstone/AW1P1Floor';
     });
 
     submitAnswerButton.addEventListener("click", function() {
