@@ -116,6 +116,11 @@ document.addEventListener("DOMContentLoaded", function() {
             } else {
                 // Show message if not within 7 am to 7 pm
                 rewardMessage.textContent = "Rewards are only available from 7 am to 7 pm!";
+                rewardMessage.style.display = 'block';
+                setTimeout(() => {
+                    rewardMessage.style.display = 'none';
+                    window.location.reload();
+                }, 3500);  // 3500 milliseconds = 3.5 seconds
             }
         });
 

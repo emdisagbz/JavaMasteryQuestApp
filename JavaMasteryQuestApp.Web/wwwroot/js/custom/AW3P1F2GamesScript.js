@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const questions = [
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "What is an interface in Java?",
             choices: [
                 "A) A class that cannot be instantiated.",
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "Which keyword is used to define an interface in Java?",
             choices: [
                 "A) abstract",
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "What must a class do to use an interface?",
             choices: [
                 "A) Extend the interface.",
@@ -176,31 +176,38 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "cat",
             image: "/image/Custom/AW3P1F2CTC1.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "square",
             image: "/image/Custom/AW3P1F2CTC2.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "piano",
             image: "/image/Custom/AW3P1F2CTC3.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "Smartphone",
             image: "/image/Custom/AW3P1F2CTC4.png"
+        },
+        {
+            type: "Complete the Code",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
+            answer: "sound",
+            image: "/image/Custom/AW3P1F2CTC5.png"
         }
 ];
     function stopTimer() {

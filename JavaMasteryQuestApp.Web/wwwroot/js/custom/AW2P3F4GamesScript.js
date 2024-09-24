@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const questions = [
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "What is polymorphism in Java?",
             choices: [
                 "A) A mechanism to hide data from other classes.",
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "Which of the following best describes method overriding?",
             choices: [
                 "A) Defining multiple methods with the same name but different parameters.",
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "How is polymorphism achieved in Java?",
             choices: [
                 "A) Through method overloading and method overriding.",
@@ -175,31 +175,38 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "cat",
             image: "/image/Custom/AW2P3F4CTC1.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "square",
             image: "/image/Custom/AW2P3F4CTC2.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "piano",
             image: "/image/Custom/AW2P3F4CTC3.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "smartphone",
             image: "/image/Custom/AW2P3F4CTC4.png"
+        },
+        {
+            type: "Complete the Code",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
+            answer: "Shape",
+            image: "/image/Custom/AW2P3F4CTC5.png"
         }
 ];
     function stopTimer() {

@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const questions = [
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "What keyword is used to specify that a method should not return any value?",
             choices: [
                 "A) int",
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "How do you specify a return type for a method that returns an integer?",
             choices: [
                 "A) return int",
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "What does the return keyword do inside a method?",
             choices: [
                 "A) Ends the method execution",
@@ -175,31 +175,38 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             type: "Complete the Code",
-            points: 4,
+            points: 3,
             question: "Supply whats missing in the code snippet below",
             answer: "int",
             image: "/image/Custom/AW1F4CTC1.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
+            points: 3,
             question: "Supply whats missing in the code snippet below",
             answer: "a*b",
             image: "/image/Custom/AW1F4CTC2.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
+            points: 3,
             question: "Supply whats missing in the code snippet below",
             answer: "String",
             image: "/image/Custom/AW1F4CTC3.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
+            points: 3,
             question: "Supply whats missing in the code snippet below",
             answer: "0",
             image: "/image/Custom/AW1F4CTC4.png"
+        },
+        {
+            type: "Complete the Code",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
+            answer: "a+b",
+            image: "/image/Custom/AW1F4CTC5.png"
         }
 ];
     function stopTimer() {

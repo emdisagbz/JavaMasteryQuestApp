@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const questions = [
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "What does OOP stand for?",
             choices: [
                 "A) Object-Originated Programming",
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "Which of the following is not a principle of OOP?",
             choices: [
                 "A) Encapsulation",
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "What is a class in Java?",
             choices: [
                 "A) A blueprint for creating objects",
@@ -178,31 +178,38 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "main",
             image: "/image/Custom/AW1P3F7CTC1.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "name",
             image: "/image/Custom/AW1P3F7CTC2.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "age",
             image: "/image/Custom/AW1P3F7CTC3.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "grade",
             image: "/image/Custom/AW1P3F7CTC4.png"
+        },
+        {
+            type: "Complete the Code",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
+            answer: "Animal",
+            image: "/image/Custom/AW1P3F7CTC5.png"
         }
 ];
     function stopTimer() {

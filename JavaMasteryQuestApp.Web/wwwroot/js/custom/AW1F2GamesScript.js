@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const questions = [
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "How do you call a method named display?",
             choices: [
                 "A) call display();",
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
         } ,
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "What will happen if you call a method that requires parameters without passing any arguments?",
             choices: [
                 "A) It will throw an error",
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function() {
         } ,
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "Which part of the method call calculateSum(5, 10) are the arguments?",
             choices: [
                 "A) calculateSum",
@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             type: "Identification",
-            points: 2,
+            points: 3,
             question: "The set of parentheses used to call a method.",
             answer: "Method Call",
             hints: [
@@ -178,31 +178,38 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "greet",
             image: "/image/Custom/AW1F2CTC1.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "int",
             image: "/image/Custom/AW1F2CTC2.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "message",
             image: "/image/Custom/AW1F2CTC3.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "printMessage",
             image: "/image/Custom/AW1F2CTC4.png"
+        },
+        {
+            type: "Complete the Code",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
+            answer: "printMessage",
+            image: "/image/Custom/AW1F2CTC5.png"
         }
 ];
     function stopTimer() {

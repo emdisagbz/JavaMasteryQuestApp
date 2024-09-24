@@ -65,7 +65,7 @@
     const questions = [
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "What keyword is used to start a conditional statement in Java?",
             choices: [
                 "A) for",
@@ -82,7 +82,7 @@
         },
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "Which statement is used to execute some code if a condition is false?",
             choices: [
                 "A) else",
@@ -99,7 +99,7 @@
         },
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "How do you check multiple conditions in an if statement?",
             choices: [
                 "A) Use if multiple times",
@@ -178,31 +178,38 @@
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "Greater",
             image: "/image/Custom/AW1F5CTC1.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "odd",
             image: "/image/Custom/AW1F5CTC2.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "Cold",
             image: "/image/Custom/AW1F5CTC3.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "B",
             image: "/image/Custom/AW1F5CTC4.png"
+        },
+        {
+            type: "Complete the Code",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
+            answer: ">=18",
+            image: "/image/Custom/AW1F5CTC5.png"
         }
     ];
     function stopTimer() {

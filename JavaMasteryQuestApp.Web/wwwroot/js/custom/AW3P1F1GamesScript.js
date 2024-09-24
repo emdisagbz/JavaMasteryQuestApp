@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const questions = [
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "What is abstraction in Java?",
             choices: [
                 "A) Hiding the implementation details and showing only the essential features.",
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "Which of the following is used to achieve abstraction in Java?",
             choices: [
                 "A) Abstract classes and interfaces",
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "What keyword is used to define an abstract class in Java?",
             choices: [
                 "A) interface",
@@ -175,31 +175,38 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "cat",
             image: "/image/Custom/AW3P1F1CTC1.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "square",
             image: "/image/Custom/AW3P1F1CTC2.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "piano",
             image: "/image/Custom/AW3P1F1CTC3.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "smartphone",
             image: "/image/Custom/AW3P1F1CTC4.png"
+        },
+        {
+            type: "Complete the Code",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
+            answer: "start",
+            image: "/image/Custom/AW3P1F1CTC5.png"
         }
 ];
     function stopTimer() {

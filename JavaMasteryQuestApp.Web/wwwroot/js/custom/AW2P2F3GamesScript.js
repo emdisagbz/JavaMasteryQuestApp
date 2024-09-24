@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const questions = [
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "What is inheritance in Java?",
             choices: [
                 "A) A mechanism where one class acquires the properties and behaviors of another class.",
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "What keyword is used to inherit a class in Java?",
             choices: [
                 "A) implements",
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "What is the superclass in Java?",
             choices: [
                 "A) The class that inherits properties.",
@@ -176,31 +176,38 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "Animal",
             image: "/image/Custom/AW2P2F3CTC1.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "work",
             image: "/image/Custom/AW2P2F3CTC2.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "start",
             image: "/image/Custom/AW2P2F3CTC3.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "color",
             image: "/image/Custom/AW2P2F3CTC4.png"
+        },
+        {
+            type: "Complete the Code",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
+            answer: "Animal, sound",
+            image: "/image/Custom/AW2P2F3CTC5.png"
         }
 ];
     function stopTimer() {

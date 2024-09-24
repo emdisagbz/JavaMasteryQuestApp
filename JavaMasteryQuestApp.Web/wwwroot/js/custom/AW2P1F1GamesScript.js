@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const questions = [
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "What does the static keyword indicate in a method?",
             choices: [
                 "A) The method cannot be accessed.",
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "How do you call a static method in Java?",
             choices: [
                 "A) By creating an object of the class.",
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "What is the main difference between static and instance methods?",
             choices: [
                 "A) Static methods can only be called once.",
@@ -175,31 +175,38 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "greet",
             image: "/image/Custom/AW2P1F1CTC1.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "int",
             image: "/image/Custom/AW2P1F1CTC2.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "32",
             image: "/image/Custom/AW2P1F1CTC3.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "print",
             image: "/image/Custom/AW2P1F1CTC4.png"
+        },
+        {
+            type: "Complete the Code",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
+            answer: "add",
+            image: "/image/Custom/AW2P1F1CTC5.png"
         }
     ];
     function stopTimer() {

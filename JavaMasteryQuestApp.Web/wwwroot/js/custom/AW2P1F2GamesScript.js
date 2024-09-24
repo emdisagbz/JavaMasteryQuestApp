@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const questions = [
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "What does the public keyword indicate in a method?",
             choices: [
                 "A) The method cannot be accessed.",
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "How do you call a public method from another class?",
             choices: [
                 "A) Using the new keyword.",
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "What is the access level of a method defined with the public keyword?",
             choices: [
                 "A) Restricted to the same package.",
@@ -176,32 +176,40 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "sayHello",
             image: "/image/Custom/AW2P1F2CTC1.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "int",
             image: "/image/Custom/AW2P1F2CTC2.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "subtract",
             image: "/image/Custom/AW2P1F2CTC3.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "String",
             image: "/image/Custom/AW2P1F2CTC4.png"
+        },
+        {
+            type: "Complete the Code",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
+            answer: "greeting",
+            image: "/image/Custom/AW2P1F2CTC5.png"
         }
+
 ];
     function stopTimer() {
         clearInterval(timer);

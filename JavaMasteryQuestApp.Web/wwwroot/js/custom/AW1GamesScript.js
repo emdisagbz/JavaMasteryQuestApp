@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const questions = [
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "What is the correct syntax to define a method in Java?",
             choices: [
                 "A) public static void methodName() { // body }",
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } ,
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "Which part of the method declaration specifies the method's access type?",
             choices: [
                 "A) Method name",
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "What does the void keyword indicate in a method declaration?",
             choices: [
                 "A) Method returns an integer",
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         , {
             type: "Identification",
-            points: 2,
+            points: 3,
             question: "The group of statements that perform an operation in a Java program.",
             answer: "Method",
             hints: [
@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             type: "Identification",
-            points: 2,
+            points: 3,
             question: "The component of a method that lists parameters.",
             answer: "Parameter List",
             hints: [
@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             type: "Identification",
-            points: 2,
+            points: 3,
             question: "The part of the method where the operations are defined.",
             answer: "Method Body",
             hints: [
@@ -177,32 +177,40 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "void",
             image: "/image/Custom/AW1CTC1.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "b",
             image: "/image/Custom/AW1CTC2.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "name",
             image: "/image/Custom/AW1CTC3.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "void",
             image: "/image/Custom/AW1CTC4.png"
+        },
+        {
+            type: "Complete the Code",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
+            answer: "num*2",
+            image: "/image/Custom/AW1CTC5.png"
         }
+
     ];      
     function stopTimer() {
         clearInterval(timer);

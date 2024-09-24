@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const questions = [
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "What is encapsulation in Java?",
             choices: [
                 "A) Hiding the implementation details and showing only the essential features.",
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "Which keyword is used to make a variable private in a class?",
             choices: [
                 "A) protected",
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "How do you provide access to private fields in a class?",
             choices: [
                 "A) By creating public getter and setter methods.",
@@ -177,31 +177,38 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "getName",
             image: "/image/Custom/AW3P2F3CTC1.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "getAge",
             image: "/image/Custom/AW3P2F3CTC2.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "getModel",
             image: "/image/Custom/AW3P2F3CTC3.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
-            question: "Supply whats missing the code snippet below",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
             answer: "getBalance",
             image: "/image/Custom/AW3P2F3CTC4.png"
+        },
+        {
+            type: "Complete the Code",
+            points: 3,
+            question: "Supply whats missing in the code snippet below",
+            answer: "setName",
+            image: "/image/Custom/AW3P2F3CTC5.png"
         }
 ];
     function stopTimer() {

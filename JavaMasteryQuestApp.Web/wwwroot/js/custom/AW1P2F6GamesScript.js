@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const questions = [
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "What is method overloading in Java?",
             choices: [
                 "A) Using multiple classes with the same name",
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "Why is method overloading useful?",
             choices: [
                 "A) It makes the code harder to read",
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             type: "Multiple Choice",
-            points: 2,
+            points: 3,
             question: "How do you differentiate between overloaded methods?",
             choices: [
                 "A) By their return type",
@@ -177,31 +177,38 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             type: "Complete the Code",
-            points: 4,
+            points: 3,
             question: "Supply whats missing the code snippet below",
             answer: "double",
             image: "/image/Custom/AW1P2F6CTC1.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
+            points: 3,
             question: "Supply whats missing the code snippet below",
             answer: "display",
             image: "/image/Custom/AW1P2F6CTC2.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
+            points: 3,
             question: "Supply whats missing the code snippet below",
             answer: "print",
             image: "/image/Custom/AW1P2F6CTC3.png"
         },
         {
             type: "Complete the Code",
-            points: 4,
+            points: 3,
             question: "Supply whats missing the code snippet below",
             answer: "subtract",
             image: "/image/Custom/AW1P2F6CTC4.png"
+        },
+        {
+            type: "Complete the Code",
+            points: 3,
+            question: "Supply whats missing the code snippet below",
+            answer: "double",
+            image: "/image/Custom/AW1P2F6CTC5.png"
         }
 ];
     function stopTimer() {
