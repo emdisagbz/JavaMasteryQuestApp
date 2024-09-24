@@ -539,7 +539,13 @@ restartButton.addEventListener("click", restartGame);
     cancelFinishButton.addEventListener("click", function() {
         finishPopup.classList.add("hidden");
     });
-	
+    let questionStartTimeLeft = timeLeft; // Initialize when the question starts
+
+    // Record when a new question is loaded
+    function loadNewQuestion() {
+        questionStartTimeLeft = timeLeft; // Store the time left when the question starts
+        console.log(`New question loaded. Start time for question: ${questionStartTimeLeft}`);
+    }
     function checkAnswer() {
     console.log("checkAnswer() function called");
 
@@ -559,7 +565,8 @@ restartButton.addEventListener("click", restartGame);
     }
 
     const answer = answerElement.value.trim().replace(/\s+/g, '').toLowerCase();
-
+        // Calculate the time spent on the question
+        const timeSpentOnQuestion = questionStartTimeLeft - timeLeft;
     if (answer === "") {
         showPopupMessage("Please put an answer");
         return;
@@ -593,6 +600,7 @@ restartButton.addEventListener("click", restartGame);
         BW3F2totalScore = points;
         updateCoinAndPointCount();
         showPopupMessage(`Correct! You got ${pointsEarned} points and 100 silver coins`);
+        console.log(`Correct answer! Time spent on this question: ${timeSpentOnQuestion} seconds`);
         gameContainer.classList.add("hidden");
         GRangerAttack.style.visibility = "hidden";
         GRangerAttack.style.opacity = "0";
@@ -644,6 +652,7 @@ restartButton.addEventListener("click", restartGame);
             silverCoins -= 50;
             updateCoinAndPointCount();
             showPopupMessage("You lost all hearts. 50 silver coins deducted.");
+            console.log(`Incorrect answer. Time spent on this question: ${timeSpentOnQuestion} seconds`);
             gameContainer.classList.add("hidden");
             GRangerAttack.style.visibility = "hidden";
             GRangerAttack.style.opacity = "0";
