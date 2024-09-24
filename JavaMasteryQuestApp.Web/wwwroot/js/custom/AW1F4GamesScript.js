@@ -176,28 +176,28 @@ document.addEventListener("DOMContentLoaded", function() {
         {
             type: "Complete the Code",
             points: 4,
-            question: "Supply whats missing the code snippet below",
+            question: "Supply whats missing in the code snippet below",
             answer: "int",
-            image: "/image/Custom/AW1F24CTC1.png"
+            image: "/image/Custom/AW1F4CTC1.png"
         },
         {
             type: "Complete the Code",
             points: 4,
-            question: "Supply whats missing the code snippet below",
+            question: "Supply whats missing in the code snippet below",
             answer: "a*b",
             image: "/image/Custom/AW1F4CTC2.png"
         },
         {
             type: "Complete the Code",
             points: 4,
-            question: "Supply whats missing the code snippet below",
+            question: "Supply whats missing in the code snippet below",
             answer: "String",
             image: "/image/Custom/AW1F4CTC3.png"
         },
         {
             type: "Complete the Code",
             points: 4,
-            question: "Supply whats missing the code snippet below",
+            question: "Supply whats missing in the code snippet below",
             answer: "0",
             image: "/image/Custom/AW1F4CTC4.png"
         }
@@ -405,6 +405,10 @@ function restartGame() {
             displayQuestion();
             gameContainer.classList.remove("hidden");
             startSequence();
+            GRangerIdle.style.visibility = "hidden";
+            GRangerIdle.style.opacity = "0";
+            GRangerAttack.style.visibility = "visible";
+            GRangerAttack.style.opacity = "1";
         } else {
             console.log("Restart is only allowed at question 14.");
         }

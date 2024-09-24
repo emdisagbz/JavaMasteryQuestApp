@@ -410,6 +410,10 @@ function restartGame() {
             displayQuestion();
             gameContainer.classList.remove("hidden");
             startSequence();
+            GRangerIdle.style.visibility = "hidden";
+            GRangerIdle.style.opacity = "0";
+            GRangerAttack.style.visibility = "visible";
+            GRangerAttack.style.opacity = "1";
         } else {
             console.log("Restart is only allowed at question 14.");
         }

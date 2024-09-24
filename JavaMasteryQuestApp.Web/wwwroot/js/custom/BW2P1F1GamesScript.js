@@ -282,10 +282,10 @@ document.addEventListener("DOMContentLoaded", function() {
             points: 2,
             question: "What will be the output of the following code?",
             choices: [
-                "A. one two three four",
+                "A. One Two Three Four",
                 "B. one two three four",
-                "C. one two three four",
-                "D. one two three four"
+                "C. onetwothreefour",
+                "D. OneTwoThreeFour"
             ],
             answer: "B",
             hints: [
@@ -515,6 +515,10 @@ function restartGame() {
             displayQuestion();
             gameContainer.classList.remove("hidden");
             startSequence();
+            GRangerIdle.style.visibility = "hidden";
+            GRangerIdle.style.opacity = "0";
+            GRangerAttack.style.visibility = "visible";
+            GRangerAttack.style.opacity = "1";
         } else {
             console.log("Restart is only allowed at question 14.");
         }

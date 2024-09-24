@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 "Hint 2: The result is affected by the increment operator.",
                 "Hint 3: The increment operation adds one to the initial value."
             ],
-            image: "image/Custom/BW3P1F1PIC_1.jpg"
+            image: "/image/Custom/BW3P1F1PIC_1.jpg"
         },
 
         {
@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 "Hint 2: The `equals` method returns a boolean value.",
                 "Hint 3: The comparison is between two strings with identical characters in different cases."
             ],
-            image: "/image/Custom/BW3P1F1PIC_2.jpg"
+            image: "/image/Custom/BW3P1F1PIC_2.png"
         },
 
         {
@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 "Hint 2: This method is often used to clean up input.",
                 "Hint 3: The method removes spaces from the beginning and end of the string."
             ],
-            image: "/image/Custom/BW3P1F1PIC_3.jpg"
+            image: "/image/Custom/BW3P1F1PIC_3.png"
         },
 
         {
@@ -517,6 +517,10 @@ function restartGame() {
             displayQuestion();
             gameContainer.classList.remove("hidden");
             startSequence();
+            GRangerIdle.style.visibility = "hidden";
+            GRangerIdle.style.opacity = "0";
+            GRangerAttack.style.visibility = "visible";
+            GRangerAttack.style.opacity = "1";
         } else {
             console.log("Restart is only allowed at question 14.");
         }
