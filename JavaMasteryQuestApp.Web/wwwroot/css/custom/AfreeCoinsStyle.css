@@ -54,13 +54,21 @@ body {
 }
 
 .card-container {
-    position: fixed;
+    position: absolute;
     display: grid;
     grid-template-columns: repeat(4, 170px);
     grid-template-rows: repeat(2, 250px);
     gap: 10px;
     opacity: 0; /* Initially hidden */
     transition: opacity 1s; /* Fade-in effect */
+
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    position: absolute; /* Positioning inside the parent */
+    top: 50%; /* Moves to vertical center */
+    left: 50%; /* Moves to horizontal center */
+    transform: translate(-50%, -50%); /* Moves the container to the exact center */
+    z-index: 1;
 }
 
 .card {
@@ -68,9 +76,9 @@ body {
     height: 250px;
     background-image: url(/image/Custom/CardSymbol.png), linear-gradient(250deg, rgba(0, 0, 139, 1), rgba(138, 43, 226, 1)); /* Darker blue and violet with transparency */
     background-size: cover; /* Ensures the background image covers the entire card */
-    background-blend-mode: overlay; /* Blends the image with the gradient */
+    background-blend-mode: multiply; /* Blends the image with the gradient */
     color: white;
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
     font-size: 1.2em;
@@ -80,6 +88,7 @@ body {
     position: relative;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    z-index:1;
 }
 
     .card .front, .card .back {
@@ -230,7 +239,7 @@ body {
     color: white;
     font-family: Poppins;
     text-align: center;
-    z-index: 10;
+    z-index: 20;
 }
 
 .witch {
@@ -244,8 +253,8 @@ body {
 
 .witchDes {
     font-family: Poppins;
-    width: 230px;
-    height: 400px;
+    width: 280px;
+    height: 50px;
     left: 1.5%;
     position: fixed; /*  Needed for centering content */
     display: flex; /*  Needed for centering content */
@@ -264,8 +273,9 @@ body {
         color: white; /* Text color for contrast */
         position: absolute; /* Make the heading absolute-positioned */
         top: 0; /* Position it at the top */
-        left: 50%; /* Position it horizontally at the center */
+        left: 10%; /* Position it horizontally at the center */
         transform: translateX(-50%); /* Center it perfectly (adjust for padding) */
+        transform: translateY(-580%);
         margin-bottom: 0; /* Add some space between heading and paragraph */
         white-space: nowrap; /* Make content not wrap to multiple lines */
         overflow: hidden; /* Hide any content that overflows the element */
@@ -535,4 +545,19 @@ body {
             justify-content: center; /* Horizontally centers text */
         }
     }
+}
+#rewardMessage {
+    display: none;
+    position: absolute; /* or relative, depending on your layout */
+    z-index: 100; /* Set a higher z-index value to bring it above the cards */
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7); /* Optional: add a background to improve visibility */
+    padding: 10px;
+    border-radius: 5px;
+    top: 47%; /* Adjust this value as needed */
+    left: 50%;
+    transform: translateX(-50%);
 }

@@ -13,14 +13,14 @@ document.addEventListener("DOMContentLoaded", function() {
     let lastRewardObtained = localStorage.getItem("lastRewardObtained") ? parseInt(localStorage.getItem("lastRewardObtained")) : 0;
 
     const rewards = [
-        { type: 'silverCoin', amount: 100, imageUrl: '100_silver.png' },
-        { type: 'silverCoin', amount: 50, imageUrl: '50_silver.png' },
-        { type: 'silverCoin', amount: 10, imageUrl: '10_silver.png' },
-        { type: 'silverCoin', amount: 30, imageUrl: '30_silver.png' },
-        { type: 'goldCoin', amount: 100, imageUrl: '100_gold.png' },
-        { type: 'goldCoin', amount: 50, imageUrl: '50_gold.png' },
-        { type: 'goldCoin', amount: 10, imageUrl: '10_gold.png' },
-        { type: 'goldCoin', amount: 30, imageUrl: '30_gold.png' }
+        { type: 'silverCoin', amount: 100, imageUrl: '/image/Custom/100_silver.png' },
+        { type: 'silverCoin', amount: 50, imageUrl: '/image/Custom/50_silver.png' },
+        { type: 'silverCoin', amount: 10, imageUrl: '/image/Custom/10_silver.png' },
+        { type: 'silverCoin', amount: 30, imageUrl: '/image/Custom/30_silver.png' },
+        { type: 'goldCoin', amount: 100, imageUrl: '/image/Custom/100_gold.png' },
+        { type: 'goldCoin', amount: 50, imageUrl: '/image/Custom/50_gold.png' },
+        { type: 'goldCoin', amount: 10, imageUrl: '/image/Custom/10_gold.png' },
+        { type: 'goldCoin', amount: 30, imageUrl: '/image/Custom/30_gold.png' }
     ];
 
     function updateCoinCount() {
@@ -71,18 +71,24 @@ document.addEventListener("DOMContentLoaded", function() {
 
                             if (reward.type === 'silverCoin') {
                                 silverCoins += reward.amount;
+                                rewardMessage.textContent = `Congratulations! You got ${reward.amount} silver coins!`;
                             } else {
                                 goldCoins += reward.amount;
+                                rewardMessage.textContent = `Congratulations! You got ${reward.amount} gold coins!`;
                             }
 
                             updateCoinCount();
+
+                            setTimeout(function () {
+                                window.location.reload(); // Reload the page after 4.5 seconds
+                            }, 4500); // 4500 milliseconds = 4.5 seconds
 
                             // Disable all other cards
                             const cards = document.querySelectorAll('.card');
                             cards.forEach(card => card.style.pointerEvents = 'none');
 
                             // Set reward obtained message and disable further card selection
-                            rewardMessage.textContent = "Reward already obtained. Comeback again after 12 hours!";
+                            //rewardMessage.textContent = "Reward already obtained. Comeback again after 12 hours!";
                             glowButton.style.display = 'none';
                             backButton.style.display = 'block';
 
@@ -90,8 +96,14 @@ document.addEventListener("DOMContentLoaded", function() {
                             localStorage.setItem("lastRewardObtained", currentTime.getTime());
                         }
                     } else {
-                        // Show message if already obtained a reward within the last 12 hours
                         rewardMessage.textContent = "Reward already obtained. Comeback again after 12 hours!";
+                        rewardMessage.style.display = 'block';
+
+                        // Hide the message after 3.5 seconds (optional)
+                        setTimeout(() => {
+                            rewardMessage.style.display = 'none';
+                            window.location.reload();
+                        }, 3500);  // 3500 milliseconds = 3.5 seconds
                     }
                 } else {
                     // Show message if not within 7 am to 7 pm

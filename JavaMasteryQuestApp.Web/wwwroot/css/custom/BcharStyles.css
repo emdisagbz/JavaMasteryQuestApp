@@ -7,6 +7,7 @@ body {
     font-family: Poppins;
     font-size: 12px;
     overflow: hidden;
+    
 }
 
 /* Modal styles */
@@ -87,14 +88,16 @@ header {
     height: 100vh; /* Full viewport height */
     width: 100vw; /* Full viewport width */
     overflow: hidden; /* Hides anything outside this container */
-    position: relative;
+    position: inherit;
+    
 }
 
     .carousel .list .item {
         width: 100%;
         height: 100%;
-        position: absolute;
+        position: fixed;
         inset: 0 0 0 0;
+        overflow: hidden;
     }
 
         .carousel .list .item img {

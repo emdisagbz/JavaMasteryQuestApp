@@ -245,7 +245,6 @@ function logout() {
 document.getElementById('openDiv1').addEventListener('click', function () {
     document.getElementById('Bslide1').style.right = '0'; // Bring the modal into view
     document.querySelector('.slide1').classList.add('dark'); // Darken and slide the background
-    window.location.href = '/Capstone/BW1Part'; // Ensure this URL is correct
 });
 
 // Optional: close modal when clicking outside the modal content (advanced behavior)
