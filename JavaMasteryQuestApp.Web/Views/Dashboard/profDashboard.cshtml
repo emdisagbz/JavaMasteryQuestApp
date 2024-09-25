@@ -108,221 +108,220 @@
             </table>
         </div>
 
+        <div id="leaderboardContent" style="display: none;">
+            <h2>Leaderboard</h2>
+
+            <!-- Basic Java Leaderboards -->
+            <div id="basicJavaLeaderboards" style="display: none;">
+                <h3>Basic Java - Part 1</h3>
+                <label for="floorFilter1">Filter by Floor:</label>
+                <select id="floorFilter1" onchange="applyFilters('basicJavaTable1')">
+                    <option value="all">All Floors</option>
+                    <option value="1">Floor 1</option>
+                    <option value="2">Floor 2</option>
+                    <option value="3">Floor 3</option>
+                    <option value="4">Floor 4</option>
+                    <option value="5">Floor 5</option>
+                    <option value="6">Floor 6</option>
+                    <option value="7">Floor 7</option>
+                </select>
+                <label for="sectionFilter1">Filter by Section:</label>
+                <select id="sectionFilter1" onchange="applyFilters('basicJavaTable1')">
+                    <option value="all">All Sections</option>
+                    <option value="Section 1">Section 1</option>
+                    <option value="Section 2">Section 2</option>
+                    <option value="Section 3">Section 3</option>
+                    <!-- Add more section options as needed -->
+                </select>
+                <table id="basicJavaTable1">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Year</th>
+                            <th>Section</th>
+                            <th>Floor</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="basicJavaSection1">
+                        <!-- Dynamic rows will be appended here -->
+                    </tbody>
+                </table>
+
+                <h3>Basic Java - Part 2</h3>
+                <label for="floorFilter2">Filter by Floor:</label>
+                <select id="floorFilter2" onchange="applyFilters('basicJavaTable2')">
+                    <option value="all">All Floors</option>
+                    <option value="1">Floor 1</option>
+                    <option value="2">Floor 2</option>
+                    <option value="3">Floor 3</option>
+                    <option value="4">Floor 4</option>
+                </select>
+                <label for="sectionFilter2">Filter by Section:</label>
+                <select id="sectionFilter2" onchange="applyFilters('basicJavaTable2')">
+                    <option value="all">All Sections</option>
+                    <option value="Section 1">Section 1</option>
+                    <option value="Section 2">Section 2</option>
+                    <option value="Section 3">Section 3</option>
+                    <!-- Add more section options as needed -->
+                </select>
+                <table id="basicJavaTable2">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Year</th>
+                            <th>Section</th>
+                            <th>Floor</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="basicJavaSection2">
+                        <!-- Dynamic rows will be appended here -->
+                    </tbody>
+                </table>
+
+                <h3>Basic Java - Part 3</h3>
+                <label for="floorFilter3">Filter by Floor:</label>
+                <select id="floorFilter3" onchange="applyFilters('basicJavaTable3')">
+                    <option value="all">All Floors</option>
+                    <option value="1">Floor 1</option>
+                    <option value="2">Floor 2</option>
+                    <option value="3">Floor 3</option>
+                </select>
+                <label for="sectionFilter3">Filter by Section:</label>
+                <select id="sectionFilter3" onchange="applyFilters('basicJavaTable3')">
+                    <option value="all">All Sections</option>
+                    <option value="Section 1">Section 1</option>
+                    <option value="Section 2">Section 2</option>
+                    <option value="Section 3">Section 3</option>
+                    <!-- Add more section options as needed -->
+                </select>
+                <table id="basicJavaTable3">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Year</th>
+                            <th>Section</th>
+                            <th>Floor</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="basicJavaSection3">
+                        <!-- Dynamic rows will be appended here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Advanced Java Leaderboards -->
+            <div id="advancedJavaLeaderboards" style="display: none;">
+                <h3>Advanced Java - Part 1</h3>
+                <label for="floorFilterA1">Filter by Floor:</label>
+                <select id="floorFilterA1" onchange="applyFilters('advancedJavaTable1')">
+                    <option value="all">All Floors</option>
+                    <option value="1">Floor 1</option>
+                    <option value="2">Floor 2</option>
+                    <option value="3">Floor 3</option>
+                    <option value="4">Floor 4</option>
+                </select>
+                <label for="sectionFilterA1">Filter by Section:</label>
+                <select id="sectionFilterA1" onchange="applyFilters('advancedJavaTable1')">
+                    <option value="all">All Sections</option>
+                    <option value="Section 1">Section 1</option>
+                    <option value="Section 2">Section 2</option>
+                    <option value="Section 3">Section 3</option>
+                    <!-- Add more section options as needed -->
+                </select>
+                <table id="advancedJavaTable1">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Year</th>
+                            <th>Section</th>
+                            <th>Floor</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="advancedJavaSection1">
+                        <!-- Dynamic rows will be appended here -->
+                    </tbody>
+                </table>
+
+                <h3>Advanced Java - Part 2</h3>
+                <label for="floorFilterA2">Filter by Floor:</label>
+                <select id="floorFilterA2" onchange="applyFilters('advancedJavaTable2')">
+                    <option value="all">All Floors</option>
+                    <option value="1">Floor 1</option>
+                    <option value="2">Floor 2</option>
+                    <option value="3">Floor 3</option>
+                </select>
+                <label for="sectionFilterA2">Filter by Section:</label>
+                <select id="sectionFilterA2" onchange="applyFilters('advancedJavaTable2')">
+                    <option value="all">All Sections</option>
+                    <option value="Section 1">Section 1</option>
+                    <option value="Section 2">Section 2</option>
+                    <option value="Section 3">Section 3</option>
+                    <!-- Add more section options as needed -->
+                </select>
+                <table id="advancedJavaTable2">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Year</th>
+                            <th>Section</th>
+                            <th>Floor</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="advancedJavaSection2">
+                        <!-- Dynamic rows will be appended here -->
+                    </tbody>
+                </table>
+
+                <h3>Advanced Java - Part 3</h3>
+                <label for="floorFilterA3">Filter by Floor:</label>
+                <select id="floorFilterA3" onchange="applyFilters('advancedJavaTable3')">
+                    <option value="all">All Floors</option>
+                    <option value="1">Floor 1</option>
+                    <option value="2">Floor 2</option>
+                    <option value="3">Floor 3</option>
+                </select>
+                <label for="sectionFilterA3">Filter by Section:</label>
+                <select id="sectionFilterA3" onchange="applyFilters('advancedJavaTable3')">
+                    <option value="all">All Sections</option>
+                    <option value="Section 1">Section 1</option>
+                    <option value="Section 2">Section 2</option>
+                    <option value="Section 3">Section 3</option>
+                    <!-- Add more section options as needed -->
+                </select>
+                <table id="advancedJavaTable3">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Year</th>
+                            <th>Section</th>
+                            <th>Floor</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="advancedJavaSection3">
+                        <!-- Dynamic rows will be appended here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
         <div id="logoutContent" style="display: none;">
             <h3>Logout</h3>
             <p>Are you sure you want to logout?</p>
             <button onclick="logout()">Logout</button>
         </div>
     </div>
-    <div id="leaderboardContent" style="display: none;">
-        <h2>Leaderboard</h2>
-
-        <!-- Basic Java Leaderboards -->
-        <div id="basicJavaLeaderboards" style="display: none;">
-            <h3>Basic Java - Part 1</h3>
-            <label for="floorFilter1">Filter by Floor:</label>
-            <select id="floorFilter1" onchange="applyFilters('basicJavaTable1')">
-                <option value="all">All Floors</option>
-                <option value="1">Floor 1</option>
-                <option value="2">Floor 2</option>
-                <option value="3">Floor 3</option>
-                <option value="4">Floor 4</option>
-                <option value="5">Floor 5</option>
-                <option value="6">Floor 6</option>
-                <option value="7">Floor 7</option>
-            </select>
-            <label for="sectionFilter1">Filter by Section:</label>
-            <select id="sectionFilter1" onchange="applyFilters('basicJavaTable1')">
-                <option value="all">All Sections</option>
-                <option value="Section 1">Section 1</option>
-                <option value="Section 2">Section 2</option>
-                <option value="Section 3">Section 3</option>
-                <!-- Add more section options as needed -->
-            </select>
-            <table id="basicJavaTable1">
-                <thead>
-                    <tr>
-                        <th>Rank</th>
-                        <th>Name</th>
-                        <th>Year</th>
-                        <th>Section</th>
-                        <th>Floor</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody id="basicJavaSection1">
-                    <!-- Dynamic rows will be appended here -->
-                </tbody>
-            </table>
-
-            <h3>Basic Java - Part 2</h3>
-            <label for="floorFilter2">Filter by Floor:</label>
-            <select id="floorFilter2" onchange="applyFilters('basicJavaTable2')">
-                <option value="all">All Floors</option>
-                <option value="1">Floor 1</option>
-                <option value="2">Floor 2</option>
-                <option value="3">Floor 3</option>
-                <option value="4">Floor 4</option>
-            </select>
-            <label for="sectionFilter2">Filter by Section:</label>
-            <select id="sectionFilter2" onchange="applyFilters('basicJavaTable2')">
-                <option value="all">All Sections</option>
-                <option value="Section 1">Section 1</option>
-                <option value="Section 2">Section 2</option>
-                <option value="Section 3">Section 3</option>
-                <!-- Add more section options as needed -->
-            </select>
-            <table id="basicJavaTable2">
-                <thead>
-                    <tr>
-                        <th>Rank</th>
-                        <th>Name</th>
-                        <th>Year</th>
-                        <th>Section</th>
-                        <th>Floor</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody id="basicJavaSection2">
-                    <!-- Dynamic rows will be appended here -->
-                </tbody>
-            </table>
-
-            <h3>Basic Java - Part 3</h3>
-            <label for="floorFilter3">Filter by Floor:</label>
-            <select id="floorFilter3" onchange="applyFilters('basicJavaTable3')">
-                <option value="all">All Floors</option>
-                <option value="1">Floor 1</option>
-                <option value="2">Floor 2</option>
-                <option value="3">Floor 3</option>
-            </select>
-            <label for="sectionFilter3">Filter by Section:</label>
-            <select id="sectionFilter3" onchange="applyFilters('basicJavaTable3')">
-                <option value="all">All Sections</option>
-                <option value="Section 1">Section 1</option>
-                <option value="Section 2">Section 2</option>
-                <option value="Section 3">Section 3</option>
-                <!-- Add more section options as needed -->
-            </select>
-            <table id="basicJavaTable3">
-                <thead>
-                    <tr>
-                        <th>Rank</th>
-                        <th>Name</th>
-                        <th>Year</th>
-                        <th>Section</th>
-                        <th>Floor</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody id="basicJavaSection3">
-                    <!-- Dynamic rows will be appended here -->
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Advanced Java Leaderboards -->
-        <div id="advancedJavaLeaderboards" style="display: none;">
-            <h3>Advanced Java - Part 1</h3>
-            <label for="floorFilterA1">Filter by Floor:</label>
-            <select id="floorFilterA1" onchange="applyFilters('advancedJavaTable1')">
-                <option value="all">All Floors</option>
-                <option value="1">Floor 1</option>
-                <option value="2">Floor 2</option>
-                <option value="3">Floor 3</option>
-                <option value="4">Floor 4</option>
-            </select>
-            <label for="sectionFilterA1">Filter by Section:</label>
-            <select id="sectionFilterA1" onchange="applyFilters('advancedJavaTable1')">
-                <option value="all">All Sections</option>
-                <option value="Section 1">Section 1</option>
-                <option value="Section 2">Section 2</option>
-                <option value="Section 3">Section 3</option>
-                <!-- Add more section options as needed -->
-            </select>
-            <table id="advancedJavaTable1">
-                <thead>
-                    <tr>
-                        <th>Rank</th>
-                        <th>Name</th>
-                        <th>Year</th>
-                        <th>Section</th>
-                        <th>Floor</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody id="advancedJavaSection1">
-                    <!-- Dynamic rows will be appended here -->
-                </tbody>
-            </table>
-
-            <h3>Advanced Java - Part 2</h3>
-            <label for="floorFilterA2">Filter by Floor:</label>
-            <select id="floorFilterA2" onchange="applyFilters('advancedJavaTable2')">
-                <option value="all">All Floors</option>
-                <option value="1">Floor 1</option>
-                <option value="2">Floor 2</option>
-                <option value="3">Floor 3</option>
-            </select>
-            <label for="sectionFilterA2">Filter by Section:</label>
-            <select id="sectionFilterA2" onchange="applyFilters('advancedJavaTable2')">
-                <option value="all">All Sections</option>
-                <option value="Section 1">Section 1</option>
-                <option value="Section 2">Section 2</option>
-                <option value="Section 3">Section 3</option>
-                <!-- Add more section options as needed -->
-            </select>
-            <table id="advancedJavaTable2">
-                <thead>
-                    <tr>
-                        <th>Rank</th>
-                        <th>Name</th>
-                        <th>Year</th>
-                        <th>Section</th>
-                        <th>Floor</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody id="advancedJavaSection2">
-                    <!-- Dynamic rows will be appended here -->
-                </tbody>
-            </table>
-
-            <h3>Advanced Java - Part 3</h3>
-            <label for="floorFilterA3">Filter by Floor:</label>
-            <select id="floorFilterA3" onchange="applyFilters('advancedJavaTable3')">
-                <option value="all">All Floors</option>
-                <option value="1">Floor 1</option>
-                <option value="2">Floor 2</option>
-                <option value="3">Floor 3</option>
-            </select>
-            <label for="sectionFilterA3">Filter by Section:</label>
-            <select id="sectionFilterA3" onchange="applyFilters('advancedJavaTable3')">
-                <option value="all">All Sections</option>
-                <option value="Section 1">Section 1</option>
-                <option value="Section 2">Section 2</option>
-                <option value="Section 3">Section 3</option>
-                <!-- Add more section options as needed -->
-            </select>
-            <table id="advancedJavaTable3">
-                <thead>
-                    <tr>
-                        <th>Rank</th>
-                        <th>Name</th>
-                        <th>Year</th>
-                        <th>Section</th>
-                        <th>Floor</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody id="advancedJavaSection3">
-                    <!-- Dynamic rows will be appended here -->
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    
 
 </div>
     <script src="~/jquery/jquery.min.js"></script>

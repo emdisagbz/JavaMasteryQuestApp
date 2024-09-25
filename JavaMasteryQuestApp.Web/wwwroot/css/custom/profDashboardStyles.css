@@ -7,14 +7,93 @@ body {
     background-color: #f0f0f0;
 }
 
+#TableResult {
+    display: table; /* Ensure that it's set to display as a table */
+    visibility: visible;
+}
+
 .container {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+/* General Form Styling */
+#changeQuestionContent {
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 600px;
+    margin: auto;
+    font-family: Poppins, sans-serif;
+}
+
+    #changeQuestionContent h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+#questionForm label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+#questionForm select,
+#questionForm textarea,
+#questionForm button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-family: Poppins, sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+    #questionForm select:focus,
+    #questionForm textarea:focus {
+        border-color: #007bff;
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+#questionForm textarea {
+    resize: vertical;
+}
+
+#questionForm button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    #questionForm button:hover {
+        background-color: #0056b3;
+    }
+
+    #questionForm button:focus {
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+@media (max-width: 480px) {
+    #changeQuestionContent {
+        padding: 15px;
+        max-width: 100%;
+    }
+}
+
+
 
 #advancedJavaSearch {
     padding: 10px;
@@ -510,6 +589,7 @@ label[for="sectionFilterA3"] {
     padding: 20px;
     background-color: #ecf0f1;
     overflow-y: auto;
+    width: 100vw;
 }
 
     .content h2, .content h3 {
@@ -606,12 +686,15 @@ table {
     }
 
     table th {
-        background-color: #ADD8E6;
-        color: black;
+        background-color: #34495e;
+        color: white;
     }
 
     table tr:nth-child(even) {
         background-color: #f2f2f2;
+    }
+    table tr:hover {
+        background-color: #e5c100; /* Highlight row on hover */
     }
 
 select {
@@ -659,7 +742,4 @@ select {
     .content {
         padding: 60px;
     }
-
 }
-
-

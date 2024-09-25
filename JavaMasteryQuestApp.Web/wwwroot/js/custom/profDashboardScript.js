@@ -19,12 +19,11 @@ function showTab(tabId) {
     document.getElementById(tabId).style.display = 'block';
     document.getElementById(tabId.replace('Content', 'Btn')).classList.add('active');
 
-   
+
 
     // Hide leaderboard by default when switching tabs
     document.getElementById('leaderboardContent').style.display = 'none';
-    document.getElementById('profileTable').style.display = 'none';
-    
+
 
 }
 
@@ -60,6 +59,8 @@ function viewBasicJava() {
 
     document.getElementById('basicJavaContent').style.display = 'block';
     populateClassTable('basicJavaSection', 'Basic');
+    document.getElementById('leaderboardContent').style.display = 'none';
+
 }
 
 function viewAdvancedJava() {
@@ -70,6 +71,7 @@ function viewAdvancedJava() {
 
     document.getElementById('advancedJavaContent').style.display = 'block';
     populateClassTable('advancedJavaSection', 'Advanced');
+    document.getElementById('leaderboardContent').style.display = 'none';
 }
 
 function populateClassTable(sectionId, level) {
