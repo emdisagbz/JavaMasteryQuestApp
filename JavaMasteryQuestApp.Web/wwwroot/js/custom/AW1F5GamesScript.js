@@ -430,11 +430,7 @@
         finishPopup.classList.add("hidden");
     });
 
-    // Record when a new question is loaded
-    function loadNewQuestion() {
-        questionStartTimeLeft = timeLeft; // Store the time left when the question starts
-        console.log(`New question loaded.Start time for question: ${ questionStartTimeLeft }`);
-}
+    let questionStartTimeLeft = timeLeft; // Initialize when the question starts
     function checkAnswer() {
         console.log("checkAnswer() function called");
 
@@ -490,7 +486,6 @@
             AW1F5totalScore = points;
             updateCoinAndPointCount();
             showPopupMessage(`Correct! You got ${pointsEarned} points and 100 silver coins`);
-            console.log(`Correct answer! Time spent on this question: ${timeSpentOnQuestion} seconds`);
             gameContainer.classList.add("hidden");
             GRangerAttack.style.visibility = "hidden";
             GRangerAttack.style.opacity = "0";
@@ -525,6 +520,7 @@
                 stopTimer();
                 const answeredAllQuestions = JSON.stringify(answeredQuestions.sort()) === JSON.stringify(Array.from({ length: randomQuestions.length }, (_, i) => i).sort());
                 console.log("answeredAllQuestions: ", answeredAllQuestions);
+                console.log(`Congrats! Time spent on this floor level: ${timeSpentOnQuestion} seconds`);
                 if (answeredAllQuestions) localStorage.setItem("AW1Completed", "true");
 
                 saveTotalStats();
@@ -541,7 +537,6 @@
                 silverCoins -= 50;
                 updateCoinAndPointCount();
                 showPopupMessage("You lost all hearts. 50 silver coins deducted.");
-                console.log(`Incorrect answer. Time spent on this question: ${timeSpentOnQuestion} seconds`);
                 gameContainer.classList.add("hidden");
                 GRangerAttack.style.visibility = "hidden";
                 GRangerAttack.style.opacity = "0";
