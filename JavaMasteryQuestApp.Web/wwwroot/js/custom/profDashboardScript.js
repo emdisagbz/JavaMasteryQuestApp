@@ -329,6 +329,8 @@ function filterRecords(tableId) {
     }
 }
 
+
+// Call this function for both Basic and Advanced filters based on tableId
 function applyFilters(tableId) {
     filterRecords(tableId);
 }
